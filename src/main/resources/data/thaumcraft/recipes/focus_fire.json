@@ -1,0 +1,27 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "CQC",
+    "Q#Q",
+    "CQC"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:fire_charge"
+    },
+    "Q": {
+      "tag": "forge:gems/quartz"
+    },
+    "C": {
+      "item": "thaumcraft:shard_fire"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:focus_fire"
+  },
+  "aspects": {
+    "ignis": 20,
+    "perditio": 10
+  },
+  "research": "FOCUSFIRE"
+}

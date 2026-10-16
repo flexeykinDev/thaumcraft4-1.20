@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "NNI",
+    "N  "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "N": {
+      "tag": "forge:nuggets/iron"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:key_iron",
+    "count": 2
+  },
+  "aspects": {
+    "aqua": 5,
+    "ordo": 5
+  },
+  "research": "WARDEDARCANA"
+}

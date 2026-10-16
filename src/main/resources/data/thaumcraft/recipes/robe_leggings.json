@@ -1,0 +1,20 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "III",
+    "I I",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "thaumcraft:enchanted_fabric"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:robe_leggings"
+  },
+  "aspects": {
+    "aqua": 5
+  },
+  "research": "ENCHFABRIC"
+}

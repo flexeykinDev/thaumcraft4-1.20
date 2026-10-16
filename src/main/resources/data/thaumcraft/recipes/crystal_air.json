@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "thaumcraft:shard_air"
+    },
+    {
+      "item": "thaumcraft:shard_air"
+    },
+    {
+      "item": "thaumcraft:shard_air"
+    },
+    {
+      "item": "thaumcraft:shard_air"
+    },
+    {
+      "item": "thaumcraft:shard_air"
+    },
+    {
+      "item": "thaumcraft:shard_air"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:crystal_air"
+  }
+}

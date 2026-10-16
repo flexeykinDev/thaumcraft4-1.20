@@ -1,0 +1,43 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:silverwood_log"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:shard_balanced"
+    },
+    {
+      "item": "thaumcraft:shard_air"
+    },
+    {
+      "item": "thaumcraft:shard_fire"
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:shard_order"
+    },
+    {
+      "item": "thaumcraft:shard_entropy"
+    }
+  ],
+  "aspects": {
+    "aer": 9,
+    "ignis": 9,
+    "aqua": 9,
+    "terra": 9,
+    "ordo": 9,
+    "perditio": 9,
+    "praecantatio": 9
+  },
+  "instability": 5,
+  "result": {
+    "item": "thaumcraft:wand_rod_silverwood"
+  },
+  "research": "ROD_silverwood"
+}

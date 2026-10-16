@@ -1,0 +1,29 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:thaumium_shovel"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "thaumcraft:greatwood_log"
+    }
+  ],
+  "aspects": {
+    "terra": 16,
+    "fabrico": 8
+  },
+  "instability": 1,
+  "result": {
+    "item": "thaumcraft:elemental_shovel"
+  },
+  "research": "ELEMENTALSHOVEL"
+}

@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:obsidian_tile",
+    "thaumcraft:obsidian_totem",
+    "thaumcraft:charged_obsidian_totem",
+    "thaumcraft:tallow_block",
+    "thaumcraft:arcane_stone",
+    "thaumcraft:arcane_stone_bricks",
+    "thaumcraft:golem_fetter",
+    "thaumcraft:travel_paving",
+    "thaumcraft:warding_paving",
+    "thaumcraft:thaumium_block"
+  ]
+}

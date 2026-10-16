@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "minecraft:fancy_oak",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.07142857142857142,
+        "feature": {
+          "feature": "thaumcraft:silverwood_tree",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "thaumcraft:greatwood_tree",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

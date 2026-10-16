@@ -1,0 +1,14 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "thaumcraft:golem_core_blank"
+  },
+  "aspects": {
+    "lucrum": 5,
+    "terra": 5
+  },
+  "result": {
+    "item": "thaumcraft:golem_core_gather"
+  },
+  "research": "COREGATHER"
+}

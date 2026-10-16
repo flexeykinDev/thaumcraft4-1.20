@@ -1,0 +1,192 @@
+{
+  "sources": [
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_1"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_2"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_3"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_4"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_5"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_6"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_7"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_8"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_9"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_10"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_11"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_12"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_13"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_14"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_15"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_16"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_17"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_18"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_19"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_20"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_21"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_22"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_23"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_24"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_25"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_26"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_27"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_28"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_29"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_30"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_31"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_32"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_33"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_34"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_35"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_36"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_37"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_38"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_39"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_40"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_41"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_42"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_43"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_44"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_45"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_46"
+    },
+    {
+      "type": "single",
+      "resource": "thaumcraft:block/warded_glass_47"
+    }
+  ]
+}

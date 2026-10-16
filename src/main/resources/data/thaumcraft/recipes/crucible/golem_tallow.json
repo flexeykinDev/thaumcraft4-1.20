@@ -1,0 +1,15 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "thaumcraft:tallow_block"
+  },
+  "aspects": {
+    "humanus": 8,
+    "motus": 8,
+    "spiritus": 8
+  },
+  "result": {
+    "item": "thaumcraft:golem_tallow"
+  },
+  "research": "GOLEMTALLOW"
+}

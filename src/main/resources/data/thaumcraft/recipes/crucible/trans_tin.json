@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "tag": "forge:nuggets/tin"
+  },
+  "aspects": {
+    "metallum": 2,
+    "vitreus": 1
+  },
+  "result": {
+    "item": "thaumcraft:tin_nugget",
+    "count": 3
+  },
+  "research": "TRANSTIN",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/tin"
+      }
+    }
+  ]
+}

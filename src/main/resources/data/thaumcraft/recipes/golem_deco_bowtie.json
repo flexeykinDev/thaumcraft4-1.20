@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "CSC",
+    "C C"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:black_wool"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:golem_deco_bowtie"
+  },
+  "aspects": {
+    "aer": 4,
+    "ordo": 4
+  },
+  "research": "TINYBOWTIE"
+}

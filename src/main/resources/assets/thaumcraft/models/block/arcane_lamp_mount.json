@@ -1,0 +1,68 @@
+{
+  "textures": {
+    "side": "thaumcraft:block/lamp_side",
+    "top": "thaumcraft:block/lamp_top",
+    "particle": "thaumcraft:block/lamp_side"
+  },
+  "elements": [
+    {
+      "from": [
+        6,
+        0,
+        6
+      ],
+      "to": [
+        10,
+        3,
+        10
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            13,
+            10,
+            16
+          ],
+          "texture": "#side"
+        },
+        "south": {
+          "uv": [
+            6,
+            13,
+            10,
+            16
+          ],
+          "texture": "#side"
+        },
+        "east": {
+          "uv": [
+            6,
+            13,
+            10,
+            16
+          ],
+          "texture": "#side"
+        },
+        "west": {
+          "uv": [
+            6,
+            13,
+            10,
+            16
+          ],
+          "texture": "#side"
+        },
+        "down": {
+          "uv": [
+            6,
+            6,
+            10,
+            10
+          ],
+          "texture": "#side"
+        }
+      }
+    }
+  ]
+}

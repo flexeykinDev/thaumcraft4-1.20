@@ -1,0 +1,31 @@
+{
+  "type": "thaumcraft:infusion_nbt",
+  "central": {
+    "tag": "thaumcraft:golems"
+  },
+  "components": [
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:glowstone_dust"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    },
+    {
+      "item": "thaumcraft:warded_jar"
+    },
+    {
+      "item": "thaumcraft:zombie_brain"
+    }
+  ],
+  "aspects": {
+    "cognitio": 8,
+    "sensus": 8,
+    "victus": 8
+  },
+  "instability": 3,
+  "nbt": "{advanced:1b}",
+  "research": "ADVANCEDGOLEM"
+}

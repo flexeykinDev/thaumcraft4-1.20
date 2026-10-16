@@ -1,0 +1,27 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "AIA",
+    "ADA",
+    "AIA"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "D": {
+      "item": "minecraft:dispenser"
+    },
+    "A": {
+      "item": "minecraft:arrow"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:golem_deco_dart"
+  },
+  "aspects": {
+    "aer": 4,
+    "ignis": 4
+  },
+  "research": "TINYDART"
+}

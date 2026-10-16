@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "thaumcraft:block/table"
+    },
+    "axis=z": {
+      "model": "thaumcraft:block/table",
+      "y": 90
+    }
+  }
+}

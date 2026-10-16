@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:cinnabar_ore",
+    "thaumcraft:amber_ore",
+    "thaumcraft:infused_stone_air",
+    "thaumcraft:infused_stone_fire",
+    "thaumcraft:infused_stone_water",
+    "thaumcraft:infused_stone_earth",
+    "thaumcraft:infused_stone_order",
+    "thaumcraft:infused_stone_entropy"
+  ]
+}

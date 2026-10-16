@@ -1,0 +1,14 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "minecraft:snow_block"
+  },
+  "aspects": {
+    "ordo": 1,
+    "gelum": 1
+  },
+  "result": {
+    "item": "minecraft:ice"
+  },
+  "research": "ALCHEMICALMANUFACTURE"
+}

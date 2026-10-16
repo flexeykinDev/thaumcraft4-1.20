@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=true": {
+      "model": "thaumcraft:block/arcane_ear_on"
+    },
+    "powered=false": {
+      "model": "thaumcraft:block/arcane_ear_off"
+    }
+  }
+}

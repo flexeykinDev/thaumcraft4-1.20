@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:infusion_enchantment",
+  "enchantment": "thaumcraft:repair",
+  "instability": 4,
+  "aspects": {
+    "praecantatio": 8,
+    "fabrico": 10,
+    "ordo": 10
+  },
+  "components": [
+    {
+      "item": "minecraft:anvil"
+    },
+    {
+      "item": "thaumcraft:salis_mundus"
+    }
+  ],
+  "research": "INFUSIONENCHANTMENT"
+}

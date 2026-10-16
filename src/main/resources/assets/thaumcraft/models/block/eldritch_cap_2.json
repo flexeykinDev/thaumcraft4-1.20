@@ -1,0 +1,8 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/eldritch_cap_2.obj",
+  "flip_v": true,
+  "textures": {
+    "particle": "thaumcraft:block/obelisk_cap_2"
+  }
+}

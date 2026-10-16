@@ -1,0 +1,28 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "WS",
+    "WS",
+    "WB"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:pink_wool"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    },
+    "B": {
+      "tag": "minecraft:wooden_slabs"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:thaum_banner",
+    "nbt": "{color:6b}"
+  },
+  "aspects": {
+    "aqua": 5,
+    "terra": 5
+  },
+  "research": "BANNERS"
+}

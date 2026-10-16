@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "FIG",
+    "IBI",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "G": {
+      "tag": "forge:ingots/gold"
+    },
+    "F": {
+      "item": "thaumcraft:filter"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:alembic"
+  },
+  "aspects": {
+    "aer": 5,
+    "aqua": 5
+  },
+  "research": "DISTILESSENTIA"
+}

@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:sugar_cane"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:shard_balanced"
+    },
+    {
+      "item": "thaumcraft:shard_air"
+    }
+  ],
+  "aspects": {
+    "aer": 12,
+    "praecantatio": 6,
+    "motus": 6
+  },
+  "instability": 3,
+  "result": {
+    "item": "thaumcraft:wand_rod_reed"
+  },
+  "research": "ROD_reed"
+}

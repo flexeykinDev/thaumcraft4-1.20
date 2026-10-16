@@ -1,0 +1,8 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/hover_harness_back.obj",
+  "flip_v": true,
+  "textures": {
+    "particle": "thaumcraft:block/hoverharness2"
+  }
+}

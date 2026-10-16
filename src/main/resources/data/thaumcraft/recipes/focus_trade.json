@@ -1,0 +1,28 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "CQC",
+    "Q#Q",
+    "CQC"
+  ],
+  "key": {
+    "#": {
+      "item": "thaumcraft:quicksilver"
+    },
+    "Q": {
+      "tag": "forge:gems/quartz"
+    },
+    "C": {
+      "item": "thaumcraft:shard_balanced"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:focus_trade"
+  },
+  "aspects": {
+    "ordo": 15,
+    "perditio": 15,
+    "terra": 10
+  },
+  "research": "FOCUSTRADE"
+}

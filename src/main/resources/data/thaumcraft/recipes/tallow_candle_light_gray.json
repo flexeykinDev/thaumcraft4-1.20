@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/light_gray"
+    },
+    {
+      "item": "thaumcraft:tallow_candle_white"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:tallow_candle_light_gray"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "thaumcraft:block/al_furnace_top",
+    "side": "thaumcraft:block/al_furnace_side",
+    "front": "thaumcraft:block/al_furnace_front_on"
+  }
+}

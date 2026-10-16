@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:bauble_ring",
+    "thaumcraft:apprentice_ring_air",
+    "thaumcraft:apprentice_ring_fire",
+    "thaumcraft:apprentice_ring_water",
+    "thaumcraft:apprentice_ring_earth",
+    "thaumcraft:apprentice_ring_order",
+    "thaumcraft:apprentice_ring_entropy",
+    "thaumcraft:runic_ring_lesser",
+    "thaumcraft:runic_ring",
+    "thaumcraft:runic_ring_charged",
+    "thaumcraft:runic_ring_healing"
+  ]
+}

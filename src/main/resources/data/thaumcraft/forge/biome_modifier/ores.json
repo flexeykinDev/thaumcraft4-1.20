@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "thaumcraft:cinnabar_ore",
+    "thaumcraft:amber_ore",
+    "thaumcraft:infused_stone"
+  ],
+  "step": "underground_ores"
+}

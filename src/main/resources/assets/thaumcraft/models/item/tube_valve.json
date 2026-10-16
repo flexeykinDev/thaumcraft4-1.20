@@ -1,0 +1,112 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "thaumcraft:block/pipe_2",
+    "a": "thaumcraft:block/pipe_2",
+    "b": "thaumcraft:block/pipe_valve",
+    "c": "thaumcraft:block/pipe_filter_core",
+    "d": "thaumcraft:block/pipe_restrict",
+    "e": "thaumcraft:block/pipe_oneway",
+    "f": "thaumcraft:block/pipe_buffer",
+    "arm": "thaumcraft:block/pipe_1"
+  },
+  "elements": [
+    {
+      "from": [
+        6,
+        6,
+        6
+      ],
+      "to": [
+        10,
+        10,
+        10
+      ],
+      "faces": {
+        "down": {
+          "texture": "#a"
+        },
+        "up": {
+          "texture": "#a"
+        },
+        "north": {
+          "texture": "#a"
+        },
+        "south": {
+          "texture": "#a"
+        },
+        "west": {
+          "texture": "#a"
+        },
+        "east": {
+          "texture": "#a"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        7,
+        7
+      ],
+      "to": [
+        8,
+        9,
+        9
+      ],
+      "faces": {
+        "down": {
+          "texture": "#arm"
+        },
+        "up": {
+          "texture": "#arm"
+        },
+        "north": {
+          "texture": "#arm"
+        },
+        "south": {
+          "texture": "#arm"
+        },
+        "west": {
+          "texture": "#arm"
+        },
+        "east": {
+          "texture": "#arm"
+        }
+      }
+    },
+    {
+      "from": [
+        8,
+        7,
+        7
+      ],
+      "to": [
+        16,
+        9,
+        9
+      ],
+      "faces": {
+        "down": {
+          "texture": "#arm"
+        },
+        "up": {
+          "texture": "#arm"
+        },
+        "north": {
+          "texture": "#arm"
+        },
+        "south": {
+          "texture": "#arm"
+        },
+        "west": {
+          "texture": "#arm"
+        },
+        "east": {
+          "texture": "#arm"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "NNN",
+    "N N"
+  ],
+  "key": {
+    "N": {
+      "tag": "forge:nuggets/void"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:wand_cap_void_inert"
+  },
+  "aspects": {
+    "perditio": 27,
+    "ordo": 27,
+    "ignis": 18,
+    "aer": 18
+  },
+  "research": "CAP_void"
+}

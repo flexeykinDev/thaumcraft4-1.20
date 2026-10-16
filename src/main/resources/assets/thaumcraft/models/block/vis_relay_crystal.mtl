@@ -1,0 +1,3 @@
+newmtl vis_relay
+map_Kd thaumcraft:block/vis_relay
+forge_TintIndex 0

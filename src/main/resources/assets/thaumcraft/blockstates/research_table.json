@@ -1,0 +1,137 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "main": "false"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table_empty"
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "main": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table"
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "main": "true",
+        "ink": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table_inkwell"
+      }
+    },
+    {
+      "when": {
+        "facing": "east",
+        "main": "true",
+        "note": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table_scroll"
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "main": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "main": "true",
+        "ink": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table_inkwell",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "south",
+        "main": "true",
+        "note": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table_scroll",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "main": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "main": "true",
+        "ink": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table_inkwell",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "west",
+        "main": "true",
+        "note": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table_scroll",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "main": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "main": "true",
+        "ink": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table_inkwell",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "north",
+        "main": "true",
+        "note": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/research_table_scroll",
+        "y": 270
+      }
+    }
+  ]
+}

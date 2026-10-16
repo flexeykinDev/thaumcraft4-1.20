@@ -1,0 +1,27 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "SAS",
+    "SBS"
+  ],
+  "key": {
+    "S": {
+      "item": "thaumcraft:arcane_stone_bricks"
+    },
+    "A": {
+      "item": "thaumcraft:shard_fire"
+    },
+    "B": {
+      "item": "thaumcraft:shard_order"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:warding_paving",
+    "count": 4
+  },
+  "aspects": {
+    "ignis": 10,
+    "ordo": 10
+  },
+  "research": "PAVEWARD"
+}

@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:golem_core_liquid"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:warded_jar"
+    },
+    {
+      "item": "minecraft:potion"
+    },
+    {
+      "item": "minecraft:potion"
+    },
+    {
+      "item": "minecraft:potion"
+    }
+  ],
+  "aspects": {
+    "praecantatio": 15,
+    "aqua": 15,
+    "motus": 15
+  },
+  "instability": 2,
+  "result": {
+    "item": "thaumcraft:golem_core_alchemy"
+  },
+  "research": "COREALCHEMY"
+}

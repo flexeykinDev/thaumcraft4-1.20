@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "NNN",
+    "N N"
+  ],
+  "key": {
+    "N": {
+      "tag": "forge:nuggets/silver"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:wand_cap_silver_inert"
+  },
+  "aspects": {
+    "ordo": 4,
+    "ignis": 4,
+    "aer": 4
+  },
+  "research": "CAP_silver",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/silver"
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "ripe=false": {
+      "model": "thaumcraft:block/spore_stalk"
+    },
+    "ripe=true": {
+      "model": "thaumcraft:block/spore_stalk_ripe"
+    }
+  }
+}

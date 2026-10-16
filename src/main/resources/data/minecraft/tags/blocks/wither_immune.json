@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:eldritch_void",
+    "thaumcraft:eldritch_void_open",
+    "thaumcraft:eldritch_portal",
+    "thaumcraft:ancient_lock",
+    "thaumcraft:ancient_doorway",
+    "thaumcraft:impassable",
+    "thaumcraft:warded"
+  ]
+}

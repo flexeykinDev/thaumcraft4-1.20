@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_savanna",
+  "features": [
+    "thaumcraft:greatwood_tree_rare"
+  ],
+  "step": "vegetal_decoration"
+}

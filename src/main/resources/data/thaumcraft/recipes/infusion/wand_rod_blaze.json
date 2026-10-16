@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:blaze_rod"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:shard_balanced"
+    },
+    {
+      "item": "thaumcraft:shard_fire"
+    }
+  ],
+  "aspects": {
+    "ignis": 12,
+    "praecantatio": 6,
+    "bestia": 6
+  },
+  "instability": 3,
+  "result": {
+    "item": "thaumcraft:wand_rod_blaze"
+  },
+  "research": "ROD_blaze"
+}

@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "tag": "forge:nuggets/lead"
+  },
+  "aspects": {
+    "metallum": 2,
+    "ordo": 1
+  },
+  "result": {
+    "item": "thaumcraft:lead_nugget",
+    "count": 3
+  },
+  "research": "TRANSLEAD",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/lead"
+      }
+    }
+  ]
+}

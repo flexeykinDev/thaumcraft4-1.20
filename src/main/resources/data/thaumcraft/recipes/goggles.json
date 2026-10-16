@@ -1,0 +1,31 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "LGL",
+    "L L",
+    "TGT"
+  ],
+  "key": {
+    "T": {
+      "item": "thaumcraft:thaumometer"
+    },
+    "G": {
+      "tag": "forge:ingots/gold"
+    },
+    "L": {
+      "tag": "forge:leather"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:goggles"
+  },
+  "aspects": {
+    "aer": 5,
+    "ignis": 5,
+    "aqua": 5,
+    "terra": 5,
+    "perditio": 3,
+    "ordo": 3
+  },
+  "research": "GOGGLES"
+}

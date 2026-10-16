@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "WW ",
+    "LCI",
+    "WW "
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:planks"
+    },
+    "C": {
+      "item": "thaumcraft:shard_air"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "L": {
+      "tag": "forge:leather"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:bellows"
+  },
+  "aspects": {
+    "aer": 10,
+    "ordo": 5
+  },
+  "research": "BELLOWS"
+}

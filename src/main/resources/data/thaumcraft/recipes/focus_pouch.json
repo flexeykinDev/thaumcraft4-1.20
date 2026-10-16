@@ -1,0 +1,28 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "LGL",
+    "LBL",
+    "LLL"
+  ],
+  "key": {
+    "L": {
+      "tag": "forge:leather"
+    },
+    "G": {
+      "tag": "forge:ingots/gold"
+    },
+    "B": {
+      "item": "thaumcraft:bauble_belt"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:focus_pouch"
+  },
+  "aspects": {
+    "terra": 10,
+    "ordo": 10,
+    "perditio": 10
+  },
+  "research": "FOCUSPOUCH"
+}

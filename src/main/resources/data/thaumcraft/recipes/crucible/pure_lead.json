@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "tag": "forge:ores/lead"
+  },
+  "aspects": {
+    "metallum": 1,
+    "ordo": 1
+  },
+  "result": {
+    "item": "thaumcraft:cluster_lead"
+  },
+  "research": "PURELEAD",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ores/lead"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/lead"
+      }
+    }
+  ]
+}

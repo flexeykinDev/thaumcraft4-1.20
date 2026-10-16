@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:greatwood_log",
+    "thaumcraft:silverwood_log",
+    "thaumcraft:silverwood_knot"
+  ]
+}

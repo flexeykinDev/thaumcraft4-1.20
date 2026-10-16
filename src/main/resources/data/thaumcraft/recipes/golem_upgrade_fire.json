@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "NNN",
+    "NCN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+      "tag": "forge:nuggets/gold"
+    },
+    "C": {
+      "item": "thaumcraft:shard_fire"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:golem_upgrade_fire"
+  },
+  "aspects": {
+    "ignis": 10
+  },
+  "research": "UPGRADEFIRE"
+}

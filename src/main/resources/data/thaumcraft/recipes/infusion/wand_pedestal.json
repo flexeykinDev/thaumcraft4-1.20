@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:pedestal"
+  },
+  "components": [
+    {
+      "tag": "forge:ingots/gold"
+    },
+    {
+      "tag": "forge:gems/diamond"
+    },
+    {
+      "item": "thaumcraft:primal_charm"
+    },
+    {
+      "tag": "forge:gems/diamond"
+    }
+  ],
+  "aspects": {
+    "auram": 10,
+    "praecantatio": 15,
+    "permutatio": 15
+  },
+  "instability": 3,
+  "result": {
+    "item": "thaumcraft:wand_pedestal"
+  },
+  "research": "WANDPED"
+}

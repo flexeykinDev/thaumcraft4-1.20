@@ -1,0 +1,9 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/strange_crystals_crystal.obj",
+  "flip_v": true,
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "thaumcraft:block/vcrystal"
+  }
+}

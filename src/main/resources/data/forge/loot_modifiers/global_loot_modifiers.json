@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "entries": [
+    "thaumcraft:chest_simple_dungeon",
+    "thaumcraft:chest_desert_pyramid",
+    "thaumcraft:chest_jungle_temple",
+    "thaumcraft:chest_abandoned_mineshaft",
+    "thaumcraft:chest_stronghold_corridor",
+    "thaumcraft:chest_stronghold_crossing",
+    "thaumcraft:chest_stronghold_library",
+    "thaumcraft:chest_village_weaponsmith",
+    "thaumcraft:native_clusters"
+  ]
+}

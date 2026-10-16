@@ -1,0 +1,29 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "VAV",
+    "APA",
+    "VAV"
+  ],
+  "key": {
+    "A": {
+      "item": "thaumcraft:alchemical_construct"
+    },
+    "V": {
+      "item": "thaumcraft:void_metal_ingot"
+    },
+    "P": {
+      "item": "thaumcraft:primordial_pearl"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:advanced_alchemical_construct",
+    "count": 4
+  },
+  "aspects": {
+    "aqua": 10,
+    "ordo": 30,
+    "terra": 10
+  },
+  "research": "ADVALCHEMYFURNACE"
+}

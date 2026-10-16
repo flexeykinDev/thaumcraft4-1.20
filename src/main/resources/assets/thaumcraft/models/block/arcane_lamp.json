@@ -1,0 +1,78 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "side": "thaumcraft:block/lamp_side",
+    "top": "thaumcraft:block/lamp_top",
+    "particle": "thaumcraft:block/lamp_side"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        2,
+        4
+      ],
+      "to": [
+        12,
+        14,
+        12
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            2,
+            12,
+            14
+          ],
+          "texture": "#side"
+        },
+        "south": {
+          "uv": [
+            4,
+            2,
+            12,
+            14
+          ],
+          "texture": "#side"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            12,
+            14
+          ],
+          "texture": "#side"
+        },
+        "west": {
+          "uv": [
+            4,
+            2,
+            12,
+            14
+          ],
+          "texture": "#side"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            12,
+            12
+          ],
+          "texture": "#top"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            12,
+            12
+          ],
+          "texture": "#top"
+        }
+      }
+    }
+  ]
+}

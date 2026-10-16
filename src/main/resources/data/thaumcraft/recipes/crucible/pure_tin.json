@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "tag": "forge:ores/tin"
+  },
+  "aspects": {
+    "metallum": 1,
+    "ordo": 1
+  },
+  "result": {
+    "item": "thaumcraft:cluster_tin"
+  },
+  "research": "PURETIN",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ores/tin"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/tin"
+      }
+    }
+  ]
+}

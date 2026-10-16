@@ -1,0 +1,37 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:bauble_belt"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:shard_air"
+    },
+    {
+      "item": "minecraft:feather"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "minecraft:feather"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "aspects": {
+    "volatus": 16,
+    "potentia": 32,
+    "aer": 32,
+    "iter": 16
+  },
+  "instability": 8,
+  "result": {
+    "item": "thaumcraft:hover_girdle"
+  },
+  "research": "HOVERGIRDLE"
+}

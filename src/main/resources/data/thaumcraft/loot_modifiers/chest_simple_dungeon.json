@@ -1,0 +1,18 @@
+{
+  "type": "thaumcraft:chest_loot",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/simple_dungeon"
+    }
+  ],
+  "rolls_min": 8,
+  "rolls_max": 8,
+  "vanilla_weight": 120,
+  "tiers": [
+    5,
+    4,
+    1
+  ],
+  "extra": []
+}

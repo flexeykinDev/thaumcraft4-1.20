@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "thaumcraft:tallow_block"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:tallow",
+    "count": 9
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "thaumcraft:shard_water"
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:crystal_water"
+  }
+}

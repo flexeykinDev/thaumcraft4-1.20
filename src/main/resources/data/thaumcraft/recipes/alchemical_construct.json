@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "VTF",
+    "TWT",
+    "FTV"
+  ],
+  "key": {
+    "W": {
+      "item": "thaumcraft:greatwood_planks"
+    },
+    "V": {
+      "item": "thaumcraft:tube_valve"
+    },
+    "T": {
+      "item": "thaumcraft:tube"
+    },
+    "F": {
+      "item": "thaumcraft:filter"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:alchemical_construct"
+  },
+  "aspects": {
+    "aqua": 5,
+    "ordo": 5
+  },
+  "research": "DISTILESSENTIA"
+}

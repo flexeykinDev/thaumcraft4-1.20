@@ -1,0 +1,45 @@
+{
+  "render_type": "minecraft:translucent",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "thaumcraft:block/taint_fibres",
+    "fibres": "thaumcraft:block/taint_fibres"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0.08
+      ],
+      "to": [
+        16,
+        16,
+        0.08
+      ],
+      "shade": false,
+      "faces": {
+        "north": {
+          "texture": "#fibres",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "tintindex": 0
+        },
+        "south": {
+          "texture": "#fibres",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "tintindex": 0
+        }
+      }
+    }
+  ]
+}

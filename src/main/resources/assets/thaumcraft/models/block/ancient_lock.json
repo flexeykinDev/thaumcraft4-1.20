@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "thaumcraft:block/deco_2",
+    "side": "thaumcraft:block/deco_3",
+    "top": "thaumcraft:block/deco_3"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " R ",
+    "W W",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "R": {
+      "item": "thaumcraft:vis_relay"
+    },
+    "W": {
+      "item": "thaumcraft:wand_rod_greatwood"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:vis_charge_relay"
+  },
+  "aspects": {
+    "ignis": 16,
+    "ordo": 16,
+    "aer": 16
+  },
+  "research": "VISCHARGERELAY"
+}

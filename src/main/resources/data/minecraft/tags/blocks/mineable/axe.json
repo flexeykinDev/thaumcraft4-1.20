@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:bellows",
+    "thaumcraft:hungry_chest",
+    "thaumcraft:arcane_ear",
+    "thaumcraft:levitator",
+    "thaumcraft:arcane_pressure_plate",
+    "thaumcraft:thaum_banner",
+    "thaumcraft:arcane_bore",
+    "thaumcraft:arcane_bore_base",
+    "thaumcraft:loot_crate_common",
+    "thaumcraft:loot_crate_uncommon",
+    "thaumcraft:loot_crate_rare",
+    "thaumcraft:greatwood_stairs",
+    "thaumcraft:greatwood_slab",
+    "thaumcraft:silverwood_stairs",
+    "thaumcraft:silverwood_slab",
+    "thaumcraft:research_table",
+    "thaumcraft:deconstruction_table",
+    "thaumcraft:table",
+    "thaumcraft:arcane_workbench",
+    "thaumcraft:greatwood_log",
+    "thaumcraft:greatwood_planks",
+    "thaumcraft:silverwood_log",
+    "thaumcraft:silverwood_planks",
+    "thaumcraft:silverwood_knot"
+  ]
+}

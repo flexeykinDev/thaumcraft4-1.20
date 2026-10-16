@@ -1,0 +1,24 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "forge:composite",
+  "textures": {
+    "particle": "thaumcraft:block/decontable"
+  },
+  "children": {
+    "table": {
+      "parent": "thaumcraft:block/deconstruction_table"
+    },
+    "thaumometer": {
+      "parent": "thaumcraft:item/thaumometer",
+      "transform": {
+        "translation": [
+          0,
+          0.51,
+          0
+        ],
+        "scale": 0.7,
+        "origin": "center"
+      }
+    }
+  }
+}

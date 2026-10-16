@@ -1,0 +1,28 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "CQC",
+    "Q#Q",
+    "CQC"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:gems/diamond"
+    },
+    "Q": {
+      "tag": "forge:gems/quartz"
+    },
+    "C": {
+      "item": "thaumcraft:shard_water"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:focus_frost"
+  },
+  "aspects": {
+    "aqua": 10,
+    "ordo": 10,
+    "perditio": 10
+  },
+  "research": "FOCUSFROST"
+}

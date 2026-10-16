@@ -1,0 +1,9 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/thaumatorium.obj",
+  "flip_v": true,
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "thaumcraft:block/thaumatorium"
+  }
+}

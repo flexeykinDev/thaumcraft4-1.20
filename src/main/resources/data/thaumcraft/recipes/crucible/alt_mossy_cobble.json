@@ -1,0 +1,14 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "minecraft:cobblestone"
+  },
+  "aspects": {
+    "herba": 2,
+    "praecantatio": 1
+  },
+  "result": {
+    "item": "minecraft:mossy_cobblestone"
+  },
+  "research": "ALCHEMICALMANUFACTURE"
+}

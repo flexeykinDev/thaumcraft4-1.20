@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "thaumcraft:block/strange_crystals"
+    },
+    "facing=up": {
+      "model": "thaumcraft:block/strange_crystals"
+    },
+    "facing=north": {
+      "model": "thaumcraft:block/strange_crystals"
+    },
+    "facing=south": {
+      "model": "thaumcraft:block/strange_crystals"
+    },
+    "facing=west": {
+      "model": "thaumcraft:block/strange_crystals"
+    },
+    "facing=east": {
+      "model": "thaumcraft:block/strange_crystals"
+    }
+  }
+}

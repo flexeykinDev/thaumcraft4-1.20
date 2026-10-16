@@ -1,0 +1,28 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "IAI",
+    "ABA",
+    "IAI"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "A": {
+      "item": "thaumcraft:amber"
+    },
+    "B": {
+      "item": "thaumcraft:zombie_brain"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:mnemonic_matrix"
+  },
+  "aspects": {
+    "ignis": 5,
+    "aqua": 5,
+    "ordo": 5
+  },
+  "research": "THAUMATORIUM"
+}

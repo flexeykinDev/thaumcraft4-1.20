@@ -1,0 +1,193 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "thaumcraft:block/candle",
+    "wax": "thaumcraft:block/candle",
+    "wick": "thaumcraft:block/candlestub"
+  },
+  "elements": [
+    {
+      "from": [
+        6,
+        0,
+        6
+      ],
+      "to": [
+        10,
+        8,
+        10
+      ],
+      "faces": {
+        "down": {
+          "texture": "#wax",
+          "tintindex": 0
+        },
+        "up": {
+          "texture": "#wax",
+          "tintindex": 0
+        },
+        "north": {
+          "texture": "#wax",
+          "tintindex": 0
+        },
+        "south": {
+          "texture": "#wax",
+          "tintindex": 0
+        },
+        "west": {
+          "texture": "#wax",
+          "tintindex": 0
+        },
+        "east": {
+          "texture": "#wax",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        7.6,
+        8,
+        7.6
+      ],
+      "to": [
+        8.4,
+        10,
+        8.4
+      ],
+      "faces": {
+        "up": {
+          "texture": "#wick"
+        },
+        "north": {
+          "texture": "#wick"
+        },
+        "south": {
+          "texture": "#wick"
+        },
+        "west": {
+          "texture": "#wick"
+        },
+        "east": {
+          "texture": "#wick"
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        0,
+        5
+      ],
+      "to": [
+        8,
+        2,
+        6
+      ],
+      "faces": {
+        "down": {
+          "texture": "#wax",
+          "tintindex": 0
+        },
+        "up": {
+          "texture": "#wax",
+          "tintindex": 0
+        },
+        "north": {
+          "texture": "#wax",
+          "tintindex": 0
+        },
+        "south": {
+          "texture": "#wax",
+          "tintindex": 0
+        },
+        "west": {
+          "texture": "#wax",
+          "tintindex": 0
+        },
+        "east": {
+          "texture": "#wax",
+          "tintindex": 0
+        }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        30,
+        225,
+        0
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        4,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        4,
+        1
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        4,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  }
+}

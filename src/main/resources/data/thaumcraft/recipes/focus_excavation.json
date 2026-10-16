@@ -1,0 +1,28 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "CQC",
+    "Q#Q",
+    "CQC"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:gems/emerald"
+    },
+    "Q": {
+      "tag": "forge:gems/quartz"
+    },
+    "C": {
+      "item": "thaumcraft:shard_earth"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:focus_excavation"
+  },
+  "aspects": {
+    "terra": 20,
+    "perditio": 5,
+    "ordo": 5
+  },
+  "research": "FOCUSEXCAVATION"
+}

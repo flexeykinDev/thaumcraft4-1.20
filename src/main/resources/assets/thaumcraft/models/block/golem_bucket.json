@@ -1,0 +1,8 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/golem_bucket.obj",
+  "flip_v": true,
+  "textures": {
+    "particle": "thaumcraft:block/bucket"
+  }
+}

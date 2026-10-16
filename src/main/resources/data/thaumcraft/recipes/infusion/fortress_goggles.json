@@ -1,0 +1,22 @@
+{
+  "type": "thaumcraft:infusion_nbt",
+  "central": {
+    "item": "thaumcraft:fortress_helmet"
+  },
+  "components": [
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "item": "thaumcraft:goggles"
+    }
+  ],
+  "aspects": {
+    "sensus": 32,
+    "auram": 16,
+    "tutamen": 16
+  },
+  "instability": 5,
+  "nbt": "{goggles:1b}",
+  "research": "HELMGOGGLES"
+}

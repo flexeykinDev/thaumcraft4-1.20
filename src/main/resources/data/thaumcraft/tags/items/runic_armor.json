@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:goggles",
+    "thaumcraft:thaumium_helmet",
+    "thaumcraft:thaumium_chestplate",
+    "thaumcraft:thaumium_leggings",
+    "thaumcraft:thaumium_boots",
+    "thaumcraft:bauble_amulet",
+    "thaumcraft:fortress_helmet",
+    "thaumcraft:fortress_chestplate",
+    "thaumcraft:fortress_leggings",
+    "thaumcraft:robe_chestplate",
+    "thaumcraft:robe_leggings",
+    "thaumcraft:robe_boots",
+    "thaumcraft:traveller_boots",
+    "thaumcraft:hover_harness",
+    "thaumcraft:hover_girdle",
+    "thaumcraft:bauble_ring",
+    "thaumcraft:bauble_belt",
+    "thaumcraft:vis_stone",
+    "thaumcraft:vis_amulet",
+    "thaumcraft:apprentice_ring_air",
+    "thaumcraft:apprentice_ring_fire",
+    "thaumcraft:apprentice_ring_water",
+    "thaumcraft:apprentice_ring_earth",
+    "thaumcraft:apprentice_ring_order",
+    "thaumcraft:apprentice_ring_entropy"
+  ]
+}

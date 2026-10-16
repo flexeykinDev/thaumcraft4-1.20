@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "tag": "forge:ores/silver"
+  },
+  "aspects": {
+    "metallum": 1,
+    "ordo": 1
+  },
+  "result": {
+    "item": "thaumcraft:cluster_silver"
+  },
+  "research": "PURESILVER",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ores/silver"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/silver"
+      }
+    }
+  ]
+}

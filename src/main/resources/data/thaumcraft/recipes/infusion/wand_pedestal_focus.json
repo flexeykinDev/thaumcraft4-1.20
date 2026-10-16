@@ -1,0 +1,42 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:comparator"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:filter"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:filter"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:filter"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:filter"
+    }
+  ],
+  "aspects": {
+    "ordo": 10,
+    "praecantatio": 15,
+    "permutatio": 10
+  },
+  "instability": 4,
+  "result": {
+    "item": "thaumcraft:wand_pedestal_focus"
+  },
+  "research": "WANDPEDFOC"
+}

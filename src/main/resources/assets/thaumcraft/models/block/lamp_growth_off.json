@@ -1,0 +1,8 @@
+{
+  "parent": "thaumcraft:block/arcane_lamp",
+  "textures": {
+    "side": "thaumcraft:block/lamp_grow_side_off",
+    "top": "thaumcraft:block/lamp_grow_top_off",
+    "particle": "thaumcraft:block/lamp_grow_side_off"
+  }
+}

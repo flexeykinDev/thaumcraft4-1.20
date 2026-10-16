@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "NNN",
+    "NCN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+      "tag": "forge:nuggets/gold"
+    },
+    "C": {
+      "item": "thaumcraft:shard_earth"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:golem_upgrade_earth"
+  },
+  "aspects": {
+    "terra": 10
+  },
+  "research": "UPGRADEEARTH"
+}

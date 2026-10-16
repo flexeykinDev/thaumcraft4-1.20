@@ -1,0 +1,32 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:wand_cap_silver_inert"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:salis_mundus"
+    },
+    {
+      "item": "thaumcraft:salis_mundus"
+    }
+  ],
+  "aspects": {
+    "potentia": 8,
+    "auram": 4
+  },
+  "instability": 4,
+  "result": {
+    "item": "thaumcraft:wand_cap_silver"
+  },
+  "research": "CAP_silver",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/silver"
+      }
+    }
+  ]
+}

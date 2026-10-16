@@ -1,0 +1,28 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " S ",
+    "SCS",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "tag": "forge:string"
+    },
+    "C": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:enchanted_fabric"
+  },
+  "aspects": {
+    "aer": 1,
+    "terra": 1,
+    "ignis": 1,
+    "aqua": 1,
+    "ordo": 1,
+    "perditio": 1
+  },
+  "research": "ENCHFABRIC"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "III",
+    "III",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:golem_deco_mace"
+  },
+  "aspects": {
+    "terra": 4,
+    "ignis": 4
+  },
+  "research": "TINYHAMMER"
+}

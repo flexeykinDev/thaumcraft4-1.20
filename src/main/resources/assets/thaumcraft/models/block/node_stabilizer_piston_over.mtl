@@ -1,0 +1,3 @@
+newmtl node_stabilizer
+map_Kd thaumcraft:block/node_stabilizer_over
+forge_TintIndex 0

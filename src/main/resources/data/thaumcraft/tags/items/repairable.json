@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:goggles",
+    "thaumcraft:thaumium_sword",
+    "thaumcraft:thaumium_shovel",
+    "thaumcraft:thaumium_pickaxe",
+    "thaumcraft:thaumium_axe",
+    "thaumcraft:thaumium_hoe",
+    "thaumcraft:thaumium_helmet",
+    "thaumcraft:thaumium_chestplate",
+    "thaumcraft:thaumium_leggings",
+    "thaumcraft:thaumium_boots"
+  ]
+}

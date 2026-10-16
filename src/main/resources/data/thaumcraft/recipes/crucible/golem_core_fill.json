@@ -1,0 +1,14 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "thaumcraft:golem_core_blank"
+  },
+  "aspects": {
+    "fames": 5,
+    "vacuos": 5
+  },
+  "result": {
+    "item": "thaumcraft:golem_core_fill"
+  },
+  "research": "COREFILL"
+}

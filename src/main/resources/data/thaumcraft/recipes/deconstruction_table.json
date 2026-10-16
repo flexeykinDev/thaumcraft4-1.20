@@ -1,0 +1,28 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " S ",
+    "ATP"
+  ],
+  "key": {
+    "T": {
+      "item": "thaumcraft:table"
+    },
+    "S": {
+      "item": "thaumcraft:thaumometer"
+    },
+    "P": {
+      "item": "minecraft:golden_pickaxe"
+    },
+    "A": {
+      "item": "minecraft:golden_axe"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:deconstruction_table"
+  },
+  "aspects": {
+    "perditio": 20
+  },
+  "research": "DECONSTRUCTOR"
+}

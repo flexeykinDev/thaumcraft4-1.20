@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:crystal_earth"
+  }
+}

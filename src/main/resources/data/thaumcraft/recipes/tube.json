@@ -1,0 +1,31 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " Q ",
+    "IGI",
+    " B "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "B": {
+      "tag": "forge:nuggets/gold"
+    },
+    "G": {
+      "tag": "forge:glass"
+    },
+    "Q": {
+      "tag": "forge:nuggets/quicksilver"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:tube",
+    "count": 8
+  },
+  "aspects": {
+    "aqua": 5,
+    "ordo": 5
+  },
+  "research": "TUBES"
+}

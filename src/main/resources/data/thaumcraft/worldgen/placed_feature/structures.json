@@ -1,0 +1,8 @@
+{
+  "feature": "thaumcraft:structures",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

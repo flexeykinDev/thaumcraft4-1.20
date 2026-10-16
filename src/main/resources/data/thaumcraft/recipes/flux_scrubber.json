@@ -1,0 +1,34 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " B ",
+    "GOG",
+    "STS"
+  ],
+  "key": {
+    "B": {
+      "item": "thaumcraft:bellows"
+    },
+    "G": {
+      "item": "minecraft:iron_bars"
+    },
+    "O": {
+      "item": "thaumcraft:filter"
+    },
+    "T": {
+      "item": "thaumcraft:tube"
+    },
+    "S": {
+      "item": "thaumcraft:arcane_stone_bricks"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:flux_scrubber"
+  },
+  "aspects": {
+    "aqua": 16,
+    "ordo": 16,
+    "aer": 8
+  },
+  "research": "FLUXSCRUB"
+}

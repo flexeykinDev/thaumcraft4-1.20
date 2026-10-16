@@ -1,0 +1,33 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:bauble_ring"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:primal_charm"
+    },
+    {
+      "item": "thaumcraft:amber"
+    },
+    {
+      "item": "thaumcraft:enchanted_fabric"
+    },
+    {
+      "item": "thaumcraft:nitor"
+    },
+    {
+      "item": "thaumcraft:scribing_tools"
+    }
+  ],
+  "aspects": {
+    "tutamen": 10,
+    "praecantatio": 25,
+    "potentia": 25
+  },
+  "instability": 3,
+  "result": {
+    "item": "thaumcraft:runic_ring"
+  },
+  "research": "RUNICARMOR"
+}

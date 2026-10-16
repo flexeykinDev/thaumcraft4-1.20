@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "thaumcraft:item/golem_clay",
+    "layer1": "thaumcraft:item/golem_over_core"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thaumcraft:warded_jar",
+          "functions": [
+            {
+              "function": "minecraft:copy_nbt",
+              "source": "block_entity",
+              "ops": [
+                {
+                  "source": "Aspect",
+                  "target": "BlockEntityTag.Aspect",
+                  "op": "replace"
+                },
+                {
+                  "source": "Amount",
+                  "target": "BlockEntityTag.Amount",
+                  "op": "replace"
+                },
+                {
+                  "source": "Filter",
+                  "target": "BlockEntityTag.Filter",
+                  "op": "replace"
+                },
+                {
+                  "source": "LabelSide",
+                  "target": "BlockEntityTag.LabelSide",
+                  "op": "replace"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}

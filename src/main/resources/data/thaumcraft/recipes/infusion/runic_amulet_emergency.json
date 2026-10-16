@@ -1,0 +1,41 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:runic_amulet"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:shard_balanced"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "type": "forge:partial_nbt",
+      "item": "minecraft:potion",
+      "nbt": {
+        "Potion": "minecraft:strong_strength"
+      }
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    },
+    {
+      "item": "thaumcraft:shard_earth"
+    }
+  ],
+  "aspects": {
+    "tutamen": 20,
+    "praecantatio": 35,
+    "terra": 32,
+    "vacuos": 32
+  },
+  "instability": 7,
+  "result": {
+    "item": "thaumcraft:runic_amulet_emergency"
+  },
+  "research": "RUNICEMERGENCY"
+}

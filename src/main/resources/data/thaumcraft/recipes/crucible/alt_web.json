@@ -1,0 +1,14 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "minecraft:string"
+  },
+  "aspects": {
+    "vinculum": 2,
+    "pannus": 2
+  },
+  "result": {
+    "item": "minecraft:cobweb"
+  },
+  "research": "ALCHEMICALMANUFACTURE"
+}

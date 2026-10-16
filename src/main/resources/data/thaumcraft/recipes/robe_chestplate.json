@@ -1,0 +1,20 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "I I",
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "thaumcraft:enchanted_fabric"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:robe_chestplate"
+  },
+  "aspects": {
+    "aer": 5
+  },
+  "research": "ENCHFABRIC"
+}

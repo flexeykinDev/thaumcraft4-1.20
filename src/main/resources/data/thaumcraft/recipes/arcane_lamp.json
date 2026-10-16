@@ -1,0 +1,32 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " S ",
+    "IAI",
+    " N "
+  ],
+  "key": {
+    "A": {
+      "item": "thaumcraft:amber_block"
+    },
+    "S": {
+      "item": "minecraft:daylight_detector"
+    },
+    "N": {
+      "item": "thaumcraft:nitor"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:arcane_lamp"
+  },
+  "aspects": {
+    "ignis": 8,
+    "aer": 8,
+    "aqua": 4,
+    "perditio": 4
+  },
+  "research": "ARCANELAMP"
+}

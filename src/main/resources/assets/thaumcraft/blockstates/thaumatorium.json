@@ -1,0 +1,32 @@
+{
+  "variants": {
+    "facing=west,top=false": {
+      "model": "thaumcraft:block/thaumatorium",
+      "y": 0
+    },
+    "facing=west,top=true": {
+      "model": "thaumcraft:block/thaumatorium_top"
+    },
+    "facing=north,top=false": {
+      "model": "thaumcraft:block/thaumatorium",
+      "y": 90
+    },
+    "facing=north,top=true": {
+      "model": "thaumcraft:block/thaumatorium_top"
+    },
+    "facing=east,top=false": {
+      "model": "thaumcraft:block/thaumatorium",
+      "y": 180
+    },
+    "facing=east,top=true": {
+      "model": "thaumcraft:block/thaumatorium_top"
+    },
+    "facing=south,top=false": {
+      "model": "thaumcraft:block/thaumatorium",
+      "y": 270
+    },
+    "facing=south,top=true": {
+      "model": "thaumcraft:block/thaumatorium_top"
+    }
+  }
+}

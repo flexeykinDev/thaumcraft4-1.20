@@ -1,0 +1,20 @@
+{
+  "type": "thaumcraft:arcane_shapeless",
+  "ingredients": [
+    {
+      "item": "thaumcraft:tube"
+    },
+    {
+      "tag": "forge:dyes/blue"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:tube_oneway"
+  },
+  "aspects": {
+    "aqua": 5,
+    "ordo": 8,
+    "perditio": 8
+  },
+  "research": "TUBEFILTER"
+}

@@ -1,0 +1,28 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " B ",
+    "TDT"
+  ],
+  "key": {
+    "T": {
+      "item": "thaumcraft:thaumium_ingot"
+    },
+    "B": {
+      "item": "thaumcraft:zombie_brain"
+    },
+    "D": {
+      "item": "thaumcraft:greatwood_planks"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:arcane_pressure_plate"
+  },
+  "aspects": {
+    "aqua": 20,
+    "ordo": 10,
+    "ignis": 5,
+    "terra": 10
+  },
+  "research": "WARDEDARCANA"
+}

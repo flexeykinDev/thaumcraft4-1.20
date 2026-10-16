@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " C ",
+    "CNC",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:brick"
+    },
+    "N": {
+      "item": "thaumcraft:nitor"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:golem_core_blank"
+  },
+  "aspects": {
+    "ordo": 5,
+    "ignis": 5
+  },
+  "research": "COREGATHER"
+}

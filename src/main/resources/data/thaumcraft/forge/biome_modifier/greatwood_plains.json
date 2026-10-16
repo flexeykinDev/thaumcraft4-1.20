@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:plains",
+    "minecraft:sunflower_plains",
+    "minecraft:meadow"
+  ],
+  "features": [
+    "thaumcraft:greatwood_tree_rare"
+  ],
+  "step": "vegetal_decoration"
+}

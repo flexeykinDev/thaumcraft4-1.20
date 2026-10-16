@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "thaumcraft:item/golem_thaumium"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "thaumcraft:advanced": 1,
+        "thaumcraft:core": 0
+      },
+      "model": "thaumcraft:item/golem_thaumium_adv"
+    },
+    {
+      "predicate": {
+        "thaumcraft:advanced": 0,
+        "thaumcraft:core": 1
+      },
+      "model": "thaumcraft:item/golem_thaumium_core"
+    },
+    {
+      "predicate": {
+        "thaumcraft:advanced": 1,
+        "thaumcraft:core": 1
+      },
+      "model": "thaumcraft:item/golem_thaumium_adv_core"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "tag": "forge:nuggets/silver"
+  },
+  "aspects": {
+    "metallum": 2,
+    "lucrum": 1
+  },
+  "result": {
+    "item": "thaumcraft:silver_nugget",
+    "count": 3
+  },
+  "research": "TRANSSILVER",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/silver"
+      }
+    }
+  ]
+}

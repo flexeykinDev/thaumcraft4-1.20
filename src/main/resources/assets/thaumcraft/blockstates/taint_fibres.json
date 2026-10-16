@@ -1,0 +1,162 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": [
+        {
+          "model": "thaumcraft:block/taint_fibres",
+          "weight": 57
+        },
+        {
+          "model": "thaumcraft:block/taint_fibres_over_1",
+          "weight": 1
+        },
+        {
+          "model": "thaumcraft:block/taint_fibres_over_2",
+          "weight": 1
+        },
+        {
+          "model": "thaumcraft:block/taint_fibres_over_3",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "when": {
+        "east": "true"
+      },
+      "apply": [
+        {
+          "y": 90,
+          "model": "thaumcraft:block/taint_fibres",
+          "weight": 57
+        },
+        {
+          "y": 90,
+          "model": "thaumcraft:block/taint_fibres_over_1",
+          "weight": 1
+        },
+        {
+          "y": 90,
+          "model": "thaumcraft:block/taint_fibres_over_2",
+          "weight": 1
+        },
+        {
+          "y": 90,
+          "model": "thaumcraft:block/taint_fibres_over_3",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "when": {
+        "south": "true"
+      },
+      "apply": [
+        {
+          "y": 180,
+          "model": "thaumcraft:block/taint_fibres",
+          "weight": 57
+        },
+        {
+          "y": 180,
+          "model": "thaumcraft:block/taint_fibres_over_1",
+          "weight": 1
+        },
+        {
+          "y": 180,
+          "model": "thaumcraft:block/taint_fibres_over_2",
+          "weight": 1
+        },
+        {
+          "y": 180,
+          "model": "thaumcraft:block/taint_fibres_over_3",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "when": {
+        "west": "true"
+      },
+      "apply": [
+        {
+          "y": 270,
+          "model": "thaumcraft:block/taint_fibres",
+          "weight": 57
+        },
+        {
+          "y": 270,
+          "model": "thaumcraft:block/taint_fibres_over_1",
+          "weight": 1
+        },
+        {
+          "y": 270,
+          "model": "thaumcraft:block/taint_fibres_over_2",
+          "weight": 1
+        },
+        {
+          "y": 270,
+          "model": "thaumcraft:block/taint_fibres_over_3",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "when": {
+        "up": "true"
+      },
+      "apply": [
+        {
+          "x": 270,
+          "model": "thaumcraft:block/taint_fibres",
+          "weight": 57
+        },
+        {
+          "x": 270,
+          "model": "thaumcraft:block/taint_fibres_over_1",
+          "weight": 1
+        },
+        {
+          "x": 270,
+          "model": "thaumcraft:block/taint_fibres_over_2",
+          "weight": 1
+        },
+        {
+          "x": 270,
+          "model": "thaumcraft:block/taint_fibres_over_3",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "when": {
+        "down": "true"
+      },
+      "apply": [
+        {
+          "x": 90,
+          "model": "thaumcraft:block/taint_fibres",
+          "weight": 57
+        },
+        {
+          "x": 90,
+          "model": "thaumcraft:block/taint_fibres_over_1",
+          "weight": 1
+        },
+        {
+          "x": 90,
+          "model": "thaumcraft:block/taint_fibres_over_2",
+          "weight": 1
+        },
+        {
+          "x": 90,
+          "model": "thaumcraft:block/taint_fibres_over_3",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

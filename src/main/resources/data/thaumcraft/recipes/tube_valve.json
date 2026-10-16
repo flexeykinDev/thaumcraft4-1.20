@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shapeless",
+  "ingredients": [
+    {
+      "item": "thaumcraft:tube"
+    },
+    {
+      "item": "minecraft:lever"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:tube_valve"
+  },
+  "aspects": {
+    "aqua": 5,
+    "ordo": 5
+  },
+  "research": "TUBES"
+}

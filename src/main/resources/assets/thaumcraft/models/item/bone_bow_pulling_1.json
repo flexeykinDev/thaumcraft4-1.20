@@ -1,0 +1,6 @@
+{
+  "parent": "thaumcraft:item/bone_bow",
+  "textures": {
+    "layer0": "thaumcraft:item/bonebow_pulling_1"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "thaumcraft:tallow_block"
+  },
+  "aspects": {
+    "cognitio": 16,
+    "alienis": 16,
+    "ordo": 16,
+    "sano": 16
+  },
+  "result": {
+    "item": "thaumcraft:sanity_soap"
+  },
+  "research": "SANESOAP"
+}

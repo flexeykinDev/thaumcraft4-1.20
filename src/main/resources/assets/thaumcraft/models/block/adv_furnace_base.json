@@ -1,0 +1,8 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/adv_furnace_base.obj",
+  "flip_v": true,
+  "textures": {
+    "particle": "thaumcraft:block/metalbase"
+  }
+}

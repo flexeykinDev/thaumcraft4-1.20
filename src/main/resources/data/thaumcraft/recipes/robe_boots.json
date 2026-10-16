@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "I I",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "thaumcraft:enchanted_fabric"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:robe_boots"
+  },
+  "aspects": {
+    "terra": 3
+  },
+  "research": "ENCHFABRIC"
+}

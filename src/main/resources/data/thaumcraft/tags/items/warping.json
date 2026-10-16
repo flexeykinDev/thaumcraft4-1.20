@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:bottle_taint",
+    "thaumcraft:focus_hellbat",
+    "thaumcraft:focus_primal",
+    "thaumcraft:wand_rod_primal_staff"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "thaumcraft:block/obsidiantile",
+    "down": "thaumcraft:block/obsidiantile",
+    "particle": "thaumcraft:block/obsidiantile",
+    "north": "thaumcraft:block/obsidiantotembase",
+    "south": "thaumcraft:block/obsidiantotembase",
+    "west": "thaumcraft:block/obsidiantotembase",
+    "east": "thaumcraft:block/obsidiantotembase"
+  }
+}

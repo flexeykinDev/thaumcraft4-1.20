@@ -1,0 +1,8 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/node_converter_piston_over.obj",
+  "flip_v": true,
+  "textures": {
+    "particle": "thaumcraft:block/node_converter_over"
+  }
+}

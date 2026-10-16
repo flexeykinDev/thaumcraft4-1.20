@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "KKK"
+  ],
+  "key": {
+    "K": {
+      "item": "thaumcraft:ancient_stone"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:ancient_stone_slab",
+    "count": 6
+  }
+}

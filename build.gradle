@@ -1,0 +1,98 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
+}
+
+group = 'thaumcraft'
+version = '0.1.0'
+
+base {
+    archivesName = 'thaumcraft4-1.20.1'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+    copyIdeResources = true
+
+    runs {
+        configureEach {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            // Curios подключён как зависимость и использует миксины: им нужна перекодировка имён в среде разработки
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            mods {
+                thaumcraft {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        client {
+            property 'forge.enabledGameTestNamespaces', 'thaumcraft'
+            // gradlew runClient -Pautoshot: игра сама снимает проверочные скриншоты и выходит (см. AutoShot)
+            if (project.hasProperty('autoshot')) {
+                property 'thaumcraft.autoshot', 'true'
+                property 'thaumcraft.autoshot.only', project.property('autoshot').toString()
+            }
+        }
+
+        server {
+            property 'forge.enabledGameTestNamespaces', 'thaumcraft'
+            args '--nogui'
+        }
+
+        // Запускает сервер без окна, грузит мод и датапаки и сразу выходит: быстрая проверка, что всё загружается
+        gameTestServer {
+            property 'forge.enabledGameTestNamespaces', 'thaumcraft'
+            property 'thaumcraft.selfcheck', 'true'
+            property 'thaumcraft.selfcheck.items', 'thaumcraft:greatwood_log,thaumcraft:silverwood_log,thaumcraft:greatwood_planks,thaumcraft:silverwood_leaves,thaumcraft:greatwood_sapling,thaumcraft:shimmerleaf,thaumcraft:cinderpearl'
+        }
+    }
+}
+
+// gradlew <задача> -Pneoforge: та же сборка поверх NeoForge 1.20.1 (ответвление Forge 47.1, принимает моды Forge),
+// чтобы проверить, что мод не опирается на то, что появилось в Forge позже
+def neoforge = project.hasProperty('neoforge')
+
+repositories {
+    if (neoforge) {
+        maven {
+            name = 'NeoForged'
+            url = 'https://maven.neoforged.net/releases'
+        }
+    }
+    maven {
+        name = 'Curios'
+        url = 'https://maven.theillusivec4.top/'
+    }
+}
+
+dependencies {
+    minecraft neoforge ? 'net.neoforged:forge:1.20.1-47.1.106' : 'net.minecraftforge:forge:1.20.1-47.4.0'
+    // Curios API: ячейки для украшений (пояс, амулет, кольца) вместо Baubles оригинала
+    compileOnly fg.deobf('top.theillusivec4.curios:curios-forge:5.9.1+1.20.1:api')
+    runtimeOnly fg.deobf('top.theillusivec4.curios:curios-forge:5.9.1+1.20.1')
+    // TerraBlender: добавляет порченые земли в генерацию обычного мира, не трогая чужие биомы
+    implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:1.20.1-3.0.1.7')
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('jar', Jar).configure {
+    manifest {
+        attributes([
+                'Specification-Title'   : 'thaumcraft',
+                'Specification-Version' : '1',
+                'Implementation-Title'  : project.name,
+                'Implementation-Version': project.version
+        ])
+    }
+    finalizedBy 'reobfJar'
+}

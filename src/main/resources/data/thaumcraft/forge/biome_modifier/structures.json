@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "thaumcraft:structures",
+    "thaumcraft:structure_nodes"
+  ],
+  "step": "surface_structures"
+}

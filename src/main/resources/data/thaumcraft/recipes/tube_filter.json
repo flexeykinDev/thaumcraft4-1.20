@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shapeless",
+  "ingredients": [
+    {
+      "item": "thaumcraft:tube"
+    },
+    {
+      "item": "thaumcraft:filter"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:tube_filter"
+  },
+  "aspects": {
+    "aqua": 5,
+    "ordo": 16
+  },
+  "research": "TUBEFILTER"
+}

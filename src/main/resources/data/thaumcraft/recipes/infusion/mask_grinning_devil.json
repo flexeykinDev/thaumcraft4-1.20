@@ -1,0 +1,34 @@
+{
+  "type": "thaumcraft:infusion_nbt",
+  "central": {
+    "item": "thaumcraft:fortress_helmet"
+  },
+  "components": [
+    {
+      "item": "minecraft:ink_sac"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "thaumcraft:shimmerleaf"
+    },
+    {
+      "item": "thaumcraft:zombie_brain"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "aspects": {
+    "cognitio": 64,
+    "sano": 64,
+    "tutamen": 16
+  },
+  "instability": 8,
+  "nbt": "{mask:0}",
+  "research": "MASKGRINNINGDEVIL"
+}

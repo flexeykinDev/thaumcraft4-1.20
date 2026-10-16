@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_forest",
+  "features": [
+    "thaumcraft:greatwood_tree"
+  ],
+  "step": "vegetal_decoration"
+}

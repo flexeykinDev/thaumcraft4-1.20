@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:simple_random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": "thaumcraft:infused_stone_air",
+        "placement": []
+      },
+      {
+        "feature": "thaumcraft:infused_stone_fire",
+        "placement": []
+      },
+      {
+        "feature": "thaumcraft:infused_stone_water",
+        "placement": []
+      },
+      {
+        "feature": "thaumcraft:infused_stone_earth",
+        "placement": []
+      },
+      {
+        "feature": "thaumcraft:infused_stone_order",
+        "placement": []
+      },
+      {
+        "feature": "thaumcraft:infused_stone_entropy",
+        "placement": []
+      }
+    ]
+  }
+}

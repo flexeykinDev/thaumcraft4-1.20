@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": [
+    "thaumcraft:aura_node_nether"
+  ],
+  "step": "top_layer_modification"
+}

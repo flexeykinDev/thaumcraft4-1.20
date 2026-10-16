@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:forest",
+    "minecraft:flower_forest",
+    "minecraft:birch_forest",
+    "minecraft:old_growth_birch_forest"
+  ],
+  "features": [
+    "thaumcraft:silverwood_tree"
+  ],
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,46 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:leather_chestplate"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:shard_air"
+    },
+    {
+      "item": "thaumcraft:shard_air"
+    },
+    {
+      "item": "thaumcraft:greatwood_planks"
+    },
+    {
+      "item": "thaumcraft:greatwood_planks"
+    },
+    {
+      "item": "minecraft:comparator"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "aspects": {
+    "volatus": 32,
+    "potentia": 32,
+    "machina": 32,
+    "iter": 16
+  },
+  "instability": 6,
+  "result": {
+    "item": "thaumcraft:hover_harness"
+  },
+  "research": "HOVERHARNESS"
+}

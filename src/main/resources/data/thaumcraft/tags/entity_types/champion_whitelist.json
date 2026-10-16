@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:zombie",
+    "minecraft:husk",
+    "minecraft:drowned",
+    "minecraft:zombie_villager",
+    "minecraft:zombified_piglin",
+    "minecraft:spider",
+    "minecraft:cave_spider",
+    "minecraft:blaze",
+    "minecraft:enderman",
+    "minecraft:skeleton",
+    "minecraft:stray",
+    "minecraft:wither_skeleton",
+    "minecraft:witch",
+    "thaumcraft:pech",
+    "thaumcraft:cultist_knight",
+    "thaumcraft:cultist_cleric",
+    "thaumcraft:cultist_leader",
+    "thaumcraft:eldritch_warden",
+    "thaumcraft:eldritch_golem"
+  ]
+}

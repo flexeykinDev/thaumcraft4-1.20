@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "thaumcraft:phial"
+    },
+    {
+      "item": "minecraft:feather"
+    },
+    [
+      {
+        "item": "minecraft:ink_sac"
+      },
+      {
+        "tag": "forge:dyes/black"
+      }
+    ]
+  ],
+  "result": {
+    "item": "thaumcraft:scribing_tools"
+  }
+}

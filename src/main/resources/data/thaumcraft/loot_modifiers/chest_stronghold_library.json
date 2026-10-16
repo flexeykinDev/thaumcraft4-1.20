@@ -1,0 +1,25 @@
+{
+  "type": "thaumcraft:chest_loot",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/stronghold_library"
+    }
+  ],
+  "rolls_min": 1,
+  "rolls_max": 5,
+  "vanilla_weight": 47,
+  "tiers": [
+    4,
+    3,
+    1
+  ],
+  "extra": [
+    {
+      "item": "thaumcraft:knowledge_fragment",
+      "weight": 20,
+      "min": 3,
+      "max": 6
+    }
+  ]
+}

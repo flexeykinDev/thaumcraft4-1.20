@@ -1,0 +1,57 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "thaumcraft:block/tube_buffer_joint"
+      }
+    },
+    {
+      "when": {
+        "down": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/tube_arm_pipe_1_down"
+      }
+    },
+    {
+      "when": {
+        "up": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/tube_arm_pipe_1_up"
+      }
+    },
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/tube_arm_pipe_1_north"
+      }
+    },
+    {
+      "when": {
+        "south": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/tube_arm_pipe_1_south"
+      }
+    },
+    {
+      "when": {
+        "west": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/tube_arm_pipe_1_west"
+      }
+    },
+    {
+      "when": {
+        "east": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/tube_arm_pipe_1_east"
+      }
+    }
+  ]
+}

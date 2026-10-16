@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:mirrored_glass"
+  },
+  "components": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:ender_pearl"
+    }
+  ],
+  "aspects": {
+    "iter": 8,
+    "aqua": 8,
+    "permutatio": 8
+  },
+  "instability": 2,
+  "result": {
+    "item": "thaumcraft:essentia_mirror"
+  },
+  "research": "MIRRORESSENTIA"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "KKK"
+  ],
+  "key": {
+    "K": {
+      "item": "thaumcraft:arcane_stone_bricks"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:arcane_stone_slab",
+    "count": 6
+  }
+}

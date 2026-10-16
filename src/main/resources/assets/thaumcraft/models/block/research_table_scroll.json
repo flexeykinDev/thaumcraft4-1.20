@@ -1,0 +1,169 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "all": "thaumcraft:block/restable2",
+    "particle": "thaumcraft:block/restable2"
+  },
+  "elements": [
+    {
+      "from": [
+        22,
+        16,
+        11
+      ],
+      "to": [
+        30,
+        18,
+        13
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.25,
+            0.0,
+            1.25,
+            0.5
+          ],
+          "texture": "#all"
+        },
+        "down": {
+          "uv": [
+            1.25,
+            0.0,
+            2.25,
+            0.5
+          ],
+          "texture": "#all"
+        },
+        "south": {
+          "uv": [
+            0.25,
+            0.5,
+            1.25,
+            1.0
+          ],
+          "texture": "#all"
+        },
+        "north": {
+          "uv": [
+            1.5,
+            0.5,
+            2.5,
+            1.0
+          ],
+          "texture": "#all"
+        },
+        "east": {
+          "uv": [
+            1.25,
+            0.5,
+            1.5,
+            1.0
+          ],
+          "texture": "#all"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            0.5,
+            0.25,
+            1.0
+          ],
+          "texture": "#all"
+        }
+      },
+      "rotation": {
+        "origin": [
+          26,
+          16,
+          12
+        ],
+        "axis": "y",
+        "angle": 22.5
+      }
+    },
+    {
+      "from": [
+        25.5,
+        15.799999999999999,
+        10.799999999999999
+      ],
+      "to": [
+        26.5,
+        18.2,
+        13.2
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.3,
+            1.0,
+            0.425,
+            1.6
+          ],
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            0.425,
+            1.0,
+            0.55,
+            1.6
+          ],
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            0.3,
+            1.6,
+            0.425,
+            2.2
+          ],
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "north": {
+          "uv": [
+            0.725,
+            1.6,
+            0.85,
+            2.2
+          ],
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            0.425,
+            1.6,
+            0.725,
+            2.2
+          ],
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            0.0,
+            1.6,
+            0.3,
+            2.2
+          ],
+          "texture": "#all",
+          "tintindex": 0
+        }
+      },
+      "rotation": {
+        "origin": [
+          26,
+          16,
+          12
+        ],
+        "axis": "y",
+        "angle": 22.5
+      }
+    }
+  ]
+}

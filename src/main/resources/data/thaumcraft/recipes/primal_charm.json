@@ -1,0 +1,46 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "123",
+    "ISI",
+    "456"
+  ],
+  "key": {
+    "S": {
+      "item": "thaumcraft:shard_balanced"
+    },
+    "I": {
+      "tag": "forge:ingots/gold"
+    },
+    "1": {
+      "item": "thaumcraft:shard_air"
+    },
+    "2": {
+      "item": "thaumcraft:shard_fire"
+    },
+    "3": {
+      "item": "thaumcraft:shard_water"
+    },
+    "4": {
+      "item": "thaumcraft:shard_earth"
+    },
+    "5": {
+      "item": "thaumcraft:shard_order"
+    },
+    "6": {
+      "item": "thaumcraft:shard_entropy"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:primal_charm"
+  },
+  "aspects": {
+    "terra": 25,
+    "ignis": 25,
+    "aer": 25,
+    "aqua": 25,
+    "ordo": 25,
+    "perditio": 25
+  },
+  "research": "BASICARTIFACE"
+}

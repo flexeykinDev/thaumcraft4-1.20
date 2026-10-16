@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "thaumcraft:block/crusted_opening"
+    },
+    "facing=up": {
+      "model": "thaumcraft:block/crusted_opening"
+    },
+    "facing=north": {
+      "model": "thaumcraft:block/crusted_opening"
+    },
+    "facing=south": {
+      "model": "thaumcraft:block/crusted_opening"
+    },
+    "facing=west": {
+      "model": "thaumcraft:block/crusted_opening"
+    },
+    "facing=east": {
+      "model": "thaumcraft:block/crusted_opening"
+    }
+  }
+}

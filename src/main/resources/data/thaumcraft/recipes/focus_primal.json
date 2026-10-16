@@ -1,0 +1,31 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "CQC",
+    "Q#Q",
+    "CQC"
+  ],
+  "key": {
+    "#": {
+      "item": "thaumcraft:primal_charm"
+    },
+    "Q": {
+      "tag": "forge:gems/quartz"
+    },
+    "C": {
+      "tag": "forge:gems/diamond"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:focus_primal"
+  },
+  "aspects": {
+    "terra": 25,
+    "perditio": 25,
+    "ordo": 25,
+    "aer": 25,
+    "ignis": 25,
+    "aqua": 25
+  },
+  "research": "FOCUSPRIMAL"
+}

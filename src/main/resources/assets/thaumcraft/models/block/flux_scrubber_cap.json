@@ -1,0 +1,8 @@
+{
+  "loader": "forge:obj",
+  "model": "thaumcraft:models/block/flux_scrubber_cap.obj",
+  "flip_v": true,
+  "textures": {
+    "particle": "thaumcraft:block/fluxscrubber"
+  }
+}

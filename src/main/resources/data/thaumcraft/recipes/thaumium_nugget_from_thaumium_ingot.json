@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "thaumcraft:thaumium_ingot"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:thaumium_nugget",
+    "count": 9
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "I I",
+    "IAI"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "A": {
+      "item": "minecraft:iron_chestplate"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:golem_deco_armor"
+  },
+  "aspects": {
+    "terra": 8
+  },
+  "research": "TINYARMOR"
+}

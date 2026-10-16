@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "thaumcraft:block/taint_spore_stalk_1"
+  }
+}

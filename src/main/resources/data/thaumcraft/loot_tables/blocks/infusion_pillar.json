@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "thaumcraft:arcane_stone_bricks",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "thaumcraft:infusion_pillar",
+                  "properties": {
+                    "half": "lower"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "thaumcraft:arcane_stone"
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}

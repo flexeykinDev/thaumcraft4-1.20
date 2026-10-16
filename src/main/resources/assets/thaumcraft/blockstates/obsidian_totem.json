@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "down=false,up=false": {
+      "model": "thaumcraft:block/obsidian_totem_base"
+    },
+    "down=true,up=false": [
+      {
+        "model": "thaumcraft:block/obsidian_totem_carved_0"
+      },
+      {
+        "model": "thaumcraft:block/obsidian_totem_carved_1"
+      },
+      {
+        "model": "thaumcraft:block/obsidian_totem_carved_2"
+      },
+      {
+        "model": "thaumcraft:block/obsidian_totem_carved_3"
+      }
+    ],
+    "down=false,up=true": {
+      "model": "thaumcraft:block/obsidian_totem_shaded"
+    },
+    "down=true,up=true": {
+      "model": "thaumcraft:block/obsidian_totem_shaded"
+    }
+  }
+}

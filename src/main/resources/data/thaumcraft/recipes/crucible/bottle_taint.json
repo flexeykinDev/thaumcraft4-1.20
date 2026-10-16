@@ -1,0 +1,18 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "type": "forge:partial_nbt",
+    "item": "thaumcraft:phial",
+    "nbt": {
+      "Aspect": "vitium"
+    }
+  },
+  "aspects": {
+    "vitium": 8,
+    "praecantatio": 8
+  },
+  "result": {
+    "item": "thaumcraft:bottle_taint"
+  },
+  "research": "BOTTLETAINT"
+}

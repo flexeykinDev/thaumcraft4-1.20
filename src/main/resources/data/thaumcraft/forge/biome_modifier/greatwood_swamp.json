@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp"
+  ],
+  "features": [
+    "thaumcraft:greatwood_tree_rare"
+  ],
+  "step": "vegetal_decoration"
+}

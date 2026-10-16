@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "all": "thaumcraft:block/pipe_restrict",
+    "particle": "thaumcraft:block/pipe_restrict"
+  },
+  "elements": [
+    {
+      "from": [
+        7,
+        7,
+        8
+      ],
+      "to": [
+        9,
+        9,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    }
+  ]
+}

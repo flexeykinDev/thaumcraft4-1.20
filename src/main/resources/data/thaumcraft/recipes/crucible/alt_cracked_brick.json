@@ -1,0 +1,13 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "minecraft:stone_bricks"
+  },
+  "aspects": {
+    "perditio": 2
+  },
+  "result": {
+    "item": "minecraft:cracked_stone_bricks"
+  },
+  "research": "ENTROPICPROCESSING"
+}

@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " QQ",
+    " QQ",
+    "S  "
+  ],
+  "key": {
+    "Q": {
+      "tag": "forge:gems/quartz"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:golem_bell"
+  },
+  "aspects": {
+    "ordo": 5
+  },
+  "research": "GOLEMBELL"
+}

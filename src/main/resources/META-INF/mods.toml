@@ -1,0 +1,42 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+issueTrackerURL="https://github.com/flexeykinDev/thaumcraft4-1.20/issues"
+
+[[mods]]
+modId="thaumcraft"
+version="0.1.0"
+displayName="Thaumcraft 4"
+displayURL="https://github.com/flexeykinDev/thaumcraft4-1.20"
+authors="Azanor (original Thaumcraft); port: flexeykinDev"
+description='''
+Unofficial fan port of Thaumcraft 4 (by Azanor) to Minecraft 1.20.1. Works on Forge and NeoForge.
+'''
+
+[[dependencies.thaumcraft]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.thaumcraft]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.thaumcraft]]
+    modId="curios"
+    mandatory=true
+    versionRange="[5.9,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.thaumcraft]]
+    modId="terrablender"
+    mandatory=true
+    versionRange="[3.0.1.7,)"
+    ordering="AFTER"
+    side="BOTH"

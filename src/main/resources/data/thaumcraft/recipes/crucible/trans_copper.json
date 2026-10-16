@@ -1,0 +1,15 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "tag": "forge:nuggets/copper"
+  },
+  "aspects": {
+    "metallum": 2,
+    "permutatio": 1
+  },
+  "result": {
+    "item": "thaumcraft:copper_nugget",
+    "count": 3
+  },
+  "research": "TRANSCOPPER"
+}

@@ -1,0 +1,26 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "SBS",
+    "BEB",
+    "SBS"
+  ],
+  "key": {
+    "S": {
+      "item": "thaumcraft:arcane_stone"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "B": {
+      "tag": "thaumcraft:shards"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:infusion_matrix"
+  },
+  "aspects": {
+    "ordo": 40
+  },
+  "research": "INFUSION"
+}

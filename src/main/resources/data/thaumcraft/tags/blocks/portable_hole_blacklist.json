@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:beds",
+    "#minecraft:doors",
+    "minecraft:piston",
+    "minecraft:sticky_piston",
+    "minecraft:piston_head",
+    "minecraft:moving_piston",
+    "thaumcraft:warded"
+  ]
+}

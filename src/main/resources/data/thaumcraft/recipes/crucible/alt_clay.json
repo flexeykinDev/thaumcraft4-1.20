@@ -1,0 +1,15 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "minecraft:clay_ball"
+  },
+  "aspects": {
+    "aqua": 1,
+    "terra": 2
+  },
+  "result": {
+    "item": "minecraft:clay_ball",
+    "count": 2
+  },
+  "research": "ALCHEMICALDUPLICATION"
+}

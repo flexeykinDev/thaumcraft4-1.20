@@ -1,0 +1,37 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:bauble_amulet"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:primal_charm"
+    },
+    {
+      "item": "thaumcraft:crystal_mixed"
+    },
+    {
+      "item": "thaumcraft:crystal_mixed"
+    },
+    {
+      "item": "thaumcraft:primal_charm"
+    },
+    {
+      "item": "thaumcraft:crystal_mixed"
+    },
+    {
+      "item": "thaumcraft:crystal_mixed"
+    }
+  ],
+  "aspects": {
+    "auram": 24,
+    "potentia": 64,
+    "praecantatio": 64,
+    "vacuos": 24
+  },
+  "instability": 6,
+  "result": {
+    "item": "thaumcraft:vis_amulet"
+  },
+  "research": "VISAMULET"
+}

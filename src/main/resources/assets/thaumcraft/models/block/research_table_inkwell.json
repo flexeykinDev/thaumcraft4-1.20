@@ -1,0 +1,120 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "all": "thaumcraft:block/restable",
+    "particle": "thaumcraft:block/restable",
+    "quill": "thaumcraft:block/tablequill"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        16,
+        2
+      ],
+      "to": [
+        5,
+        18,
+        5
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0.375,
+            11.0,
+            0.75,
+            11.75
+          ],
+          "texture": "#all"
+        },
+        "down": {
+          "uv": [
+            0.75,
+            11.0,
+            1.125,
+            11.75
+          ],
+          "texture": "#all"
+        },
+        "south": {
+          "uv": [
+            0.375,
+            11.75,
+            0.75,
+            12.25
+          ],
+          "texture": "#all"
+        },
+        "north": {
+          "uv": [
+            1.125,
+            11.75,
+            1.5,
+            12.25
+          ],
+          "texture": "#all"
+        },
+        "east": {
+          "uv": [
+            0.75,
+            11.75,
+            1.125,
+            12.25
+          ],
+          "texture": "#all"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            11.75,
+            0.375,
+            12.25
+          ],
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "from": [
+        1.25,
+        17,
+        3.5
+      ],
+      "to": [
+        5.75,
+        23,
+        3.5
+      ],
+      "rotation": {
+        "origin": [
+          3.5,
+          17,
+          3.5
+        ],
+        "axis": "y",
+        "angle": 22.5
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#quill"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#quill"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

@@ -1,0 +1,41 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:runic_ring"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:shard_balanced"
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    },
+    {
+      "type": "forge:partial_nbt",
+      "item": "minecraft:potion",
+      "nbt": {
+        "Potion": "minecraft:long_regeneration"
+      }
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    }
+  ],
+  "aspects": {
+    "tutamen": 16,
+    "praecantatio": 16,
+    "aqua": 32,
+    "sano": 32
+  },
+  "instability": 6,
+  "result": {
+    "item": "thaumcraft:runic_ring_healing"
+  },
+  "research": "RUNICHEALING"
+}

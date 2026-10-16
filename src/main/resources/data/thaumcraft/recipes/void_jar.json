@@ -1,0 +1,27 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "O",
+    "J",
+    "P"
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "J": {
+      "item": "thaumcraft:warded_jar"
+    },
+    "P": {
+      "item": "minecraft:blaze_powder"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:void_jar"
+  },
+  "aspects": {
+    "aqua": 5,
+    "perditio": 15
+  },
+  "research": "JARVOID"
+}

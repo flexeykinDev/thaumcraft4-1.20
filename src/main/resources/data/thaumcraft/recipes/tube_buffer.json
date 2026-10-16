@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "PVP",
+    "T T",
+    "PRP"
+  ],
+  "key": {
+    "T": {
+      "item": "thaumcraft:tube"
+    },
+    "V": {
+      "item": "thaumcraft:tube_valve"
+    },
+    "R": {
+      "item": "thaumcraft:tube_restrict"
+    },
+    "P": {
+      "item": "thaumcraft:phial"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:tube_buffer"
+  },
+  "aspects": {
+    "aqua": 5,
+    "ordo": 5
+  },
+  "research": "CENTRIFUGE"
+}

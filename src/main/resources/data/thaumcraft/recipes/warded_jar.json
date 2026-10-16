@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "GWG",
+    "G G",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "tag": "forge:glass_panes"
+    },
+    "W": {
+      "tag": "minecraft:wooden_slabs"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:warded_jar"
+  },
+  "aspects": {
+    "aqua": 1
+  },
+  "research": "DISTILESSENTIA"
+}

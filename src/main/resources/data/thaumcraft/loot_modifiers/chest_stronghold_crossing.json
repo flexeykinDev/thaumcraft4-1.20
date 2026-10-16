@@ -1,0 +1,18 @@
+{
+  "type": "thaumcraft:chest_loot",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/stronghold_crossing"
+    }
+  ],
+  "rolls_min": 1,
+  "rolls_max": 5,
+  "vanilla_weight": 62,
+  "tiers": [
+    4,
+    3,
+    1
+  ],
+  "extra": []
+}

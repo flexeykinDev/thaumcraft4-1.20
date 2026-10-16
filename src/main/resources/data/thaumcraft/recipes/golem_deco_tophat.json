@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " C ",
+    " G ",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:black_wool"
+    },
+    "G": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:golem_deco_tophat"
+  },
+  "aspects": {
+    "ordo": 8,
+    "ignis": 8
+  },
+  "research": "TINYHAT"
+}

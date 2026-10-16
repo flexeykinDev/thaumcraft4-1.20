@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:golem_core_empty"
+  },
+  "components": [
+    {
+      "item": "minecraft:comparator"
+    },
+    {
+      "item": "minecraft:flint_and_steel"
+    },
+    {
+      "item": "minecraft:shears"
+    },
+    {
+      "item": "minecraft:lever"
+    }
+  ],
+  "aspects": {
+    "instrumentum": 20,
+    "machina": 20,
+    "humanus": 20
+  },
+  "instability": 3,
+  "result": {
+    "item": "thaumcraft:golem_core_use"
+  },
+  "research": "COREUSE"
+}

@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:taint_crust",
+    "thaumcraft:tainted_soil",
+    "thaumcraft:flesh_block",
+    "thaumcraft:taint_fibres",
+    "thaumcraft:taint_grass",
+    "thaumcraft:taint_plant",
+    "thaumcraft:spore_stalk"
+  ]
+}

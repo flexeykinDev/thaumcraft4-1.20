@@ -1,0 +1,18 @@
+{
+  "type": "thaumcraft:chest_loot",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/abandoned_mineshaft"
+    }
+  ],
+  "rolls_min": 3,
+  "rolls_max": 7,
+  "vanilla_weight": 80,
+  "tiers": [
+    4,
+    3,
+    1
+  ],
+  "extra": []
+}

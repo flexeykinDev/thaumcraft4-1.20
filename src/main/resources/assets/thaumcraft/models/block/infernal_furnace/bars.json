@@ -1,0 +1,82 @@
+{
+  "render_type": "minecraft:cutout",
+  "ambientocclusion": false,
+  "textures": {
+    "grill": "thaumcraft:block/furnace13",
+    "back": "thaumcraft:block/furnace15",
+    "fire": "minecraft:block/fire_0",
+    "particle": "minecraft:block/iron_bars"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        14.4
+      ],
+      "to": [
+        16,
+        24,
+        14.4
+      ],
+      "shade": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#fire"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        12.8
+      ],
+      "to": [
+        16,
+        16,
+        12.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#back"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        10
+      ],
+      "to": [
+        16,
+        16,
+        10
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#grill"
+        }
+      }
+    }
+  ]
+}

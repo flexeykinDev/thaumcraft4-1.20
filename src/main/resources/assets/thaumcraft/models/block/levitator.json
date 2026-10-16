@@ -1,0 +1,106 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "top": "thaumcraft:block/liftertop",
+    "side": "thaumcraft:block/lifterside",
+    "bottom": "thaumcraft:block/arcaneearbottom",
+    "glow": "thaumcraft:block/animatedglow",
+    "particle": "thaumcraft:block/lifterside"
+  },
+  "elements": [
+    {
+      "from": [
+        0.16,
+        0.16,
+        0.16
+      ],
+      "to": [
+        15.84,
+        15.84,
+        15.84
+      ],
+      "shade": false,
+      "faces": {
+        "north": {
+          "texture": "#glow",
+          "forge_data": {
+            "color": "FFDD11FF",
+            "block_light": 0,
+            "sky_light": 0
+          }
+        },
+        "south": {
+          "texture": "#glow",
+          "forge_data": {
+            "color": "FFDD11FF",
+            "block_light": 0,
+            "sky_light": 0
+          }
+        },
+        "east": {
+          "texture": "#glow",
+          "forge_data": {
+            "color": "FFDD11FF",
+            "block_light": 0,
+            "sky_light": 0
+          }
+        },
+        "west": {
+          "texture": "#glow",
+          "forge_data": {
+            "color": "FFDD11FF",
+            "block_light": 0,
+            "sky_light": 0
+          }
+        },
+        "up": {
+          "texture": "#glow",
+          "forge_data": {
+            "color": "FF00A000",
+            "block_light": 0,
+            "sky_light": 0
+          }
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#side",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#side",
+          "cullface": "south"
+        },
+        "east": {
+          "texture": "#side",
+          "cullface": "east"
+        },
+        "west": {
+          "texture": "#side",
+          "cullface": "west"
+        },
+        "up": {
+          "texture": "#top",
+          "cullface": "up"
+        },
+        "down": {
+          "texture": "#bottom",
+          "cullface": "down"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "NNN",
+    "NCN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+      "tag": "forge:nuggets/gold"
+    },
+    "C": {
+      "item": "thaumcraft:shard_entropy"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:golem_upgrade_entropy"
+  },
+  "aspects": {
+    "perditio": 10
+  },
+  "research": "UPGRADEENTROPY"
+}

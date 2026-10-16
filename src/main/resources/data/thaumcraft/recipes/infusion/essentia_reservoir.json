@@ -1,0 +1,37 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:tube_buffer"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:void_metal_ingot"
+    },
+    {
+      "item": "thaumcraft:warded_jar"
+    },
+    {
+      "item": "thaumcraft:warded_jar"
+    },
+    {
+      "item": "thaumcraft:void_metal_ingot"
+    },
+    {
+      "item": "thaumcraft:warded_jar"
+    },
+    {
+      "item": "thaumcraft:warded_jar"
+    }
+  ],
+  "aspects": {
+    "aqua": 8,
+    "vacuos": 8,
+    "praecantatio": 8,
+    "permutatio": 8
+  },
+  "instability": 6,
+  "result": {
+    "item": "thaumcraft:essentia_reservoir"
+  },
+  "research": "ESSENTIARESERVOIR"
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "thaumcraft:block/golem_fetter_false"
+    },
+    "powered=true": {
+      "model": "thaumcraft:block/golem_fetter_true"
+    }
+  }
+}

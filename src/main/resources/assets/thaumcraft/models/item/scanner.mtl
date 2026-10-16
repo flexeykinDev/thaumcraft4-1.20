@@ -1,0 +1,4 @@
+newmtl scanner
+map_Kd thaumcraft:item/scanner
+newmtl lens
+map_Kd thaumcraft:item/scanscreen

@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:tag_smelting",
+  "ingredient": {
+    "item": "thaumcraft:cluster_lead"
+  },
+  "result_tag": "forge:ingots/lead",
+  "count": 2,
+  "experience": 1.0,
+  "cookingtime": 200,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/lead"
+      }
+    }
+  ]
+}

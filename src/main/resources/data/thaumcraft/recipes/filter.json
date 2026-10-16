@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "GWG"
+  ],
+  "key": {
+    "G": {
+      "tag": "forge:ingots/gold"
+    },
+    "W": {
+      "item": "thaumcraft:silverwood_planks"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:filter",
+    "count": 2
+  },
+  "aspects": {
+    "ordo": 5,
+    "aqua": 5
+  },
+  "research": "DISTILESSENTIA"
+}

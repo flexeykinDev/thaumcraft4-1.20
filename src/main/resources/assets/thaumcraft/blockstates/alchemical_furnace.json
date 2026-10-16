@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,lit=false": {
+      "model": "thaumcraft:block/alchemical_furnace"
+    },
+    "facing=east,lit=false": {
+      "model": "thaumcraft:block/alchemical_furnace",
+      "y": 90
+    },
+    "facing=south,lit=false": {
+      "model": "thaumcraft:block/alchemical_furnace",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "thaumcraft:block/alchemical_furnace",
+      "y": 270
+    },
+    "facing=north,lit=true": {
+      "model": "thaumcraft:block/alchemical_furnace_on"
+    },
+    "facing=east,lit=true": {
+      "model": "thaumcraft:block/alchemical_furnace_on",
+      "y": 90
+    },
+    "facing=south,lit=true": {
+      "model": "thaumcraft:block/alchemical_furnace_on",
+      "y": 180
+    },
+    "facing=west,lit=true": {
+      "model": "thaumcraft:block/alchemical_furnace_on",
+      "y": 270
+    }
+  }
+}

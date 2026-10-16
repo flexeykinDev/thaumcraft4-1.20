@@ -1,0 +1,27 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "SB ",
+    "SEB",
+    "SB "
+  ],
+  "key": {
+    "E": {
+      "item": "thaumcraft:shard_entropy"
+    },
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:bone_bow"
+  },
+  "aspects": {
+    "aer": 16,
+    "perditio": 32
+  },
+  "research": "BONEBOW"
+}

@@ -1,0 +1,25 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " I ",
+    "ISI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "S": {
+      "item": "thaumcraft:shard_balanced"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:vis_relay",
+    "count": 2
+  },
+  "aspects": {
+    "ignis": 8,
+    "ordo": 8
+  },
+  "research": "VISPOWER"
+}

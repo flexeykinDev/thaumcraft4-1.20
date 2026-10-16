@@ -1,0 +1,57 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "thaumcraft:block/tube_restrict_joint"
+      }
+    },
+    {
+      "when": {
+        "down": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/tube_arm_pipe_restrict_down"
+      }
+    },
+    {
+      "when": {
+        "up": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/tube_arm_pipe_restrict_up"
+      }
+    },
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/tube_arm_pipe_restrict_north"
+      }
+    },
+    {
+      "when": {
+        "south": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/tube_arm_pipe_restrict_south"
+      }
+    },
+    {
+      "when": {
+        "west": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/tube_arm_pipe_restrict_west"
+      }
+    },
+    {
+      "when": {
+        "east": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/tube_arm_pipe_restrict_east"
+      }
+    }
+  ]
+}

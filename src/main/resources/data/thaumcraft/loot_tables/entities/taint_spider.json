@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thaumcraft:taint_goo"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "thaumcraft:taint_tendril"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.16666666666666666
+        }
+      ]
+    }
+  ]
+}

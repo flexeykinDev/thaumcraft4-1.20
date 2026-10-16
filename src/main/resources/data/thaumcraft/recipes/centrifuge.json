@@ -1,0 +1,31 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " T ",
+    "ACP",
+    " T "
+  ],
+  "key": {
+    "T": {
+      "item": "thaumcraft:tube"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    },
+    "A": {
+      "item": "thaumcraft:alembic"
+    },
+    "C": {
+      "item": "thaumcraft:alchemical_construct"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:centrifuge"
+  },
+  "aspects": {
+    "aqua": 5,
+    "ordo": 5,
+    "perditio": 5
+  },
+  "research": "CENTRIFUGE"
+}

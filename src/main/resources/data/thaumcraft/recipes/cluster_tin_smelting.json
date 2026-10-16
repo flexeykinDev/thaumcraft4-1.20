@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:tag_smelting",
+  "ingredient": {
+    "item": "thaumcraft:cluster_tin"
+  },
+  "result_tag": "forge:ingots/tin",
+  "count": 2,
+  "experience": 1.0,
+  "cookingtime": 200,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/tin"
+      }
+    }
+  ]
+}

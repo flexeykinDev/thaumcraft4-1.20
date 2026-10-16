@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "#",
+    "T"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_bars"
+    },
+    "T": {
+      "tag": "minecraft:wooden_trapdoors"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:grate"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "glass": "thaumcraft:block/essentiareservoir",
+    "particle": "thaumcraft:block/essentiareservoir"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        2,
+        2
+      ],
+      "to": [
+        14,
+        14,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#glass"
+        },
+        "south": {
+          "texture": "#glass"
+        },
+        "west": {
+          "texture": "#glass"
+        },
+        "east": {
+          "texture": "#glass"
+        },
+        "up": {
+          "texture": "#glass"
+        },
+        "down": {
+          "texture": "#glass"
+        }
+      }
+    }
+  ]
+}

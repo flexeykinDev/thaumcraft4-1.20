@@ -1,0 +1,14 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "tag": "forge:nuggets/iron"
+  },
+  "aspects": {
+    "metallum": 2
+  },
+  "result": {
+    "item": "minecraft:iron_nugget",
+    "count": 3
+  },
+  "research": "TRANSIRON"
+}

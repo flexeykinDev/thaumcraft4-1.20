@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:fortress_helmet",
+    "thaumcraft:fortress_chestplate",
+    "thaumcraft:fortress_leggings",
+    "thaumcraft:void_helmet",
+    "thaumcraft:void_chestplate",
+    "thaumcraft:void_leggings",
+    "thaumcraft:void_boots",
+    "thaumcraft:thaumium_helmet",
+    "thaumcraft:thaumium_chestplate",
+    "thaumcraft:thaumium_leggings",
+    "thaumcraft:thaumium_boots"
+  ]
+}

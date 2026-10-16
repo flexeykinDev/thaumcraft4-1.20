@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:bauble_amulet",
+    "thaumcraft:runic_amulet",
+    "thaumcraft:runic_amulet_emergency",
+    "thaumcraft:vis_stone",
+    "thaumcraft:vis_amulet"
+  ]
+}

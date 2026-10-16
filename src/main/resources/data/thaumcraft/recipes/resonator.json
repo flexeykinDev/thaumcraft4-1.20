@@ -1,0 +1,27 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "I I",
+    "INI",
+    " S "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "N": {
+      "tag": "forge:gems/quartz"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:resonator"
+  },
+  "aspects": {
+    "aqua": 5,
+    "aer": 5
+  },
+  "research": "TUBES"
+}

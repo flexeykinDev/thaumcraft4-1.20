@@ -1,0 +1,22 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "GIG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:golem_deco_glasses"
+  },
+  "aspects": {
+    "aer": 4,
+    "aqua": 4
+  },
+  "research": "TINYGLASSES"
+}

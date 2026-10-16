@@ -1,0 +1,37 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:magma_cream"
+  },
+  "components": [
+    {
+      "tag": "forge:gems/quartz"
+    },
+    {
+      "item": "thaumcraft:shard_fire"
+    },
+    {
+      "tag": "forge:gems/quartz"
+    },
+    {
+      "item": "thaumcraft:shard_air"
+    },
+    {
+      "tag": "forge:gems/quartz"
+    },
+    {
+      "item": "thaumcraft:shard_entropy"
+    }
+  ],
+  "aspects": {
+    "ignis": 25,
+    "aer": 15,
+    "bestia": 15,
+    "perditio": 25
+  },
+  "instability": 3,
+  "result": {
+    "item": "thaumcraft:focus_hellbat"
+  },
+  "research": "FOCUSHELLBAT"
+}

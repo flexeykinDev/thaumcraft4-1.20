@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "thaumcraft:tallow_candle_white",
+    "thaumcraft:tallow_candle_orange",
+    "thaumcraft:tallow_candle_magenta",
+    "thaumcraft:tallow_candle_light_blue",
+    "thaumcraft:tallow_candle_yellow",
+    "thaumcraft:tallow_candle_lime",
+    "thaumcraft:tallow_candle_pink",
+    "thaumcraft:tallow_candle_gray",
+    "thaumcraft:tallow_candle_light_gray",
+    "thaumcraft:tallow_candle_cyan",
+    "thaumcraft:tallow_candle_purple",
+    "thaumcraft:tallow_candle_blue",
+    "thaumcraft:tallow_candle_brown",
+    "thaumcraft:tallow_candle_green",
+    "thaumcraft:tallow_candle_red",
+    "thaumcraft:tallow_candle_black"
+  ]
+}

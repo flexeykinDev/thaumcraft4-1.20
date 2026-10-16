@@ -1,0 +1,76 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "lit": "true"
+      },
+      "apply": {
+        "model": "thaumcraft:block/lamp_fertility"
+      }
+    },
+    {
+      "when": {
+        "lit": "false"
+      },
+      "apply": {
+        "model": "thaumcraft:block/lamp_fertility_off"
+      }
+    },
+    {
+      "when": {
+        "facing": "down"
+      },
+      "apply": {
+        "model": "thaumcraft:block/arcane_lamp_mount"
+      }
+    },
+    {
+      "when": {
+        "facing": "up"
+      },
+      "apply": {
+        "model": "thaumcraft:block/arcane_lamp_mount",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "north"
+      },
+      "apply": {
+        "model": "thaumcraft:block/arcane_lamp_mount",
+        "x": 90,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "south"
+      },
+      "apply": {
+        "model": "thaumcraft:block/arcane_lamp_mount",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "west"
+      },
+      "apply": {
+        "model": "thaumcraft:block/arcane_lamp_mount",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "east"
+      },
+      "apply": {
+        "model": "thaumcraft:block/arcane_lamp_mount",
+        "x": 90,
+        "y": 270
+      }
+    }
+  ]
+}

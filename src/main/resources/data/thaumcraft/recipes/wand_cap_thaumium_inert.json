@@ -1,0 +1,21 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "NNN",
+    "N N"
+  ],
+  "key": {
+    "N": {
+      "tag": "forge:nuggets/thaumium"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:wand_cap_thaumium_inert"
+  },
+  "aspects": {
+    "ordo": 6,
+    "ignis": 6,
+    "aer": 6
+  },
+  "research": "CAP_thaumium"
+}

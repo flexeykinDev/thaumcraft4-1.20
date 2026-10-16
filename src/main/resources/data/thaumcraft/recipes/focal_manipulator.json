@@ -1,0 +1,40 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "IQI",
+    "SPS",
+    "GTG"
+  ],
+  "key": {
+    "Q": {
+      "item": "thaumcraft:arcane_stone_slab"
+    },
+    "S": {
+      "item": "thaumcraft:arcane_stone"
+    },
+    "T": {
+      "item": "thaumcraft:table"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "G": {
+      "tag": "forge:ingots/gold"
+    },
+    "P": {
+      "item": "thaumcraft:primal_charm"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:focal_manipulator"
+  },
+  "aspects": {
+    "ignis": 32,
+    "aer": 32,
+    "perditio": 32,
+    "terra": 32,
+    "aqua": 32,
+    "ordo": 32
+  },
+  "research": "FOCALMANIPULATION"
+}

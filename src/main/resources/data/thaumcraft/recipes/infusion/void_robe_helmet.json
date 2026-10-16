@@ -1,0 +1,40 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:void_helmet"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:goggles"
+    },
+    {
+      "item": "thaumcraft:enchanted_fabric"
+    },
+    {
+      "item": "thaumcraft:enchanted_fabric"
+    },
+    {
+      "item": "thaumcraft:salis_mundus"
+    },
+    {
+      "item": "thaumcraft:enchanted_fabric"
+    },
+    {
+      "item": "thaumcraft:enchanted_fabric"
+    }
+  ],
+  "aspects": {
+    "metallum": 16,
+    "sensus": 16,
+    "tutamen": 16,
+    "pannus": 16,
+    "praecantatio": 16,
+    "alienis": 16,
+    "vacuos": 16
+  },
+  "instability": 6,
+  "result": {
+    "item": "thaumcraft:void_robe_helmet"
+  },
+  "research": "ARMORVOIDFORTRESS"
+}

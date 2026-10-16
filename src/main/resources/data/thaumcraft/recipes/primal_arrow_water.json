@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "AAA",
+    "ASA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:arrow"
+    },
+    "S": {
+      "item": "thaumcraft:shard_water"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:primal_arrow_water",
+    "count": 8
+  },
+  "aspects": {
+    "aqua": 8
+  },
+  "research": "PRIMALARROW"
+}

@@ -1,0 +1,232 @@
+{
+  "parent": "thaumcraft:block/grate",
+  "textures": {
+    "hatch": "thaumcraft:block/grate_hatch"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        13,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#grate"
+        },
+        "south": {
+          "texture": "#grate"
+        },
+        "east": {
+          "texture": "#grate"
+        },
+        "west": {
+          "texture": "#grate"
+        },
+        "up": {
+          "texture": "#grate"
+        },
+        "down": {
+          "texture": "#grate"
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        13,
+        0
+      ],
+      "to": [
+        3,
+        16,
+        16
+      ],
+      "faces": {
+        "east": {
+          "texture": "#grate"
+        },
+        "west": {
+          "texture": "#grate"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        13,
+        3
+      ],
+      "to": [
+        16,
+        16,
+        3
+      ],
+      "faces": {
+        "north": {
+          "texture": "#grate"
+        },
+        "south": {
+          "texture": "#grate"
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        13,
+        0
+      ],
+      "to": [
+        7,
+        16,
+        16
+      ],
+      "faces": {
+        "east": {
+          "texture": "#grate"
+        },
+        "west": {
+          "texture": "#grate"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        13,
+        7
+      ],
+      "to": [
+        16,
+        16,
+        7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#grate"
+        },
+        "south": {
+          "texture": "#grate"
+        }
+      }
+    },
+    {
+      "from": [
+        9,
+        13,
+        0
+      ],
+      "to": [
+        9,
+        16,
+        16
+      ],
+      "faces": {
+        "east": {
+          "texture": "#grate"
+        },
+        "west": {
+          "texture": "#grate"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        13,
+        9
+      ],
+      "to": [
+        16,
+        16,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#grate"
+        },
+        "south": {
+          "texture": "#grate"
+        }
+      }
+    },
+    {
+      "from": [
+        13,
+        13,
+        0
+      ],
+      "to": [
+        13,
+        16,
+        16
+      ],
+      "faces": {
+        "east": {
+          "texture": "#grate"
+        },
+        "west": {
+          "texture": "#grate"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        13,
+        13
+      ],
+      "to": [
+        16,
+        16,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#grate"
+        },
+        "south": {
+          "texture": "#grate"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        14,
+        1
+      ],
+      "to": [
+        15,
+        15,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hatch"
+        },
+        "south": {
+          "texture": "#hatch"
+        },
+        "east": {
+          "texture": "#hatch"
+        },
+        "west": {
+          "texture": "#hatch"
+        },
+        "up": {
+          "texture": "#hatch"
+        },
+        "down": {
+          "texture": "#hatch"
+        }
+      }
+    }
+  ]
+}

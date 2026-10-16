@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:infusion_enchantment",
+  "enchantment": "thaumcraft:haste",
+  "instability": 3,
+  "aspects": {
+    "praecantatio": 4,
+    "iter": 8,
+    "volatus": 8
+  },
+  "components": [
+    {
+      "item": "thaumcraft:nitor"
+    },
+    {
+      "item": "thaumcraft:salis_mundus"
+    }
+  ],
+  "research": "INFUSIONENCHANTMENT"
+}

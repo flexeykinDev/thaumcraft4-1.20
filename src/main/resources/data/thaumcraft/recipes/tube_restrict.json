@@ -1,0 +1,19 @@
+{
+  "type": "thaumcraft:arcane_shapeless",
+  "ingredients": [
+    {
+      "item": "thaumcraft:tube"
+    },
+    {
+      "tag": "forge:stone"
+    }
+  ],
+  "result": {
+    "item": "thaumcraft:tube_restrict"
+  },
+  "aspects": {
+    "aqua": 5,
+    "terra": 16
+  },
+  "research": "TUBEFILTER"
+}

@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "thaumcraft:item/sinister_stone"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "thaumcraft:active": 1
+      },
+      "model": "thaumcraft:item/sinister_stone_active"
+    }
+  ]
+}

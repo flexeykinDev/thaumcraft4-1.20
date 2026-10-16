@@ -1,0 +1,21 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "NNN",
+    "N N"
+  ],
+  "key": {
+    "N": {
+      "tag": "forge:nuggets/gold"
+    }
+  },
+  "result": {
+    "item": "thaumcraft:wand_cap_gold"
+  },
+  "aspects": {
+    "ordo": 3,
+    "ignis": 3,
+    "aer": 3
+  },
+  "research": "CAP_gold"
+}
