@@ -24,7 +24,6 @@ import org.jetbrains.annotations.Nullable;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.common.blocks.ManaPodBlock;
 import thaumcraft.common.registry.ModBlocks;
-import thaumcraft.common.research.PlayerKnowledge;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,8 +77,7 @@ public class ManaBeanItem extends Item {
             }
             Aspect aspect = getAspect(stack);
             if (aspect != null && entity instanceof ServerPlayer player && level.random.nextFloat() < 0.25f) {
-                PlayerKnowledge.get(player).addPool(aspect, 1);
-                thaumcraft.common.network.SyncKnowledgePacket.send(player);
+                thaumcraft.common.research.ResearchHelper.giveAspects(player, new thaumcraft.api.aspects.AspectList().add(aspect, 1));
             }
         }
         return super.finishUsingItem(stack, level, entity);

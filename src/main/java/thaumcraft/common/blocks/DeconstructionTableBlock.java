@@ -173,8 +173,7 @@ public class DeconstructionTableBlock extends BaseEntityBlock {
             if (aspect == null) {
                 return;
             }
-            thaumcraft.common.research.PlayerKnowledge.get(player).addPool(aspect, 1);
-            thaumcraft.common.network.SyncKnowledgePacket.send(player);
+            thaumcraft.common.research.ResearchHelper.giveAspects(player, new thaumcraft.api.aspects.AspectList().add(aspect, 1));
             aspect = null;
             sync();
         }

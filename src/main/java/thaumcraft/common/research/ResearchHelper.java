@@ -158,6 +158,30 @@ public final class ResearchHelper {
         return -1;
     }
 
+    /**
+     * Добавляет очки аспектов в запас игрока, показывает всплывающие уведомления (как PacketAspectPool оригинала)
+     * и отправляет знания клиенту — без этого книга и стол исследований не видели прибавки.
+     */
+    public static void giveAspects(ServerPlayer player, thaumcraft.api.aspects.AspectList aspects) {
+        PlayerKnowledge knowledge = PlayerKnowledge.get(player);
+        java.util.List<thaumcraft.common.network.NotificationPacket.Entry> notifications = new java.util.ArrayList<>();
+        for (Aspect aspect : aspects.getAspects()) {
+            int amount = aspects.getAmount(aspect);
+            if (knowledge.discover(aspect)) {
+                notifications.add(new thaumcraft.common.network.NotificationPacket.Entry(aspect,
+                        net.minecraft.network.chat.Component.translatable("tc.addaspectdiscovery", aspect.getName())
+                                .withStyle(net.minecraft.ChatFormatting.GOLD)));
+            }
+            knowledge.addPool(aspect, amount);
+            notifications.add(new thaumcraft.common.network.NotificationPacket.Entry(aspect,
+                    net.minecraft.network.chat.Component.translatable("tc.addaspectpool", amount, aspect.getName())));
+        }
+        thaumcraft.common.network.ModNetwork.CHANNEL.send(net.minecraftforge.network.PacketDistributor.PLAYER.with(() -> player),
+                new thaumcraft.common.network.NotificationPacket(notifications));
+        player.playNotifySound(ModSounds.LEARN.get(), SoundSource.PLAYERS, 0.5f, 1f);
+        SyncKnowledgePacket.send(player);
+    }
+
     /** Слот с заметкой по этому исследованию, либо -1. */
     public static int findNote(Player player, String key) {
         for (int i = 0; i < player.getInventory().getContainerSize(); i++) {

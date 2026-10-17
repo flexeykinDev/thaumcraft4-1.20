@@ -51,6 +51,16 @@ public final class ModCommands {
                                         java.util.stream.Stream.concat(java.util.stream.Stream.of("all"),
                                                 Aspect.all().stream().map(Aspect::getTag)), builder))
                                 .executes(ModCommands::discover)))
+                // /thaumcraft aspect <аспект|all> <количество> — очки аспектов в запас, как у фрагмента знаний
+                .then(Commands.literal("aspect")
+                        .then(Commands.argument("aspect", StringArgumentType.word())
+                                .suggests((context, builder) -> net.minecraft.commands.SharedSuggestionProvider.suggest(
+                                        java.util.stream.Stream.concat(java.util.stream.Stream.of("all"),
+                                                Aspect.all().stream().map(Aspect::getTag)), builder))
+                                .executes(context -> giveAspects(context, 10))
+                                .then(Commands.argument("amount", com.mojang.brigadier.arguments.IntegerArgumentType.integer(1, 1000))
+                                        .executes(context -> giveAspects(context,
+                                                com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(context, "amount"))))))
                 .then(Commands.literal("reset").executes(ModCommands::reset))
                 .then(Commands.literal("ores").executes(ModCommands::countOres))
                 .then(Commands.literal("research")
@@ -87,6 +97,24 @@ public final class ModCommands {
         int discovered = count;
         context.getSource().sendSuccess(() -> Component.literal("Thaumcraft: открыто аспектов: " + discovered), false);
         return count;
+    }
+
+    private static int giveAspects(CommandContext<CommandSourceStack> context, int amount) throws CommandSyntaxException {
+        ServerPlayer player = context.getSource().getPlayerOrException();
+        String name = StringArgumentType.getString(context, "aspect");
+        thaumcraft.api.aspects.AspectList gained = new thaumcraft.api.aspects.AspectList();
+        for (Aspect aspect : Aspect.all()) {
+            if (name.equals("all") || aspect.getTag().equals(name)) {
+                gained.add(aspect, amount);
+            }
+        }
+        if (gained.isEmpty()) {
+            context.getSource().sendFailure(Component.literal("Thaumcraft: нет аспекта " + name));
+            return 0;
+        }
+        thaumcraft.common.research.ResearchHelper.giveAspects(player, gained);
+        context.getSource().sendSuccess(() -> Component.literal("Thaumcraft: аспектов выдано: " + gained.size() + " по " + amount), false);
+        return gained.size();
     }
 
     private static int reset(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {

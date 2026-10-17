@@ -7,7 +7,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import thaumcraft.api.aspects.Aspect;
-import thaumcraft.common.research.PlayerKnowledge;
 
 /**
  * Фрагмент знаний (ItemResource:9 оригинала): щелчок расходует его и прибавляет к запасу игрока по одному-два очка
@@ -24,11 +23,12 @@ public class KnowledgeFragmentItem extends Item {
         if (!player.getAbilities().instabuild) {
             stack.shrink(1);
         }
-        if (!level.isClientSide) {
-            PlayerKnowledge knowledge = PlayerKnowledge.get(player);
+        if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+            thaumcraft.api.aspects.AspectList gained = new thaumcraft.api.aspects.AspectList();
             for (Aspect aspect : Aspect.primals()) {
-                knowledge.addPool(aspect, level.random.nextInt(2) + 1);
+                gained.add(aspect, level.random.nextInt(2) + 1);
             }
+            thaumcraft.common.research.ResearchHelper.giveAspects(serverPlayer, gained);
         }
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }

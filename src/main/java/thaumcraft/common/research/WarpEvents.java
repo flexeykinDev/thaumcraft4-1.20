@@ -191,12 +191,13 @@ public final class WarpEvents {
 
     /** Шёпот раскрывает тайны: несколько очков случайных первичных аспектов. */
     private static void grantResearch(ServerPlayer player, int times) {
-        PlayerKnowledge knowledge = PlayerKnowledge.get(player);
         List<Aspect> primals = Aspect.primals();
         int amount = 1 + player.getRandom().nextInt(Math.max(1, times));
+        thaumcraft.api.aspects.AspectList gained = new thaumcraft.api.aspects.AspectList();
         for (int i = 0; i < amount; i++) {
-            knowledge.addPool(primals.get(player.getRandom().nextInt(primals.size())), 1);
+            gained.add(primals.get(player.getRandom().nextInt(primals.size())), 1);
         }
+        ResearchHelper.giveAspects(player, gained);
     }
 
     /**
