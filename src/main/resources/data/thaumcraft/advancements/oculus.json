@@ -1,0 +1,23 @@
+{
+  "parent": "thaumcraft:crimson",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:eldritch_eye"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.oculus.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.oculus.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "parent": "thaumcraft:discovery",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:golem_straw"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.golem.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.golem.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

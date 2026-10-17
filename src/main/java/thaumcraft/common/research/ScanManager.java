@@ -197,6 +197,7 @@ public final class ScanManager {
         }
 
         knowledge.addScanned(target.key());
+        thaumcraft.common.ModAdvancements.grant(player, thaumcraft.common.ModAdvancements.SCAN);
         List<NotificationPacket.Entry> notifications = new ArrayList<>();
         for (Aspect aspect : aspects.getAspects()) {
             int amount = aspects.getAmount(aspect);

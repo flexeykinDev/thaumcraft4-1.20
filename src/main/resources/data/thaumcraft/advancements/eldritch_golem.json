@@ -1,0 +1,34 @@
+{
+  "parent": "thaumcraft:outer_lands",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:primal_charm"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.eldritch_golem.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.eldritch_golem.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "thaumcraft:eldritch_golem"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

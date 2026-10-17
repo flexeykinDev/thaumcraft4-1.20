@@ -267,6 +267,9 @@ public class CrucibleBlockEntity extends BlockEntity implements thaumcraft.api.a
                 water = Math.max(0, water - 50);
                 eject(server, recipe.getResult());
                 thaumcraft.common.research.Warp.onCrafted(entity.getOwner() instanceof Player thrower ? thrower : null, recipe.getResult());
+                if (entity.getOwner() instanceof Player thrower) {
+                    thaumcraft.common.ModAdvancements.grant(thrower, thaumcraft.common.ModAdvancements.ALCHEMY);
+                }
                 crafted = true;
                 remaining--;
                 counter = -250L;

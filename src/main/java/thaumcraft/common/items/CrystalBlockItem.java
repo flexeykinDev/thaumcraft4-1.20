@@ -8,7 +8,7 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 
 import java.util.function.Consumer;
 
-/** Кристаллическая гроздь в виде предмета: рисуется теми же кристаллами, что и блок. */
+/** Кристаллическая гроздь (и друза странных кристаллов) в виде предмета: рисуется теми же кристаллами, что и блок. */
 public class CrystalBlockItem extends BlockItem {
     public CrystalBlockItem(Block block) {
         super(block, new Item.Properties());
@@ -19,7 +19,8 @@ public class CrystalBlockItem extends BlockItem {
         consumer.accept(new IClientItemExtensions() {
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                return thaumcraft.client.render.CrystalRenderer.ITEM;
+                return getBlock() instanceof thaumcraft.common.blocks.StrangeCrystalsBlock
+                        ? thaumcraft.client.render.StrangeCrystalsRenderer.ITEM : thaumcraft.client.render.CrystalRenderer.ITEM;
             }
         });
     }

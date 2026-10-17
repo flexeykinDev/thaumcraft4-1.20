@@ -1,21 +1,19 @@
 {
-  "loader": "forge:obj",
-  "model": "thaumcraft:models/block/strange_crystals_crystal.obj",
-  "flip_v": true,
+  "parent": "minecraft:builtin/entity",
+  "gui_light": "side",
   "textures": {
     "particle": "thaumcraft:block/vcrystal"
   },
-  "gui_light": "side",
   "display": {
     "gui": {
       "rotation": [
-        -60,
         30,
+        225,
         0
       ],
       "translation": [
         0,
-        -2,
+        1,
         0
       ],
       "scale": [
@@ -27,37 +25,32 @@
     "ground": {
       "translation": [
         0,
-        2,
+        3,
         0
       ],
       "scale": [
-        0.5,
-        0.5,
-        0.5
+        0.4,
+        0.4,
+        0.4
       ]
     },
     "fixed": {
-      "rotation": [
-        -90,
-        0,
-        0
-      ],
       "scale": [
-        0.8,
-        0.8,
-        0.8
+        0.75,
+        0.75,
+        0.75
       ]
     },
     "thirdperson_righthand": {
       "rotation": [
-        -15,
-        0,
+        75,
+        45,
         0
       ],
       "translation": [
         0,
-        2,
-        1
+        2.5,
+        0
       ],
       "scale": [
         0.5,
@@ -67,13 +60,30 @@
     },
     "firstperson_righthand": {
       "rotation": [
-        -60,
         0,
+        45,
         0
       ],
       "translation": [
         0,
-        3,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        2,
         0
       ],
       "scale": [

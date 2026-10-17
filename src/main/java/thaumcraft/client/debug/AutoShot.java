@@ -5,6 +5,7 @@ import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Screenshot;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.core.BlockPos;
@@ -69,6 +70,14 @@ public final class AutoShot {
     // ---------- сцены ----------
 
     private static void script() {
+        if ("fresh".equals(System.getProperty("thaumcraft.autoshot.only"))) {
+            freshPlayer();
+            return;
+        }
+        if ("jei".equals(System.getProperty("thaumcraft.autoshot.only"))) {
+            jei();
+            return;
+        }
         if ("architect".equals(System.getProperty("thaumcraft.autoshot.only"))) {
             // быстрый режим: разметка «Архитектора» и искры наэлектризованной земли
             cmd("time set noon");
@@ -6337,6 +6346,131 @@ public final class AutoShot {
     }
 
     // ---------- кирпичики сценария ----------
+
+    /**
+     * Новый игрок без «research all»: стартовые исследования должны быть известны, первые настоящие — доступны,
+     * а щелчок по ним в книге с чернильницей и бумагой — давать заметку. Так игрок проходит начало игры.
+     */
+    private static void freshPlayer() {
+        cmd("time set noon");
+        cmd("clear @s");
+        String[] target = new String[1];
+        client(40, mc -> {
+            var knowledge = thaumcraft.client.ClientKnowledge.get();
+            check("новый игрок знает стартовые исследования (THAUMONOMICON, RESEARCH, ASPECTS)",
+                    knowledge.isResearchComplete("THAUMONOMICON") && knowledge.isResearchComplete("RESEARCH")
+                            && knowledge.isResearchComplete("ASPECTS"));
+            List<String> open = new ArrayList<>();
+            for (var entry : ResearchRegistry.entries()) {
+                if (!entry.virtual && !entry.isPurchasable() && !knowledge.isResearchComplete(entry.key)
+                        && thaumcraft.common.research.ResearchHelper.canUnlock(knowledge, entry)) {
+                    open.add(entry.key);
+                }
+            }
+            Thaumcraft.LOGGER.info("AUTOSHOT доступно новому игроку: {}", open);
+            check("новому игроку доступны первые исследования (" + open.size() + ")", !open.isEmpty());
+            target[0] = open.isEmpty() ? null : open.get(0);
+            Thaumcraft.LOGGER.info("AUTOSHOT руны: {}", thaumcraft.client.gui.ResearchBrowserScreen.runes("Таумономікон Ёж"));
+        });
+        server(2, (server, player) -> {
+            player.getInventory().add(new ItemStack(ModItems.SCRIBING_TOOLS.get()));
+            // бумага во второй руке: её тоже надо находить
+            player.setItemInHand(InteractionHand.OFF_HAND, new ItemStack(net.minecraft.world.item.Items.PAPER, 4));
+            player.getInventory().add(thaumcraft.common.items.wands.WandItem.create(ModItems.WAND.get(),
+                    thaumcraft.api.wands.WandRod.WOOD, thaumcraft.api.wands.WandCap.IRON, false));
+        });
+        server(10, (server, player) -> check("достижения: корень выдан сразу, «Скромный жезл» — за жезл в инвентаре",
+                advancementDone(player, "root") && advancementDone(player, "wand")));
+        screen(10, thaumcraft.client.gui.ResearchBrowserScreen::new);
+        shot(10, "fresh_book");
+        // щелчок по исследованию в книге отправляет на сервер ровно этот пакет
+        client(2, mc -> {
+            if (target[0] != null) {
+                thaumcraft.common.network.ModNetwork.CHANNEL.sendToServer(new thaumcraft.common.network.PurchaseResearchPacket(target[0]));
+            }
+        });
+        server(20, (server, player) -> {
+            int note = thaumcraft.common.research.ResearchHelper.findNote(player, String.valueOf(target[0]));
+            int paper = player.getOffhandItem().getCount();
+            check("щелчок по исследованию " + target[0] + " с чернильницей и бумагой в левой руке дал заметку (слот " + note
+                    + ", бумаги " + paper + ")", note >= 0 && paper == 3);
+            check("достижение «Записи» выдано за заметку", advancementDone(player, "notes"));
+            player.getInventory().setItem(0, new ItemStack(ModItems.STRANGE_CRYSTALS.get()));
+            player.getInventory().setItem(1, new ItemStack(ModItems.CRYSTAL_AIR.get()));
+            player.getInventory().setItem(2, new ItemStack(ModItems.CRYSTAL_MIXED.get()));
+        });
+        close();
+        screen(10, () -> new net.minecraft.client.gui.screens.inventory.InventoryScreen(Minecraft.getInstance().player));
+        shot(10, "fresh_crystals_inventory");
+        close();
+        // руны: кириллица шрифтом alt рисовалась квадратами, теперь латиница по звучанию
+        screen(5, () -> new Screen(Component.literal("runes")) {
+            @Override
+            public void render(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+                renderBackground(graphics);
+                var alt = net.minecraft.network.chat.Style.EMPTY.withFont(thaumcraft.common.Res.of("minecraft", "alt"));
+                graphics.drawString(font, Component.literal("Таумономикон").withStyle(alt), 40, 40, 0x808040);
+                graphics.drawString(font, Component.literal(thaumcraft.client.gui.ResearchBrowserScreen.runes("Таумономикон"))
+                        .withStyle(alt), 40, 60, 0x808040);
+            }
+        });
+        shot(10, "fresh_runes");
+        close();
+        // дерево достижений Thaumcraft
+        client(2, mc -> {
+            var advancements = mc.player.connection.getAdvancements();
+            var root = advancements.getAdvancements().get(Thaumcraft.id("root"));
+            check("достижения Thaumcraft пришли на клиент", root != null);
+            mc.setScreen(new net.minecraft.client.gui.screens.advancements.AdvancementsScreen(advancements));
+            if (root != null) {
+                advancements.setSelectedTab(root, true);
+            }
+        });
+        shot(15, "fresh_advancements");
+        close();
+    }
+
+    private static boolean advancementDone(ServerPlayer player, String name) {
+        var advancement = player.server.getAdvancements().getAdvancement(Thaumcraft.id(name));
+        return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone();
+    }
+
+    /** Окна JEI с рецептами Thaumcraft (только в среде, где JEI установлен). */
+    private static void jei() {
+        cmd("time set noon");
+        client(60, mc -> {
+            if (!net.minecraftforge.fml.ModList.get().isLoaded("jei") || !thaumcraft.client.jei.JeiDebug.ready()) {
+                check("JEI загружен и плагин Thaumcraft получил среду", false);
+                return;
+            }
+            long arcane = thaumcraft.client.jei.JeiDebug.count("arcane");
+            long crucible = thaumcraft.client.jei.JeiDebug.count("crucible");
+            long infusion = thaumcraft.client.jei.JeiDebug.count("infusion");
+            check("JEI: рецептов магического верстака " + arcane + ", тигля " + crucible + ", наполнения " + infusion,
+                    arcane > 50 && crucible > 20 && infusion > 30);
+            check("JEI: вещи олова, серебра и свинца скрыты, раз этих металлов нет",
+                    thaumcraft.client.jei.JeiDebug.hidden(new ItemStack(ModItems.CLUSTER_TIN.get())));
+            thaumcraft.client.jei.JeiDebug.show("arcane");
+        });
+        shot(20, "jei_arcane");
+        client(2, mc -> thaumcraft.client.jei.JeiDebug.show("crucible"));
+        shot(20, "jei_crucible");
+        client(2, mc -> thaumcraft.client.jei.JeiDebug.show("infusion"));
+        shot(20, "jei_infusion");
+        client(2, mc -> thaumcraft.client.jei.JeiDebug.lookup(new ItemStack(ModItems.THAUMONOMICON.get())));
+        shot(20, "jei_thaumonomicon");
+        client(2, mc -> thaumcraft.client.jei.JeiDebug.lookup(new ItemStack(ModItems.WAND_CAP_THAUMIUM.get())));
+        shot(20, "jei_lookup_cap");
+        client(2, mc -> {
+            check("JEI: аспектов предметов " + thaumcraft.client.jei.JeiDebug.countItemAspects(),
+                    thaumcraft.client.jei.JeiDebug.countItemAspects() > 1000);
+            thaumcraft.client.jei.JeiDebug.aspectSources("ignis");
+        });
+        shot(20, "jei_aspect_sources");
+        client(2, mc -> thaumcraft.client.jei.JeiDebug.aspectUses("ordo"));
+        shot(20, "jei_aspect_uses");
+        close();
+    }
 
     private static void client(int wait, Consumer<Minecraft> action) {
         STEPS.add(new Step(wait, () -> action.accept(Minecraft.getInstance())));

@@ -121,7 +121,15 @@ public final class ResearchHelper {
             return;
         }
         int tools = findScribingTools(player);
-        int paper = player.getInventory().findSlotMatchingItem(new ItemStack(Items.PAPER));
+        int paper = findPaper(player);
+        if (entry.aspects.isEmpty()) {
+            // заметку без аспектов не составить: обычно такие открываются сами вместе с родительским, а если это
+            // почему-то не случилось — открываем по щелчку. Скрытые (культ, Древние) открываются только событием.
+            if (!entry.hidden && !entry.lost && !entry.parents.isEmpty()) {
+                complete(player, key);
+            }
+            return;
+        }
         ResearchNote note = ResearchNote.create(entry, player.getRandom());
         if (tools < 0 || paper < 0 || note == null) {
             return;
@@ -134,6 +142,20 @@ public final class ResearchHelper {
             player.drop(stack, false);
         }
         player.playNotifySound(ModSounds.LEARN.get(), SoundSource.PLAYERS, 0.75f, 1f);
+    }
+
+    /**
+     * Слот с бумагой во всём инвентаре, включая вторую руку и переименованные листы, либо -1.
+     * Inventory.findSlotMatchingItem смотрит только основные 36 ячеек и требует совпадения меток — бумага в левой руке
+     * не находилась, и книга писала, что нужны письменные принадлежности.
+     */
+    public static int findPaper(Player player) {
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            if (player.getInventory().getItem(i).is(Items.PAPER)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /** Слот с заметкой по этому исследованию, либо -1. */

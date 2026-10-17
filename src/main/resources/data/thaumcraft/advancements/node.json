@@ -1,0 +1,23 @@
+{
+  "parent": "thaumcraft:wand",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:aura_node"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.node.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.node.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

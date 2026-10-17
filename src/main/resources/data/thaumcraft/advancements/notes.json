@@ -1,0 +1,32 @@
+{
+  "parent": "thaumcraft:research_table",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:research_notes"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.notes.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.notes.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumcraft:research_notes"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

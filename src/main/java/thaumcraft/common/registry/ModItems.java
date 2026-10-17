@@ -454,7 +454,8 @@ public final class ModItems {
     public static final RegistryObject<Item> ANCIENT_LOCK = block(ModBlocks.ANCIENT_LOCK);
     public static final RegistryObject<Item> AURA_NODE = ITEMS.register("aura_node",
             () -> new thaumcraft.common.items.AuraNodeItem(ModBlocks.AURA_NODE.get()));
-    public static final RegistryObject<Item> STRANGE_CRYSTALS = block(ModBlocks.STRANGE_CRYSTALS);
+    public static final RegistryObject<Item> STRANGE_CRYSTALS = ITEMS.register("strange_crystals",
+            () -> new thaumcraft.common.items.CrystalBlockItem(ModBlocks.STRANGE_CRYSTALS.get()));
     public static final RegistryObject<Item> ARCANE_STONE_STAIRS = block(ModBlocks.ARCANE_STONE_STAIRS);
     public static final RegistryObject<Item> GREATWOOD_STAIRS = block(ModBlocks.GREATWOOD_STAIRS);
     public static final RegistryObject<Item> SILVERWOOD_STAIRS = block(ModBlocks.SILVERWOOD_STAIRS);

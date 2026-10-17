@@ -1,0 +1,32 @@
+{
+  "parent": "thaumcraft:wand",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:thaumonomicon"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.thaumonomicon.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.thaumonomicon.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumcraft:thaumonomicon"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

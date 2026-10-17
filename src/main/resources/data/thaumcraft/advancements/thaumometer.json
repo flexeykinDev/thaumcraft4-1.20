@@ -1,0 +1,32 @@
+{
+  "parent": "thaumcraft:thaumonomicon",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:thaumometer"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.thaumometer.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.thaumometer.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumcraft:thaumometer"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

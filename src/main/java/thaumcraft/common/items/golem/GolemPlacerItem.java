@@ -142,6 +142,9 @@ public class GolemPlacerItem extends Item {
         golem.setup(side.get3DDataValue());
         golem.setHealth(golem.getMaxHealth());
         golem.setOwner(player);
+        if (tag.contains("core")) {
+            thaumcraft.common.ModAdvancements.grant(player, thaumcraft.common.ModAdvancements.GOLEM);
+        }
         if (tag.contains("markers")) {
             golem.setMarkers(GolemMarker.load(tag, "markers"));
         }

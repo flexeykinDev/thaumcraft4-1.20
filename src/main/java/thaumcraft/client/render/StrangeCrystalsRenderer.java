@@ -3,13 +3,17 @@ package thaumcraft.client.render;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.InventoryMenu;
 import thaumcraft.Thaumcraft;
 import thaumcraft.common.blocks.StrangeCrystalsBlock;
@@ -27,11 +31,16 @@ public class StrangeCrystalsRenderer implements BlockEntityRenderer<StrangeCryst
 
     @Override
     public void render(StrangeCrystalsBlock.Crystals be, float partialTick, PoseStack pose, MultiBufferSource buffer, int light, int overlay) {
+        draw(pose, buffer, be.getBlockState().getValue(StrangeCrystalsBlock.FACING), Math.floorMod(be.getBlockPos().hashCode(), 4),
+                light, partialTick);
+    }
+
+    static void draw(PoseStack pose, MultiBufferSource buffer, Direction facing, int turn, int light, float partialTick) {
         Minecraft mc = Minecraft.getInstance();
         pose.pushPose();
         pose.translate(0.5, 0.5, 0.5);
         // translateFromOrientation оригинала: модель растёт вдоль +Z
-        switch (be.getBlockState().getValue(StrangeCrystalsBlock.FACING)) {
+        switch (facing) {
             case DOWN -> pose.mulPose(Axis.XP.rotationDegrees(90f));
             case UP -> pose.mulPose(Axis.XP.rotationDegrees(-90f));
             case NORTH -> pose.mulPose(Axis.YP.rotationDegrees(180f));
@@ -41,7 +50,7 @@ public class StrangeCrystalsRenderer implements BlockEntityRenderer<StrangeCryst
             }
         }
         pose.translate(0.0, 0.0, -0.5);
-        pose.mulPose(Axis.ZP.rotationDegrees(90f * Math.floorMod(be.getBlockPos().hashCode(), 4)));
+        pose.mulPose(Axis.ZP.rotationDegrees(90f * turn));
         var renderer = mc.getBlockRenderer().getModelRenderer();
         renderer.renderModel(pose.last(), buffer.getBuffer(RenderType.entityCutout(InventoryMenu.BLOCK_ATLAS)), null,
                 mc.getModelManager().getModel(BASE), 1f, 1f, 1f, light, OverlayTexture.NO_OVERLAY);
@@ -52,4 +61,14 @@ public class StrangeCrystalsRenderer implements BlockEntityRenderer<StrangeCryst
                 mc.getModelManager().getModel(CRYSTAL), 1f, 1f, 1f, glow | glow << 16, OverlayTexture.NO_OVERLAY);
         pose.popPose();
     }
+
+    /** Друза как предмет: та же отрисовка, что у блока на полу. */
+    public static final BlockEntityWithoutLevelRenderer ITEM = new BlockEntityWithoutLevelRenderer(
+            Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels()) {
+        @Override
+        public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack pose, MultiBufferSource buffer, int light,
+                                 int overlay) {
+            draw(pose, buffer, Direction.UP, 0, light, Minecraft.getInstance().getFrameTime());
+        }
+    };
 }

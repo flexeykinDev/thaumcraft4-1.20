@@ -1,0 +1,23 @@
+{
+  "parent": "thaumcraft:thaumometer",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:thaumometer"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.scan.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.scan.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -105,6 +105,7 @@ public class ResearchNotesItem extends Item {
             ResearchEntry research = ResearchRegistry.get(note.key);
             if (research != null && !knowledge.isResearchComplete(note.key) && ResearchHelper.canUnlock(knowledge, research)) {
                 ResearchHelper.complete(serverPlayer, note.key);
+                thaumcraft.common.ModAdvancements.grant(serverPlayer, thaumcraft.common.ModAdvancements.DISCOVERY);
                 stack.shrink(1);
             } else {
                 player.displayClientMessage(Component.translatable("tc.researcherror"), true);

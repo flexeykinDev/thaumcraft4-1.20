@@ -1,0 +1,23 @@
+{
+  "parent": "thaumcraft:scan",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:scribing_tools"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.research_table.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.research_table.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

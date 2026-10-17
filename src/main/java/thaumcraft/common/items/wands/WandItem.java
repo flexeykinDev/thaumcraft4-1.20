@@ -259,6 +259,7 @@ public class WandItem extends Item {
         level.setBlock(pos.above(), ModBlocks.ELDRITCH_PORTAL.get().defaultBlockState(), 3);
         altar.setChanged();
         level.sendBlockUpdated(pos, context.getLevel().getBlockState(pos), context.getLevel().getBlockState(pos), 3);
+        thaumcraft.common.ModAdvancements.grant(player, thaumcraft.common.ModAdvancements.OCULUS);
         return InteractionResult.CONSUME;
     }
 
@@ -559,6 +560,9 @@ public class WandItem extends Item {
         if (!level.isClientSide) {
             level.setBlock(pos, ModBlocks.CRUCIBLE.get().defaultBlockState(), 3);
             level.playSound(null, pos, thaumcraft.common.registry.ModSounds.WAND.get(), SoundSource.BLOCKS, 1f, 1f);
+            if (context.getPlayer() != null) {
+                thaumcraft.common.ModAdvancements.grant(context.getPlayer(), thaumcraft.common.ModAdvancements.CRUCIBLE);
+            }
             ((ServerLevel) level).sendParticles(net.minecraft.core.particles.ParticleTypes.ENCHANT,
                     pos.getX() + 0.5, pos.getY() + 0.8, pos.getZ() + 0.5, 30, 0.3, 0.3, 0.3, 0.5);
         }
@@ -575,6 +579,7 @@ public class WandItem extends Item {
                 player.setItemInHand(context.getHand(), ItemStack.EMPTY);
             }
             level.playSound(null, context.getClickedPos(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 0.6f, 1f);
+            thaumcraft.common.ModAdvancements.grant(player, thaumcraft.common.ModAdvancements.ARCANE_WORKBENCH);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
@@ -657,6 +662,7 @@ public class WandItem extends Item {
             node.takeFromContainer(aspect, tap - leftover);
             node.nodeChange();
             spawnDrainParticles((ServerLevel) level, Vec3.atCenterOf(pos), player, aspect);
+            thaumcraft.common.ModAdvancements.grant(player, thaumcraft.common.ModAdvancements.NODE);
         }
     }
 

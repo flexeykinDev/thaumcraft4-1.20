@@ -1,0 +1,14 @@
+{
+"jei.thaumcraft.research": "Research: %s",
+"jei.thaumcraft.info.thaumonomicon": "Right-click a bookshelf with any wand to turn it into the Thaumonomicon, the guide to all of Thaumcraft.",
+"jei.thaumcraft.info.arcane_workbench": "Right-click a Thaumcraft table with a wand to turn it into an Arcane Workbench. The wand stays in its slot and pays the vis for arcane recipes.",
+"jei.thaumcraft.info.crucible": "Right-click a cauldron with a wand to turn it into a Crucible. Fill it with water, put a heat source (fire, lava, nitor) below, dissolve items to release their aspects, then throw in a catalyst.",
+"jei.thaumcraft.info.research_table": "Place two Thaumcraft tables side by side and right-click them with Scribing Tools to make a Research Table. Scribing Tools are refilled with an ink sac.",
+"jei.thaumcraft.info.research_notes": "With Scribing Tools and paper in your inventory, click an available research in the Thaumonomicon to get its notes. Link the aspects on the notes at the Research Table, then right-click the finished notes.",
+"jei.thaumcraft.info.infusion_altar": "Build the infusion altar: a central pedestal with the Runic Matrix two blocks above it, and at the four diagonal corners next to the pedestal pillars of arcane stone bricks topped with arcane stone. Put more pedestals around for the components. Right-click the matrix with a wand to awaken the altar, then again to start the ritual; essentia comes from jars nearby.",
+"jei.thaumcraft.info.wand": "Hold right-click on an aura node to draw vis into the wand. The wand powers the Arcane Workbench, foci and the transformations of blocks: bookshelf, table, cauldron.",
+"jei.thaumcraft.primal": "Primal aspect",
+"jei.thaumcraft.undiscovered": "Not discovered yet",
+"jei.thaumcraft.item_aspects": "Aspects of Items",
+"jei.thaumcraft.aspect_combination": "Aspect Composition"
+}

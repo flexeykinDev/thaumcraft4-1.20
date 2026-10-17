@@ -77,8 +77,7 @@ public class ResearchBrowserScreen extends Screen {
 
     /** Есть ли у игрока бумага и письменные принадлежности с чернилами, чтобы записать заметку. */
     private boolean hasScribeStuff() {
-        return ResearchHelper.findScribingTools(minecraft.player) >= 0
-                && minecraft.player.getInventory().findSlotMatchingItem(new ItemStack(net.minecraft.world.item.Items.PAPER)) >= 0;
+        return ResearchHelper.findScribingTools(minecraft.player) >= 0 && ResearchHelper.findPaper(minecraft.player) >= 0;
     }
 
     private PlayerKnowledge knowledge() {
@@ -196,14 +195,12 @@ public class ResearchBrowserScreen extends Screen {
             }
             graphics.setColor(1f, 1f, 1f, 1f);
 
-            drawIcon(graphics, entry, px + 3, py + 3);
+            // недоступное исследование видно тёмным силуэтом самого значка, как в оригинале (цвет 0.1), без подложки
             if (!complete && !unlockable) {
-                // недоступное исследование видно тёмным силуэтом
-                graphics.pose().pushPose();
-                graphics.pose().translate(0f, 0f, 200f);
-                graphics.fill(px + 3, py + 3, px + 19, py + 19, 0xd0101010);
-                graphics.pose().popPose();
+                graphics.setColor(0.1f, 0.1f, 0.1f, 1f);
             }
+            drawIcon(graphics, entry, px + 3, py + 3);
+            graphics.setColor(1f, 1f, 1f, 1f);
             if (mouseX >= mapLeft && mouseY >= mapTop && mouseX < mapLeft + MAP_WIDTH && mouseY < mapTop + MAP_HEIGHT
                     && mouseX >= px && mouseX <= px + 22 && mouseY >= py && mouseY <= py + 22) {
                 highlight = entry;
@@ -394,12 +391,37 @@ public class ResearchBrowserScreen extends Screen {
         }
     }
 
+    private static final String CYRILLIC = "абвгґдеєёжзиіїйклмнопрстуфхцчшщъыьэюя";
+    private static final String[] LATIN = {"a", "b", "v", "g", "g", "d", "e", "ye", "yo", "zh", "z", "i", "i", "yi", "y", "k", "l", "m",
+            "n", "o", "p", "r", "s", "t", "u", "f", "kh", "ts", "ch", "sh", "shch", "", "y", "", "e", "yu", "ya"};
+
+    /**
+     * Рунный шрифт игры (minecraft:alt) знает только латиницу, и кириллица в нём превращалась в квадраты.
+     * Название переводится в латиницу по звучанию, остальные письменности — в буквы по коду символа.
+     */
+    public static String runes(String text) {
+        StringBuilder out = new StringBuilder();
+        for (char ch : text.toCharArray()) {
+            char lower = Character.toLowerCase(ch);
+            int index = CYRILLIC.indexOf(lower);
+            if (index >= 0) {
+                String latin = LATIN[index];
+                out.append(ch != lower && !latin.isEmpty() ? Character.toUpperCase(latin.charAt(0)) + latin.substring(1) : latin);
+            } else if (ch < 128 || !Character.isLetter(ch)) {
+                out.append(ch);
+            } else {
+                out.append((char) ('a' + ch % 26));
+            }
+        }
+        return out.toString();
+    }
+
     private void drawResearchTooltip(GuiGraphics graphics, ResearchEntry entry, int x, int y, float pulse) {
         boolean complete = isComplete(entry);
         boolean unlockable = ResearchHelper.canUnlock(knowledge(), entry);
         // название недоступного исследования написано рунами
         Component name = !complete && !unlockable
-                ? entry.getName().copy().withStyle(Style.EMPTY.withFont(GALACTIC)) : entry.getName();
+                ? Component.literal(runes(entry.getName().getString())).withStyle(Style.EMPTY.withFont(GALACTIC)) : entry.getName();
         int nameColor = unlockable ? (entry.special ? 0xffff80 : 0xffffff) : (entry.special ? 0x808000 : 0x808040);
         PoseStack pose = graphics.pose();
 

@@ -62,6 +62,7 @@ public class ScribingToolsItem extends Item {
                     player.setItemInHand(context.getHand(), ItemStack.EMPTY);
                 }
                 level.playSound(null, pos, SoundEvents.BOOK_PAGE_TURN, SoundSource.BLOCKS, 0.8f, 1f);
+                thaumcraft.common.ModAdvancements.grant(player, thaumcraft.common.ModAdvancements.RESEARCH_TABLE);
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
         }

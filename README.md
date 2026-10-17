@@ -41,7 +41,7 @@ For a server, put the same three jars into the server's `mods` folder; every pla
 | **World** | Magical Forest, Eerie and Tainted biomes, greatwood and silverwood, crystal ores, cinnabar and amber, taint and its creatures, champion mobs |
 | **Eldritch** | Obelisks, the Crimson Cult, the Outer Lands dimension with its labyrinth and four bosses |
 
-Modern additions: Curios slots instead of Baubles, deepslate ore variants, spawn eggs for every creature, Forge tags for ores and metals,
+Modern additions: a tree of **25 advancements** that walks new players from the first wand to the Outer Lands, **JEI support** (arcane workbench, crucible and infusion recipes; aspects as JEI ingredients — press R on an aspect to see which items give it, U to see where it is spent; hints for things made with a wand click), Curios slots instead of Baubles, deepslate ore variants, spawn eggs for every creature, Forge tags for ores and metals,
 and optional tin, silver and lead content that appears only when another mod adds those metals.
 
 ## ▪ Compatibility
@@ -51,6 +51,7 @@ The mod uses standard Forge 1.20.1 mechanisms, so most content mods should simpl
 | Area | What to expect |
 |---|---|
 | **Forge / NeoForge** | One jar for both. All 290 automated scenarios pass on Forge 47.4.0 and on NeoForge 1.20.1 (47.1.106). |
+| **JEI** | Optional. Shows arcane workbench, crucible and infusion recipes with their vis, essentia and research, and explains wand-click transformations. Items of absent metals are hidden. |
 | **Curios** | Required. Baubles go into Curios slots and work alongside other Curios mods. |
 | **World generation** | Biomes are added through TerraBlender and do not replace other mods' biomes. Ores are tagged (`forge:ores/...`) so other mods can recognise them. |
 | **Metals from other mods** | Tin, silver and lead clusters, nuggets, wand caps and research unlock automatically if a mod provides those metals via Forge tags. |

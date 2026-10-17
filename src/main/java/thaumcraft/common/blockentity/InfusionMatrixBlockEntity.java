@@ -415,6 +415,9 @@ public class InfusionMatrixBlockEntity extends BlockEntity implements thaumcraft
             centre.setItem(recipe.getResult(centre.getItem()));
             // создателем считается тот, кто запустил алтарь, — если он ещё в игре
             thaumcraft.common.research.Warp.onCrafted(crafter == null ? null : server.getPlayerByUUID(crafter), centre.getItem());
+            if (crafter != null && server.getPlayerByUUID(crafter) != null) {
+                thaumcraft.common.ModAdvancements.grant(server.getPlayerByUUID(crafter), thaumcraft.common.ModAdvancements.INFUSION);
+            }
             recipeId = null;
             server.playSound(null, worldPosition.below(2), ModSounds.WAND.get(), SoundSource.BLOCKS, 0.5f, 1f);
             // блок-событие 12 оригинала: центральный пьедестал вспыхивает искрами

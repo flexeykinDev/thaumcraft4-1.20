@@ -1,0 +1,36 @@
+{
+  "parent": "thaumcraft:root",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:bottle_taint"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.tainted_land.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.tainted_land.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "thaumcraft:tainted_land"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

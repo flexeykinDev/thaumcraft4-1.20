@@ -1,0 +1,23 @@
+{
+  "parent": "thaumcraft:thaumonomicon",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:crucible"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.crucible.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.crucible.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

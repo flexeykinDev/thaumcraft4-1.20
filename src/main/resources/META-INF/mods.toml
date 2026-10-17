@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/flexeykinDev/thaumcraft4-1.20/issues"
 
 [[mods]]
 modId="thaumcraft"
-version="0.1.0"
+version="0.2.0"
 displayName="Thaumcraft 4"
 displayURL="https://github.com/flexeykinDev/thaumcraft4-1.20"
 authors="Azanor (original Thaumcraft); port: flexeykinDev"

@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "thaumcraft:thaumonomicon"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.root.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.root.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "thaumcraft:textures/block/arcane_stone.png"
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

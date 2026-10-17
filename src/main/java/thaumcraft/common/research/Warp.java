@@ -29,6 +29,7 @@ public final class Warp {
         } else {
             knowledge.addWarpPerm(amount);
             message(player, "tc.addwarp", true);
+            thaumcraft.common.ModAdvancements.grant(player, thaumcraft.common.ModAdvancements.WARP);
         }
         knowledge.setWarpCounter(knowledge.getWarpTotal());
         SyncKnowledgePacket.send(player);

@@ -830,6 +830,13 @@ def convert_lang():
             table['block.thaumcraft.deepslate_' + ore] = pattern % table['block.thaumcraft.' + ore]
         table.update(EXTRA_LANG['en_us'])
         table.update(EXTRA_LANG.get(name[:-5].lower(), {}))
+        # тексты, которые пишут другие генераторы (достижения — gen_advancements.py)
+        for code in ('en_us', name[:-5].lower()):
+            for prefix in ('extra', 'jei'):
+                extra = os.path.join(ROOT, 'tools', 'lang', '%s_%s.json' % (prefix, code))
+                if os.path.exists(extra):
+                    with open(extra, encoding='utf-8') as fh:
+                        table.update(json.load(fh))
         name_spawn_eggs(table)
         with open(os.path.join(out_dir, name[:-5].lower() + '.json'), 'w', encoding='utf-8') as fh:
             json.dump(table, fh, ensure_ascii=False, indent=2, sort_keys=True)

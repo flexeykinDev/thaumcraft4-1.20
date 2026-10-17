@@ -53,7 +53,7 @@ public final class ModCreativeTabs {
             })
             .build());
 
-    private static boolean metalPresent(String name) {
+    public static boolean metalPresent(String name) {
         for (String metal : new String[]{"tin", "silver", "lead"}) {
             if (name.equals("cluster_" + metal) || name.equals(metal + "_nugget") || name.startsWith("wand_cap_" + metal)) {
                 return thaumcraft.common.crafting.MetalCompat.hasMetal(metal);

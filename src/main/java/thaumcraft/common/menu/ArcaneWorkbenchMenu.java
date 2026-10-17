@@ -224,6 +224,7 @@ public class ArcaneWorkbenchMenu extends AbstractContainerMenu {
                 ArcaneRecipe arcane = findArcaneRecipe();
                 if (arcane != null) {
                     payVis(arcane, true);
+                    thaumcraft.common.ModAdvancements.grant(player, thaumcraft.common.ModAdvancements.ARCANE_CRAFT);
                 }
             }
             super.onTake(player, stack);

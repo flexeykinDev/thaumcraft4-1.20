@@ -2372,15 +2372,16 @@ def essentia():
         write(ASSETS, 'models/block/%s.json' % out, {
             'loader': 'forge:obj', 'model': tc('models/block/%s.obj' % out), 'flip_v': True, 'render_type': 'minecraft:translucent',
             'textures': {'particle': tc('block/' + texture)}})
-    # в руке — сама друза из модели оригинала
+    # в руке друзу рисует StrangeCrystalsRenderer.ITEM той же отрисовкой, что и блок: obj-модель оригинала
+    # отцентрована в нуле, и как обычная модель предмета она уезжала из ячейки
     write(ASSETS, 'models/item/strange_crystals.json', {
-        'loader': 'forge:obj', 'model': tc('models/block/strange_crystals_crystal.obj'), 'flip_v': True,
-        'textures': {'particle': tc('block/vcrystal')}, 'gui_light': 'side', 'display': {
-            'gui': {'rotation': [-60, 30, 0], 'translation': [0, -2, 0], 'scale': [0.9, 0.9, 0.9]},
-            'ground': {'translation': [0, 2, 0], 'scale': [0.5, 0.5, 0.5]},
-            'fixed': {'rotation': [-90, 0, 0], 'scale': [0.8, 0.8, 0.8]},
-            'thirdperson_righthand': {'rotation': [-15, 0, 0], 'translation': [0, 2, 1], 'scale': [0.5, 0.5, 0.5]},
-            'firstperson_righthand': {'rotation': [-60, 0, 0], 'translation': [0, 3, 0], 'scale': [0.5, 0.5, 0.5]}}})
+        'parent': 'minecraft:builtin/entity', 'gui_light': 'side', 'textures': {'particle': tc('block/vcrystal')}, 'display': {
+            'gui': {'rotation': [30, 225, 0], 'translation': [0, 1, 0], 'scale': [0.9, 0.9, 0.9]},
+            'ground': {'translation': [0, 3, 0], 'scale': [0.4, 0.4, 0.4]},
+            'fixed': {'scale': [0.75, 0.75, 0.75]},
+            'thirdperson_righthand': {'rotation': [75, 45, 0], 'translation': [0, 2.5, 0], 'scale': [0.5, 0.5, 0.5]},
+            'firstperson_righthand': {'rotation': [0, 45, 0], 'translation': [0, 2, 0], 'scale': [0.5, 0.5, 0.5]},
+            'firstperson_lefthand': {'rotation': [0, 45, 0], 'translation': [0, 2, 0], 'scale': [0.5, 0.5, 0.5]}}})
     # замок: лицо с механизмом смотрит наружу, остальное — древний проём
     write(ASSETS, 'models/block/ancient_lock.json', {'parent': 'minecraft:block/orientable', 'textures': {
         'front': tc('block/deco_2'), 'side': tc('block/deco_3'), 'top': tc('block/deco_3')}})

@@ -1,0 +1,23 @@
+{
+  "parent": "thaumcraft:thaumonomicon",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:table"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.arcane_workbench.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.arcane_workbench.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

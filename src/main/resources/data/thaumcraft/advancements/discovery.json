@@ -1,0 +1,23 @@
+{
+  "parent": "thaumcraft:notes",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:thaumonomicon"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.discovery.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.discovery.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "parent": "thaumcraft:arcane_craft",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:infusion_matrix"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.infusion.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.infusion.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

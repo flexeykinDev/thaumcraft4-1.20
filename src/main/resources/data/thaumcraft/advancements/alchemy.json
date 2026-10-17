@@ -1,0 +1,23 @@
+{
+  "parent": "thaumcraft:crucible",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:nitor"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.alchemy.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.alchemy.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

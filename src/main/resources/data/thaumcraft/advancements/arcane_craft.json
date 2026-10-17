@@ -1,0 +1,23 @@
+{
+  "parent": "thaumcraft:arcane_workbench",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:goggles"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.arcane_craft.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.arcane_craft.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

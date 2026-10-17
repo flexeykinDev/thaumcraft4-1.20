@@ -1,0 +1,33 @@
+{
+  "parent": "thaumcraft:root",
+  "display": {
+    "icon": {
+      "item": "thaumcraft:wand",
+      "nbt": "{rod:\"wood\",cap:\"iron\"}"
+    },
+    "title": {
+      "translate": "advancements.thaumcraft.wand.title"
+    },
+    "description": {
+      "translate": "advancements.thaumcraft.wand.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumcraft:wand"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
