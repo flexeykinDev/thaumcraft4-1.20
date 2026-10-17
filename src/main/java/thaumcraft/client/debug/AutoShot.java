@@ -78,6 +78,10 @@ public final class AutoShot {
             jei();
             return;
         }
+        if ("perks".equals(System.getProperty("thaumcraft.autoshot.only"))) {
+            perks();
+            return;
+        }
         if ("architect".equals(System.getProperty("thaumcraft.autoshot.only"))) {
             // быстрый режим: разметка «Архитектора» и искры наэлектризованной земли
             cmd("time set noon");
@@ -6428,6 +6432,158 @@ public final class AutoShot {
         });
         shot(15, "fresh_advancements");
         close();
+    }
+
+    /** Бонусы изучений 0.2.2: состав аспекта, копирование открытий, манипулятор, амулет вис, изначальный талисман. */
+    private static void perks() {
+        cmd("time set noon");
+        cmd("clear @s");
+        cmd("thaumcraft discover all");
+        cmd("fill 1198 -61 -2 1202 -57 4 minecraft:air");
+        cmd("tp @s 1200.5 -60 0.5 0 30");
+        BlockPos tablePos = new BlockPos(1200, -60, 2);
+        BlockPos manipulatorPos = new BlockPos(1202, -60, 2);
+        server(5, (server, player) -> {
+            ServerLevel level = player.serverLevel();
+            var knowledge = thaumcraft.common.research.PlayerKnowledge.get(player);
+            knowledge.clearResearch();
+            thaumcraft.common.research.ResearchHelper.grantAutoUnlocks(knowledge);
+            for (String key : new String[]{"RESEARCHER1", "RESEARCHER2", "RESEARCHDUPE"}) {
+                knowledge.completeResearch(key);
+            }
+            for (var aspect : thaumcraft.api.aspects.Aspect.all()) {
+                knowledge.addPool(aspect, 100 - knowledge.getPool(aspect));
+            }
+            thaumcraft.common.research.ResearchEntry entry = null;
+            for (var candidate : ResearchRegistry.entries()) {
+                if (!candidate.aspects.isEmpty() && !candidate.isPurchasable()) {
+                    entry = candidate;
+                    break;
+                }
+            }
+            var note = thaumcraft.common.research.ResearchNote.create(entry, level.random);
+            note.complete = true;
+            level.setBlock(tablePos, ModBlocks.RESEARCH_TABLE.get().defaultBlockState(), 3);
+            var table = (thaumcraft.common.blockentity.ResearchTableBlockEntity) level.getBlockEntity(tablePos);
+            table.getItems().set(thaumcraft.common.blockentity.ResearchTableBlockEntity.TOOLS_SLOT, new ItemStack(ModItems.SCRIBING_TOOLS.get()));
+            table.getItems().set(thaumcraft.common.blockentity.ResearchTableBlockEntity.NOTES_SLOT,
+                    thaumcraft.common.items.ResearchNotesItem.create(ModItems.RESEARCH_NOTES.get(), note));
+            table.contentsChanged();
+            player.getInventory().add(new ItemStack(net.minecraft.world.item.Items.PAPER, 2));
+            player.getInventory().add(new ItemStack(net.minecraft.world.item.Items.INK_SAC, 2));
+            var first = entry.aspects.getAspects().get(0);
+            int pool = knowledge.getPool(first);
+            var cost = thaumcraft.common.blockentity.ResearchTableBlockEntity.copyCost(entry, note);
+            table.duplicate(player);
+            int copies = 0;
+            for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+                if (player.getInventory().getItem(i).getItem() instanceof thaumcraft.common.items.ResearchNotesItem) {
+                    copies++;
+                }
+            }
+            var after = thaumcraft.common.research.ResearchNote.read(
+                    table.getItems().get(thaumcraft.common.blockentity.ResearchTableBlockEntity.NOTES_SLOT));
+            int paper = player.getInventory().countItem(net.minecraft.world.item.Items.PAPER);
+            int ink = player.getInventory().countItem(net.minecraft.world.item.Items.INK_SAC);
+            check("копирование открытия " + entry.key + ": копий в инвентаре " + copies + ", счётчик копий " + after.copies + ", "
+                            + first.getTag() + " " + pool + " -> " + knowledge.getPool(first) + " (цена " + cost.getAmount(first)
+                            + "), бумаги " + paper + ", мешков " + ink,
+                    copies == 1 && after.copies == 1 && knowledge.getPool(first) == pool - cost.getAmount(first) && paper == 1 && ink == 1);
+            var next = thaumcraft.common.blockentity.ResearchTableBlockEntity.copyCost(entry, after);
+            check("следующая копия дороже на единицу (" + cost.getAmount(first) + " -> " + next.getAmount(first) + ")",
+                    next.getAmount(first) == cost.getAmount(first) + 1);
+            // манипулятор без изучения не открывается
+            level.setBlock(manipulatorPos, ModBlocks.FOCAL_MANIPULATOR.get().defaultBlockState(), 3);
+            var hit = new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(manipulatorPos),
+                    net.minecraft.core.Direction.UP, manipulatorPos, false);
+            level.getBlockState(manipulatorPos).use(level, player, InteractionHand.MAIN_HAND, hit);
+            boolean lockedOpen = player.containerMenu instanceof thaumcraft.common.menu.FocalManipulatorMenu;
+            player.closeContainer();
+            knowledge.completeResearch("FOCALMANIPULATION");
+            level.getBlockState(manipulatorPos).use(level, player, InteractionHand.MAIN_HAND, hit);
+            boolean unlockedOpen = player.containerMenu instanceof thaumcraft.common.menu.FocalManipulatorMenu;
+            player.closeContainer();
+            check("фокусный манипулятор: без изучения закрыт (" + !lockedOpen + "), после — открывается (" + unlockedOpen + ")",
+                    !lockedOpen && unlockedOpen);
+            // амулет вис
+            var context = new top.theillusivec4.curios.api.SlotContext("amulet", player, 0, false, true);
+            var amulet = (thaumcraft.common.items.VisAmuletItem) ModItems.VIS_AMULET.get();
+            var stone = (thaumcraft.common.items.VisAmuletItem) ModItems.VIS_STONE.get();
+            boolean before = amulet.canEquip(context, new ItemStack(amulet));
+            boolean stoneOk = stone.canEquip(context, new ItemStack(stone));
+            knowledge.completeResearch("VISAMULET");
+            boolean afterAmulet = amulet.canEquip(context, new ItemStack(amulet));
+            check("амулет вис: без изучения не надевается (" + !before + "), после — надевается (" + afterAmulet
+                    + "), камень вис — всегда (" + stoneOk + ")", !before && afterAmulet && stoneOk);
+            // изначальный талисман: сферы и подсказка
+            ItemStack charm = new ItemStack(ModItems.PRIMAL_CHARM.get());
+            var box = new net.minecraft.world.phys.AABB(player.blockPosition()).inflate(4);
+            for (int i = 0; i < 200000 && (!knowledge.isResearchComplete("@FOCUSPRIMAL") || i < 20000); i++) {
+                charm.getItem().inventoryTick(charm, level, player, 0, false);
+            }
+            int orbs = 0;
+            for (var entity : level.getAllEntities()) {
+                if (entity instanceof thaumcraft.common.entity.AspectOrbEntity) {
+                    orbs++;
+                }
+            }
+            Thaumcraft.LOGGER.info("AUTOSHOT сфер рядом {}, всего {}",
+                    level.getEntitiesOfClass(thaumcraft.common.entity.AspectOrbEntity.class, box).size(), orbs);
+            check("изначальный талисман роняет сферы (" + orbs + ") и даёт подсказку @FOCUSPRIMAL ("
+                    + knowledge.isResearchComplete("@FOCUSPRIMAL") + ")", orbs > 0 && knowledge.isResearchComplete("@FOCUSPRIMAL"));
+            level.getEntitiesOfClass(thaumcraft.common.entity.AspectOrbEntity.class, box).forEach(net.minecraft.world.entity.Entity::discard);
+            thaumcraft.common.network.SyncKnowledgePacket.send(player);
+        });
+        // окно открываем, когда стол уже дошёл до клиента
+        server(20, (server, player) -> net.minecraftforge.network.NetworkHooks.openScreen(player,
+                (thaumcraft.common.blockentity.ResearchTableBlockEntity) player.level().getBlockEntity(tablePos), tablePos));
+        // Shift+щелчок шлёт обычный пакет соединения составляющих — сервер должен его принять
+        int[] lux = new int[1];
+        server(10, (server, player) -> lux[0] = thaumcraft.common.research.PlayerKnowledge.get(player)
+                .getPool(thaumcraft.api.aspects.Aspect.byTag("lux")));
+        client(2, mc -> {
+            var target = thaumcraft.api.aspects.Aspect.byTag("lux");
+            thaumcraft.common.network.ModNetwork.CHANNEL.sendToServer(
+                    thaumcraft.common.network.ResearchTablePacket.combine(target.getFirstComponent(), target.getSecondComponent()));
+        });
+        server(10, (server, player) -> {
+            int now = thaumcraft.common.research.PlayerKnowledge.get(player).getPool(thaumcraft.api.aspects.Aspect.byTag("lux"));
+            check("соединение составляющих света даёт +1 свет (" + lux[0] + " -> " + now + ")", now == lux[0] + 1);
+        });
+        // курсор на второй аспект палитры (первый — первичный «воздух»), затем на кнопку копирования
+        client(10, mc -> {
+            check("открыт стол исследований", mc.screen instanceof thaumcraft.client.gui.ResearchTableScreen);
+            check("клиент знает «Экспертизу», «Мастерство» и «Копирование»",
+                    thaumcraft.client.ClientKnowledge.get().isResearchComplete("RESEARCHER1")
+                            && thaumcraft.client.ClientKnowledge.get().isResearchComplete("RESEARCHER2")
+                            && thaumcraft.client.ClientKnowledge.get().isResearchComplete("RESEARCHDUPE"));
+            if (mc.screen instanceof thaumcraft.client.gui.ResearchTableScreen table) {
+                pointAt(mc, table.getGuiLeft() + 18, table.getGuiTop() + 64);
+            }
+        });
+        shot(10, "perks_components");
+        client(2, mc -> {
+            if (mc.screen instanceof thaumcraft.client.gui.ResearchTableScreen table) {
+                pointAt(mc, table.getGuiLeft() + 49, table.getGuiTop() + 17);
+            }
+        });
+        shot(10, "perks_copy");
+        close();
+    }
+
+    /** Ставит курсор в точку интерфейса (в масштабированных координатах окна). */
+    private static void pointAt(Minecraft mc, int guiX, int guiY) {
+        try {
+            double scale = mc.getWindow().getGuiScale();
+            var x = net.minecraft.client.MouseHandler.class.getDeclaredField("xpos");
+            var y = net.minecraft.client.MouseHandler.class.getDeclaredField("ypos");
+            x.setAccessible(true);
+            y.setAccessible(true);
+            x.setDouble(mc.mouseHandler, guiX * scale);
+            y.setDouble(mc.mouseHandler, guiY * scale);
+        } catch (ReflectiveOperationException e) {
+            check("курсор не сдвинуть: " + e, false);
+        }
     }
 
     private static boolean advancementDone(ServerPlayer player, String name) {

@@ -46,7 +46,6 @@ public class ResearchTableScreen extends AbstractContainerScreen<ResearchTableMe
     private static final ResourceLocation HEX = Thaumcraft.id("textures/gui/hex1.png");
     private static final ResourceLocation HEX_HIGHLIGHT = Thaumcraft.id("textures/gui/hex2.png");
     private static final ResourceLocation UNKNOWN = Thaumcraft.id("textures/aspects/_unknown.png");
-    private static final ResourceLocation ASPECT_BACK = Thaumcraft.id("textures/aspects/_back.png");
     /** Радиус клетки и положение центра поля на листе. */
     private static final int HEX_SIZE = 9;
     private static final int SHEET_X = 169;
@@ -321,15 +320,13 @@ public class ResearchTableScreen extends AbstractContainerScreen<ResearchTableMe
     private void renderAspectTooltip(GuiGraphics graphics, int mouseX, int mouseY) {
         Aspect aspect = paletteAspectAt(mouseX, mouseY);
         if (aspect != null) {
-            graphics.renderComponentTooltip(font, List.of(aspect.getName(), aspect.getDescription()), mouseX, mouseY - 8);
-            // «Экспертиза»: под курсором видно, из каких двух аспектов составлен наведённый (drawAspectText оригинала)
+            List<Component> lines = new ArrayList<>(List.of(aspect.getName(), aspect.getDescription()));
+            // «Экспертиза»: в подсказке виден состав аспекта (drawAspectText оригинала рисовал значки прямо поверх палитры)
             if (!aspect.isPrimal() && knowledge().isResearchComplete("RESEARCHER1")) {
-                graphics.pose().pushPose();
-                graphics.pose().translate(0f, 0f, 500f);
-                drawComponent(graphics, aspect.getFirstComponent(), mouseX + 6, mouseY + 6);
-                drawComponent(graphics, aspect.getSecondComponent(), mouseX + 24, mouseY + 6);
-                graphics.pose().popPose();
+                lines.add(Component.empty().append(aspect.getFirstComponent().getName()).append(" + ")
+                        .append(aspect.getSecondComponent().getName()).withStyle(net.minecraft.ChatFormatting.GRAY));
             }
+            graphics.renderComponentTooltip(font, lines, mouseX, mouseY - 8);
             return;
         }
         if (aspect == null && select1 != null && inside(mouseX, mouseY, 13, 139, 16, 16)) {
@@ -351,12 +348,6 @@ public class ResearchTableScreen extends AbstractContainerScreen<ResearchTableMe
         if (aspect != null) {
             graphics.renderComponentTooltip(font, List.of(aspect.getName(), aspect.getDescription()), mouseX, mouseY - 8);
         }
-    }
-
-    private void drawComponent(GuiGraphics graphics, Aspect component, int x, int y) {
-        RenderSystem.enableBlend();
-        graphics.blit(ASPECT_BACK, x, y, 20, 20, 0f, 0f, 1, 1, 1, 1);
-        AspectRenderer.draw(graphics, font, component, 0, x + 2, y + 2, 1f);
     }
 
     private boolean inside(double mouseX, double mouseY, int x, int y, int width, int height) {

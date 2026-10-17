@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'thaumcraft'
-version = '0.2.2'
+version = '0.2.3'
 
 base {
     archivesName = 'thaumcraft4-1.20.1'
