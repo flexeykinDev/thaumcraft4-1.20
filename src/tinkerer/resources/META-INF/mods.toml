@@ -31,6 +31,6 @@ Unofficial fan port of the Thaumic Tinkerer addon (by pixlepix and nekosune) to 
 [[dependencies.thaumictinkerer]]
     modId="thaumcraft"
     mandatory=true
-    versionRange="[0.2.3,)"
+    versionRange="[0.2.4,)"
     ordering="AFTER"
     side="BOTH"

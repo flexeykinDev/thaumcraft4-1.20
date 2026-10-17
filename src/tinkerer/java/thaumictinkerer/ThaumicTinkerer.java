@@ -25,6 +25,9 @@ public class ThaumicTinkerer {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         TTBlocks.BLOCKS.register(modBus);
         TTItems.ITEMS.register(modBus);
+        thaumictinkerer.common.registry.TTBlockEntities.BLOCK_ENTITIES.register(modBus);
+        thaumictinkerer.common.registry.TTMenus.MENUS.register(modBus);
+        thaumictinkerer.common.registry.TTRecipes.SERIALIZERS.register(modBus);
         TTCreativeTabs.TABS.register(modBus);
         LOGGER.info("Thaumic Tinkerer: предметов {}, блоков {}", TTItems.ITEMS.getEntries().size(), TTBlocks.BLOCKS.getEntries().size());
     }

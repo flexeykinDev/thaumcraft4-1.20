@@ -1,0 +1,28 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "TWT",
+    "WMW",
+    "TWT"
+  ],
+  "key": {
+    "W": {
+      "item": "thaumcraft:greatwood_planks"
+    },
+    "M": {
+      "item": "thaumcraft:thaumometer"
+    },
+    "T": {
+      "item": "thaumcraft:thaumium_ingot"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:aspect_analyzer",
+    "count": 1
+  },
+  "aspects": {
+    "ordo": 1,
+    "perditio": 1
+  },
+  "research": "ASPECT_ANALYZER"
+}

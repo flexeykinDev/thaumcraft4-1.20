@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " S ",
+    "G G"
+  ],
+  "key": {
+    "G": {
+      "item": "thaumcraft:greatwood_planks"
+    },
+    "S": {
+      "item": "thaumcraft:silverwood_planks"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:platform",
+    "count": 2
+  },
+  "aspects": {
+    "aer": 2,
+    "perditio": 4
+  },
+  "research": "PLATFORM"
+}

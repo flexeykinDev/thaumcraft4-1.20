@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "QQ",
+    "QQ"
+  ],
+  "key": {
+    "Q": {
+      "item": "thaumictinkerer:dark_quartz"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:dark_quartz_block",
+    "count": 1
+  }
+}

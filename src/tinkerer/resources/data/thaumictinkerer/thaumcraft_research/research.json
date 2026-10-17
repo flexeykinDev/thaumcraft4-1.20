@@ -1,6 +1,438 @@
 {
   "categories": [
-    {"key": "TT_CATEGORY", "icon": "thaumictinkerer:textures/misc/r_enchanting.png", "background": "thaumcraft:textures/gui/gui_researchback.png"}
+    {
+      "key": "TT_CATEGORY",
+      "icon": "thaumictinkerer:textures/misc/r_enchanting.png",
+      "background": "thaumcraft:textures/gui/gui_researchback.png"
+    }
   ],
-  "entries": []
+  "entries": [
+    {
+      "key": "DARK_QUARTZ",
+      "category": "TT_CATEGORY",
+      "aspects": {},
+      "column": -2,
+      "row": 2,
+      "complexity": 0,
+      "icon": {
+        "item": "thaumictinkerer:dark_quartz"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.DARK_QUARTZ.0"
+        },
+        {
+          "type": "crafting",
+          "recipe": "thaumictinkerer:dark_quartz"
+        },
+        {
+          "type": "crafting",
+          "recipe": "thaumictinkerer:dark_quartz_block"
+        },
+        {
+          "type": "crafting",
+          "recipe": "thaumictinkerer:dark_quartz_slab"
+        },
+        {
+          "type": "crafting",
+          "recipe": "thaumictinkerer:chiseled_dark_quartz_block"
+        },
+        {
+          "type": "crafting",
+          "recipe": "thaumictinkerer:dark_quartz_pillar"
+        },
+        {
+          "type": "crafting",
+          "recipe": "thaumictinkerer:dark_quartz_stairs"
+        }
+      ],
+      "stub": true,
+      "autoUnlock": true,
+      "round": true
+    },
+    {
+      "key": "SHARE_TOME",
+      "category": "TT_CATEGORY",
+      "aspects": {},
+      "column": 0,
+      "row": -1,
+      "complexity": 0,
+      "icon": {
+        "item": "thaumictinkerer:share_tome"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.SHARE_TOME.0"
+        },
+        {
+          "type": "crafting",
+          "recipe": "thaumictinkerer:share_tome"
+        }
+      ],
+      "stub": true,
+      "autoUnlock": true,
+      "round": true
+    },
+    {
+      "key": "GASEOUS_LIGHT",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "lux": 2,
+        "aer": 1
+      },
+      "column": 0,
+      "row": -3,
+      "complexity": 1,
+      "icon": {
+        "item": "thaumictinkerer:gaseous_light"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.GASEOUS_LIGHT.0"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/gaseous_light"
+        }
+      ],
+      "parents": [
+        "NITOR"
+      ]
+    },
+    {
+      "key": "GASEOUS_SHADOW",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "tenebrae": 2,
+        "aer": 1,
+        "motus": 4
+      },
+      "column": -1,
+      "row": -5,
+      "complexity": 2,
+      "icon": {
+        "item": "thaumictinkerer:gaseous_shadow"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.GASEOUS_SHADOW.0"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/gaseous_shadow"
+        }
+      ],
+      "secondary": true,
+      "parents": [
+        "GASEOUS_LIGHT"
+      ]
+    },
+    {
+      "key": "GAS_REMOVER",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "tenebrae": 2,
+        "lux": 2
+      },
+      "column": -2,
+      "row": -7,
+      "complexity": 0,
+      "icon": {
+        "item": "thaumictinkerer:gas_remover"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.GAS_REMOVER.0"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:gas_remover"
+        }
+      ],
+      "round": true,
+      "parents": [
+        "GASEOUS_SHADOW"
+      ]
+    },
+    {
+      "key": "BRIGHT_NITOR",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "lux": 2,
+        "ignis": 1,
+        "potentia": 1,
+        "aer": 1
+      },
+      "column": 1,
+      "row": -5,
+      "complexity": 2,
+      "icon": {
+        "item": "thaumictinkerer:bright_nitor"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.BRIGHT_NITOR.0"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/bright_nitor"
+        }
+      ],
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "GASEOUS_LIGHT"
+      ]
+    },
+    {
+      "key": "FUNNEL",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "instrumentum": 1,
+        "iter": 2
+      },
+      "column": 0,
+      "row": -7,
+      "complexity": 1,
+      "icon": {
+        "item": "thaumictinkerer:funnel"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FUNNEL.0"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:funnel"
+        }
+      ],
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "BRIGHT_NITOR"
+      ],
+      "parents_hidden": [
+        "DISTILESSENTIA"
+      ]
+    },
+    {
+      "key": "REPAIRER",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "instrumentum": 2,
+        "fabrico": 1,
+        "ordo": 1,
+        "praecantatio": 1
+      },
+      "column": -1,
+      "row": -9,
+      "complexity": 3,
+      "icon": {
+        "item": "thaumictinkerer:repairer"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.REPAIRER.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/repairer"
+        }
+      ],
+      "concealed": true,
+      "parents": [
+        "FUNNEL"
+      ],
+      "parents_hidden": [
+        "THAUMIUM",
+        "ENCHFABRIC"
+      ]
+    },
+    {
+      "key": "SPELL_CLOTH",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "praecantatio": 2,
+        "pannus": 1
+      },
+      "column": 3,
+      "row": 2,
+      "complexity": 2,
+      "icon": {
+        "item": "thaumictinkerer:spell_cloth"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.SPELL_CLOTH.0"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/spell_cloth"
+        }
+      ],
+      "parents_hidden": [
+        "ENCHFABRIC"
+      ]
+    },
+    {
+      "key": "XP_TALISMAN",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "lucrum": 1,
+        "praecantatio": 1,
+        "humanus": 1
+      },
+      "column": 4,
+      "row": -1,
+      "complexity": 2,
+      "icon": {
+        "item": "thaumictinkerer:xp_talisman"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.XP_TALISMAN.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/xp_talisman"
+        }
+      ],
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "JARBRAIN",
+        "SPELL_CLOTH"
+      ]
+    },
+    {
+      "key": "CLEANSING_TALISMAN",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "sano": 2,
+        "ordo": 1,
+        "venenum": 1
+      },
+      "column": -3,
+      "row": 4,
+      "complexity": 3,
+      "icon": {
+        "item": "thaumictinkerer:cleansing_talisman"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.CLEANSING_TALISMAN.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/cleansing_talisman"
+        }
+      ],
+      "secondary": true,
+      "parents": [
+        "DARK_QUARTZ"
+      ]
+    },
+    {
+      "key": "REVEALING_HELM",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "auram": 2,
+        "tutamen": 1
+      },
+      "column": 0,
+      "row": 0,
+      "complexity": 1,
+      "icon": {
+        "item": "thaumictinkerer:revealing_helm"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.REVEALING_HELM.0"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:revealing_helm"
+        }
+      ],
+      "parents": [
+        "GOGGLES"
+      ],
+      "parents_hidden": [
+        "THAUMIUM"
+      ]
+    },
+    {
+      "key": "ASPECT_ANALYZER",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "machina": 2,
+        "sensus": 1,
+        "cognitio": 1
+      },
+      "column": 0,
+      "row": 1,
+      "complexity": 2,
+      "icon": {
+        "item": "thaumictinkerer:aspect_analyzer"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.ASPECT_ANALYZER.0"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:aspect_analyzer"
+        }
+      ],
+      "round": true,
+      "concealed": true,
+      "parents_hidden": [
+        "GOGGLES",
+        "THAUMIUM"
+      ]
+    },
+    {
+      "key": "PLATFORM",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "sensus": 2,
+        "arbor": 1,
+        "motus": 1
+      },
+      "column": -2,
+      "row": 6,
+      "complexity": 3,
+      "icon": {
+        "item": "thaumictinkerer:platform"
+      },
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.PLATFORM.0"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:platform"
+        }
+      ],
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "CLEANSING_TALISMAN"
+      ]
+    }
+  ]
 }

@@ -41,7 +41,8 @@ public class JarBlockItem extends BlockItem {
         return data == null || Aspect.byTag(data.getString("Aspect")) == null ? 0 : data.getShort("Amount");
     }
 
-    private static void setContents(ItemStack stack, Aspect aspect, int amount) {
+    /** Записывает содержимое банки-предмета (нужно и аддонам: воронка Thaumic Tinkerer сливает из неё эссенцию). */
+    public static void setContents(ItemStack stack, Aspect aspect, int amount) {
         CompoundTag data = new CompoundTag();
         data.putString("Aspect", aspect.getTag());
         data.putShort("Amount", (short) amount);

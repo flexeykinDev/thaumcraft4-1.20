@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "thaumictinkerer:dark_quartz_block",
+    "thaumictinkerer:chiseled_dark_quartz_block",
+    "thaumictinkerer:dark_quartz_pillar",
+    "thaumictinkerer:dark_quartz_slab",
+    "thaumictinkerer:dark_quartz_stairs",
+    "thaumictinkerer:funnel",
+    "thaumictinkerer:repairer",
+    "thaumictinkerer:aspect_analyzer"
+  ]
+}

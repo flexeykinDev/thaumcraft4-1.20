@@ -1,0 +1,16 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "thaumcraft:phial"
+  },
+  "aspects": {
+    "lux": 16,
+    "aer": 10,
+    "motus": 8
+  },
+  "result": {
+    "item": "thaumictinkerer:gaseous_light",
+    "count": 1
+  },
+  "research": "GASEOUS_LIGHT"
+}

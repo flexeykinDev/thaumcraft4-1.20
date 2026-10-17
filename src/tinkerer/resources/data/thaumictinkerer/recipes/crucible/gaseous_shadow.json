@@ -1,0 +1,16 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "thaumcraft:phial"
+  },
+  "aspects": {
+    "tenebrae": 16,
+    "aer": 10,
+    "motus": 8
+  },
+  "result": {
+    "item": "thaumictinkerer:gaseous_shadow",
+    "count": 1
+  },
+  "research": "GASEOUS_SHADOW"
+}

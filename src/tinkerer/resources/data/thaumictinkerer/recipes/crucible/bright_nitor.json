@@ -1,0 +1,17 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "thaumcraft:nitor"
+  },
+  "aspects": {
+    "potentia": 25,
+    "lux": 25,
+    "aer": 10,
+    "ignis": 10
+  },
+  "result": {
+    "item": "thaumictinkerer:bright_nitor",
+    "count": 1
+  },
+  "research": "BRIGHT_NITOR"
+}

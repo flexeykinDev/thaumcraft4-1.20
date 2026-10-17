@@ -34,4 +34,13 @@ public interface ArcaneRecipe extends Recipe<CraftingContainer> {
     default RecipeType<?> getType() {
         return ModRecipes.ARCANE.get();
     }
+
+    /**
+     * В книгу рецептов ванильного верстака магические рецепты не попадают: без этого клиент при входе в мир писал
+     * в журнал «Unknown recipe category» на каждый из них. JEI показывает их своей вкладкой.
+     */
+    @Override
+    default boolean isSpecial() {
+        return true;
+    }
 }

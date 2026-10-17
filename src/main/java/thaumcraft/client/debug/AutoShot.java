@@ -63,6 +63,8 @@ public final class AutoShot {
     }
 
     private static final List<Step> STEPS = new ArrayList<>();
+    /** Сценарии аддонов: -Pautoshot=<имя> запускает сценарий, который аддон зарегистрировал под этим именем. */
+    public static final java.util.Map<String, Runnable> EXTRA_SCRIPTS = new java.util.HashMap<>();
     private static int state;
     private static int index;
     private static int timer;
@@ -70,6 +72,11 @@ public final class AutoShot {
     // ---------- сцены ----------
 
     private static void script() {
+        Runnable extra = EXTRA_SCRIPTS.get(System.getProperty("thaumcraft.autoshot.only"));
+        if (extra != null) {
+            extra.run();
+            return;
+        }
         if ("fresh".equals(System.getProperty("thaumcraft.autoshot.only"))) {
             freshPlayer();
             return;
@@ -6572,7 +6579,7 @@ public final class AutoShot {
     }
 
     /** Ставит курсор в точку интерфейса (в масштабированных координатах окна). */
-    private static void pointAt(Minecraft mc, int guiX, int guiY) {
+    public static void pointAt(Minecraft mc, int guiX, int guiY) {
         try {
             double scale = mc.getWindow().getGuiScale();
             var x = net.minecraft.client.MouseHandler.class.getDeclaredField("xpos");
@@ -6628,27 +6635,27 @@ public final class AutoShot {
         close();
     }
 
-    private static void client(int wait, Consumer<Minecraft> action) {
+    public static void client(int wait, Consumer<Minecraft> action) {
         STEPS.add(new Step(wait, () -> action.accept(Minecraft.getInstance())));
     }
 
-    private interface ServerAction {
+    public interface ServerAction {
         void run(MinecraftServer server, ServerPlayer player);
     }
 
-    private static void server(int wait, ServerAction action) {
+    public static void server(int wait, ServerAction action) {
         client(wait, mc -> {
             MinecraftServer server = mc.getSingleplayerServer();
             server.execute(() -> action.run(server, server.getPlayerList().getPlayers().get(0)));
         });
     }
 
-    private static void cmd(String command) {
+    public static void cmd(String command) {
         server(2, (server, player) -> server.getCommands().performPrefixedCommand(
                 player.createCommandSourceStack().withPermission(4).withSuppressedOutput(), command));
     }
 
-    private static void check(String what, boolean passed) {
+    public static void check(String what, boolean passed) {
         if (passed) {
             Thaumcraft.LOGGER.info("AUTOSHOT CHECK ok: {}", what);
         } else {
@@ -6665,11 +6672,11 @@ public final class AutoShot {
         player.serverLevel().addFreshEntity(item);
     }
 
-    private static void screen(int wait, Supplier<Screen> screen) {
+    public static void screen(int wait, Supplier<Screen> screen) {
         client(wait, mc -> mc.setScreen(screen.get()));
     }
 
-    private static void close() {
+    public static void close() {
         client(3, mc -> {
             if (mc.player != null) {
                 mc.player.closeContainer();
@@ -6678,7 +6685,7 @@ public final class AutoShot {
         });
     }
 
-    private static void shot(int wait, String name) {
+    public static void shot(int wait, String name) {
         client(wait, mc -> {
             mc.getToasts().clear();
             // бывает, что скрытое окно теряет размер и снимки выходят в один пиксель: возвращаем его

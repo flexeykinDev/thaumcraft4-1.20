@@ -1,0 +1,5 @@
+{
+  "itemGroup.thaumictinkerer": "Thaumic Tinkerer",
+  "ttresearch.page.ASPECT_ANALYZER.0": "You created a device that tells you what aspects an item has.<BR><BR>Place an item you have already scanned into it, and all its aspects will appear under the slot.",
+  "ttresearch.page.SHARE_TOME.0": "If one day you happen to want to share your knowledge with the rest of the world, this is the item for you.<BR><BR>Right click a blank tome to write all your research into it, then hand it to someone else: by right clicking it, they'll get all the research you've discovered so far."
+}

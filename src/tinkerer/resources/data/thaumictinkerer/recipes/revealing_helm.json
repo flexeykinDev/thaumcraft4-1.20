@@ -1,0 +1,27 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "GH"
+  ],
+  "key": {
+    "G": {
+      "item": "thaumcraft:goggles"
+    },
+    "H": {
+      "item": "thaumcraft:thaumium_helmet"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:revealing_helm",
+    "count": 1
+  },
+  "aspects": {
+    "aer": 5,
+    "ignis": 5,
+    "aqua": 5,
+    "terra": 5,
+    "ordo": 5,
+    "perditio": 5
+  },
+  "research": "REVEALING_HELM"
+}

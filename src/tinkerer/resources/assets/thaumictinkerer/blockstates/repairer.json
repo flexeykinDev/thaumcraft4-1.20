@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thaumictinkerer:block/repairer"
+    },
+    "facing=south": {
+      "model": "thaumictinkerer:block/repairer"
+    },
+    "facing=west": {
+      "model": "thaumictinkerer:block/repairer"
+    },
+    "facing=east": {
+      "model": "thaumictinkerer:block/repairer"
+    }
+  }
+}

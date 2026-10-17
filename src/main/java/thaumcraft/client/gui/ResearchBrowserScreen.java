@@ -50,6 +50,11 @@ public class ResearchBrowserScreen extends Screen {
 
     /** Категория и положение карты запоминаются между открытиями книги. */
     private static String selectedCategory;
+
+    /** Открыть книгу на этой вкладке (самосъёмка и аддоны). */
+    public static void selectCategory(String category) {
+        selectedCategory = category;
+    }
     private static double savedX = -100;
     private static double savedY = -86;
 

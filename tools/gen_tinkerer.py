@@ -1,0 +1,460 @@
+"""Строит ресурсы и данные аддона Thaumic Tinkerer (src/tinkerer/resources) из оригинала в reference/tt.
+
+Запуск из корня проекта:  python tools/gen_tinkerer.py
+
+Что делает:
+  * копирует текстуры оригинала под новыми именами (TEXTURES);
+  * переводит .lang оригинала в json: названия предметов и блоков — по ITEM_NAMES, тексты исследований —
+    в ключи книги порта (tc.research_name / tc.research_text), страницы оставляет под своими ключами;
+    украинский берётся из tools/lang/tt_uk.json, там же наши собственные строки (tools/lang/tt_extra_*.json);
+  * пишет исследования (RESEARCH), рецепты (RECIPES), модели, состояния блоков, таблицы добычи и метки.
+Добавляя очередную часть аддона, дописывают словари ниже — остальное генератор делает сам.
+"""
+import json
+import os
+import shutil
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC = os.path.join(ROOT, 'reference', 'tt', 'assets', 'ttinkerer')
+OUT = os.path.join(ROOT, 'src', 'tinkerer', 'resources')
+ASSETS = os.path.join(OUT, 'assets', 'thaumictinkerer')
+DATA = os.path.join(OUT, 'data', 'thaumictinkerer')
+NS = 'thaumictinkerer'
+
+# ---------------------------------------------------------------- текстуры: новое имя -> файл оригинала
+TEXTURES = {
+    'item/dark_quartz': 'items/darkQuartzItem.png',
+    'item/spell_cloth': 'items/spellCloth.png',
+    'item/xp_talisman': 'items/xpTalisman0.png',
+    'item/xp_talisman_active': 'items/xpTalisman1.png',
+    'item/cleansing_talisman': 'items/cleansingTalisman0.png',
+    'item/cleansing_talisman_active': 'items/cleansingTalisman1.png',
+    'item/bright_nitor': 'items/brightNitor.png',
+    'item/gaseous_light': 'items/gaseousLightItem.png',
+    'item/gaseous_shadow': 'items/gaseousShadowItem.png',
+    'item/gas_remover': 'items/gasRemover.png',
+    'item/share_tome': 'items/shareBook.png',
+    'item/revealing_helm': 'items/revealingHelm.png',
+    'block/dark_quartz_block_side': 'blocks/darkQuartz0.png',
+    'block/dark_quartz_block_top': 'blocks/darkQuartz1.png',
+    'block/dark_quartz_block_bottom': 'blocks/darkQuartz2.png',
+    'block/chiseled_dark_quartz_block': 'blocks/chiseledDarkQuartz0.png',
+    'block/chiseled_dark_quartz_block_top': 'blocks/chiseledDarkQuartz1.png',
+    'block/dark_quartz_pillar': 'blocks/pillarDarkQuartz0.png',
+    'block/dark_quartz_pillar_top': 'blocks/pillarDarkQuartz1.png',
+    'block/aspect_analyzer_top': 'blocks/aspectAnalyzer0.png',
+    'block/aspect_analyzer_north': 'blocks/aspectAnalyzer1.png',
+    'block/aspect_analyzer_south': 'blocks/aspectAnalyzer2.png',
+    'block/aspect_analyzer_west': 'blocks/aspectAnalyzer3.png',
+    'block/aspect_analyzer_east': 'blocks/aspectAnalyzer4.png',
+    'block/funnel_top': 'blocks/funnel0.png',
+    'block/funnel_side': 'blocks/funnel1.png',
+    'block/platform': 'blocks/platform.png',
+    'models/repairer': 'model/repairer.png',
+    'models/armor/revealing_layer_1': 'model/revealing.png',
+    'misc/repair': 'misc/repair.png',
+    'misc/repair_off': 'misc/repairOff.png',
+    'gui/aspect_analyzer': 'gui/aspectAnalyzer.png',
+}
+
+# ---------------------------------------------------------------- названия: наш id -> ключ .lang оригинала
+ITEM_NAMES = {
+    'item.thaumictinkerer.dark_quartz': 'item.darkQuartzItem.name',
+    'block.thaumictinkerer.dark_quartz_block': 'tile.darkQuartz.name',
+    'block.thaumictinkerer.chiseled_dark_quartz_block': 'tile.darkQuartzChiseled.name',
+    'block.thaumictinkerer.dark_quartz_pillar': 'tile.darkQuartzPillar.name',
+    'block.thaumictinkerer.dark_quartz_slab': 'tile.darkQuartzSlab.name',
+    'block.thaumictinkerer.dark_quartz_stairs': 'tile.darkQuartzStairs.name',
+    'item.thaumictinkerer.spell_cloth': 'item.spellCloth.name',
+    'item.thaumictinkerer.xp_talisman': 'item.xpTalisman.name',
+    'item.thaumictinkerer.cleansing_talisman': 'item.cleansingTalisman.name',
+    'item.thaumictinkerer.bright_nitor': 'item.brightNitor.name',
+    'item.thaumictinkerer.gaseous_light': 'item.gaseousLightItem.name',
+    'item.thaumictinkerer.gaseous_shadow': 'item.gaseousShadowItem.name',
+    'item.thaumictinkerer.gas_remover': 'item.gasRemover.name',
+    'item.thaumictinkerer.share_tome': 'item.shareBook.name',
+    'item.thaumictinkerer.revealing_helm': 'item.revealingHelm.name',
+    'block.thaumictinkerer.funnel': 'tile.funnel.name',
+    'block.thaumictinkerer.repairer': 'tile.repairer.name',
+    'block.thaumictinkerer.aspect_analyzer': 'tile.aspectAnalyzer.name',
+    'block.thaumictinkerer.platform': 'tile.platform.name',
+}
+# в разных языках оригинала один и тот же предмет назван разными ключами
+ITEM_NAME_ALIASES = {'item.darkQuartzItem.name': ['item.darkQuartz.name']}
+
+LANGS = {'en_us': 'en_US', 'ru_ru': 'ru_RU', 'de_de': 'de_DE', 'fr_fr': 'fr_Fr', 'ko_kr': 'ko_KR', 'zh_cn': 'zh_CN'}
+
+# ---------------------------------------------------------------- исследования
+P = lambda kind, recipe: {'type': kind, 'recipe': NS + ':' + recipe}
+
+
+def text(key, *pages):
+    return [{'type': 'text', 'text': 'ttresearch.page.%s.%d' % (key, n)} for n in pages]
+
+
+RESEARCH = [
+    dict(key='DARK_QUARTZ', column=-2, row=2, complexity=0, icon='dark_quartz', stub=True, autoUnlock=True, round=True,
+         pages=text('DARK_QUARTZ', 0) + [P('crafting', r) for r in (
+             'dark_quartz', 'dark_quartz_block', 'dark_quartz_slab', 'chiseled_dark_quartz_block', 'dark_quartz_pillar',
+             'dark_quartz_stairs')]),
+    dict(key='SHARE_TOME', column=0, row=-1, complexity=0, icon='share_tome', stub=True, autoUnlock=True, round=True,
+         pages=text('SHARE_TOME', 0) + [P('crafting', 'share_tome')]),
+    dict(key='GASEOUS_LIGHT', aspects={'lux': 2, 'aer': 1}, column=0, row=-3, complexity=1, icon='gaseous_light',
+         parents=['NITOR'], pages=text('GASEOUS_LIGHT', 0) + [P('crucible', 'crucible/gaseous_light')]),
+    dict(key='GASEOUS_SHADOW', aspects={'tenebrae': 2, 'aer': 1, 'motus': 4}, column=-1, row=-5, complexity=2,
+         icon='gaseous_shadow', secondary=True, parents=['GASEOUS_LIGHT'],
+         pages=text('GASEOUS_SHADOW', 0) + [P('crucible', 'crucible/gaseous_shadow')]),
+    dict(key='GAS_REMOVER', aspects={'tenebrae': 2, 'lux': 2}, column=-2, row=-7, complexity=0, icon='gas_remover',
+         round=True, parents=['GASEOUS_SHADOW'], pages=text('GAS_REMOVER', 0) + [P('arcane', 'gas_remover')]),
+    dict(key='BRIGHT_NITOR', aspects={'lux': 2, 'ignis': 1, 'potentia': 1, 'aer': 1}, column=1, row=-5, complexity=2,
+         icon='bright_nitor', concealed=True, secondary=True, parents=['GASEOUS_LIGHT'],
+         pages=text('BRIGHT_NITOR', 0) + [P('crucible', 'crucible/bright_nitor')]),
+    dict(key='FUNNEL', aspects={'instrumentum': 1, 'iter': 2}, column=0, row=-7, complexity=1, icon='funnel',
+         concealed=True, secondary=True, parents=['BRIGHT_NITOR'], parents_hidden=['DISTILESSENTIA'],
+         pages=text('FUNNEL', 0) + [P('arcane', 'funnel')]),
+    dict(key='REPAIRER', aspects={'instrumentum': 2, 'fabrico': 1, 'ordo': 1, 'praecantatio': 1}, column=-1, row=-9,
+         complexity=3, icon='repairer', concealed=True, parents=['FUNNEL'], parents_hidden=['THAUMIUM', 'ENCHFABRIC'],
+         pages=text('REPAIRER', 0) + [P('infusion', 'infusion/repairer')]),
+    dict(key='SPELL_CLOTH', aspects={'praecantatio': 2, 'pannus': 1}, column=3, row=2, complexity=2, icon='spell_cloth',
+         parents_hidden=['ENCHFABRIC'], pages=text('SPELL_CLOTH', 0) + [P('crucible', 'crucible/spell_cloth')]),
+    dict(key='XP_TALISMAN', aspects={'lucrum': 1, 'praecantatio': 1, 'humanus': 1}, column=4, row=-1, complexity=2,
+         icon='xp_talisman', concealed=True, secondary=True, parents=['JARBRAIN', 'SPELL_CLOTH'],
+         pages=text('XP_TALISMAN', 0) + [P('infusion', 'infusion/xp_talisman')]),
+    dict(key='CLEANSING_TALISMAN', aspects={'sano': 2, 'ordo': 1, 'venenum': 1}, column=-3, row=4, complexity=3,
+         icon='cleansing_talisman', secondary=True, parents=['DARK_QUARTZ'],
+         pages=text('CLEANSING_TALISMAN', 0) + [P('infusion', 'infusion/cleansing_talisman')]),
+    dict(key='REVEALING_HELM', aspects={'auram': 2, 'tutamen': 1}, column=0, row=0, complexity=1, icon='revealing_helm',
+         parents=['GOGGLES'], parents_hidden=['THAUMIUM'],
+         pages=text('REVEALING_HELM', 0) + [P('arcane', 'revealing_helm')]),
+    # в оригинале родитель — «Периферия» ComputerCraft; без неё анализатор открывается после очков и таумия
+    dict(key='ASPECT_ANALYZER', aspects={'machina': 2, 'sensus': 1, 'cognitio': 1}, column=0, row=1, complexity=2,
+         icon='aspect_analyzer', concealed=True, round=True, parents_hidden=['GOGGLES', 'THAUMIUM'],
+         pages=text('ASPECT_ANALYZER', 0) + [P('arcane', 'aspect_analyzer')]),
+    dict(key='PLATFORM', aspects={'sensus': 2, 'arbor': 1, 'motus': 1}, column=-2, row=6, complexity=3, icon='platform',
+         concealed=True, secondary=True, parents=['CLEANSING_TALISMAN'], pages=text('PLATFORM', 0) + [P('arcane', 'platform')]),
+]
+
+# ---------------------------------------------------------------- рецепты
+I = lambda item: {'item': item if ':' in item else NS + ':' + item}
+T = lambda tag: {'tag': tag}
+PRIMALS5 = {'aer': 5, 'ignis': 5, 'aqua': 5, 'terra': 5, 'ordo': 5, 'perditio': 5}
+
+
+def shaped(result, pattern, key, count=1):
+    return {'type': 'minecraft:crafting_shaped', 'pattern': pattern, 'key': key, 'result': dict(I(result), count=count)}
+
+
+def arcane(result, research, pattern, key, aspects, count=1):
+    return {'type': 'thaumcraft:arcane_shaped', 'pattern': pattern, 'key': key, 'result': dict(I(result), count=count),
+            'aspects': aspects, 'research': research}
+
+
+def crucible(result, research, catalyst, aspects, count=1):
+    return {'type': 'thaumcraft:crucible', 'catalyst': catalyst, 'aspects': aspects,
+            'result': dict(I(result), count=count), 'research': research}
+
+
+def infusion(result, research, central, components, aspects, instability):
+    return {'type': 'thaumcraft:infusion', 'central': central, 'components': components, 'aspects': aspects,
+            'instability': instability, 'result': I(result), 'research': research}
+
+
+RECIPES = {
+    'dark_quartz': shaped('dark_quartz', ['Q Q', ' C ', 'Q Q'], {'Q': I('minecraft:quartz'), 'C': T('minecraft:coals')}, 4),
+    'dark_quartz_block': shaped('dark_quartz_block', ['QQ', 'QQ'], {'Q': I('dark_quartz')}),
+    'dark_quartz_slab': shaped('dark_quartz_slab', ['QQQ'], {'Q': I('dark_quartz_block')}, 6),
+    'chiseled_dark_quartz_block': shaped('chiseled_dark_quartz_block', ['Q', 'Q'], {'Q': I('dark_quartz_slab')}),
+    'dark_quartz_pillar': shaped('dark_quartz_pillar', ['Q', 'Q'], {'Q': I('dark_quartz_block')}, 2),
+    'dark_quartz_stairs': shaped('dark_quartz_stairs', ['Q  ', 'QQ ', 'QQQ'], {'Q': I('dark_quartz_block')}, 4),
+    'share_tome': shaped('share_tome', [' S ', 'PTP', ' P '], {'S': I('thaumcraft:scribing_tools'),
+                                                              'T': I('thaumcraft:thaumonomicon'), 'P': I('minecraft:paper')}),
+    'crucible/gaseous_light': crucible('gaseous_light', 'GASEOUS_LIGHT', I('thaumcraft:phial'), {'lux': 16, 'aer': 10, 'motus': 8}),
+    'crucible/gaseous_shadow': crucible('gaseous_shadow', 'GASEOUS_SHADOW', I('thaumcraft:phial'),
+                                        {'tenebrae': 16, 'aer': 10, 'motus': 8}),
+    'gas_remover': arcane('gas_remover', 'GAS_REMOVER', ['DDD', 'L S', 'QQQ'],
+                          {'D': I('dark_quartz'), 'L': I('gaseous_light'), 'S': I('gaseous_shadow'), 'Q': I('minecraft:quartz')},
+                          {'aer': 2, 'ordo': 2}),
+    'crucible/bright_nitor': crucible('bright_nitor', 'BRIGHT_NITOR', I('thaumcraft:nitor'),
+                                      {'potentia': 25, 'lux': 25, 'aer': 10, 'ignis': 10}),
+    'funnel': arcane('funnel', 'FUNNEL', ['STS'], {'S': I('minecraft:stone'), 'T': I('thaumcraft:thaumium_ingot')},
+                     {'ordo': 1, 'perditio': 1}),
+    'infusion/repairer': infusion('repairer', 'REPAIRER', I('thaumcraft:thaumium_block'),
+                                  [I('minecraft:iron_ingot'), I('minecraft:gold_ingot'), I('minecraft:diamond'),
+                                   I('minecraft:cobblestone'), T('minecraft:planks'), I('minecraft:leather'),
+                                   I('thaumcraft:enchanted_fabric'), I('thaumcraft:thaumium_ingot')],
+                                  {'instrumentum': 15, 'fabrico': 20, 'ordo': 10, 'praecantatio': 15}, 8),
+    'crucible/spell_cloth': crucible('spell_cloth', 'SPELL_CLOTH', I('thaumcraft:enchanted_fabric'),
+                                     {'praecantatio': 10, 'perditio': 6, 'permutatio': 4}),
+    'spell_cloth_disenchant': {'type': NS + ':spell_cloth'},
+    'infusion/xp_talisman': infusion('xp_talisman', 'XP_TALISMAN', I('minecraft:gold_ingot'),
+                                     [I('minecraft:quartz'), I('minecraft:quartz'), I('thaumcraft:zombie_brain'), I('minecraft:diamond')],
+                                     {'lucrum': 20, 'permutatio': 10, 'bestia': 10, 'machina': 5}, 6),
+    'infusion/cleansing_talisman': infusion('cleansing_talisman', 'CLEANSING_TALISMAN', I('minecraft:ender_pearl'),
+                                            [I('dark_quartz')] * 4 + [I('minecraft:ghast_tear'), I('thaumcraft:nitor')],
+                                            {'sano': 10, 'instrumentum': 10, 'humanus': 20, 'victus': 10}, 5),
+    'revealing_helm': arcane('revealing_helm', 'REVEALING_HELM', ['GH'], {'G': I('thaumcraft:goggles'),
+                                                                         'H': I('thaumcraft:thaumium_helmet')}, PRIMALS5),
+    'aspect_analyzer': arcane('aspect_analyzer', 'ASPECT_ANALYZER', ['TWT', 'WMW', 'TWT'],
+                              {'W': I('thaumcraft:greatwood_planks'), 'M': I('thaumcraft:thaumometer'),
+                               'T': I('thaumcraft:thaumium_ingot')}, {'ordo': 1, 'perditio': 1}),
+    'platform': arcane('platform', 'PLATFORM', [' S ', 'G G'], {'G': I('thaumcraft:greatwood_planks'),
+                                                                'S': I('thaumcraft:silverwood_planks')},
+                       {'aer': 2, 'perditio': 4}, 2),
+}
+
+# ---------------------------------------------------------------- модели предметов и блоков
+FLAT_ITEMS = ['dark_quartz', 'spell_cloth', 'bright_nitor', 'gaseous_light', 'gaseous_shadow', 'gas_remover', 'share_tome',
+              'revealing_helm']
+# предметы с двумя видами: включён (свойство thaumictinkerer:active = 1) и выключен
+TOGGLED_ITEMS = ['xp_talisman', 'cleansing_talisman']
+# блоки, у которых предмет — та же модель
+CUBE_BLOCKS = {
+    'dark_quartz_block': {'parent': 'minecraft:block/cube_bottom_top', 'textures': {
+        'side': 'block/dark_quartz_block_side', 'top': 'block/dark_quartz_block_top', 'bottom': 'block/dark_quartz_block_bottom'}},
+    'chiseled_dark_quartz_block': {'parent': 'minecraft:block/cube_column', 'textures': {
+        'side': 'block/chiseled_dark_quartz_block', 'end': 'block/chiseled_dark_quartz_block_top'}},
+    'aspect_analyzer': {'parent': 'minecraft:block/cube', 'textures': {
+        'particle': 'block/aspect_analyzer_north', 'up': 'block/aspect_analyzer_top', 'down': 'block/aspect_analyzer_top',
+        'north': 'block/aspect_analyzer_north', 'south': 'block/aspect_analyzer_south',
+        'west': 'block/aspect_analyzer_west', 'east': 'block/aspect_analyzer_east'}},
+    'platform': {'parent': 'minecraft:block/cube_all', 'textures': {'all': 'block/platform'}},
+}
+# блоки без предмета (газы): состояние с пустой моделью
+GAS_BLOCKS = ['gaseous_light', 'gaseous_shadow', 'nitor_gas']
+# блоки, которые выпадают сами собой
+SELF_DROP = ['dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_stairs', 'funnel',
+             'repairer', 'aspect_analyzer', 'platform']
+PICKAXE = ['dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_slab', 'dark_quartz_stairs',
+           'funnel', 'repairer', 'aspect_analyzer']
+AXE = ['platform']
+NECKLACES = ['xp_talisman', 'cleansing_talisman']
+
+
+def ns(path):
+    return NS + ':' + path
+
+
+def write(path, obj):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, 'w', encoding='utf-8', newline='\n') as f:
+        json.dump(obj, f, ensure_ascii=False, indent=2)
+        f.write('\n')
+
+
+def prefixed(textures):
+    return {k: v if ':' in v else ns(v) for k, v in textures.items()}
+
+
+def gen_textures():
+    for new, old in TEXTURES.items():
+        dst = os.path.join(ASSETS, 'textures', new + '.png')
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        shutil.copyfile(os.path.join(SRC, 'textures', old), dst)
+        if os.path.exists(os.path.join(SRC, 'textures', old + '.mcmeta')):
+            shutil.copyfile(os.path.join(SRC, 'textures', old + '.mcmeta'), dst + '.mcmeta')
+
+
+def read_lang(name):
+    out = {}
+    with open(os.path.join(SRC, 'lang', name + '.lang'), encoding='utf-8', errors='replace') as f:
+        for line in f:
+            line = line.rstrip('\n').rstrip('\r')
+            if '=' in line and not line.startswith('#'):
+                k, v = line.split('=', 1)
+                out[k.strip()] = v
+    return out
+
+
+def gen_lang():
+    def tool_lang(name):
+        path = os.path.join(ROOT, 'tools', 'lang', name)
+        return json.load(open(path, encoding='utf-8')) if os.path.exists(path) else {}
+
+    research_keys = {r['key'] for r in RESEARCH}
+    english = None
+    for code, original in list(LANGS.items()) + [('uk_ua', None)]:
+        src = read_lang(original) if original else {}
+        table = {}
+        for ours, theirs in ITEM_NAMES.items():
+            for key in [theirs] + ITEM_NAME_ALIASES.get(theirs, []):
+                if key in src:
+                    table[ours] = src[key]
+                    break
+        for k, v in src.items():
+            if k.startswith('ttmisc.') or k.startswith('ttresearch.page.') or k == 'ttresearch.prefix':
+                table[k] = v
+            elif k.startswith('ttresearch.name.') and k[16:] in research_keys:
+                table['tc.research_name.' + k[16:]] = v
+            elif k.startswith('ttresearch.lore.') and k[16:] in research_keys:
+                table['tc.research_text.' + k[16:]] = v
+            elif k.startswith('tc.research_category.TT_'):
+                table[k] = v
+        table.update(tool_lang('tt_extra_%s.json' % code))
+        if code == 'uk_ua':
+            # украинского в оригинале нет: английская основа, поверх — наш перевод
+            table = dict(english, **tool_lang('tt_uk.json'))
+        # в текстах оригинала одиночный % ломал форматирование книги
+        table = {k: v for k, v in sorted(table.items())}
+        write(os.path.join(ASSETS, 'lang', code + '.json'), table)
+        if code == 'en_us':
+            english = table
+    missing = [k for k in english if k not in tool_lang('tt_uk.json')
+               and (k.startswith('item.') or k.startswith('block.') or k.startswith('tc.research_')
+                    or any(k == 'ttresearch.page.%s.%d' % (r, n) for r in research_keys for n in range(8)))]
+    if missing:
+        print('без украинского перевода:', len(missing), missing[:8])
+
+
+def gen_research():
+    entries = []
+    for r in RESEARCH:
+        e = {'key': r['key'], 'category': 'TT_CATEGORY', 'aspects': r.get('aspects', {}), 'column': r['column'],
+             'row': r['row'], 'complexity': r['complexity'], 'icon': {'item': ns(r['icon'])}, 'pages': r['pages']}
+        for flag in ('stub', 'autoUnlock', 'round', 'secondary', 'concealed', 'hidden'):
+            if r.get(flag):
+                e[flag] = True
+        for field in ('parents', 'parents_hidden'):
+            if r.get(field):
+                e[field] = r[field]
+        if r.get('warp'):
+            e['warp'] = r['warp']
+        entries.append(e)
+    write(os.path.join(DATA, 'thaumcraft_research', 'research.json'), {'categories': [
+        {'key': 'TT_CATEGORY', 'icon': ns('textures/misc/r_enchanting.png'),
+         'background': 'thaumcraft:textures/gui/gui_researchback.png'}], 'entries': entries})
+
+
+def gen_recipes():
+    for name, recipe in RECIPES.items():
+        write(os.path.join(DATA, 'recipes', name + '.json'), recipe)
+
+
+def gen_models():
+    models = os.path.join(ASSETS, 'models')
+    states = os.path.join(ASSETS, 'blockstates')
+    for item in FLAT_ITEMS:
+        write(os.path.join(models, 'item', item + '.json'),
+              {'parent': 'minecraft:item/generated', 'textures': {'layer0': ns('item/' + item)}})
+    for item in TOGGLED_ITEMS:
+        write(os.path.join(models, 'item', item + '_active.json'),
+              {'parent': 'minecraft:item/generated', 'textures': {'layer0': ns('item/%s_active' % item)}})
+        write(os.path.join(models, 'item', item + '.json'),
+              {'parent': 'minecraft:item/generated', 'textures': {'layer0': ns('item/' + item)},
+               'overrides': [{'predicate': {ns('active'): 1}, 'model': ns('item/%s_active' % item)}]})
+    for block, model in CUBE_BLOCKS.items():
+        write(os.path.join(models, 'block', block + '.json'), dict(model, textures=prefixed(model['textures'])))
+        write(os.path.join(models, 'item', block + '.json'), {'parent': ns('block/' + block)})
+        write(os.path.join(states, block + '.json'), {'variants': {'': {'model': ns('block/' + block)}}})
+    # столб: как у кварцевого столба, по трём осям
+    pillar = {'side': ns('block/dark_quartz_pillar'), 'end': ns('block/dark_quartz_pillar_top')}
+    write(os.path.join(models, 'block', 'dark_quartz_pillar.json'), {'parent': 'minecraft:block/cube_column', 'textures': pillar})
+    write(os.path.join(models, 'block', 'dark_quartz_pillar_horizontal.json'),
+          {'parent': 'minecraft:block/cube_column_horizontal', 'textures': pillar})
+    write(os.path.join(models, 'item', 'dark_quartz_pillar.json'), {'parent': ns('block/dark_quartz_pillar')})
+    write(os.path.join(states, 'dark_quartz_pillar.json'), {'variants': {
+        'axis=y': {'model': ns('block/dark_quartz_pillar')},
+        'axis=z': {'model': ns('block/dark_quartz_pillar_horizontal'), 'x': 90},
+        'axis=x': {'model': ns('block/dark_quartz_pillar_horizontal'), 'x': 90, 'y': 90}}})
+    # плита и ступени из кварца
+    q = {'bottom': ns('block/dark_quartz_block_top'), 'top': ns('block/dark_quartz_block_top'),
+         'side': ns('block/dark_quartz_block_side')}
+    write(os.path.join(models, 'block', 'dark_quartz_slab.json'), {'parent': 'minecraft:block/slab', 'textures': q})
+    write(os.path.join(models, 'block', 'dark_quartz_slab_top.json'), {'parent': 'minecraft:block/slab_top', 'textures': q})
+    write(os.path.join(models, 'item', 'dark_quartz_slab.json'), {'parent': ns('block/dark_quartz_slab')})
+    write(os.path.join(states, 'dark_quartz_slab.json'), {'variants': {
+        'type=bottom': {'model': ns('block/dark_quartz_slab')}, 'type=top': {'model': ns('block/dark_quartz_slab_top')},
+        'type=double': {'model': ns('block/dark_quartz_block')}}})
+    for kind in ('', '_inner', '_outer'):
+        write(os.path.join(models, 'block', 'dark_quartz_stairs%s.json' % kind),
+              {'parent': 'minecraft:block/%sstairs' % kind.lstrip('_').replace('inner', 'inner_').replace('outer', 'outer_'),
+               'textures': q})
+    write(os.path.join(models, 'item', 'dark_quartz_stairs.json'), {'parent': ns('block/dark_quartz_stairs')})
+    write(os.path.join(states, 'dark_quartz_stairs.json'), stairs_state(ns('block/dark_quartz_stairs')))
+    for gas in GAS_BLOCKS:
+        write(os.path.join(states, gas + '.json'), {'variants': {'': {'model': ns('block/empty')}}})
+    write(os.path.join(models, 'block', 'empty.json'), {'textures': {'particle': 'minecraft:block/glass'}, 'elements': []})
+    # воронка: тонкая плита на воронке-хоппере, сверху рамка
+    write(os.path.join(models, 'block', 'funnel.json'), {
+        'parent': 'minecraft:block/block', 'textures': {'particle': ns('block/funnel_top'), 'top': ns('block/funnel_top'),
+                                                        'side': ns('block/funnel_side')},
+        'elements': [{'from': [0, 0, 0], 'to': [16, 2, 16], 'faces': {
+            'down': {'texture': '#top', 'cullface': 'down'}, 'up': {'texture': '#top'},
+            'north': {'texture': '#side', 'uv': [0, 14, 16, 16]}, 'south': {'texture': '#side', 'uv': [0, 14, 16, 16]},
+            'west': {'texture': '#side', 'uv': [0, 14, 16, 16]}, 'east': {'texture': '#side', 'uv': [0, 14, 16, 16]}}}]})
+    write(os.path.join(models, 'item', 'funnel.json'), {'parent': ns('block/funnel')})
+    write(os.path.join(states, 'funnel.json'), {'variants': {'': {'model': ns('block/funnel')}}})
+    # восстановитель рисуется целиком отрисовщиком блока; модель нужна для частиц и предмета
+    write(os.path.join(models, 'block', 'repairer.json'), {'textures': {'particle': ns('block/platform')}, 'elements': []})
+    write(os.path.join(states, 'repairer.json'), {'variants': {
+        'facing=%s' % f: {'model': ns('block/repairer')} for f in ('north', 'south', 'west', 'east')}})
+    write(os.path.join(models, 'item', 'repairer.json'), {'parent': 'minecraft:builtin/entity', 'display': BLOCK_DISPLAY})
+    # платформа под маскировкой не рисует своей модели — вместо неё отрисовщик блока показывает выбранный блок
+    write(os.path.join(states, 'platform.json'), {'variants': {
+        'camo=false': {'model': ns('block/platform')}, 'camo=true': {'model': ns('block/empty')}}})
+
+
+BLOCK_DISPLAY = {
+    'gui': {'rotation': [30, 225, 0], 'translation': [0, 0, 0], 'scale': [0.625, 0.625, 0.625]},
+    'ground': {'rotation': [0, 0, 0], 'translation': [0, 3, 0], 'scale': [0.25, 0.25, 0.25]},
+    'fixed': {'rotation': [0, 0, 0], 'translation': [0, 0, 0], 'scale': [0.5, 0.5, 0.5]},
+    'thirdperson_righthand': {'rotation': [75, 45, 0], 'translation': [0, 2.5, 0], 'scale': [0.375, 0.375, 0.375]},
+    'firstperson_righthand': {'rotation': [0, 45, 0], 'translation': [0, 0, 0], 'scale': [0.4, 0.4, 0.4]},
+    'firstperson_lefthand': {'rotation': [0, 225, 0], 'translation': [0, 0, 0], 'scale': [0.4, 0.4, 0.4]},
+}
+
+
+def stairs_state(model):
+    """Состояния ступеней — как у ванильных (generated by data generators)."""
+    variants = {}
+    rot = {'east': 0, 'south': 90, 'west': 180, 'north': 270}
+    for facing, y in rot.items():
+        for half in ('bottom', 'top'):
+            for shape in ('straight', 'inner_left', 'inner_right', 'outer_left', 'outer_right'):
+                m = model + ('' if shape == 'straight' else '_inner' if shape.startswith('inner') else '_outer')
+                yy = y
+                if shape in ('inner_left', 'outer_left') and half == 'bottom':
+                    yy -= 90
+                if shape in ('inner_right', 'outer_right') and half == 'top':
+                    yy += 90
+                v = {'model': m}
+                if half == 'top':
+                    v['x'] = 180
+                if yy % 360:
+                    v['y'] = yy % 360
+                if half == 'top' or yy % 360:
+                    v['uvlock'] = True
+                variants['facing=%s,half=%s,shape=%s' % (facing, half, shape)] = v
+    return {'variants': variants}
+
+
+def gen_loot_and_tags():
+    for block in SELF_DROP:
+        write(os.path.join(DATA, 'loot_tables', 'blocks', block + '.json'), {
+            'type': 'minecraft:block', 'pools': [{'rolls': 1, 'entries': [{'type': 'minecraft:item', 'name': ns(block)}],
+                                                  'conditions': [{'condition': 'minecraft:survives_explosion'}]}]})
+    write(os.path.join(DATA, 'loot_tables', 'blocks', 'dark_quartz_slab.json'), {
+        'type': 'minecraft:block', 'pools': [{'rolls': 1, 'entries': [{
+            'type': 'minecraft:item', 'name': ns('dark_quartz_slab'), 'functions': [{
+                'function': 'minecraft:set_count', 'count': 2, 'add': False, 'conditions': [{
+                    'condition': 'minecraft:block_state_property', 'block': ns('dark_quartz_slab'),
+                    'properties': {'type': 'double'}}]}, {'function': 'minecraft:explosion_decay'}]}]}]})
+    tags = os.path.join(OUT, 'data')
+    write(os.path.join(tags, 'minecraft', 'tags', 'blocks', 'mineable', 'pickaxe.json'),
+          {'replace': False, 'values': [ns(b) for b in PICKAXE]})
+    write(os.path.join(tags, 'minecraft', 'tags', 'blocks', 'mineable', 'axe.json'),
+          {'replace': False, 'values': [ns(b) for b in AXE]})
+    write(os.path.join(tags, 'minecraft', 'tags', 'blocks', 'slabs.json'), {'replace': False, 'values': [ns('dark_quartz_slab')]})
+    write(os.path.join(tags, 'minecraft', 'tags', 'blocks', 'stairs.json'), {'replace': False, 'values': [ns('dark_quartz_stairs')]})
+    write(os.path.join(tags, 'minecraft', 'tags', 'items', 'slabs.json'), {'replace': False, 'values': [ns('dark_quartz_slab')]})
+    write(os.path.join(tags, 'minecraft', 'tags', 'items', 'stairs.json'), {'replace': False, 'values': [ns('dark_quartz_stairs')]})
+    write(os.path.join(tags, 'curios', 'tags', 'items', 'necklace.json'), {'replace': False, 'values': [ns(i) for i in NECKLACES]})
+
+
+if __name__ == '__main__':
+    gen_textures()
+    gen_lang()
+    gen_research()
+    gen_recipes()
+    gen_models()
+    gen_loot_and_tags()
+    print('готово:', len(RESEARCH), 'исследований,', len(RECIPES), 'рецептов,', len(TEXTURES), 'текстур')

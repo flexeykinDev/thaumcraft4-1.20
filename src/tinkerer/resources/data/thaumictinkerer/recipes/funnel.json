@@ -1,0 +1,23 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "STS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "T": {
+      "item": "thaumcraft:thaumium_ingot"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:funnel",
+    "count": 1
+  },
+  "aspects": {
+    "ordo": 1,
+    "perditio": 1
+  },
+  "research": "FUNNEL"
+}

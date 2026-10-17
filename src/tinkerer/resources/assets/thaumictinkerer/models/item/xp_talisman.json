@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "thaumictinkerer:item/xp_talisman"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "thaumictinkerer:active": 1
+      },
+      "model": "thaumictinkerer:item/xp_talisman_active"
+    }
+  ]
+}

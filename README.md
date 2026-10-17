@@ -68,6 +68,13 @@ Not tested yet: long survival playthroughs, dedicated multiplayer servers, large
 
 **Languages:** English, Russian and Ukrainian are complete. 20 more languages come from the original's community translations; strings that are new in this port fall back to English there.
 
+## ▪ Thaumic Tinkerer addon (in progress)
+
+A port of **Thaumic Tinkerer** (by pixlepix and nekosune) is being built in the same repository as a **separate mod**: its own jar, `thaumictinkerer-1.20.1-<version>.jar`, which needs this Thaumcraft port. Put both jars into `mods` to play with it; without it Thaumcraft works as before.
+
+It adds a «Thaumic Tinkering» tab to the Thaumonomicon. Ported so far (part 1 of 3): smokey quartz, Tome of Knowledge Sharing, gaseous light and shadow with the Fume Dissipator, Hyperenergetic Nitor, Essentia Funnel, Thaumic Restorer, Spellbinding Cloth, Talismans of Withhold and Remedium, Helmet of Revealing, Aspectalyzer and Ethereal Platform.
+Next: foci, Osmotic Enchanter with its 14 enchantments, magnets and transvectors (part 2), then the late-game Kami/Ichor content (part 3). ComputerCraft, OpenComputers and Applied Energistics integrations are not planned.
+
 ## ▪ Screenshots
 
 <table>
@@ -85,11 +92,12 @@ Requires JDK 17.
 ./gradlew build
 ```
 
-The jar appears in `build/libs`. `./gradlew runClient` starts a development client.
+The jars appear in `build/libs`: `thaumcraft4-1.20.1-<version>.jar` and the addon `thaumictinkerer-1.20.1-<version>.jar`. `./gradlew runClient` starts a development client.
 
 ## ▪ Credits
 
 - **Azanor** — creator of Thaumcraft: design, code, textures, models, sounds and texts of the original.
+- **pixlepix** and **nekosune** — authors of the original Thaumic Tinkerer addon.
 - Translators of the original's language files.
 - This port: rewritten code and adaptation to Minecraft 1.20.1.
 

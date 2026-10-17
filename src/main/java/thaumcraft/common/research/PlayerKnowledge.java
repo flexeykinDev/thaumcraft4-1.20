@@ -95,6 +95,11 @@ public class PlayerKnowledge {
         return research.add(key);
     }
 
+    /** Все завершённые исследования, включая подсказки «@…» (только для чтения: том обмена знаниями переписывает их). */
+    public Set<String> getCompletedResearch() {
+        return java.util.Collections.unmodifiableSet(research);
+    }
+
     public void clearResearch() {
         research.clear();
     }

@@ -410,7 +410,9 @@ public class ItemAspectManager extends SimpleJsonResourceReloadListener {
                     continue;
                 }
                 boolean infusion = recipe.getClass() == thaumcraft.common.crafting.InfusionRecipe.class;
-                if (recipe.isSpecial() && !infusion || !crafting && type != RecipeType.SMELTING && type != RecipeType.STONECUTTING) {
+                // магические рецепты помечены «особыми» только ради книги рецептов — аспекты по ним считаются как прежде
+                boolean special = recipe.isSpecial() && !(recipe instanceof thaumcraft.common.crafting.ArcaneWrappedRecipe);
+                if (special && !infusion || !crafting && type != RecipeType.SMELTING && type != RecipeType.STONECUTTING) {
                     continue;
                 }
                 ItemStack result = recipe.getResultItem(registryAccess);

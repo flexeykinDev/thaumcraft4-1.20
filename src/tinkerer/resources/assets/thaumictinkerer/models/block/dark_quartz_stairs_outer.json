@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "thaumictinkerer:block/dark_quartz_block_top",
+    "top": "thaumictinkerer:block/dark_quartz_block_top",
+    "side": "thaumictinkerer:block/dark_quartz_block_side"
+  }
+}
