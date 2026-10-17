@@ -46,6 +46,7 @@ public class ResearchTableScreen extends AbstractContainerScreen<ResearchTableMe
     private static final ResourceLocation HEX = Thaumcraft.id("textures/gui/hex1.png");
     private static final ResourceLocation HEX_HIGHLIGHT = Thaumcraft.id("textures/gui/hex2.png");
     private static final ResourceLocation UNKNOWN = Thaumcraft.id("textures/aspects/_unknown.png");
+    private static final ResourceLocation ASPECT_BACK = Thaumcraft.id("textures/aspects/_back.png");
     /** Радиус клетки и положение центра поля на листе. */
     private static final int HEX_SIZE = 9;
     private static final int SHEET_X = 169;
@@ -95,6 +96,32 @@ public class ResearchTableScreen extends AbstractContainerScreen<ResearchTableMe
         return out;
     }
 
+    /** «Копирование исследований»: над готовым открытием появляется кнопка снятия копии. */
+    private boolean canDuplicate() {
+        ResearchNote note = note();
+        return note != null && note.complete && knowledge().isResearchComplete("RESEARCHDUPE");
+    }
+
+    private void renderCopyCost(GuiGraphics graphics) {
+        ResearchNote note = note();
+        thaumcraft.common.research.ResearchEntry research = thaumcraft.common.research.ResearchRegistry.get(note.key);
+        if (research == null) {
+            return;
+        }
+        AspectList cost = ResearchTableBlockEntity.copyCost(research, note);
+        graphics.pose().pushPose();
+        graphics.pose().translate(0f, 0f, 400f);
+        graphics.drawString(font, Component.translatable("tc.research.copy"), leftPos + 100, topPos + 12, 0xffffff, true);
+        RenderSystem.enableBlend();
+        graphics.blit(TEXTURE, leftPos + 100, topPos + 21, 184, 224, 48, 16);
+        int x = leftPos + 148;
+        for (Aspect aspect : cost.getAspectsSortedByName()) {
+            AspectRenderer.draw(graphics, font, aspect, cost.getAmount(aspect), x, topPos + 21, 1f);
+            x += AspectRenderer.ICON;
+        }
+        graphics.pose().popPose();
+    }
+
     private boolean available(Aspect aspect) {
         return knowledge().getPool(aspect) > 0 || table().getBonusAspects().getAmount(aspect) > 0;
     }
@@ -109,6 +136,9 @@ public class ResearchTableScreen extends AbstractContainerScreen<ResearchTableMe
             AspectRenderer.draw(graphics, font, dragged, 0, mouseX - 8, mouseY - 8, 1f);
             graphics.pose().popPose();
         } else {
+            if (canDuplicate() && inside(mouseX, mouseY, 37, 5, 24, 24)) {
+                renderCopyCost(graphics);
+            }
             renderAspectTooltip(graphics, mouseX, mouseY);
             renderTooltip(graphics, mouseX, mouseY);
         }
@@ -128,6 +158,9 @@ public class ResearchTableScreen extends AbstractContainerScreen<ResearchTableMe
         RenderSystem.enableBlend();
         graphics.blit(TEXTURE, leftPos, topPos, 0, 0, 255, 167);
         graphics.blit(TEXTURE, leftPos + 40, topPos + 167, 0, 166, 184, 88);
+        if (canDuplicate()) {
+            graphics.blit(TEXTURE, leftPos + 37, topPos + 5, 232, 200, 24, 24);
+        }
 
         List<Aspect> known = knownAspects();
         lastPage = Math.max(0, (known.size() - 20) / 5);
@@ -287,6 +320,18 @@ public class ResearchTableScreen extends AbstractContainerScreen<ResearchTableMe
 
     private void renderAspectTooltip(GuiGraphics graphics, int mouseX, int mouseY) {
         Aspect aspect = paletteAspectAt(mouseX, mouseY);
+        if (aspect != null) {
+            graphics.renderComponentTooltip(font, List.of(aspect.getName(), aspect.getDescription()), mouseX, mouseY - 8);
+            // «Экспертиза»: под курсором видно, из каких двух аспектов составлен наведённый (drawAspectText оригинала)
+            if (!aspect.isPrimal() && knowledge().isResearchComplete("RESEARCHER1")) {
+                graphics.pose().pushPose();
+                graphics.pose().translate(0f, 0f, 500f);
+                drawComponent(graphics, aspect.getFirstComponent(), mouseX + 6, mouseY + 6);
+                drawComponent(graphics, aspect.getSecondComponent(), mouseX + 24, mouseY + 6);
+                graphics.pose().popPose();
+            }
+            return;
+        }
         if (aspect == null && select1 != null && inside(mouseX, mouseY, 13, 139, 16, 16)) {
             aspect = select1;
         }
@@ -308,6 +353,12 @@ public class ResearchTableScreen extends AbstractContainerScreen<ResearchTableMe
         }
     }
 
+    private void drawComponent(GuiGraphics graphics, Aspect component, int x, int y) {
+        RenderSystem.enableBlend();
+        graphics.blit(ASPECT_BACK, x, y, 20, 20, 0f, 0f, 1, 1, 1, 1);
+        AspectRenderer.draw(graphics, font, component, 0, x + 2, y + 2, 1f);
+    }
+
     private boolean inside(double mouseX, double mouseY, int x, int y, int width, int height) {
         double dx = mouseX - (leftPos + x);
         double dy = mouseY - (topPos + y);
@@ -320,7 +371,21 @@ public class ResearchTableScreen extends AbstractContainerScreen<ResearchTableMe
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (button == 0 && canDuplicate() && inside(mouseX, mouseY, 37, 5, 24, 24)) {
+            minecraft.gameMode.handleInventoryButtonClick(menu.containerId, ResearchTableMenu.DUPLICATE);
+            click();
+            return true;
+        }
         Aspect aspect = paletteAspectAt(mouseX, mouseY);
+        // «Мастерство»: Shift+щелчок собирает аспект из его составляющих, если они есть в запасе или на столе
+        if (button == 0 && aspect != null && !aspect.isPrimal() && hasShiftDown()
+                && knowledge().isResearchComplete("RESEARCHER2")
+                && available(aspect.getFirstComponent()) && available(aspect.getSecondComponent())) {
+            ModNetwork.CHANNEL.sendToServer(ResearchTablePacket.combine(aspect.getFirstComponent(), aspect.getSecondComponent()));
+            minecraft.player.playSound(ModSounds.COMBINE.get(), 0.3f, 1f);
+            click();
+            return true;
+        }
         if (button == 0 && aspect != null && available(aspect)) {
             dragged = aspect;
             click();

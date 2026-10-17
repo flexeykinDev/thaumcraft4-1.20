@@ -87,6 +87,13 @@ public class VisAmuletItem extends Item implements ICurioItem {
     }
 
     /** Списывает набор сотых долей вис целиком или не списывает ничего. */
+    /** Полный амулет вис надевается только после его изучения (canEquip ItemAmuletVis оригинала). */
+    @Override
+    public boolean canEquip(top.theillusivec4.curios.api.SlotContext context, ItemStack stack) {
+        return lesser || !(context.entity() instanceof net.minecraft.world.entity.player.Player player)
+                || thaumcraft.common.research.PlayerKnowledge.forSide(player).isResearchComplete("VISAMULET");
+    }
+
     public boolean consumeAllVis(ItemStack stack, AspectList cost, boolean doIt) {
         if (cost == null || cost.isEmpty()) {
             return false;

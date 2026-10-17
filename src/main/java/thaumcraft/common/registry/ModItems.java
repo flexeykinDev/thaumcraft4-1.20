@@ -65,7 +65,7 @@ public final class ModItems {
     public static final RegistryObject<Item> WAND_CAP_COPPER = simple("wand_cap_copper");
     // новая механика: в ванили есть медь, но нет медного самородка (в оригинале ItemNugget мета 1)
     public static final RegistryObject<Item> COPPER_NUGGET = simple("copper_nugget");
-    public static final RegistryObject<Item> PRIMAL_CHARM = simple("primal_charm");
+    public static final RegistryObject<Item> PRIMAL_CHARM = ITEMS.register("primal_charm", thaumcraft.common.items.PrimalCharmItem::new);
     // заготовки украшений (ItemBaubleBlanks оригинала): сами ничего не делают, идут в рецепты
     public static final RegistryObject<Item> BAUBLE_AMULET = ITEMS.register("bauble_amulet", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BAUBLE_RING = ITEMS.register("bauble_ring", () -> new Item(new Item.Properties().stacksTo(1)));

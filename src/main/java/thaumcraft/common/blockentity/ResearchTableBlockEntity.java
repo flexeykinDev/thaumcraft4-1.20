@@ -34,7 +34,9 @@ import thaumcraft.common.blocks.ResearchTableBlock;
 import thaumcraft.common.registry.ModBlockEntities;
 import thaumcraft.common.registry.ModBlocks;
 import thaumcraft.common.research.PlayerKnowledge;
+import thaumcraft.common.research.ResearchEntry;
 import thaumcraft.common.research.ResearchNote;
+import thaumcraft.common.research.ResearchRegistry;
 
 import java.util.List;
 
@@ -175,6 +177,60 @@ public class ResearchTableBlockEntity extends BlockEntity implements MenuProvide
         spend(knowledge, second);
         knowledge.discover(result);
         knowledge.addPool(result, 1);
+        SyncKnowledgePacket.send(player);
+        contentsChanged();
+    }
+
+    /** Цена следующей копии открытия: аспекты исследования, каждый дороже на число уже снятых копий. */
+    public static AspectList copyCost(ResearchEntry research, ResearchNote note) {
+        AspectList cost = new AspectList();
+        for (Aspect aspect : research.aspects.getAspects()) {
+            cost.add(aspect, research.aspects.getAmount(aspect) + note.copies);
+        }
+        return cost;
+    }
+
+    /**
+     * «Копирование исследований» (duplicate оригинала): с готового открытия снимается копия для другого игрока.
+     * Стоит аспектов исследования из запаса, листа бумаги и чернильного мешка.
+     */
+    public void duplicate(ServerPlayer player) {
+        ItemStack notes = items.get(NOTES_SLOT);
+        ResearchNote note = notes.getItem() instanceof ResearchNotesItem ? ResearchNote.read(notes) : null;
+        PlayerKnowledge knowledge = PlayerKnowledge.get(player);
+        ResearchEntry research = note == null ? null : ResearchRegistry.get(note.key);
+        if (research == null || !note.complete || !knowledge.isResearchComplete("RESEARCHDUPE")) {
+            return;
+        }
+        int paper = thaumcraft.common.research.ResearchHelper.findPaper(player);
+        int ink = -1;
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            if (player.getInventory().getItem(i).is(net.minecraft.world.item.Items.INK_SAC)) {
+                ink = i;
+                break;
+            }
+        }
+        AspectList cost = copyCost(research, note);
+        if (paper < 0 || ink < 0) {
+            return;
+        }
+        for (Aspect aspect : cost.getAspects()) {
+            if (knowledge.getPool(aspect) < cost.getAmount(aspect)) {
+                return;
+            }
+        }
+        for (Aspect aspect : cost.getAspects()) {
+            knowledge.addPool(aspect, -cost.getAmount(aspect));
+        }
+        player.getInventory().getItem(paper).shrink(1);
+        player.getInventory().getItem(ink).shrink(1);
+        note.copies++;
+        note.write(notes);
+        ItemStack copy = notes.copyWithCount(1);
+        if (!player.getInventory().add(copy)) {
+            player.drop(copy, false);
+        }
+        level.playSound(null, worldPosition, thaumcraft.common.registry.ModSounds.LEARN.get(), SoundSource.BLOCKS, 1f, 1f);
         SyncKnowledgePacket.send(player);
         contentsChanged();
     }

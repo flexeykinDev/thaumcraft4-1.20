@@ -15,6 +15,7 @@ import thaumcraft.common.registry.ModMenus;
 
 /** Окно стола исследований (ContainerResearchTable оригинала): ячейки письменных принадлежностей и заметки. */
 public class ResearchTableMenu extends AbstractContainerMenu {
+    public static final int DUPLICATE = 5;
     private final ResearchTableBlockEntity table;
 
     public ResearchTableMenu(int id, Inventory inventory, BlockPos pos) {
@@ -54,6 +55,16 @@ public class ResearchTableMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player player) {
         return table.stillValid(player);
+    }
+
+    /** Кнопка 5 — снять копию с готового открытия (enchantItem ContainerResearchTable оригинала). */
+    @Override
+    public boolean clickMenuButton(Player player, int id) {
+        if (id == DUPLICATE && player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+            table.duplicate(serverPlayer);
+            return true;
+        }
+        return false;
     }
 
     @Override

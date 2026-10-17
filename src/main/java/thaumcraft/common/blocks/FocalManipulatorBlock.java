@@ -77,7 +77,13 @@ public class FocalManipulatorBlock extends BaseEntityBlock {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof Manipulator tile && player instanceof ServerPlayer serverPlayer) {
-            NetworkHooks.openScreen(serverPlayer, tile, pos);
+            // без изучения «Фокусной манипуляции» стол не открывается, как в оригинале
+            if (thaumcraft.common.research.PlayerKnowledge.get(serverPlayer).isResearchComplete("FOCALMANIPULATION")) {
+                NetworkHooks.openScreen(serverPlayer, tile, pos);
+            } else {
+                serverPlayer.sendSystemMessage(net.minecraft.network.chat.Component.translatable("tc.researchmissing")
+                        .withStyle(net.minecraft.ChatFormatting.RED));
+            }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }

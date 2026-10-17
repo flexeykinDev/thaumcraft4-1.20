@@ -70,6 +70,8 @@ public final class ResearchNote {
     public String key = "";
     public int color = 0xffffff;
     public boolean complete;
+    /** Сколько копий уже снято с этого открытия: каждая следующая дороже на единицу каждого аспекта. */
+    public int copies;
     public final Map<Hex, Entry> hexes = new LinkedHashMap<>();
 
     // ---------- создание ----------
@@ -231,6 +233,7 @@ public final class ResearchNote {
         note.key = tag.getString("key");
         note.color = tag.getInt("color");
         note.complete = tag.getBoolean("complete");
+        note.copies = tag.getInt("copies");
         ListTag grid = tag.getList("hexgrid", Tag.TAG_COMPOUND);
         for (int i = 0; i < grid.size(); i++) {
             CompoundTag cell = grid.getCompound(i);
@@ -245,6 +248,7 @@ public final class ResearchNote {
         tag.putString("key", key);
         tag.putInt("color", color);
         tag.putBoolean("complete", complete);
+        tag.putInt("copies", copies);
         ListTag grid = new ListTag();
         hexes.forEach((hex, entry) -> {
             CompoundTag cell = new CompoundTag();
