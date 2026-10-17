@@ -1,0 +1,36 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+issueTrackerURL="https://github.com/flexeykinDev/thaumcraft4-1.20/issues"
+
+[[mods]]
+modId="thaumictinkerer"
+version="${file.jarVersion}"
+displayName="Thaumic Tinkerer"
+displayURL="https://github.com/flexeykinDev/thaumcraft4-1.20"
+logoFile="assets/thaumictinkerer/textures/logo.png"
+authors="pixlepix, nekosune (original Thaumic Tinkerer); port: flexeykinDev"
+description='''
+Unofficial fan port of the Thaumic Tinkerer addon (by pixlepix and nekosune) to Minecraft 1.20.1. Requires the Thaumcraft 4 port.
+'''
+
+[[dependencies.thaumictinkerer]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.thaumictinkerer]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.thaumictinkerer]]
+    modId="thaumcraft"
+    mandatory=true
+    versionRange="[0.2.3,)"
+    ordering="AFTER"
+    side="BOTH"

@@ -13,6 +13,20 @@ base {
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
+// Thaumic Tinkerer — отдельный мод-аддон (свой jar, mod id thaumictinkerer), но собирается из этого же проекта:
+// так оба мода всегда совпадают по версии и в среде разработки запускаются вместе
+sourceSets {
+    tinkerer {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
+configurations {
+    tinkererImplementation.extendsFrom implementation
+    tinkererCompileOnly.extendsFrom compileOnly
+    tinkererRuntimeOnly.extendsFrom runtimeOnly
+}
+
 minecraft {
     mappings channel: 'official', version: '1.20.1'
     copyIdeResources = true
@@ -28,6 +42,9 @@ minecraft {
             mods {
                 thaumcraft {
                     source sourceSets.main
+                }
+                thaumictinkerer {
+                    source sourceSets.tinkerer
                 }
             }
         }
@@ -88,6 +105,27 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-1.20.1-common-api:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-1.20.1-forge-api:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-1.20.1-forge:${jei_version}")
+}
+
+tasks.register('tinkererJar', Jar) {
+    from sourceSets.tinkerer.output
+    archiveBaseName = 'thaumictinkerer-1.20.1'
+    archiveVersion = tinkerer_version
+    manifest {
+        attributes([
+                'Specification-Title'   : 'thaumictinkerer',
+                'Specification-Version' : '1',
+                'Implementation-Title'  : 'thaumictinkerer',
+                'Implementation-Version': tinkerer_version
+        ])
+    }
+    finalizedBy 'reobfTinkererJar'
+}
+reobf {
+    create('tinkererJar')
+}
+tasks.named('assemble') {
+    dependsOn 'tinkererJar'
 }
 
 tasks.withType(JavaCompile).configureEach {
