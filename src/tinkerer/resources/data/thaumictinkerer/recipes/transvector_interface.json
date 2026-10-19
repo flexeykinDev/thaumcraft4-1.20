@@ -1,0 +1,31 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "BRB",
+    "LEL",
+    "BRB"
+  ],
+  "key": {
+    "B": {
+      "item": "thaumcraft:arcane_stone"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:transvector_interface",
+    "count": 1
+  },
+  "aspects": {
+    "ordo": 12,
+    "perditio": 16
+  },
+  "research": "INTERFACE"
+}

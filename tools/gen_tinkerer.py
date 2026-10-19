@@ -80,6 +80,25 @@ ENCHANT_ICONS = {
     'shatter': 'shatter', 'shockwave': 'shockwave', 'pounce': 'pounce',
 }
 TEXTURES.update({'enchants/' + k: 'enchants/%s.png' % v for k, v in ENCHANT_ICONS.items()})
+# часть 2б
+TEXTURES.update({
+    'models/magnet_n': 'model/magnetN.png', 'models/magnet_s': 'model/magnetS.png',
+    'models/mob_magnet_n': 'model/mobMagnetN.png', 'models/mob_magnet_s': 'model/mobMagnetS.png',
+    'item/soul_mould': 'items/soulMould.png', 'item/connector': 'items/connector.png',
+    'block/transvector_interface': 'blocks/interface.png',
+    'block/transvector_dislocator': 'blocks/dislocator0.png', 'block/transvector_dislocator_face': 'blocks/dislocator1.png',
+    'block/remote_placer': 'blocks/remotePlacer0.png', 'block/remote_placer_face': 'blocks/remotePlacer1.png',
+    'block/mobilizer_bottom': 'blocks/Levitational Locomotive0.png', 'block/mobilizer_top': 'blocks/Levitational Locomotive1.png',
+    'block/mobilizer_side': 'blocks/Levitational Locomotive2.png',
+    'block/mobilizer_relay_bottom': 'blocks/Levitational Locomotive Relay0.png',
+    'block/mobilizer_relay_top': 'blocks/Levitational Locomotive Relay1.png',
+    'block/mobilizer_relay_side': 'blocks/Levitational Locomotive Relay2.png',
+    'block/animation_tablet_bottom': 'blocks/animationTablet0.png', 'block/animation_tablet_top': 'blocks/animationTablet1.png',
+    'block/animation_tablet_side': 'blocks/animationTablet2.png',
+    'misc/at_center': 'misc/atCenter.png', 'misc/at_left': 'misc/atLeft.png', 'misc/at_right': 'misc/atRight.png',
+    'misc/at_facing_indent': 'misc/atFacingIndent.png',
+    'gui/mob_magnet': 'gui/mobMagnet.png', 'gui/remote_placer': 'gui/remotePlacer.png', 'gui/animation_tablet': 'gui/animationTablet.png',
+})
 
 # ---------------------------------------------------------------- названия: наш id -> ключ .lang оригинала
 ITEM_NAMES = {
@@ -111,6 +130,16 @@ ITEM_NAMES = {
     'item.thaumictinkerer.focus_ender_chest': 'item.focusEnderChest.name',
     'block.thaumictinkerer.enchanter': 'tile.enchanter.name',
 }
+ITEM_NAMES.update({
+    'block.thaumictinkerer.magnet': 'tile.magnet.name', 'block.thaumictinkerer.mob_magnet': 'tile.mobMagnet.name',
+    'item.thaumictinkerer.soul_mould': 'item.soulMould.name', 'item.thaumictinkerer.connector': 'item.connector.name',
+    'block.thaumictinkerer.transvector_interface': 'tile.interface.name',
+    'block.thaumictinkerer.transvector_dislocator': 'tile.dislocator.name',
+    'block.thaumictinkerer.mobilizer': 'tile.Levitational Locomotive.name',
+    'block.thaumictinkerer.mobilizer_relay': 'tile.Levitational Locomotive Relay.name',
+    'block.thaumictinkerer.remote_placer': 'tile.remotePlacer.name',
+    'block.thaumictinkerer.animation_tablet': 'tile.animationTablet.name',
+})
 for ours, theirs in {'ascent_boost': 'ascentBoost', 'slow_fall': 'slowFall', 'auto_smelt': 'autoSmelt',
                      'desintegrate': 'desintegrate', 'quick_draw': 'quickDraw', 'vampirism': 'vampirism',
                      'dispersed_strikes': 'dispersedStrike', 'focused_strikes': 'focusedStrike', 'tunnel': 'tunnel',
@@ -192,6 +221,25 @@ RESEARCH = [
          pages=text('FOCUS_ENDER_CHEST', 0) + [P('arcane', 'focus_ender_chest')]),
     dict(key='ENCHANTER', aspects={'praecantatio': 2, 'auram': 1, 'alienis': 1, 'tenebrae': 1, 'cognitio': 1}, column=5, row=4,
          complexity=5, icon='enchanter', parents=['SPELL_CLOTH'], pages=text('ENCHANTER', 0, 1, 2) + [P('infusion', 'infusion/enchanter')]),
+]
+# часть 2б
+RESEARCH += [
+    dict(key='INTERFACE', aspects={'perditio': 4, 'ordo': 4}, column=-4, row=2, complexity=1, icon='transvector_interface',
+         parents=['DARK_QUARTZ'], pages=text('INTERFACE', 0) + [P('arcane', 'transvector_interface')] + text('INTERFACE', 1)
+         + [P('arcane', 'connector')] + text('INTERFACE', 2)),
+    dict(key='DISLOCATOR', aspects={'iter': 2, 'machina': 1, 'alienis': 1}, column=-6, row=1, complexity=3,
+         icon='transvector_dislocator', concealed=True, secondary=True, parents=['INTERFACE'], parents_hidden=['MIRROR'],
+         pages=text('DISLOCATOR', 0) + [P('arcane', 'transvector_dislocator')]),
+    dict(key='MAGNETS', aspects={'machina': 2, 'motus': 1, 'sensus': 1}, column=-6, row=3, complexity=3, icon='magnet',
+         concealed=True, parents=['INTERFACE'], parents_hidden=['FOCUS_TELEKINESIS'],
+         pages=text('MAGNETS', 0, 1) + [P('arcane', 'magnet'), P('arcane', 'mob_magnet'), P('crucible', 'crucible/soul_mould')]),
+    dict(key='LEVITATOR', aspects={'motus': 2, 'ordo': 2}, column=-7, row=5, complexity=3, icon='mobilizer', secondary=True,
+         parents=['MAGNETS'], pages=text('LEVITATOR', 0) + [P('infusion', 'infusion/mobilizer'), P('arcane', 'mobilizer_relay')]),
+    dict(key='ANIMATION_TABLET', aspects={'machina': 2, 'metallum': 1, 'motus': 1, 'potentia': 1}, column=-8, row=2, complexity=4,
+         icon='animation_tablet', warp=1, parents=['MAGNETS'], pages=text('ANIMATION_TABLET', 0) + [P('arcane', 'animation_tablet')]),
+    # в оригинале стоит в той же клетке, что и «Магниты»; сдвинуто, чтобы значки не накладывались
+    dict(key='REMOTE_PLACER', aspects={'machina': 2, 'motus': 1, 'sensus': 1}, column=-9, row=3, complexity=3, icon='remote_placer',
+         concealed=True, parents=['ANIMATION_TABLET'], pages=text('REMOTE_PLACER', 0, 1) + [P('arcane', 'remote_placer')]),
 ]
 # чары зачарователя: ключ исследования, значок, место на карте, цена, родители
 for key, icon, col, row, aspects, parents in [
@@ -300,6 +348,33 @@ RECIPES = {
     'focus_ender_chest': arcane('focus_ender_chest', 'FOCUS_ENDER_CHEST', ['M', 'E', 'P'],
                                 {'M': I('thaumcraft:magic_mirror'), 'E': I('minecraft:ender_eye'), 'P': I('thaumcraft:focus_portable_hole')},
                                 {'ordo': 10, 'perditio': 10}),
+    'transvector_interface': arcane('transvector_interface', 'INTERFACE', ['BRB', 'LEL', 'BRB'],
+                                    {'B': I('thaumcraft:arcane_stone'), 'E': I('minecraft:ender_pearl'), 'L': I('minecraft:lapis_lazuli'),
+                                     'R': I('minecraft:redstone')}, {'ordo': 12, 'perditio': 16}),
+    'connector': arcane('connector', 'INTERFACE', [' I ', ' WI', 'S  '],
+                        {'I': I('minecraft:iron_ingot'), 'W': I('minecraft:stick'), 'S': I('thaumcraft:shard_order')}, {'ordo': 2}),
+    'transvector_dislocator': arcane('transvector_dislocator', 'DISLOCATOR', ['M', 'I', 'C'],
+                                     {'M': I('thaumcraft:mirrored_glass'), 'I': I('transvector_interface'), 'C': I('minecraft:comparator')},
+                                     {'terra': 5, 'perditio': 5}),
+    'magnet': arcane('magnet', 'MAGNETS', [' I ', 'SIs', 'WFW'],
+                     {'I': I('minecraft:iron_ingot'), 's': I('thaumcraft:shard_earth'), 'S': I('thaumcraft:shard_air'),
+                      'W': I('thaumcraft:greatwood_log'), 'F': I('focus_telekinesis')}, {'aer': 20, 'ordo': 5, 'terra': 15, 'perditio': 5}),
+    'mob_magnet': arcane('mob_magnet', 'MAGNETS', [' G ', 'SGs', 'WFW'],
+                         {'G': T('forge:ingots/gold'), 's': I('thaumcraft:shard_earth'), 'S': I('thaumcraft:shard_air'),
+                          'W': I('thaumcraft:greatwood_log'), 'F': I('focus_telekinesis')}, {'aer': 20, 'ordo': 5, 'terra': 15, 'perditio': 5}),
+    'crucible/soul_mould': crucible('soul_mould', 'MAGNETS', I('minecraft:ender_pearl'), {'bestia': 4, 'cognitio': 8, 'sensus': 8}),
+    'infusion/mobilizer': infusion('mobilizer', 'LEVITATOR', I('thaumcraft:levitator'),
+                                   [I('minecraft:iron_ingot'), I('minecraft:feather'), I('minecraft:iron_ingot'), I('thaumcraft:obsidian_tile')],
+                                   {'motus': 15, 'ordo': 20, 'praecantatio': 15}, 4),
+    'mobilizer_relay': arcane('mobilizer_relay', 'LEVITATOR', ['WFW', 'SIs', 'WFW'],
+                              {'I': I('minecraft:iron_ingot'), 's': I('thaumcraft:shard_earth'), 'S': I('thaumcraft:shard_air'),
+                               'W': I('thaumcraft:greatwood_log'), 'F': I('minecraft:glass')}, {'aer': 20, 'ordo': 5, 'terra': 15}),
+    'animation_tablet': arcane('animation_tablet', 'ANIMATION_TABLET', ['GIG', 'ICI'],
+                               {'G': I('minecraft:gold_ingot'), 'I': I('minecraft:iron_ingot'), 'C': I('thaumcraft:golem_core_blank')},
+                               {'aer': 25, 'ordo': 15, 'ignis': 10}),
+    'remote_placer': arcane('remote_placer', 'REMOTE_PLACER', ['ses', 'sds', 'sss'],
+                            {'s': I('thaumcraft:pedestal'), 'e': I('minecraft:ender_pearl'), 'd': I('minecraft:dispenser')},
+                            {'aer': 20, 'ordo': 5, 'terra': 15, 'perditio': 5}),
     'infusion/enchanter': infusion('enchanter', 'ENCHANTER', I('minecraft:enchanting_table'),
                                    [I('thaumcraft:obsidian_tile')] * 5 + [I('thaumcraft:thaumium_ingot')] * 2 + [I('spell_cloth')],
                                    {'praecantatio': 50, 'potentia': 20, 'alienis': 20, 'vacuos': 20, 'cognitio': 10}, 15),
@@ -308,7 +383,7 @@ RECIPES = {
 # ---------------------------------------------------------------- модели предметов и блоков
 FLAT_ITEMS = ['dark_quartz', 'spell_cloth', 'bright_nitor', 'gaseous_light', 'gaseous_shadow', 'gas_remover', 'share_tome',
               'revealing_helm', 'focus_smelt', 'focus_flight', 'focus_deflect', 'focus_telekinesis', 'focus_dislocation',
-              'focus_heal', 'focus_ender_chest']
+              'focus_heal', 'focus_ender_chest', 'soul_mould', 'connector']
 # предметы с двумя видами: включён (свойство thaumictinkerer:active = 1) и выключен
 TOGGLED_ITEMS = ['xp_talisman', 'cleansing_talisman']
 # блоки, у которых предмет — та же модель
@@ -323,6 +398,9 @@ CUBE_BLOCKS = {
         'west': 'block/aspect_analyzer_west', 'east': 'block/aspect_analyzer_east'}},
     'platform': {'parent': 'minecraft:block/cube_all', 'textures': {'all': 'block/platform'}},
 }
+for name in ('mobilizer', 'mobilizer_relay'):
+    CUBE_BLOCKS[name] = {'parent': 'minecraft:block/cube_bottom_top', 'textures': {
+        'side': 'block/%s_side' % name, 'top': 'block/%s_top' % name, 'bottom': 'block/%s_bottom' % name}}
 # зачарователь — плита высотой 12 точек
 CUBE_BLOCKS['enchanter'] = {
     'parent': 'minecraft:block/block', 'textures': {'particle': 'block/enchanter_side', 'top': 'block/enchanter_top',
@@ -336,11 +414,14 @@ CUBE_BLOCKS['enchanter'] = {
 # блоки без предмета (газы): состояние с пустой моделью
 GAS_BLOCKS = ['gaseous_light', 'gaseous_shadow', 'nitor_gas']
 # блоки, которые выпадают сами собой
-SELF_DROP = ['dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_stairs', 'funnel',
+SELF_DROP_2B = ['magnet', 'mob_magnet', 'transvector_interface', 'transvector_dislocator', 'mobilizer', 'mobilizer_relay',
+                'remote_placer', 'animation_tablet']
+SELF_DROP = SELF_DROP_2B + ['dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_stairs', 'funnel',
              'repairer', 'aspect_analyzer', 'platform', 'enchanter']
 PICKAXE = ['dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_slab', 'dark_quartz_stairs',
-           'funnel', 'repairer', 'aspect_analyzer', 'enchanter']
-AXE = ['platform']
+           'funnel', 'repairer', 'aspect_analyzer', 'enchanter', 'transvector_interface', 'transvector_dislocator', 'mobilizer',
+           'mobilizer_relay', 'remote_placer', 'animation_tablet']
+AXE = ['platform', 'magnet', 'mob_magnet']
 NECKLACES = ['xp_talisman', 'cleansing_talisman']
 
 
@@ -508,9 +589,59 @@ def gen_models():
     write(os.path.join(states, 'repairer.json'), {'variants': {
         'facing=%s' % f: {'model': ns('block/repairer')} for f in ('north', 'south', 'west', 'east')}})
     write(os.path.join(models, 'item', 'repairer.json'), {'parent': 'minecraft:builtin/entity', 'display': BLOCK_DISPLAY})
+    gen_models_2b(models, states)
     # платформа под маскировкой не рисует своей модели — вместо неё отрисовщик блока показывает выбранный блок
     write(os.path.join(states, 'platform.json'), {'variants': {
         'camo=false': {'model': ns('block/platform')}, 'camo=true': {'model': ns('block/empty')}}})
+
+
+FACINGS6 = {'north': (0, 0), 'south': (0, 180), 'west': (0, 270), 'east': (0, 90), 'up': (270, 0), 'down': (90, 0)}
+
+
+def gen_models_2b(models, states):
+    # магниты рисует отрисовщик блока; предмет — им же
+    for name in ('magnet', 'mob_magnet'):
+        write(os.path.join(models, 'block', name + '.json'), {'textures': {'particle': ns('block/platform')}, 'elements': []})
+        write(os.path.join(states, name + '.json'), {'variants': {'pull=true': {'model': ns('block/' + name)},
+                                                                   'pull=false': {'model': ns('block/' + name)}}})
+        write(os.path.join(models, 'item', name + '.json'), {'parent': 'minecraft:builtin/entity', 'display': BLOCK_DISPLAY})
+    # интерфейс: куб, под маскировкой пуст
+    write(os.path.join(models, 'block', 'transvector_interface.json'),
+          {'parent': 'minecraft:block/cube_all', 'textures': {'all': ns('block/transvector_interface')}})
+    write(os.path.join(models, 'item', 'transvector_interface.json'), {'parent': ns('block/transvector_interface')})
+    write(os.path.join(states, 'transvector_interface.json'), {'variants': {
+        'camo=false': {'model': ns('block/transvector_interface')}, 'camo=true': {'model': ns('block/empty')}}})
+    # смещатель и установщик: особая лицевая грань (вращение — как у раздатчика)
+    for name in ('transvector_dislocator', 'remote_placer'):
+        write(os.path.join(models, 'block', name + '.json'), {'parent': 'minecraft:block/cube',
+                                                              'textures': {'particle': ns('block/' + name),
+                                                                           'north': ns('block/%s_face' % name), 'south': ns('block/' + name),
+                                                                           'east': ns('block/' + name), 'west': ns('block/' + name),
+                                                                           'up': ns('block/' + name), 'down': ns('block/' + name)}})
+        write(os.path.join(models, 'item', name + '.json'), {'parent': ns('block/' + name)})
+        variants = {}
+        for facing, (x, y) in FACINGS6.items():
+            for camo in ('false', 'true'):
+                for powered in ('false', 'true'):
+                    v = {'model': ns('block/' + name) if camo == 'false' else ns('block/empty')}
+                    if x:
+                        v['x'] = x
+                    if y:
+                        v['y'] = y
+                    variants['camo=%s,facing=%s,powered=%s' % (camo, facing, powered)] = v
+        write(os.path.join(states, name + '.json'), {'variants': variants})
+    # анимационная табличка — плита высотой 2 точки
+    write(os.path.join(models, 'block', 'animation_tablet.json'), {
+        'parent': 'minecraft:block/block', 'textures': {'particle': ns('block/animation_tablet_side'), 'top': ns('block/animation_tablet_top'),
+                                                        'bottom': ns('block/animation_tablet_bottom'), 'side': ns('block/animation_tablet_side')},
+        'elements': [{'from': [0, 0, 0], 'to': [16, 2, 16], 'faces': {
+            'down': {'texture': '#bottom', 'cullface': 'down'}, 'up': {'texture': '#top'},
+            'north': {'texture': '#side', 'uv': [0, 14, 16, 16]}, 'south': {'texture': '#side', 'uv': [0, 14, 16, 16]},
+            'west': {'texture': '#side', 'uv': [0, 14, 16, 16]}, 'east': {'texture': '#side', 'uv': [0, 14, 16, 16]}}}]})
+    write(os.path.join(models, 'item', 'animation_tablet.json'), {'parent': ns('block/animation_tablet')})
+    write(os.path.join(states, 'animation_tablet.json'), {'variants': {
+        'facing=%s,powered=%s' % (f, p): {'model': ns('block/animation_tablet')}
+        for f in ('north', 'south', 'west', 'east') for p in ('false', 'true')}})
 
 
 BLOCK_DISPLAY = {

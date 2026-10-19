@@ -19,6 +19,13 @@ public final class TTMenus {
             () -> IForgeMenuType.create((id, inventory, data) -> new thaumictinkerer.common.block.EnchanterBlock.Menu(id, inventory,
                     data.readBlockPos())));
 
+    public static final RegistryObject<MenuType<thaumictinkerer.common.block.MagnetBlock.Menu>> MOB_MAGNET = MENUS.register("mob_magnet",
+            () -> IForgeMenuType.create((id, inventory, data) -> new thaumictinkerer.common.block.MagnetBlock.Menu(id, inventory, data.readBlockPos())));
+    public static final RegistryObject<MenuType<thaumictinkerer.common.block.RemotePlacerBlock.Menu>> REMOTE_PLACER = MENUS.register("remote_placer",
+            () -> IForgeMenuType.create((id, inventory, data) -> new thaumictinkerer.common.block.RemotePlacerBlock.Menu(id, inventory, data.readBlockPos())));
+    public static final RegistryObject<MenuType<thaumictinkerer.common.block.AnimationTabletBlock.Menu>> ANIMATION_TABLET = MENUS.register("animation_tablet",
+            () -> IForgeMenuType.create((id, inventory, data) -> new thaumictinkerer.common.block.AnimationTabletBlock.Menu(id, inventory, data.readBlockPos())));
+
     private TTMenus() {
     }
 }

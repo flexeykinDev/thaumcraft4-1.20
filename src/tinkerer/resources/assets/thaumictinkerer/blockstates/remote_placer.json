@@ -1,0 +1,96 @@
+{
+  "variants": {
+    "camo=false,facing=north,powered=false": {
+      "model": "thaumictinkerer:block/remote_placer"
+    },
+    "camo=false,facing=north,powered=true": {
+      "model": "thaumictinkerer:block/remote_placer"
+    },
+    "camo=true,facing=north,powered=false": {
+      "model": "thaumictinkerer:block/empty"
+    },
+    "camo=true,facing=north,powered=true": {
+      "model": "thaumictinkerer:block/empty"
+    },
+    "camo=false,facing=south,powered=false": {
+      "model": "thaumictinkerer:block/remote_placer",
+      "y": 180
+    },
+    "camo=false,facing=south,powered=true": {
+      "model": "thaumictinkerer:block/remote_placer",
+      "y": 180
+    },
+    "camo=true,facing=south,powered=false": {
+      "model": "thaumictinkerer:block/empty",
+      "y": 180
+    },
+    "camo=true,facing=south,powered=true": {
+      "model": "thaumictinkerer:block/empty",
+      "y": 180
+    },
+    "camo=false,facing=west,powered=false": {
+      "model": "thaumictinkerer:block/remote_placer",
+      "y": 270
+    },
+    "camo=false,facing=west,powered=true": {
+      "model": "thaumictinkerer:block/remote_placer",
+      "y": 270
+    },
+    "camo=true,facing=west,powered=false": {
+      "model": "thaumictinkerer:block/empty",
+      "y": 270
+    },
+    "camo=true,facing=west,powered=true": {
+      "model": "thaumictinkerer:block/empty",
+      "y": 270
+    },
+    "camo=false,facing=east,powered=false": {
+      "model": "thaumictinkerer:block/remote_placer",
+      "y": 90
+    },
+    "camo=false,facing=east,powered=true": {
+      "model": "thaumictinkerer:block/remote_placer",
+      "y": 90
+    },
+    "camo=true,facing=east,powered=false": {
+      "model": "thaumictinkerer:block/empty",
+      "y": 90
+    },
+    "camo=true,facing=east,powered=true": {
+      "model": "thaumictinkerer:block/empty",
+      "y": 90
+    },
+    "camo=false,facing=up,powered=false": {
+      "model": "thaumictinkerer:block/remote_placer",
+      "x": 270
+    },
+    "camo=false,facing=up,powered=true": {
+      "model": "thaumictinkerer:block/remote_placer",
+      "x": 270
+    },
+    "camo=true,facing=up,powered=false": {
+      "model": "thaumictinkerer:block/empty",
+      "x": 270
+    },
+    "camo=true,facing=up,powered=true": {
+      "model": "thaumictinkerer:block/empty",
+      "x": 270
+    },
+    "camo=false,facing=down,powered=false": {
+      "model": "thaumictinkerer:block/remote_placer",
+      "x": 90
+    },
+    "camo=false,facing=down,powered=true": {
+      "model": "thaumictinkerer:block/remote_placer",
+      "x": 90
+    },
+    "camo=true,facing=down,powered=false": {
+      "model": "thaumictinkerer:block/empty",
+      "x": 90
+    },
+    "camo=true,facing=down,powered=true": {
+      "model": "thaumictinkerer:block/empty",
+      "x": 90
+    }
+  }
+}

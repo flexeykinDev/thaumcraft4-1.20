@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "thaumictinkerer:block/remote_placer",
+    "north": "thaumictinkerer:block/remote_placer_face",
+    "south": "thaumictinkerer:block/remote_placer",
+    "east": "thaumictinkerer:block/remote_placer",
+    "west": "thaumictinkerer:block/remote_placer",
+    "up": "thaumictinkerer:block/remote_placer",
+    "down": "thaumictinkerer:block/remote_placer"
+  }
+}

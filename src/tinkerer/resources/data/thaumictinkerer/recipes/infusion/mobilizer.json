@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:levitator"
+  },
+  "components": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:feather"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "thaumcraft:obsidian_tile"
+    }
+  ],
+  "aspects": {
+    "motus": 15,
+    "ordo": 20,
+    "praecantatio": 15
+  },
+  "instability": 4,
+  "result": {
+    "item": "thaumictinkerer:mobilizer"
+  },
+  "research": "LEVITATOR"
+}

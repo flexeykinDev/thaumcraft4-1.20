@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "ses",
+    "sds",
+    "sss"
+  ],
+  "key": {
+    "s": {
+      "item": "thaumcraft:pedestal"
+    },
+    "e": {
+      "item": "minecraft:ender_pearl"
+    },
+    "d": {
+      "item": "minecraft:dispenser"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:remote_placer",
+    "count": 1
+  },
+  "aspects": {
+    "aer": 20,
+    "ordo": 5,
+    "terra": 15,
+    "perditio": 5
+  },
+  "research": "REMOTE_PLACER"
+}

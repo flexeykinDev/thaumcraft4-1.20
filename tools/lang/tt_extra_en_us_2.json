@@ -1,0 +1,8 @@
+{
+  "tc.research_name.REMOTE_PLACER": "Remote Placer",
+  "tc.research_text.REMOTE_PLACER": "Building from afar",
+  "ttresearch.page.REMOTE_PLACER.0": "You created a device that places blocks at a distance. Put blocks into it and apply a redstone signal: it will place one block in front of its face if the space is empty.<BR><BR>Turn the face with a wand by clicking the side you want.",
+  "ttresearch.page.REMOTE_PLACER.1": "Shift-right click the placer with a wand to open its settings, where you choose how many blocks ahead, from one to four, it places.<BR><BR>Like the transvectors, the placer can be camouflaged as another block.",
+  "ttresearch.page.INTERFACE.0": "The thing is, there's only six sides to a block...\" - Direwolf20<BR><BR>Myth = Busted! Your latest construct can be bound to a block in the nearby vicinity. Its sides will mimic the sides of the block selected, and it'll function as an extension: it accepts and gives out items, liquids, power and essentia.<BR>[continued]",
+  "ttresearch.page.INTERFACE.1": "In order to bind an interface to another block, you need to create a special tool to do so. What you call the Transvector Binder should get the job done.<BR><BR>By simply right clicking on the interface followed by right clicking on the target, these two get bound and ready for operation. The limit is short, only 4 blocks."
+}

@@ -686,6 +686,217 @@
       ]
     },
     {
+      "key": "INTERFACE",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "perditio": 4,
+        "ordo": 4
+      },
+      "column": -4,
+      "row": 2,
+      "complexity": 1,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.INTERFACE.0"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:transvector_interface"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.INTERFACE.1"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:connector"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.INTERFACE.2"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:transvector_interface"
+      },
+      "parents": [
+        "DARK_QUARTZ"
+      ]
+    },
+    {
+      "key": "DISLOCATOR",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "iter": 2,
+        "machina": 1,
+        "alienis": 1
+      },
+      "column": -6,
+      "row": 1,
+      "complexity": 3,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.DISLOCATOR.0"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:transvector_dislocator"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:transvector_dislocator"
+      },
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "INTERFACE"
+      ],
+      "parents_hidden": [
+        "MIRROR"
+      ]
+    },
+    {
+      "key": "MAGNETS",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "machina": 2,
+        "motus": 1,
+        "sensus": 1
+      },
+      "column": -6,
+      "row": 3,
+      "complexity": 3,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.MAGNETS.0"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.MAGNETS.1"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:magnet"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:mob_magnet"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/soul_mould"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:magnet"
+      },
+      "concealed": true,
+      "parents": [
+        "INTERFACE"
+      ],
+      "parents_hidden": [
+        "FOCUS_TELEKINESIS"
+      ]
+    },
+    {
+      "key": "LEVITATOR",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "motus": 2,
+        "ordo": 2
+      },
+      "column": -7,
+      "row": 5,
+      "complexity": 3,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.LEVITATOR.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/mobilizer"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:mobilizer_relay"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:mobilizer"
+      },
+      "secondary": true,
+      "parents": [
+        "MAGNETS"
+      ]
+    },
+    {
+      "key": "ANIMATION_TABLET",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "machina": 2,
+        "metallum": 1,
+        "motus": 1,
+        "potentia": 1
+      },
+      "column": -8,
+      "row": 2,
+      "complexity": 4,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.ANIMATION_TABLET.0"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:animation_tablet"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:animation_tablet"
+      },
+      "parents": [
+        "MAGNETS"
+      ],
+      "warp": 1
+    },
+    {
+      "key": "REMOTE_PLACER",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "machina": 2,
+        "motus": 1,
+        "sensus": 1
+      },
+      "column": -9,
+      "row": 3,
+      "complexity": 3,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.REMOTE_PLACER.0"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.REMOTE_PLACER.1"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:remote_placer"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:remote_placer"
+      },
+      "concealed": true,
+      "parents": [
+        "ANIMATION_TABLET"
+      ]
+    },
+    {
       "key": "TTENCH_ASCENT_BOOST",
       "category": "TT_CATEGORY",
       "aspects": {

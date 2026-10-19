@@ -31,10 +31,14 @@ public final class TTClient {
         if (Boolean.getBoolean("thaumcraft.autoshot")) {
             thaumictinkerer.client.debug.TTAutoShot.register();
             thaumictinkerer.client.debug.TTAutoShot2.register();
+            thaumictinkerer.client.debug.TTAutoShot2b.register();
         }
         event.enqueueWork(() -> {
             MenuScreens.register(TTMenus.ASPECT_ANALYZER.get(), AspectAnalyzerScreen::new);
             MenuScreens.register(TTMenus.ENCHANTER.get(), thaumictinkerer.client.gui.EnchanterScreen::new);
+            MenuScreens.register(TTMenus.MOB_MAGNET.get(), thaumictinkerer.client.gui.MachineScreens.MobMagnet::new);
+            MenuScreens.register(TTMenus.REMOTE_PLACER.get(), thaumictinkerer.client.gui.MachineScreens.RemotePlacer::new);
+            MenuScreens.register(TTMenus.ANIMATION_TABLET.get(), thaumictinkerer.client.gui.MachineScreens.AnimationTablet::new);
             // включённые талисманы выглядят иначе (вторая иконка оригинала)
             ItemProperties.register(TTItems.XP_TALISMAN.get(), ThaumicTinkerer.id("active"),
                     (stack, level, entity, seed) -> XpTalismanItem.isAbsorbing(stack) ? 1f : 0f);
@@ -49,6 +53,11 @@ public final class TTClient {
         event.registerBlockEntityRenderer(TTBlockEntities.FUNNEL.get(), FunnelRenderer::new);
         event.registerBlockEntityRenderer(TTBlockEntities.PLATFORM.get(), PlatformRenderer::new);
         event.registerBlockEntityRenderer(TTBlockEntities.ENCHANTER.get(), thaumictinkerer.client.render.EnchanterRenderer::new);
+        event.registerBlockEntityRenderer(TTBlockEntities.MAGNET.get(), thaumictinkerer.client.render.MagnetRenderer::new);
+        event.registerBlockEntityRenderer(TTBlockEntities.ANIMATION_TABLET.get(), thaumictinkerer.client.render.AnimationTabletRenderer::new);
+        event.registerBlockEntityRenderer(TTBlockEntities.TRANSVECTOR_INTERFACE.get(), PlatformRenderer::new);
+        event.registerBlockEntityRenderer(TTBlockEntities.TRANSVECTOR_DISLOCATOR.get(), PlatformRenderer::new);
+        event.registerBlockEntityRenderer(TTBlockEntities.REMOTE_PLACER.get(), PlatformRenderer::new);
     }
 
     @SubscribeEvent

@@ -1,0 +1,35 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "WFW",
+    "SIs",
+    "WFW"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "s": {
+      "item": "thaumcraft:shard_earth"
+    },
+    "S": {
+      "item": "thaumcraft:shard_air"
+    },
+    "W": {
+      "item": "thaumcraft:greatwood_log"
+    },
+    "F": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:mobilizer_relay",
+    "count": 1
+  },
+  "aspects": {
+    "aer": 20,
+    "ordo": 5,
+    "terra": 15
+  },
+  "research": "LEVITATOR"
+}

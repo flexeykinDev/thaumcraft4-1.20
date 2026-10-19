@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "pull=true": {
+      "model": "thaumictinkerer:block/magnet"
+    },
+    "pull=false": {
+      "model": "thaumictinkerer:block/magnet"
+    }
+  }
+}

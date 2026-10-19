@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "thaumictinkerer:platform"
+    "thaumictinkerer:platform",
+    "thaumictinkerer:magnet",
+    "thaumictinkerer:mob_magnet"
   ]
 }

@@ -9,6 +9,12 @@
     "thaumictinkerer:funnel",
     "thaumictinkerer:repairer",
     "thaumictinkerer:aspect_analyzer",
-    "thaumictinkerer:enchanter"
+    "thaumictinkerer:enchanter",
+    "thaumictinkerer:transvector_interface",
+    "thaumictinkerer:transvector_dislocator",
+    "thaumictinkerer:mobilizer",
+    "thaumictinkerer:mobilizer_relay",
+    "thaumictinkerer:remote_placer",
+    "thaumictinkerer:animation_tablet"
   ]
 }

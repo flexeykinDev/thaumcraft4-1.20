@@ -1,17 +1,9 @@
 package thaumictinkerer.common.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtUtils;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -31,11 +23,10 @@ import thaumictinkerer.common.registry.TTBlockEntities;
 
 /**
  * Эфирная платформа (BlockPlatform оригинала): на неё можно встать, но снизу сквозь неё проходят насквозь, а с Shift
- * с неё спрыгивают вниз. Щелчок блоком в руке маскирует платформу под этот блок (BlockCamo), пустой рукой —
- * снимает маскировку.
+ * с неё спрыгивают вниз. Маскируется под любой полный блок (см. {@link CamoBlockEntity}).
  */
 public class PlatformBlock extends BaseEntityBlock {
-    public static final BooleanProperty CAMO = BooleanProperty.create("camo");
+    public static final BooleanProperty CAMO = CamoBlockEntity.CAMO;
 
     public PlatformBlock(Properties properties) {
         super(properties);
@@ -68,27 +59,7 @@ public class PlatformBlock extends BaseEntityBlock {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (!(level.getBlockEntity(pos) instanceof Tile platform)) {
-            return InteractionResult.PASS;
-        }
-        ItemStack held = player.getItemInHand(hand);
-        BlockState camo = null;
-        if (!held.isEmpty()) {
-            if (!(held.getItem() instanceof BlockItem blockItem)) {
-                return InteractionResult.PASS;
-            }
-            camo = blockItem.getBlock().defaultBlockState();
-            if (!canDisguiseAs(camo, level, pos)) {
-                return InteractionResult.PASS;
-            }
-        }
-        if (!level.isClientSide) {
-            platform.camo = camo;
-            level.setBlock(pos, state.setValue(CAMO, camo != null), Block.UPDATE_ALL);
-            platform.setChanged();
-            level.sendBlockUpdated(pos, state, level.getBlockState(pos), Block.UPDATE_CLIENTS);
-        }
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        return CamoBlockEntity.useCamo(state, level, pos, player, hand);
     }
 
     @Nullable
@@ -97,42 +68,9 @@ public class PlatformBlock extends BaseEntityBlock {
         return new Tile(pos, state);
     }
 
-    /** TileCamo оригинала: какой блок изображает платформа. */
-    public static class Tile extends BlockEntity {
-        @Nullable
-        private BlockState camo;
-
+    public static class Tile extends CamoBlockEntity {
         public Tile(BlockPos pos, BlockState state) {
             super(TTBlockEntities.PLATFORM.get(), pos, state);
-        }
-
-        @Nullable
-        public BlockState getCamo() {
-            return camo;
-        }
-
-        @Override
-        protected void saveAdditional(CompoundTag tag) {
-            super.saveAdditional(tag);
-            if (camo != null) {
-                tag.put("Camo", NbtUtils.writeBlockState(camo));
-            }
-        }
-
-        @Override
-        public void load(CompoundTag tag) {
-            super.load(tag);
-            camo = tag.contains("Camo") ? NbtUtils.readBlockState(BuiltInRegistries.BLOCK.asLookup(), tag.getCompound("Camo")) : null;
-        }
-
-        @Override
-        public CompoundTag getUpdateTag() {
-            return saveWithoutMetadata();
-        }
-
-        @Override
-        public Packet<ClientGamePacketListener> getUpdatePacket() {
-            return ClientboundBlockEntityDataPacket.create(this);
         }
     }
 }

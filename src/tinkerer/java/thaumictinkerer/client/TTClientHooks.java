@@ -49,6 +49,20 @@ public final class TTClientHooks {
         }
     }
 
+    public static IClientItemExtensions magnetItem(boolean mobs) {
+        return new IClientItemExtensions() {
+            private BlockEntityWithoutLevelRenderer renderer;
+
+            @Override
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                if (renderer == null) {
+                    renderer = thaumictinkerer.client.render.MagnetRenderer.item(mobs);
+                }
+                return renderer;
+            }
+        };
+    }
+
     /** Предмет восстановителя рисуется той же моделью, что и блок. */
     public static IClientItemExtensions repairerItem() {
         return new IClientItemExtensions() {

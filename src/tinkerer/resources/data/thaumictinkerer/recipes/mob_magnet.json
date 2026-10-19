@@ -1,0 +1,36 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " G ",
+    "SGs",
+    "WFW"
+  ],
+  "key": {
+    "G": {
+      "tag": "forge:ingots/gold"
+    },
+    "s": {
+      "item": "thaumcraft:shard_earth"
+    },
+    "S": {
+      "item": "thaumcraft:shard_air"
+    },
+    "W": {
+      "item": "thaumcraft:greatwood_log"
+    },
+    "F": {
+      "item": "thaumictinkerer:focus_telekinesis"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:mob_magnet",
+    "count": 1
+  },
+  "aspects": {
+    "aer": 20,
+    "ordo": 5,
+    "terra": 15,
+    "perditio": 5
+  },
+  "research": "MAGNETS"
+}

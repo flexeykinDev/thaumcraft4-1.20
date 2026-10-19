@@ -1,0 +1,16 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "minecraft:ender_pearl"
+  },
+  "aspects": {
+    "bestia": 4,
+    "cognitio": 8,
+    "sensus": 8
+  },
+  "result": {
+    "item": "thaumictinkerer:soul_mould",
+    "count": 1
+  },
+  "research": "MAGNETS"
+}

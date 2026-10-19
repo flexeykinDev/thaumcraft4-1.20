@@ -32,6 +32,30 @@ public final class TTBlockEntities {
     public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.EnchanterBlock.Tile>> ENCHANTER = BLOCK_ENTITIES.register(
             "enchanter", () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.EnchanterBlock.Tile::new, TTBlocks.ENCHANTER.get()).build(null));
 
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.MagnetBlock.Tile>> MAGNET = BLOCK_ENTITIES.register("magnet",
+            () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.MagnetBlock.Tile::new, TTBlocks.MAGNET.get(), TTBlocks.MOB_MAGNET.get()).build(null));
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.TransvectorBlock.Interface.Tile>> TRANSVECTOR_INTERFACE = BLOCK_ENTITIES.register(
+            "transvector_interface", () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.TransvectorBlock.Interface.Tile::new,
+                    TTBlocks.TRANSVECTOR_INTERFACE.get()).build(null));
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.TransvectorBlock.Dislocator.Tile>> TRANSVECTOR_DISLOCATOR = BLOCK_ENTITIES.register(
+            "transvector_dislocator", () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.TransvectorBlock.Dislocator.Tile::new,
+                    TTBlocks.TRANSVECTOR_DISLOCATOR.get()).build(null));
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.MobilizerBlock.Mobilizer>> MOBILIZER = BLOCK_ENTITIES.register("mobilizer",
+            () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.MobilizerBlock.Mobilizer::new, TTBlocks.MOBILIZER.get()).build(null));
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.MobilizerBlock.Relay>> RELAY = BLOCK_ENTITIES.register("mobilizer_relay",
+            () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.MobilizerBlock.Relay::new, TTBlocks.RELAY.get()).build(null));
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.RemotePlacerBlock.Tile>> REMOTE_PLACER = BLOCK_ENTITIES.register("remote_placer",
+            () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.RemotePlacerBlock.Tile::new, TTBlocks.REMOTE_PLACER.get()).build(null));
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.AnimationTabletBlock.Tile>> ANIMATION_TABLET = BLOCK_ENTITIES.register(
+            "animation_tablet", () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.AnimationTabletBlock.Tile::new, TTBlocks.ANIMATION_TABLET.get()).build(null));
+
     private TTBlockEntities() {
     }
 }

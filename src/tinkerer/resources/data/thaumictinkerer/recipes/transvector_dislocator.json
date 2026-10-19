@@ -1,0 +1,28 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "M",
+    "I",
+    "C"
+  ],
+  "key": {
+    "M": {
+      "item": "thaumcraft:mirrored_glass"
+    },
+    "I": {
+      "item": "thaumictinkerer:transvector_interface"
+    },
+    "C": {
+      "item": "minecraft:comparator"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:transvector_dislocator",
+    "count": 1
+  },
+  "aspects": {
+    "terra": 5,
+    "perditio": 5
+  },
+  "research": "DISLOCATOR"
+}

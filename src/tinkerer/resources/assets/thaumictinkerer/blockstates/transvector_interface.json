@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "camo=false": {
+      "model": "thaumictinkerer:block/transvector_interface"
+    },
+    "camo=true": {
+      "model": "thaumictinkerer:block/empty"
+    }
+  }
+}

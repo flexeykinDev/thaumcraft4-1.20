@@ -57,6 +57,26 @@ public final class TTItems {
     public static final RegistryObject<Item> FOCUS_ENDER_CHEST = ITEMS.register("focus_ender_chest",
             thaumictinkerer.common.item.focus.TTFoci.EnderChest::new);
     public static final RegistryObject<Item> ENCHANTER = block(TTBlocks.ENCHANTER);
+    // часть 2б
+    public static final RegistryObject<Item> MAGNET = magnet(TTBlocks.MAGNET, false);
+    public static final RegistryObject<Item> MOB_MAGNET = magnet(TTBlocks.MOB_MAGNET, true);
+    public static final RegistryObject<Item> SOUL_MOULD = ITEMS.register("soul_mould", thaumictinkerer.common.item.SoulMouldItem::new);
+    public static final RegistryObject<Item> TRANSVECTOR_INTERFACE = block(TTBlocks.TRANSVECTOR_INTERFACE);
+    public static final RegistryObject<Item> CONNECTOR = ITEMS.register("connector", thaumictinkerer.common.item.ConnectorItem::new);
+    public static final RegistryObject<Item> TRANSVECTOR_DISLOCATOR = block(TTBlocks.TRANSVECTOR_DISLOCATOR);
+    public static final RegistryObject<Item> MOBILIZER = block(TTBlocks.MOBILIZER);
+    public static final RegistryObject<Item> RELAY = block(TTBlocks.RELAY);
+    public static final RegistryObject<Item> ANIMATION_TABLET = block(TTBlocks.ANIMATION_TABLET);
+    public static final RegistryObject<Item> REMOTE_PLACER = block(TTBlocks.REMOTE_PLACER);
+
+    private static RegistryObject<Item> magnet(RegistryObject<Block> block, boolean mobs) {
+        return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()) {
+            @Override
+            public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+                consumer.accept(thaumictinkerer.client.TTClientHooks.magnetItem(mobs));
+            }
+        });
+    }
 
     private static RegistryObject<Item> block(RegistryObject<Block> block) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

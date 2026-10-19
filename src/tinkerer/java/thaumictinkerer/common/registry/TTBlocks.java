@@ -52,6 +52,25 @@ public final class TTBlocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2f, 5f).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> ENCHANTER = BLOCKS.register("enchanter", () -> new thaumictinkerer.common.block.EnchanterBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(5f, 2000f).sound(SoundType.STONE).noOcclusion()));
+    // часть 2б
+    public static final RegistryObject<Block> MAGNET = BLOCKS.register("magnet", () -> new thaumictinkerer.common.block.MagnetBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.7f, 1f).sound(SoundType.WOOD).noOcclusion(), false));
+    public static final RegistryObject<Block> MOB_MAGNET = BLOCKS.register("mob_magnet", () -> new thaumictinkerer.common.block.MagnetBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.7f, 1f).sound(SoundType.WOOD).noOcclusion(), true));
+    public static final RegistryObject<Block> TRANSVECTOR_INTERFACE = BLOCKS.register("transvector_interface",
+            () -> new thaumictinkerer.common.block.TransvectorBlock.Interface(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(4f, 10f)
+                    .sound(SoundType.STONE).noOcclusion()));
+    public static final RegistryObject<Block> TRANSVECTOR_DISLOCATOR = BLOCKS.register("transvector_dislocator",
+            () -> new thaumictinkerer.common.block.TransvectorBlock.Dislocator(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(4f, 10f)
+                    .sound(SoundType.STONE).noOcclusion()));
+    public static final RegistryObject<Block> MOBILIZER = BLOCKS.register("mobilizer", () -> new thaumictinkerer.common.block.MobilizerBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(3f, 6f).sound(SoundType.METAL), false));
+    public static final RegistryObject<Block> RELAY = BLOCKS.register("mobilizer_relay", () -> new thaumictinkerer.common.block.MobilizerBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(3f, 6f).sound(SoundType.METAL), true));
+    public static final RegistryObject<Block> REMOTE_PLACER = BLOCKS.register("remote_placer", () -> new thaumictinkerer.common.block.RemotePlacerBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(3f, 6f).sound(SoundType.STONE).noOcclusion()));
+    public static final RegistryObject<Block> ANIMATION_TABLET = BLOCKS.register("animation_tablet", () -> new thaumictinkerer.common.block.AnimationTabletBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(3f, 6f).sound(SoundType.METAL).noOcclusion()));
     public static final RegistryObject<Block> PLATFORM = BLOCKS.register("platform", () -> new PlatformBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2f, 5f).sound(SoundType.WOOD).noOcclusion()
                     .isViewBlocking((state, level, pos) -> false).isSuffocating((state, level, pos) -> false)));
