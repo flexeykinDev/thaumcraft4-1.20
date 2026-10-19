@@ -1,0 +1,24 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "WWW",
+    "SSS"
+  ],
+  "key": {
+    "W": {
+      "item": "thaumcraft:obsidian_tile"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:summon",
+    "count": 1
+  },
+  "aspects": {
+    "ordo": 50,
+    "perditio": 50
+  },
+  "research": "SUMMON"
+}

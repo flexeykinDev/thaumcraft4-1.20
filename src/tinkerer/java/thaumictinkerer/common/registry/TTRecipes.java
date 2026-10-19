@@ -16,6 +16,9 @@ public final class TTRecipes {
     public static final RegistryObject<RecipeSerializer<SpellClothItem.Disenchant>> SPELL_CLOTH = SERIALIZERS.register("spell_cloth",
             () -> new SimpleCraftingRecipeSerializer<>(SpellClothItem.Disenchant::new));
 
+    public static final RegistryObject<RecipeSerializer<thaumictinkerer.common.item.SoulAspectItem.Condense>> CONDENSE = SERIALIZERS.register(
+            "condense_soul", () -> new SimpleCraftingRecipeSerializer<>(thaumictinkerer.common.item.SoulAspectItem.Condense::new));
+
     private TTRecipes() {
     }
 }

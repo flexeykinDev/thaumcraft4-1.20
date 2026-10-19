@@ -1,0 +1,68 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "thaumictinkerer:block/summon_side",
+    "top": "thaumictinkerer:block/summon_top",
+    "bottom": "minecraft:block/obsidian",
+    "side": "thaumictinkerer:block/summon_side"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        2,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#bottom",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#top"
+        },
+        "north": {
+          "texture": "#side",
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#side",
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#side",
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#side",
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ]
+        }
+      }
+    }
+  ]
+}

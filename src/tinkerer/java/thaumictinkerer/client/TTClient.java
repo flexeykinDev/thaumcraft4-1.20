@@ -32,6 +32,7 @@ public final class TTClient {
             thaumictinkerer.client.debug.TTAutoShot.register();
             thaumictinkerer.client.debug.TTAutoShot2.register();
             thaumictinkerer.client.debug.TTAutoShot2b.register();
+            thaumictinkerer.client.debug.TTAutoShot2c.register();
         }
         event.enqueueWork(() -> {
             MenuScreens.register(TTMenus.ASPECT_ANALYZER.get(), AspectAnalyzerScreen::new);
@@ -44,6 +45,13 @@ public final class TTClient {
                     (stack, level, entity, seed) -> XpTalismanItem.isAbsorbing(stack) ? 1f : 0f);
             ItemProperties.register(TTItems.CLEANSING_TALISMAN.get(), ThaumicTinkerer.id("active"),
                     (stack, level, entity, seed) -> CleansingTalismanItem.isEnabled(stack) ? 1f : 0f);
+            // аспект души: номер аспекта выбирает картинку (aspect = номер + 1, 0 — без аспекта)
+            for (var item : java.util.List.of(TTItems.SOUL_ASPECT.get(), TTItems.CONDENSED_SOUL_ASPECT.get(), TTItems.INFUSED_SOUL_ASPECT.get())) {
+                ItemProperties.register(item, ThaumicTinkerer.id("aspect"), (stack, level, entity, seed) ->
+                        thaumictinkerer.common.item.SoulAspectItem.ASPECTS.indexOf(thaumictinkerer.common.item.SoulAspectItem.aspect(stack)) + 1);
+            }
+            ItemProperties.register(TTItems.BLOOD_SWORD.get(), ThaumicTinkerer.id("active"),
+                    (stack, level, entity, seed) -> thaumictinkerer.common.item.BloodSwordItem.isHarvesting(stack) ? 1f : 0f);
         });
     }
 

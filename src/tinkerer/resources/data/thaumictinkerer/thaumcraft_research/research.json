@@ -897,6 +897,78 @@
       ]
     },
     {
+      "key": "BLOOD_SWORD",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "fames": 2,
+        "telum": 1,
+        "corpus": 1,
+        "spiritus": 1
+      },
+      "column": -4,
+      "row": 6,
+      "complexity": 3,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.BLOOD_SWORD.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/blood_sword"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.BLOOD_SWORD.1"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:blood_sword"
+      },
+      "secondary": true,
+      "parents": [
+        "CLEANSING_TALISMAN"
+      ],
+      "warp": 1
+    },
+    {
+      "key": "SUMMON",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "telum": 1,
+        "bestia": 3,
+        "praecantatio": 3
+      },
+      "column": -5,
+      "row": 8,
+      "complexity": 3,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.SUMMON.0"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:summon"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/infused_soul_aspect_bestia"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.SUMMON.1"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:summon"
+      },
+      "parents": [
+        "BLOOD_SWORD"
+      ],
+      "warp": 3
+    },
+    {
       "key": "TTENCH_ASCENT_BOOST",
       "category": "TT_CATEGORY",
       "aspects": {

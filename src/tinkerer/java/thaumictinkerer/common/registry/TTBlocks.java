@@ -71,6 +71,8 @@ public final class TTBlocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(3f, 6f).sound(SoundType.STONE).noOcclusion()));
     public static final RegistryObject<Block> ANIMATION_TABLET = BLOCKS.register("animation_tablet", () -> new thaumictinkerer.common.block.AnimationTabletBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(3f, 6f).sound(SoundType.METAL).noOcclusion()));
+    public static final RegistryObject<Block> SUMMON = BLOCKS.register("summon", () -> new thaumictinkerer.common.block.SummonBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(3f, 50f).sound(SoundType.METAL).noOcclusion()));
     public static final RegistryObject<Block> PLATFORM = BLOCKS.register("platform", () -> new PlatformBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2f, 5f).sound(SoundType.WOOD).noOcclusion()
                     .isViewBlocking((state, level, pos) -> false).isSuffocating((state, level, pos) -> false)));

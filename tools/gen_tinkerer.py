@@ -130,6 +130,19 @@ ITEM_NAMES = {
     'item.thaumictinkerer.focus_ender_chest': 'item.focusEnderChest.name',
     'block.thaumictinkerer.enchanter': 'tile.enchanter.name',
 }
+# часть 2в: аспекты души по порядку SoulAspectItem.ASPECTS
+SOUL_ASPECTS = ['aqua', 'humanus', 'aer', 'volatus', 'ignis', 'praecantatio', 'exanimis', 'corpus', 'bestia', 'venenum', 'terra',
+                'alienis', 'iter', 'metallum', 'limus', 'pannus', 'messis']
+TEXTURES.update({'item/soul/' + a: 'items/%s.png' % a for a in SOUL_ASPECTS})
+TEXTURES.update({'item/soul/%s_condensed' % a: 'items/%s_condensed.png' % a for a in SOUL_ASPECTS})
+TEXTURES.update({'item/blood_sword': 'items/bloodSword0.png', 'item/blood_sword_active': 'items/bloodSword1.png',
+                 'block/summon_top': 'blocks/spawner1.png', 'block/summon_side': 'blocks/spawner2.png'})
+ITEM_NAMES.update({
+    'item.thaumictinkerer.blood_sword': 'item.bloodSword.name', 'block.thaumictinkerer.summon': 'tile.summon.name',
+    'item.thaumictinkerer.soul_aspect': 'item.mobAspect.name',
+    'item.thaumictinkerer.condensed_soul_aspect': 'item.mobAspect.condensed.name',
+    'item.thaumictinkerer.infused_soul_aspect': 'item.mobAspect.infused.name',
+})
 ITEM_NAMES.update({
     'block.thaumictinkerer.magnet': 'tile.magnet.name', 'block.thaumictinkerer.mob_magnet': 'tile.mobMagnet.name',
     'item.thaumictinkerer.soul_mould': 'item.soulMould.name', 'item.thaumictinkerer.connector': 'item.connector.name',
@@ -240,6 +253,14 @@ RESEARCH += [
     # в оригинале стоит в той же клетке, что и «Магниты»; сдвинуто, чтобы значки не накладывались
     dict(key='REMOTE_PLACER', aspects={'machina': 2, 'motus': 1, 'sensus': 1}, column=-9, row=3, complexity=3, icon='remote_placer',
          concealed=True, parents=['ANIMATION_TABLET'], pages=text('REMOTE_PLACER', 0, 1) + [P('arcane', 'remote_placer')]),
+]
+RESEARCH += [
+    dict(key='BLOOD_SWORD', aspects={'fames': 2, 'telum': 1, 'corpus': 1, 'spiritus': 1}, column=-4, row=6, complexity=3,
+         icon='blood_sword', warp=1, secondary=True, parents=['CLEANSING_TALISMAN'],
+         pages=text('BLOOD_SWORD', 0) + [P('infusion', 'infusion/blood_sword')] + text('BLOOD_SWORD', 1)),
+    dict(key='SUMMON', aspects={'telum': 1, 'bestia': 3, 'praecantatio': 3}, column=-5, row=8, complexity=3, icon='summon', warp=3,
+         parents=['BLOOD_SWORD'], pages=text('SUMMON', 0) + [P('arcane', 'summon'), P('infusion', 'infusion/infused_soul_aspect_bestia')]
+         + text('SUMMON', 1)),
 ]
 # чары зачарователя: ключ исследования, значок, место на карте, цена, родители
 for key, icon, col, row, aspects, parents in [
@@ -375,10 +396,28 @@ RECIPES = {
     'remote_placer': arcane('remote_placer', 'REMOTE_PLACER', ['ses', 'sds', 'sss'],
                             {'s': I('thaumcraft:pedestal'), 'e': I('minecraft:ender_pearl'), 'd': I('minecraft:dispenser')},
                             {'aer': 20, 'ordo': 5, 'terra': 15, 'perditio': 5}),
+    'infusion/blood_sword': infusion('blood_sword', 'BLOOD_SWORD', I('thaumcraft:thaumium_sword'),
+                                     [I('minecraft:rotten_flesh'), I('minecraft:porkchop'), I('minecraft:beef'), I('minecraft:bone'),
+                                      I('minecraft:diamond'), I('minecraft:ghast_tear')],
+                                     {'fames': 20, 'tenebrae': 5, 'spiritus': 10, 'humanus': 6}, 6),
+    'summon': arcane('summon', 'SUMMON', ['WWW', 'SSS'], {'W': I('thaumcraft:obsidian_tile'), 'S': I('minecraft:stone')},
+                     {'ordo': 50, 'perditio': 50}),
+    'condense_soul': {'type': NS + ':condense_soul'},
     'infusion/enchanter': infusion('enchanter', 'ENCHANTER', I('minecraft:enchanting_table'),
                                    [I('thaumcraft:obsidian_tile')] * 5 + [I('thaumcraft:thaumium_ingot')] * 2 + [I('spell_cloth')],
                                    {'praecantatio': 50, 'potentia': 20, 'alienis': 20, 'vacuos': 20, 'cognitio': 10}, 15),
 }
+
+# наполненные аспекты души: из девяти сгущённых, по одному рецепту на аспект
+def soul(item, aspect):
+    return {'type': 'forge:nbt', 'item': NS + ':' + item, 'nbt': '{aspect:"%s"}' % aspect, 'count': 1}
+
+
+for aspect in SOUL_ASPECTS:
+    RECIPES['infusion/infused_soul_aspect_' + aspect] = {
+        'type': 'thaumcraft:infusion', 'central': soul('condensed_soul_aspect', aspect),
+        'components': [soul('condensed_soul_aspect', aspect)] * 8, 'aspects': {aspect: 10}, 'instability': 4,
+        'result': {'item': NS + ':infused_soul_aspect', 'nbt': '{aspect:"%s"}' % aspect}, 'research': 'SUMMON'}
 
 # ---------------------------------------------------------------- модели предметов и блоков
 FLAT_ITEMS = ['dark_quartz', 'spell_cloth', 'bright_nitor', 'gaseous_light', 'gaseous_shadow', 'gas_remover', 'share_tome',
@@ -414,13 +453,13 @@ CUBE_BLOCKS['enchanter'] = {
 # блоки без предмета (газы): состояние с пустой моделью
 GAS_BLOCKS = ['gaseous_light', 'gaseous_shadow', 'nitor_gas']
 # блоки, которые выпадают сами собой
-SELF_DROP_2B = ['magnet', 'mob_magnet', 'transvector_interface', 'transvector_dislocator', 'mobilizer', 'mobilizer_relay',
+SELF_DROP_2B = ['summon', 'magnet', 'mob_magnet', 'transvector_interface', 'transvector_dislocator', 'mobilizer', 'mobilizer_relay',
                 'remote_placer', 'animation_tablet']
 SELF_DROP = SELF_DROP_2B + ['dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_stairs', 'funnel',
              'repairer', 'aspect_analyzer', 'platform', 'enchanter']
 PICKAXE = ['dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_slab', 'dark_quartz_stairs',
            'funnel', 'repairer', 'aspect_analyzer', 'enchanter', 'transvector_interface', 'transvector_dislocator', 'mobilizer',
-           'mobilizer_relay', 'remote_placer', 'animation_tablet']
+           'mobilizer_relay', 'remote_placer', 'animation_tablet', 'summon']
 AXE = ['platform', 'magnet', 'mob_magnet']
 NECKLACES = ['xp_talisman', 'cleansing_talisman']
 
@@ -590,12 +629,38 @@ def gen_models():
         'facing=%s' % f: {'model': ns('block/repairer')} for f in ('north', 'south', 'west', 'east')}})
     write(os.path.join(models, 'item', 'repairer.json'), {'parent': 'minecraft:builtin/entity', 'display': BLOCK_DISPLAY})
     gen_models_2b(models, states)
+    gen_models_2c(models, states)
     # платформа под маскировкой не рисует своей модели — вместо неё отрисовщик блока показывает выбранный блок
     write(os.path.join(states, 'platform.json'), {'variants': {
         'camo=false': {'model': ns('block/platform')}, 'camo=true': {'model': ns('block/empty')}}})
 
 
 FACINGS6 = {'north': (0, 0), 'south': (0, 180), 'west': (0, 270), 'east': (0, 90), 'up': (270, 0), 'down': (90, 0)}
+
+
+def gen_models_2c(models, states):
+    for kind, suffix in (('soul_aspect', ''), ('condensed_soul_aspect', '_condensed'), ('infused_soul_aspect', '')):
+        overrides = []
+        for i, aspect in enumerate(SOUL_ASPECTS):
+            name = '%s_%s' % (kind, aspect)
+            write(os.path.join(models, 'item', 'soul', name + '.json'),
+                  {'parent': 'minecraft:item/generated', 'textures': {'layer0': ns('item/soul/%s%s' % (aspect, suffix))}})
+            overrides.append({'predicate': {ns('aspect'): i + 1}, 'model': ns('item/soul/' + name)})
+        write(os.path.join(models, 'item', kind + '.json'), {'parent': 'minecraft:item/generated', 'textures': {
+            'layer0': ns('item/soul/aer' + suffix)}, 'overrides': overrides})
+    write(os.path.join(models, 'item', 'blood_sword_active.json'),
+          {'parent': 'minecraft:item/handheld', 'textures': {'layer0': ns('item/blood_sword_active')}})
+    write(os.path.join(models, 'item', 'blood_sword.json'), {'parent': 'minecraft:item/handheld', 'textures': {
+        'layer0': ns('item/blood_sword')}, 'overrides': [{'predicate': {ns('active'): 1}, 'model': ns('item/blood_sword_active')}]})
+    write(os.path.join(models, 'block', 'summon.json'), {
+        'parent': 'minecraft:block/block', 'textures': {'particle': ns('block/summon_side'), 'top': ns('block/summon_top'),
+                                                        'bottom': 'minecraft:block/obsidian', 'side': ns('block/summon_side')},
+        'elements': [{'from': [0, 0, 0], 'to': [16, 2, 16], 'faces': {
+            'down': {'texture': '#bottom', 'cullface': 'down'}, 'up': {'texture': '#top'},
+            'north': {'texture': '#side', 'uv': [0, 14, 16, 16]}, 'south': {'texture': '#side', 'uv': [0, 14, 16, 16]},
+            'west': {'texture': '#side', 'uv': [0, 14, 16, 16]}, 'east': {'texture': '#side', 'uv': [0, 14, 16, 16]}}}]})
+    write(os.path.join(models, 'item', 'summon.json'), {'parent': ns('block/summon')})
+    write(os.path.join(states, 'summon.json'), {'variants': {'': {'model': ns('block/summon')}}})
 
 
 def gen_models_2b(models, states):

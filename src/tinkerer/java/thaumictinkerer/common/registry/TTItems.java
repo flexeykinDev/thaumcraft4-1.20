@@ -68,6 +68,15 @@ public final class TTItems {
     public static final RegistryObject<Item> RELAY = block(TTBlocks.RELAY);
     public static final RegistryObject<Item> ANIMATION_TABLET = block(TTBlocks.ANIMATION_TABLET);
     public static final RegistryObject<Item> REMOTE_PLACER = block(TTBlocks.REMOTE_PLACER);
+    // часть 2в
+    public static final RegistryObject<Item> BLOOD_SWORD = ITEMS.register("blood_sword", thaumictinkerer.common.item.BloodSwordItem::new);
+    public static final RegistryObject<Item> SUMMON = block(TTBlocks.SUMMON);
+    public static final RegistryObject<Item> SOUL_ASPECT = ITEMS.register("soul_aspect",
+            () -> new thaumictinkerer.common.item.SoulAspectItem(thaumictinkerer.common.item.SoulAspectItem.Kind.PLAIN));
+    public static final RegistryObject<Item> CONDENSED_SOUL_ASPECT = ITEMS.register("condensed_soul_aspect",
+            () -> new thaumictinkerer.common.item.SoulAspectItem(thaumictinkerer.common.item.SoulAspectItem.Kind.CONDENSED));
+    public static final RegistryObject<Item> INFUSED_SOUL_ASPECT = ITEMS.register("infused_soul_aspect",
+            () -> new thaumictinkerer.common.item.SoulAspectItem(thaumictinkerer.common.item.SoulAspectItem.Kind.INFUSED));
 
     private static RegistryObject<Item> magnet(RegistryObject<Block> block, boolean mobs) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()) {

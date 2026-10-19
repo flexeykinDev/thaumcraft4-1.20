@@ -1,0 +1,110 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "thaumictinkerer:item/soul/aer"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 1
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_aqua"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 2
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_humanus"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 3
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_aer"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 4
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_volatus"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 5
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_ignis"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 6
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_praecantatio"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 7
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_exanimis"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 8
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_corpus"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 9
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_bestia"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 10
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_venenum"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 11
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_terra"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 12
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_alienis"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 13
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_iter"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 14
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_metallum"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 15
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_limus"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 16
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_pannus"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:aspect": 17
+      },
+      "model": "thaumictinkerer:item/soul/soul_aspect_messis"
+    }
+  ]
+}

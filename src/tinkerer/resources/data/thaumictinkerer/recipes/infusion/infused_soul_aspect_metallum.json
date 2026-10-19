@@ -1,0 +1,68 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "type": "forge:nbt",
+    "item": "thaumictinkerer:condensed_soul_aspect",
+    "nbt": "{aspect:\"metallum\"}",
+    "count": 1
+  },
+  "components": [
+    {
+      "type": "forge:nbt",
+      "item": "thaumictinkerer:condensed_soul_aspect",
+      "nbt": "{aspect:\"metallum\"}",
+      "count": 1
+    },
+    {
+      "type": "forge:nbt",
+      "item": "thaumictinkerer:condensed_soul_aspect",
+      "nbt": "{aspect:\"metallum\"}",
+      "count": 1
+    },
+    {
+      "type": "forge:nbt",
+      "item": "thaumictinkerer:condensed_soul_aspect",
+      "nbt": "{aspect:\"metallum\"}",
+      "count": 1
+    },
+    {
+      "type": "forge:nbt",
+      "item": "thaumictinkerer:condensed_soul_aspect",
+      "nbt": "{aspect:\"metallum\"}",
+      "count": 1
+    },
+    {
+      "type": "forge:nbt",
+      "item": "thaumictinkerer:condensed_soul_aspect",
+      "nbt": "{aspect:\"metallum\"}",
+      "count": 1
+    },
+    {
+      "type": "forge:nbt",
+      "item": "thaumictinkerer:condensed_soul_aspect",
+      "nbt": "{aspect:\"metallum\"}",
+      "count": 1
+    },
+    {
+      "type": "forge:nbt",
+      "item": "thaumictinkerer:condensed_soul_aspect",
+      "nbt": "{aspect:\"metallum\"}",
+      "count": 1
+    },
+    {
+      "type": "forge:nbt",
+      "item": "thaumictinkerer:condensed_soul_aspect",
+      "nbt": "{aspect:\"metallum\"}",
+      "count": 1
+    }
+  ],
+  "aspects": {
+    "metallum": 10
+  },
+  "instability": 4,
+  "result": {
+    "item": "thaumictinkerer:infused_soul_aspect",
+    "nbt": "{aspect:\"metallum\"}"
+  },
+  "research": "SUMMON"
+}

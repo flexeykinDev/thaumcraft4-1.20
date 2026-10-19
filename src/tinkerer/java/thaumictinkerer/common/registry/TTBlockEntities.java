@@ -56,6 +56,10 @@ public final class TTBlockEntities {
     public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.AnimationTabletBlock.Tile>> ANIMATION_TABLET = BLOCK_ENTITIES.register(
             "animation_tablet", () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.AnimationTabletBlock.Tile::new, TTBlocks.ANIMATION_TABLET.get()).build(null));
 
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.SummonBlock.Tile>> SUMMON = BLOCK_ENTITIES.register("summon",
+            () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.SummonBlock.Tile::new, TTBlocks.SUMMON.get()).build(null));
+
     private TTBlockEntities() {
     }
 }
