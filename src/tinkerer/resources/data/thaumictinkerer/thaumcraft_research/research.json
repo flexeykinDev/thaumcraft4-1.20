@@ -14,9 +14,6 @@
       "column": -2,
       "row": 2,
       "complexity": 0,
-      "icon": {
-        "item": "thaumictinkerer:dark_quartz"
-      },
       "pages": [
         {
           "type": "text",
@@ -47,6 +44,9 @@
           "recipe": "thaumictinkerer:dark_quartz_stairs"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:dark_quartz"
+      },
       "stub": true,
       "autoUnlock": true,
       "round": true
@@ -58,9 +58,6 @@
       "column": 0,
       "row": -1,
       "complexity": 0,
-      "icon": {
-        "item": "thaumictinkerer:share_tome"
-      },
       "pages": [
         {
           "type": "text",
@@ -71,6 +68,9 @@
           "recipe": "thaumictinkerer:share_tome"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:share_tome"
+      },
       "stub": true,
       "autoUnlock": true,
       "round": true
@@ -85,9 +85,6 @@
       "column": 0,
       "row": -3,
       "complexity": 1,
-      "icon": {
-        "item": "thaumictinkerer:gaseous_light"
-      },
       "pages": [
         {
           "type": "text",
@@ -98,6 +95,9 @@
           "recipe": "thaumictinkerer:crucible/gaseous_light"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:gaseous_light"
+      },
       "parents": [
         "NITOR"
       ]
@@ -113,9 +113,6 @@
       "column": -1,
       "row": -5,
       "complexity": 2,
-      "icon": {
-        "item": "thaumictinkerer:gaseous_shadow"
-      },
       "pages": [
         {
           "type": "text",
@@ -126,6 +123,9 @@
           "recipe": "thaumictinkerer:crucible/gaseous_shadow"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:gaseous_shadow"
+      },
       "secondary": true,
       "parents": [
         "GASEOUS_LIGHT"
@@ -141,9 +141,6 @@
       "column": -2,
       "row": -7,
       "complexity": 0,
-      "icon": {
-        "item": "thaumictinkerer:gas_remover"
-      },
       "pages": [
         {
           "type": "text",
@@ -154,6 +151,9 @@
           "recipe": "thaumictinkerer:gas_remover"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:gas_remover"
+      },
       "round": true,
       "parents": [
         "GASEOUS_SHADOW"
@@ -171,9 +171,6 @@
       "column": 1,
       "row": -5,
       "complexity": 2,
-      "icon": {
-        "item": "thaumictinkerer:bright_nitor"
-      },
       "pages": [
         {
           "type": "text",
@@ -184,6 +181,9 @@
           "recipe": "thaumictinkerer:crucible/bright_nitor"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:bright_nitor"
+      },
       "secondary": true,
       "concealed": true,
       "parents": [
@@ -200,9 +200,6 @@
       "column": 0,
       "row": -7,
       "complexity": 1,
-      "icon": {
-        "item": "thaumictinkerer:funnel"
-      },
       "pages": [
         {
           "type": "text",
@@ -213,6 +210,9 @@
           "recipe": "thaumictinkerer:funnel"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:funnel"
+      },
       "secondary": true,
       "concealed": true,
       "parents": [
@@ -234,9 +234,6 @@
       "column": -1,
       "row": -9,
       "complexity": 3,
-      "icon": {
-        "item": "thaumictinkerer:repairer"
-      },
       "pages": [
         {
           "type": "text",
@@ -247,6 +244,9 @@
           "recipe": "thaumictinkerer:infusion/repairer"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:repairer"
+      },
       "concealed": true,
       "parents": [
         "FUNNEL"
@@ -266,9 +266,6 @@
       "column": 3,
       "row": 2,
       "complexity": 2,
-      "icon": {
-        "item": "thaumictinkerer:spell_cloth"
-      },
       "pages": [
         {
           "type": "text",
@@ -279,6 +276,9 @@
           "recipe": "thaumictinkerer:crucible/spell_cloth"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:spell_cloth"
+      },
       "parents_hidden": [
         "ENCHFABRIC"
       ]
@@ -294,9 +294,6 @@
       "column": 4,
       "row": -1,
       "complexity": 2,
-      "icon": {
-        "item": "thaumictinkerer:xp_talisman"
-      },
       "pages": [
         {
           "type": "text",
@@ -307,6 +304,9 @@
           "recipe": "thaumictinkerer:infusion/xp_talisman"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:xp_talisman"
+      },
       "secondary": true,
       "concealed": true,
       "parents": [
@@ -325,9 +325,6 @@
       "column": -3,
       "row": 4,
       "complexity": 3,
-      "icon": {
-        "item": "thaumictinkerer:cleansing_talisman"
-      },
       "pages": [
         {
           "type": "text",
@@ -338,6 +335,9 @@
           "recipe": "thaumictinkerer:infusion/cleansing_talisman"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:cleansing_talisman"
+      },
       "secondary": true,
       "parents": [
         "DARK_QUARTZ"
@@ -353,9 +353,6 @@
       "column": 0,
       "row": 0,
       "complexity": 1,
-      "icon": {
-        "item": "thaumictinkerer:revealing_helm"
-      },
       "pages": [
         {
           "type": "text",
@@ -366,6 +363,9 @@
           "recipe": "thaumictinkerer:revealing_helm"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:revealing_helm"
+      },
       "parents": [
         "GOGGLES"
       ],
@@ -384,9 +384,6 @@
       "column": 0,
       "row": 1,
       "complexity": 2,
-      "icon": {
-        "item": "thaumictinkerer:aspect_analyzer"
-      },
       "pages": [
         {
           "type": "text",
@@ -397,6 +394,9 @@
           "recipe": "thaumictinkerer:aspect_analyzer"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:aspect_analyzer"
+      },
       "round": true,
       "concealed": true,
       "parents_hidden": [
@@ -415,9 +415,6 @@
       "column": -2,
       "row": 6,
       "complexity": 3,
-      "icon": {
-        "item": "thaumictinkerer:platform"
-      },
       "pages": [
         {
           "type": "text",
@@ -428,10 +425,620 @@
           "recipe": "thaumictinkerer:platform"
         }
       ],
+      "icon": {
+        "item": "thaumictinkerer:platform"
+      },
       "secondary": true,
       "concealed": true,
       "parents": [
         "CLEANSING_TALISMAN"
+      ]
+    },
+    {
+      "key": "FOCUS_SMELT",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "ignis": 2,
+        "potentia": 1,
+        "praecantatio": 1
+      },
+      "column": -2,
+      "row": -2,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FOCUS_SMELT.0"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:focus_smelt"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:focus_smelt"
+      },
+      "concealed": true,
+      "parents": [
+        "FOCUSEXCAVATION"
+      ]
+    },
+    {
+      "key": "FOCUS_FLIGHT",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "motus": 1,
+        "praecantatio": 1,
+        "aer": 2
+      },
+      "column": -3,
+      "row": -4,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FOCUS_FLIGHT.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/focus_flight"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:focus_flight"
+      },
+      "concealed": true,
+      "parents": [
+        "FOCUS_SMELT"
+      ]
+    },
+    {
+      "key": "FOCUS_TELEKINESIS",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "alienis": 2,
+        "praecantatio": 1,
+        "motus": 1
+      },
+      "column": -4,
+      "row": -6,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FOCUS_TELEKINESIS.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/focus_telekinesis"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:focus_telekinesis"
+      },
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "FOCUS_FLIGHT"
+      ]
+    },
+    {
+      "key": "FOCUS_DEFLECT",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "motus": 2,
+        "aer": 1,
+        "ordo": 1,
+        "mortuus": 1
+      },
+      "column": -4,
+      "row": -3,
+      "complexity": 3,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FOCUS_DEFLECT.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/focus_deflect"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:focus_deflect"
+      },
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "FOCUS_SMELT"
+      ]
+    },
+    {
+      "key": "FOCUS_DISLOCATION",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "alienis": 2,
+        "praecantatio": 1,
+        "permutatio": 1
+      },
+      "column": -5,
+      "row": -5,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FOCUS_DISLOCATION.0"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.FOCUS_DISLOCATION.1"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/focus_dislocation"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:focus_dislocation"
+      },
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "FOCUS_FLIGHT"
+      ]
+    },
+    {
+      "key": "FOCUS_HEAL",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "sano": 2,
+        "spiritus": 1,
+        "praecantatio": 1
+      },
+      "column": -6,
+      "row": -4,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FOCUS_HEAL.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/focus_heal"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:focus_heal"
+      },
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "FOCUS_DEFLECT"
+      ]
+    },
+    {
+      "key": "FOCUS_ENDER_CHEST",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "alienis": 2,
+        "vacuos": 1,
+        "praecantatio": 1
+      },
+      "column": -6,
+      "row": -2,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FOCUS_ENDER_CHEST.0"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:focus_ender_chest"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:focus_ender_chest"
+      },
+      "concealed": true,
+      "parents": [
+        "FOCUS_DEFLECT"
+      ],
+      "warp": 1
+    },
+    {
+      "key": "ENCHANTER",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "praecantatio": 2,
+        "auram": 1,
+        "alienis": 1,
+        "tenebrae": 1,
+        "cognitio": 1
+      },
+      "column": 5,
+      "row": 4,
+      "complexity": 5,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.ENCHANTER.0"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.ENCHANTER.1"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.ENCHANTER.2"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/enchanter"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:enchanter"
+      },
+      "parents": [
+        "SPELL_CLOTH"
+      ]
+    },
+    {
+      "key": "TTENCH_ASCENT_BOOST",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "aer": 1,
+        "motus": 1,
+        "praecantatio": 2
+      },
+      "column": 6,
+      "row": 2,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_ASCENT_BOOST.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/ascent_boost.png"
+      },
+      "secondary": true,
+      "parents": [
+        "ENCHANTER"
+      ]
+    },
+    {
+      "key": "TTENCH_SLOW_FALL",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "aer": 1,
+        "motus": 1,
+        "praecantatio": 2
+      },
+      "column": 7,
+      "row": 3,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_SLOW_FALL.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/slow_fall.png"
+      },
+      "secondary": true,
+      "parents": [
+        "ENCHANTER"
+      ]
+    },
+    {
+      "key": "TTENCH_AUTO_SMELT",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "ignis": 1,
+        "perditio": 1,
+        "praecantatio": 2
+      },
+      "column": 7,
+      "row": 5,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_AUTO_SMELT.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/auto_smelt.png"
+      },
+      "secondary": true,
+      "parents": [
+        "ENCHANTER"
+      ]
+    },
+    {
+      "key": "TTENCH_DESINTEGRATE",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "perditio": 1,
+        "vacuos": 1,
+        "praecantatio": 2
+      },
+      "column": 6,
+      "row": 6,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_DESINTEGRATE.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/desintegrate.png"
+      },
+      "secondary": true,
+      "parents": [
+        "ENCHANTER"
+      ]
+    },
+    {
+      "key": "TTENCH_QUICK_DRAW",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "sensus": 1,
+        "telum": 1,
+        "praecantatio": 2
+      },
+      "column": 4,
+      "row": 6,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_QUICK_DRAW.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/quick_draw.png"
+      },
+      "secondary": true,
+      "parents": [
+        "ENCHANTER"
+      ]
+    },
+    {
+      "key": "TTENCH_VAMPIRISM",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "fames": 1,
+        "telum": 1,
+        "praecantatio": 2
+      },
+      "column": 3,
+      "row": 5,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_VAMPIRISM.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/vampirism.png"
+      },
+      "secondary": true,
+      "parents": [
+        "ENCHANTER"
+      ]
+    },
+    {
+      "key": "TTENCH_FOCUSED",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "ordo": 1,
+        "telum": 1,
+        "praecantatio": 2
+      },
+      "column": 2,
+      "row": 7,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_FOCUSED.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/focused_strikes.png"
+      },
+      "secondary": true,
+      "parents": [
+        "TTENCH_VAMPIRISM"
+      ]
+    },
+    {
+      "key": "TTENCH_DISPERSED",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "perditio": 1,
+        "telum": 1,
+        "praecantatio": 2
+      },
+      "column": 1,
+      "row": 6,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_DISPERSED.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/dispersed_strikes.png"
+      },
+      "secondary": true,
+      "parents": [
+        "TTENCH_VAMPIRISM"
+      ]
+    },
+    {
+      "key": "TTENCH_FINAL",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "perditio": 3,
+        "ordo": 3,
+        "telum": 3,
+        "praecantatio": 2
+      },
+      "column": 0,
+      "row": 8,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_FINAL.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/final_strike.png"
+      },
+      "secondary": true,
+      "parents": [
+        "TTENCH_FOCUSED",
+        "TTENCH_DISPERSED"
+      ]
+    },
+    {
+      "key": "TTENCH_POUNCE",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "aer": 3,
+        "ordo": 3,
+        "tutamen": 3,
+        "praecantatio": 2
+      },
+      "column": 7,
+      "row": 0,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_POUNCE.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/pounce.png"
+      },
+      "secondary": true,
+      "parents": [
+        "TTENCH_ASCENT_BOOST"
+      ]
+    },
+    {
+      "key": "TTENCH_SHATTER",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "terra": 3,
+        "perditio": 3,
+        "instrumentum": 1,
+        "praecantatio": 2
+      },
+      "column": 5,
+      "row": 8,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_SHATTER.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/shatter.png"
+      },
+      "secondary": true,
+      "parents": [
+        "TTENCH_DESINTEGRATE"
+      ]
+    },
+    {
+      "key": "TTENCH_SHOCKWAVE",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "aer": 3,
+        "perditio": 3,
+        "tutamen": 1,
+        "praecantatio": 2
+      },
+      "column": 9,
+      "row": 2,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_SHOCKWAVE.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/shockwave.png"
+      },
+      "secondary": true,
+      "parents": [
+        "TTENCH_SLOW_FALL"
+      ]
+    },
+    {
+      "key": "TTENCH_TUNNEL",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "terra": 3,
+        "ordo": 3,
+        "instrumentum": 1,
+        "praecantatio": 2
+      },
+      "column": 9,
+      "row": 6,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_TUNNEL.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/tunnel.png"
+      },
+      "secondary": true,
+      "parents": [
+        "TTENCH_AUTO_SMELT"
+      ]
+    },
+    {
+      "key": "TTENCH_VALIANCE",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "telum": 3,
+        "sano": 3,
+        "praecantatio": 2
+      },
+      "column": 1,
+      "row": 4,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.TTENCH_VALIANCE.0"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/enchants/valiance.png"
+      },
+      "secondary": true,
+      "parents": [
+        "TTENCH_VAMPIRISM"
       ]
     }
   ]

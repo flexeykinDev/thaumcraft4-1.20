@@ -1,0 +1,44 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:ender_pearl"
+  },
+  "components": [
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "thaumcraft:amber"
+    },
+    {
+      "item": "thaumcraft:amber"
+    },
+    {
+      "item": "thaumcraft:amber"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "aspects": {
+    "alienis": 20,
+    "tenebrae": 10,
+    "vacuos": 25,
+    "praecantatio": 20,
+    "vitium": 5
+  },
+  "instability": 8,
+  "result": {
+    "item": "thaumictinkerer:focus_dislocation"
+  },
+  "research": "FOCUS_DISLOCATION"
+}

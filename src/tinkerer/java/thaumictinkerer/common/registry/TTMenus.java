@@ -15,6 +15,10 @@ public final class TTMenus {
     public static final RegistryObject<MenuType<AspectAnalyzerBlock.Menu>> ASPECT_ANALYZER = MENUS.register("aspect_analyzer",
             () -> IForgeMenuType.create((id, inventory, data) -> new AspectAnalyzerBlock.Menu(id, inventory, data.readBlockPos())));
 
+    public static final RegistryObject<MenuType<thaumictinkerer.common.block.EnchanterBlock.Menu>> ENCHANTER = MENUS.register("enchanter",
+            () -> IForgeMenuType.create((id, inventory, data) -> new thaumictinkerer.common.block.EnchanterBlock.Menu(id, inventory,
+                    data.readBlockPos())));
+
     private TTMenus() {
     }
 }

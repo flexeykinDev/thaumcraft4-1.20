@@ -42,7 +42,8 @@ public final class WandCap {
         this.specialAspects = specialAspects;
         this.specialCostModifier = specialCostModifier;
         this.craftCost = craftCost;
-        this.texture = thaumcraft.common.Res.of("thaumcraft", "textures/models/wand_cap_" + tag + ".png");
+        // текстура лежит в пространстве имён мода, который добавил набалдашник
+        this.texture = thaumcraft.common.Res.of(this.itemId.getNamespace(), "textures/models/wand_cap_" + tag + ".png");
         CAPS.put(tag, this);
     }
 
@@ -53,6 +54,11 @@ public final class WandCap {
     /** Множитель расхода вис для аспекта: у некоторых набалдашников отдельные аспекты обходятся дешевле. */
     public float getCostModifier(Aspect aspect) {
         return specialAspects.contains(aspect) ? specialCostModifier : baseCostModifier;
+    }
+
+    /** Множитель расхода без учёта особых аспектов (getBaseCostModifier оригинала). */
+    public float getBaseCostModifier() {
+        return baseCostModifier;
     }
 
     public int getCraftCost() {

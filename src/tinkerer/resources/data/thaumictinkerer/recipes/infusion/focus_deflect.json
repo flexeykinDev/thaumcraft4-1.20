@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumictinkerer:focus_flight"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:mirrored_glass"
+    },
+    {
+      "item": "thaumcraft:mirrored_glass"
+    },
+    {
+      "item": "thaumcraft:warding_paving"
+    },
+    {
+      "item": "thaumcraft:shard_order"
+    }
+  ],
+  "aspects": {
+    "aer": 15,
+    "tutamen": 5,
+    "ordo": 20
+  },
+  "instability": 5,
+  "result": {
+    "item": "thaumictinkerer:focus_deflect"
+  },
+  "research": "FOCUS_DEFLECT"
+}

@@ -28,6 +28,10 @@ public final class TTBlockEntities {
     public static final RegistryObject<BlockEntityType<PlatformBlock.Tile>> PLATFORM = BLOCK_ENTITIES.register("platform",
             () -> BlockEntityType.Builder.of(PlatformBlock.Tile::new, TTBlocks.PLATFORM.get()).build(null));
 
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.EnchanterBlock.Tile>> ENCHANTER = BLOCK_ENTITIES.register(
+            "enchanter", () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.EnchanterBlock.Tile::new, TTBlocks.ENCHANTER.get()).build(null));
+
     private TTBlockEntities() {
     }
 }

@@ -1,0 +1,40 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:ender_pearl"
+  },
+  "components": [
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "thaumcraft:shard_air"
+    }
+  ],
+  "aspects": {
+    "motus": 10,
+    "aer": 20,
+    "perditio": 20,
+    "cognitio": 10
+  },
+  "instability": 5,
+  "result": {
+    "item": "thaumictinkerer:focus_telekinesis"
+  },
+  "research": "FOCUS_TELEKINESIS"
+}

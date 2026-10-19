@@ -55,7 +55,31 @@ TEXTURES = {
     'misc/repair': 'misc/repair.png',
     'misc/repair_off': 'misc/repairOff.png',
     'gui/aspect_analyzer': 'gui/aspectAnalyzer.png',
+    # часть 2а: фокусы и зачарователь
+    'item/focus_smelt': 'items/focusSmelt.png', 'item/focus_smelt_orn': 'items/focusSmeltOrn.png',
+    'item/focus_flight': 'items/focusFlight.png', 'item/focus_flight_orn': 'items/focusFlightOrn.png',
+    'item/focus_deflect': 'items/focusDeflect.png',
+    'item/focus_telekinesis': 'items/focusTelekinesis.png', 'item/focus_telekinesis_orn': 'items/focusTelekinesisOrn.png',
+    'item/focus_dislocation': 'items/focusDislocation.png', 'item/focus_dislocation_orn': 'items/focusDislocationOrn.png',
+    'item/focus_heal': 'items/focusHeal.png', 'unstitched/item/focus_heal_depth': 'items/focusHealDepth.png',
+    'item/focus_ender_chest': 'items/focusEnderChest.png', 'unstitched/item/focus_ender_chest_depth': 'items/focusEnderChestDepth.png',
+    'block/enchanter_bottom': 'blocks/enchanter0.png', 'block/enchanter_top': 'blocks/enchanter1.png',
+    'block/enchanter_side': 'blocks/enchanter2.png', 'gui/enchanter': 'gui/enchanter.png',
 }
+# значки чар: имя порта -> файл оригинала
+ENCHANT_ICONS = {
+    'protection': 'protection', 'fire_protection': 'fireProtection', 'feather_falling': 'featherFalling',
+    'blast_protection': 'blastProtection', 'projectile_protection': 'projectileProtection', 'respiration': 'respiration',
+    'aqua_affinity': 'aquaAffinity', 'thorns': 'thorns', 'sharpness': 'sharpness', 'smite': 'smite',
+    'bane_of_arthropods': 'baneOfAwfulTurds', 'knockback': 'knockback', 'fire_aspect': 'fireAspect', 'looting': 'looting',
+    'efficiency': 'efficiency', 'silk_touch': 'silkTouch', 'unbreaking': 'unbreaking', 'fortune': 'fortune', 'power': 'power',
+    'punch': 'punch', 'flame': 'flame', 'infinity': 'infinity', 'lure': 'lure', 'luck_of_the_sea': 'luckOfTheSea',
+    'haste': 'haste', 'repair': 'repair', 'ascent_boost': 'ascentBoost', 'slow_fall': 'slowFall', 'auto_smelt': 'autoSmelt',
+    'desintegrate': 'desintegrate', 'quick_draw': 'quickDraw', 'vampirism': 'vamprisim', 'focused_strikes': 'focusedStrikes',
+    'dispersed_strikes': 'dispersedStrikes', 'valiance': 'valiance', 'final_strike': 'finalStrike', 'tunnel': 'tunnel',
+    'shatter': 'shatter', 'shockwave': 'shockwave', 'pounce': 'pounce',
+}
+TEXTURES.update({'enchants/' + k: 'enchants/%s.png' % v for k, v in ENCHANT_ICONS.items()})
 
 # ---------------------------------------------------------------- названия: наш id -> ключ .lang оригинала
 ITEM_NAMES = {
@@ -78,7 +102,21 @@ ITEM_NAMES = {
     'block.thaumictinkerer.repairer': 'tile.repairer.name',
     'block.thaumictinkerer.aspect_analyzer': 'tile.aspectAnalyzer.name',
     'block.thaumictinkerer.platform': 'tile.platform.name',
+    'item.thaumictinkerer.focus_smelt': 'item.focusSmelt.name',
+    'item.thaumictinkerer.focus_flight': 'item.focusFlight.name',
+    'item.thaumictinkerer.focus_deflect': 'item.focusDeflect.name',
+    'item.thaumictinkerer.focus_telekinesis': 'item.focusTelekinesis.name',
+    'item.thaumictinkerer.focus_dislocation': 'item.focusDislocation.name',
+    'item.thaumictinkerer.focus_heal': 'item.focusHeal.name',
+    'item.thaumictinkerer.focus_ender_chest': 'item.focusEnderChest.name',
+    'block.thaumictinkerer.enchanter': 'tile.enchanter.name',
 }
+for ours, theirs in {'ascent_boost': 'ascentBoost', 'slow_fall': 'slowFall', 'auto_smelt': 'autoSmelt',
+                     'desintegrate': 'desintegrate', 'quick_draw': 'quickDraw', 'vampirism': 'vampirism',
+                     'dispersed_strikes': 'dispersedStrike', 'focused_strikes': 'focusedStrike', 'tunnel': 'tunnel',
+                     'final_strike': 'finalStrike', 'pounce': 'pounce', 'shatter': 'shatter', 'shockwave': 'shockwave',
+                     'valiance': 'valiance'}.items():
+    ITEM_NAMES['enchantment.thaumictinkerer.' + ours] = 'enchantment.ttinkerer:' + theirs
 # в разных языках оригинала один и тот же предмет назван разными ключами
 ITEM_NAME_ALIASES = {'item.darkQuartzItem.name': ['item.darkQuartz.name']}
 
@@ -132,7 +170,48 @@ RESEARCH = [
          pages=text('ASPECT_ANALYZER', 0) + [P('arcane', 'aspect_analyzer')]),
     dict(key='PLATFORM', aspects={'sensus': 2, 'arbor': 1, 'motus': 1}, column=-2, row=6, complexity=3, icon='platform',
          concealed=True, secondary=True, parents=['CLEANSING_TALISMAN'], pages=text('PLATFORM', 0) + [P('arcane', 'platform')]),
+    # часть 2а
+    dict(key='FOCUS_SMELT', aspects={'ignis': 2, 'potentia': 1, 'praecantatio': 1}, column=-2, row=-2, complexity=2,
+         icon='focus_smelt', concealed=True, parents=['FOCUSEXCAVATION'], pages=text('FOCUS_SMELT', 0) + [P('arcane', 'focus_smelt')]),
+    dict(key='FOCUS_FLIGHT', aspects={'motus': 1, 'praecantatio': 1, 'aer': 2}, column=-3, row=-4, complexity=2,
+         icon='focus_flight', concealed=True, parents=['FOCUS_SMELT'], pages=text('FOCUS_FLIGHT', 0) + [P('infusion', 'infusion/focus_flight')]),
+    dict(key='FOCUS_TELEKINESIS', aspects={'alienis': 2, 'praecantatio': 1, 'motus': 1}, column=-4, row=-6, complexity=2,
+         icon='focus_telekinesis', concealed=True, secondary=True, parents=['FOCUS_FLIGHT'],
+         pages=text('FOCUS_TELEKINESIS', 0) + [P('infusion', 'infusion/focus_telekinesis')]),
+    dict(key='FOCUS_DEFLECT', aspects={'motus': 2, 'aer': 1, 'ordo': 1, 'mortuus': 1}, column=-4, row=-3, complexity=3,
+         icon='focus_deflect', concealed=True, secondary=True, parents=['FOCUS_SMELT'],
+         pages=text('FOCUS_DEFLECT', 0) + [P('infusion', 'infusion/focus_deflect')]),
+    dict(key='FOCUS_DISLOCATION', aspects={'alienis': 2, 'praecantatio': 1, 'permutatio': 1}, column=-5, row=-5, complexity=2,
+         icon='focus_dislocation', concealed=True, secondary=True, parents=['FOCUS_FLIGHT'],
+         pages=text('FOCUS_DISLOCATION', 0, 1) + [P('infusion', 'infusion/focus_dislocation')]),
+    dict(key='FOCUS_HEAL', aspects={'sano': 2, 'spiritus': 1, 'praecantatio': 1}, column=-6, row=-4, complexity=2,
+         icon='focus_heal', concealed=True, secondary=True, parents=['FOCUS_DEFLECT'],
+         pages=text('FOCUS_HEAL', 0) + [P('infusion', 'infusion/focus_heal')]),
+    dict(key='FOCUS_ENDER_CHEST', aspects={'alienis': 2, 'vacuos': 1, 'praecantatio': 1}, column=-6, row=-2, complexity=2,
+         icon='focus_ender_chest', concealed=True, warp=1, parents=['FOCUS_DEFLECT'],
+         pages=text('FOCUS_ENDER_CHEST', 0) + [P('arcane', 'focus_ender_chest')]),
+    dict(key='ENCHANTER', aspects={'praecantatio': 2, 'auram': 1, 'alienis': 1, 'tenebrae': 1, 'cognitio': 1}, column=5, row=4,
+         complexity=5, icon='enchanter', parents=['SPELL_CLOTH'], pages=text('ENCHANTER', 0, 1, 2) + [P('infusion', 'infusion/enchanter')]),
 ]
+# чары зачарователя: ключ исследования, значок, место на карте, цена, родители
+for key, icon, col, row, aspects, parents in [
+        ('TTENCH_ASCENT_BOOST', 'ascent_boost', 6, 2, {'aer': 1, 'motus': 1, 'praecantatio': 2}, ['ENCHANTER']),
+        ('TTENCH_SLOW_FALL', 'slow_fall', 7, 3, {'aer': 1, 'motus': 1, 'praecantatio': 2}, ['ENCHANTER']),
+        ('TTENCH_AUTO_SMELT', 'auto_smelt', 7, 5, {'ignis': 1, 'perditio': 1, 'praecantatio': 2}, ['ENCHANTER']),
+        ('TTENCH_DESINTEGRATE', 'desintegrate', 6, 6, {'perditio': 1, 'vacuos': 1, 'praecantatio': 2}, ['ENCHANTER']),
+        ('TTENCH_QUICK_DRAW', 'quick_draw', 4, 6, {'sensus': 1, 'telum': 1, 'praecantatio': 2}, ['ENCHANTER']),
+        ('TTENCH_VAMPIRISM', 'vampirism', 3, 5, {'fames': 1, 'telum': 1, 'praecantatio': 2}, ['ENCHANTER']),
+        ('TTENCH_FOCUSED', 'focused_strikes', 2, 7, {'ordo': 1, 'telum': 1, 'praecantatio': 2}, ['TTENCH_VAMPIRISM']),
+        ('TTENCH_DISPERSED', 'dispersed_strikes', 1, 6, {'perditio': 1, 'telum': 1, 'praecantatio': 2}, ['TTENCH_VAMPIRISM']),
+        ('TTENCH_FINAL', 'final_strike', 0, 8, {'perditio': 3, 'ordo': 3, 'telum': 3, 'praecantatio': 2},
+         ['TTENCH_FOCUSED', 'TTENCH_DISPERSED']),
+        ('TTENCH_POUNCE', 'pounce', 7, 0, {'aer': 3, 'ordo': 3, 'tutamen': 3, 'praecantatio': 2}, ['TTENCH_ASCENT_BOOST']),
+        ('TTENCH_SHATTER', 'shatter', 5, 8, {'terra': 3, 'perditio': 3, 'instrumentum': 1, 'praecantatio': 2}, ['TTENCH_DESINTEGRATE']),
+        ('TTENCH_SHOCKWAVE', 'shockwave', 9, 2, {'aer': 3, 'perditio': 3, 'tutamen': 1, 'praecantatio': 2}, ['TTENCH_SLOW_FALL']),
+        ('TTENCH_TUNNEL', 'tunnel', 9, 6, {'terra': 3, 'ordo': 3, 'instrumentum': 1, 'praecantatio': 2}, ['TTENCH_AUTO_SMELT']),
+        ('TTENCH_VALIANCE', 'valiance', 1, 4, {'telum': 3, 'sano': 3, 'praecantatio': 2}, ['TTENCH_VAMPIRISM'])]:
+    RESEARCH.append(dict(key=key, aspects=aspects, column=col, row=row, complexity=2, texture='enchants/' + icon,
+                         secondary=True, parents=parents, pages=text(key, 0)))
 
 # ---------------------------------------------------------------- рецепты
 I = lambda item: {'item': item if ':' in item else NS + ':' + item}
@@ -200,11 +279,36 @@ RECIPES = {
     'platform': arcane('platform', 'PLATFORM', [' S ', 'G G'], {'G': I('thaumcraft:greatwood_planks'),
                                                                 'S': I('thaumcraft:silverwood_planks')},
                        {'aer': 2, 'perditio': 4}, 2),
+    'focus_smelt': arcane('focus_smelt', 'FOCUS_SMELT', ['FNE'], {'F': I('thaumcraft:focus_fire'), 'N': I('thaumcraft:nitor'),
+                                                                 'E': I('thaumcraft:focus_excavation')}, {'ignis': 10, 'ordo': 5, 'perditio': 6}),
+    'infusion/focus_flight': infusion('focus_flight', 'FOCUS_FLIGHT', I('minecraft:ender_pearl'),
+                                      [I('minecraft:quartz')] * 4 + [I('minecraft:feather')] * 2 + [I('thaumcraft:shard_air')],
+                                      {'aer': 15, 'motus': 20, 'iter': 10}, 3),
+    'infusion/focus_telekinesis': infusion('focus_telekinesis', 'FOCUS_TELEKINESIS', I('minecraft:ender_pearl'),
+                                           [I('minecraft:quartz')] * 4 + [I('minecraft:iron_ingot'), I('minecraft:gold_ingot'),
+                                                                          I('thaumcraft:shard_air')],
+                                           {'motus': 10, 'aer': 20, 'perditio': 20, 'cognitio': 10}, 5),
+    'infusion/focus_deflect': infusion('focus_deflect', 'FOCUS_DEFLECT', I('focus_flight'),
+                                       [I('thaumcraft:mirrored_glass')] * 2 + [I('thaumcraft:warding_paving'), I('thaumcraft:shard_order')],
+                                       {'aer': 15, 'tutamen': 5, 'ordo': 20}, 5),
+    'infusion/focus_dislocation': infusion('focus_dislocation', 'FOCUS_DISLOCATION', I('minecraft:ender_pearl'),
+                                           [I('minecraft:quartz')] * 4 + [I('thaumcraft:amber')] * 3 + [I('minecraft:diamond')],
+                                           {'alienis': 20, 'tenebrae': 10, 'vacuos': 25, 'praecantatio': 20, 'vitium': 5}, 8),
+    'infusion/focus_heal': infusion('focus_heal', 'FOCUS_HEAL', I('thaumcraft:focus_pech'),
+                                    [I('minecraft:golden_carrot')] + [I('minecraft:gold_nugget')] * 3,
+                                    {'sano': 10, 'spiritus': 10, 'victus': 15}, 4),
+    'focus_ender_chest': arcane('focus_ender_chest', 'FOCUS_ENDER_CHEST', ['M', 'E', 'P'],
+                                {'M': I('thaumcraft:magic_mirror'), 'E': I('minecraft:ender_eye'), 'P': I('thaumcraft:focus_portable_hole')},
+                                {'ordo': 10, 'perditio': 10}),
+    'infusion/enchanter': infusion('enchanter', 'ENCHANTER', I('minecraft:enchanting_table'),
+                                   [I('thaumcraft:obsidian_tile')] * 5 + [I('thaumcraft:thaumium_ingot')] * 2 + [I('spell_cloth')],
+                                   {'praecantatio': 50, 'potentia': 20, 'alienis': 20, 'vacuos': 20, 'cognitio': 10}, 15),
 }
 
 # ---------------------------------------------------------------- модели предметов и блоков
 FLAT_ITEMS = ['dark_quartz', 'spell_cloth', 'bright_nitor', 'gaseous_light', 'gaseous_shadow', 'gas_remover', 'share_tome',
-              'revealing_helm']
+              'revealing_helm', 'focus_smelt', 'focus_flight', 'focus_deflect', 'focus_telekinesis', 'focus_dislocation',
+              'focus_heal', 'focus_ender_chest']
 # предметы с двумя видами: включён (свойство thaumictinkerer:active = 1) и выключен
 TOGGLED_ITEMS = ['xp_talisman', 'cleansing_talisman']
 # блоки, у которых предмет — та же модель
@@ -219,13 +323,23 @@ CUBE_BLOCKS = {
         'west': 'block/aspect_analyzer_west', 'east': 'block/aspect_analyzer_east'}},
     'platform': {'parent': 'minecraft:block/cube_all', 'textures': {'all': 'block/platform'}},
 }
+# зачарователь — плита высотой 12 точек
+CUBE_BLOCKS['enchanter'] = {
+    'parent': 'minecraft:block/block', 'textures': {'particle': 'block/enchanter_side', 'top': 'block/enchanter_top',
+                                                    'bottom': 'block/enchanter_bottom', 'side': 'block/enchanter_side'},
+    'elements': [{'from': [0, 0, 0], 'to': [16, 12, 16], 'faces': {
+        'down': {'texture': '#bottom', 'cullface': 'down'}, 'up': {'texture': '#top'},
+        'north': {'texture': '#side', 'uv': [0, 4, 16, 16], 'cullface': 'north'},
+        'south': {'texture': '#side', 'uv': [0, 4, 16, 16], 'cullface': 'south'},
+        'west': {'texture': '#side', 'uv': [0, 4, 16, 16], 'cullface': 'west'},
+        'east': {'texture': '#side', 'uv': [0, 4, 16, 16], 'cullface': 'east'}}}]}
 # блоки без предмета (газы): состояние с пустой моделью
 GAS_BLOCKS = ['gaseous_light', 'gaseous_shadow', 'nitor_gas']
 # блоки, которые выпадают сами собой
 SELF_DROP = ['dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_stairs', 'funnel',
-             'repairer', 'aspect_analyzer', 'platform']
+             'repairer', 'aspect_analyzer', 'platform', 'enchanter']
 PICKAXE = ['dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_slab', 'dark_quartz_stairs',
-           'funnel', 'repairer', 'aspect_analyzer']
+           'funnel', 'repairer', 'aspect_analyzer', 'enchanter']
 AXE = ['platform']
 NECKLACES = ['xp_talisman', 'cleansing_talisman']
 
@@ -267,8 +381,13 @@ def read_lang(name):
 
 def gen_lang():
     def tool_lang(name):
-        path = os.path.join(ROOT, 'tools', 'lang', name)
-        return json.load(open(path, encoding='utf-8')) if os.path.exists(path) else {}
+        # name.json и его продолжения name_2.json, name_3.json… (по частям аддона)
+        import glob
+        base = os.path.join(ROOT, 'tools', 'lang', name)
+        out = {}
+        for path in sorted(glob.glob(base[:-5] + '.json') + glob.glob(base[:-5] + '_[0-9]*.json')):
+            out.update(json.load(open(path, encoding='utf-8')))
+        return out
 
     research_keys = {r['key'] for r in RESEARCH}
     english = None
@@ -309,7 +428,8 @@ def gen_research():
     entries = []
     for r in RESEARCH:
         e = {'key': r['key'], 'category': 'TT_CATEGORY', 'aspects': r.get('aspects', {}), 'column': r['column'],
-             'row': r['row'], 'complexity': r['complexity'], 'icon': {'item': ns(r['icon'])}, 'pages': r['pages']}
+             'row': r['row'], 'complexity': r['complexity'], 'pages': r['pages'],
+             'icon': {'texture': ns('textures/%s.png' % r['texture'])} if 'texture' in r else {'item': ns(r['icon'])}}
         for flag in ('stub', 'autoUnlock', 'round', 'secondary', 'concealed', 'hidden'):
             if r.get(flag):
                 e[flag] = True

@@ -50,6 +50,8 @@ public final class TTBlocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(3f, 8f).sound(SoundType.METAL).noOcclusion()));
     public static final RegistryObject<Block> ASPECT_ANALYZER = BLOCKS.register("aspect_analyzer", () -> new AspectAnalyzerBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2f, 5f).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> ENCHANTER = BLOCKS.register("enchanter", () -> new thaumictinkerer.common.block.EnchanterBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(5f, 2000f).sound(SoundType.STONE).noOcclusion()));
     public static final RegistryObject<Block> PLATFORM = BLOCKS.register("platform", () -> new PlatformBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2f, 5f).sound(SoundType.WOOD).noOcclusion()
                     .isViewBlocking((state, level, pos) -> false).isSuffocating((state, level, pos) -> false)));

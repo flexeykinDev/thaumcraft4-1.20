@@ -45,6 +45,18 @@ public final class TTItems {
     public static final RegistryObject<Item> REVEALING_HELM = ITEMS.register("revealing_helm", RevealingHelmItem::new);
     public static final RegistryObject<Item> ASPECT_ANALYZER = block(TTBlocks.ASPECT_ANALYZER);
     public static final RegistryObject<Item> PLATFORM = block(TTBlocks.PLATFORM);
+    // часть 2: фокусы и зачарователь
+    public static final RegistryObject<Item> FOCUS_SMELT = ITEMS.register("focus_smelt", thaumictinkerer.common.item.focus.TTFoci.Smelt::new);
+    public static final RegistryObject<Item> FOCUS_FLIGHT = ITEMS.register("focus_flight", thaumictinkerer.common.item.focus.TTFoci.Flight::new);
+    public static final RegistryObject<Item> FOCUS_DEFLECT = ITEMS.register("focus_deflect", thaumictinkerer.common.item.focus.TTFoci.Deflect::new);
+    public static final RegistryObject<Item> FOCUS_TELEKINESIS = ITEMS.register("focus_telekinesis",
+            thaumictinkerer.common.item.focus.TTFoci.Telekinesis::new);
+    public static final RegistryObject<Item> FOCUS_DISLOCATION = ITEMS.register("focus_dislocation",
+            thaumictinkerer.common.item.focus.TTFoci.Dislocation::new);
+    public static final RegistryObject<Item> FOCUS_HEAL = ITEMS.register("focus_heal", thaumictinkerer.common.item.focus.TTFoci.Heal::new);
+    public static final RegistryObject<Item> FOCUS_ENDER_CHEST = ITEMS.register("focus_ender_chest",
+            thaumictinkerer.common.item.focus.TTFoci.EnderChest::new);
+    public static final RegistryObject<Item> ENCHANTER = block(TTBlocks.ENCHANTER);
 
     private static RegistryObject<Item> block(RegistryObject<Block> block) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

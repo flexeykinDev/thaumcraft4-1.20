@@ -1,0 +1,39 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:ender_pearl"
+  },
+  "components": [
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:feather"
+    },
+    {
+      "item": "minecraft:feather"
+    },
+    {
+      "item": "thaumcraft:shard_air"
+    }
+  ],
+  "aspects": {
+    "aer": 15,
+    "motus": 20,
+    "iter": 10
+  },
+  "instability": 3,
+  "result": {
+    "item": "thaumictinkerer:focus_flight"
+  },
+  "research": "FOCUS_FLIGHT"
+}

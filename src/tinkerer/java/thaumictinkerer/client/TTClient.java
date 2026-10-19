@@ -30,9 +30,11 @@ public final class TTClient {
     public static void setup(FMLClientSetupEvent event) {
         if (Boolean.getBoolean("thaumcraft.autoshot")) {
             thaumictinkerer.client.debug.TTAutoShot.register();
+            thaumictinkerer.client.debug.TTAutoShot2.register();
         }
         event.enqueueWork(() -> {
             MenuScreens.register(TTMenus.ASPECT_ANALYZER.get(), AspectAnalyzerScreen::new);
+            MenuScreens.register(TTMenus.ENCHANTER.get(), thaumictinkerer.client.gui.EnchanterScreen::new);
             // включённые талисманы выглядят иначе (вторая иконка оригинала)
             ItemProperties.register(TTItems.XP_TALISMAN.get(), ThaumicTinkerer.id("active"),
                     (stack, level, entity, seed) -> XpTalismanItem.isAbsorbing(stack) ? 1f : 0f);
@@ -46,6 +48,7 @@ public final class TTClient {
         event.registerBlockEntityRenderer(TTBlockEntities.REPAIRER.get(), RepairerRenderer::new);
         event.registerBlockEntityRenderer(TTBlockEntities.FUNNEL.get(), FunnelRenderer::new);
         event.registerBlockEntityRenderer(TTBlockEntities.PLATFORM.get(), PlatformRenderer::new);
+        event.registerBlockEntityRenderer(TTBlockEntities.ENCHANTER.get(), thaumictinkerer.client.render.EnchanterRenderer::new);
     }
 
     @SubscribeEvent
