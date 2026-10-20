@@ -1,0 +1,44 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "thaumictinkerer:item/seed/aer"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "thaumictinkerer:seed": 1
+      },
+      "model": "thaumictinkerer:item/seed/ignis"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:seed": 2
+      },
+      "model": "thaumictinkerer:item/seed/aqua"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:seed": 3
+      },
+      "model": "thaumictinkerer:item/seed/terra"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:seed": 4
+      },
+      "model": "thaumictinkerer:item/seed/ordo"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:seed": 5
+      },
+      "model": "thaumictinkerer:item/seed/perditio"
+    },
+    {
+      "predicate": {
+        "thaumictinkerer:seed": 6
+      },
+      "model": "thaumictinkerer:item/seed/generic"
+    }
+  ]
+}

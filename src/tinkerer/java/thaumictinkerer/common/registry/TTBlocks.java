@@ -77,6 +77,27 @@ public final class TTBlocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2f, 5f).sound(SoundType.WOOD).noOcclusion()
                     .isViewBlocking((state, level, pos) -> false).isSuffocating((state, level, pos) -> false)));
 
+    // часть 2г: стихийные огни, наполненные культуры и силовое поле зелья терры
+    public static final RegistryObject<Block> FIRE_AIR = BLOCKS.register("fire_aer",
+            () -> new thaumictinkerer.common.block.ElementalFireBlock(thaumictinkerer.common.block.ElementalFireBlock.Kind.AIR));
+    public static final RegistryObject<Block> FIRE_IGNIS = BLOCKS.register("fire_ignis",
+            () -> new thaumictinkerer.common.block.ElementalFireBlock(thaumictinkerer.common.block.ElementalFireBlock.Kind.FIRE));
+    public static final RegistryObject<Block> FIRE_WATER = BLOCKS.register("fire_aqua",
+            () -> new thaumictinkerer.common.block.ElementalFireBlock(thaumictinkerer.common.block.ElementalFireBlock.Kind.WATER));
+    public static final RegistryObject<Block> FIRE_EARTH = BLOCKS.register("fire_terra",
+            () -> new thaumictinkerer.common.block.ElementalFireBlock(thaumictinkerer.common.block.ElementalFireBlock.Kind.EARTH));
+    public static final RegistryObject<Block> FIRE_ORDER = BLOCKS.register("fire_ordo",
+            () -> new thaumictinkerer.common.block.ElementalFireBlock(thaumictinkerer.common.block.ElementalFireBlock.Kind.ORDER));
+    public static final RegistryObject<Block> FIRE_CHAOS = BLOCKS.register("fire_perditio",
+            () -> new thaumictinkerer.common.block.ElementalFireBlock(thaumictinkerer.common.block.ElementalFireBlock.Kind.ENTROPY));
+    public static final RegistryObject<Block> INFUSED_GRAIN = BLOCKS.register("infused_grain", () -> new thaumictinkerer.common.block.InfusedGrainBlock(
+            BlockBehaviour.Properties.copy(Blocks.WHEAT).noLootTable()));
+    public static final RegistryObject<Block> INFUSED_FARMLAND = BLOCKS.register("infused_farmland",
+            () -> new thaumictinkerer.common.block.InfusedFarmlandBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND)));
+    public static final RegistryObject<Block> FORCEFIELD = BLOCKS.register("forcefield", () -> new thaumictinkerer.common.block.ForcefieldBlock(
+            BlockBehaviour.Properties.of().strength(-1f, 3600000f).noOcclusion().noLootTable().isValidSpawn((s, l, p, e) -> false)
+                    .isViewBlocking((state, level, pos) -> false).isSuffocating((state, level, pos) -> false)));
+
     private TTBlocks() {
     }
 }

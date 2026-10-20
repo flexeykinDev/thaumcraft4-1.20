@@ -1,0 +1,15 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "thaumictinkerer:infused_grain_ignis"
+  },
+  "aspects": {
+    "auram": 5,
+    "ignis": 5
+  },
+  "result": {
+    "item": "thaumictinkerer:infused_potion_ignis",
+    "count": 1
+  },
+  "research": "INFUSED_POTIONS"
+}

@@ -33,6 +33,7 @@ public final class TTClient {
             thaumictinkerer.client.debug.TTAutoShot2.register();
             thaumictinkerer.client.debug.TTAutoShot2b.register();
             thaumictinkerer.client.debug.TTAutoShot2c.register();
+            thaumictinkerer.client.debug.TTAutoShot2d.register();
         }
         event.enqueueWork(() -> {
             MenuScreens.register(TTMenus.ASPECT_ANALYZER.get(), AspectAnalyzerScreen::new);
@@ -50,6 +51,9 @@ public final class TTClient {
                 ItemProperties.register(item, ThaumicTinkerer.id("aspect"), (stack, level, entity, seed) ->
                         thaumictinkerer.common.item.SoulAspectItem.ASPECTS.indexOf(thaumictinkerer.common.item.SoulAspectItem.aspect(stack)) + 1);
             }
+            // наполненные семена: раскраска по аспекту (0 — аер … 6 — прочие)
+            ItemProperties.register(TTItems.INFUSED_SEEDS.get(), ThaumicTinkerer.id("seed"), (stack, level, entity, seed) ->
+                    thaumictinkerer.common.block.InfusedGrainBlock.texture(thaumictinkerer.common.item.InfusedSeedsItem.aspect(stack)));
             ItemProperties.register(TTItems.BLOOD_SWORD.get(), ThaumicTinkerer.id("active"),
                     (stack, level, entity, seed) -> thaumictinkerer.common.item.BloodSwordItem.isHarvesting(stack) ? 1f : 0f);
         });

@@ -419,6 +419,106 @@ for aspect in SOUL_ASPECTS:
         'components': [soul('condensed_soul_aspect', aspect)] * 8, 'aspects': {aspect: 10}, 'instability': 4,
         'result': {'item': NS + ':infused_soul_aspect', 'nbt': '{aspect:"%s"}' % aspect}, 'research': 'SUMMON'}
 
+# ---------------------------------------------------------------- часть 2г: стихийные огни, наполненные культуры
+# наш суффикс -> (имя огня в оригинале, осколок, аспекты тигля)
+FIRES = {
+    'aer': ('Air', 'shard_air', {'ignis': 5, 'praecantatio': 5, 'aer': 5}),
+    'ignis': ('Fire', 'shard_fire', {'ignis': 10, 'aer': 5}),
+    'aqua': ('Water', 'shard_water', {'ignis': 5, 'praecantatio': 5, 'aqua': 5}),
+    'terra': ('Earth', 'shard_earth', {'ignis': 5, 'praecantatio': 5, 'terra': 5}),
+    'ordo': ('Order', 'shard_order', {'ignis': 5, 'praecantatio': 5, 'ordo': 5}),
+    'perditio': ('Chaos', 'shard_entropy', {'ignis': 5, 'praecantatio': 5, 'perditio': 5}),
+}
+CROP_TEXTURES = ['aer', 'ignis', 'aqua', 'terra', 'ordo', 'perditio', 'generic']
+GRAINS = ['aer', 'ignis', 'terra', 'aqua']
+EFFECTS = {'aer': 'air_imbued', 'ignis': 'fire_imbued', 'terra': 'earth_imbued', 'aqua': 'water_imbued'}
+for name, (orig, shard, aspects) in FIRES.items():
+    for layer in (0, 1):
+        TEXTURES['block/fire_%s_layer_%d' % (name, layer)] = 'blocks/fire%s_layer_%d.png' % (orig, layer)
+    TEXTURES['item/fire_' + name] = 'blocks/%sFire.png' % name
+    ITEM_NAMES['block.thaumictinkerer.fire_' + name] = 'tile.fire%s.name' % orig
+    RECIPES['crucible/fire_' + name] = crucible('fire_' + name, 'FIRE_' + name.upper(), I('thaumcraft:' + shard), aspects)
+for name in CROP_TEXTURES:
+    for stage in range(4):
+        TEXTURES['block/crop/%s_%d' % (name, stage)] = 'blocks/crop_%s_%d.png' % (name, stage)
+    TEXTURES['item/seed/' + name] = 'items/seed_%s.png' % name
+TEXTURES['block/infused_farmland'] = 'blocks/infusedFarmland.png'
+for name in GRAINS:
+    TEXTURES['item/infused_grain_' + name] = 'items/fruit_%s.png' % name
+    TEXTURES['item/infused_potion_' + name] = 'items/potion_%s.png' % name
+    TEXTURES['mob_effect/' + EFFECTS[name]] = 'items/potion_%s.png' % name
+    ITEM_NAMES['item.thaumictinkerer.infused_grain_' + name] = 'item.infusedGrain.name'
+    ITEM_NAMES['item.thaumictinkerer.infused_potion_' + name] = 'item.infusedPotion.%s.name' % name.capitalize()
+    RECIPES['crucible/infused_potion_' + name] = crucible('infused_potion_' + name, 'INFUSED_POTIONS', I('infused_grain_' + name),
+                                                          {'auram': 5, name: 5})
+ITEM_NAMES.update({'item.thaumictinkerer.infused_seeds': 'item.infusedSeeds.name', 'block.thaumictinkerer.forcefield': 'tile.forcefield.name'})
+for name, (orig, shard, aspects) in FIRES.items():
+    RECIPES['infusion/infused_seeds_' + name] = {
+        'type': 'thaumcraft:infusion', 'central': I('minecraft:wheat_seeds'), 'components': [I('thaumcraft:' + shard)] * 4,
+        'aspects': {'messis': 32, 'meto': 32}, 'instability': 5,
+        'result': {'item': NS + ':infused_seeds', 'nbt': '{aspect:"%s"}' % name}, 'research': 'INFUSED_POTIONS'}
+# место на карте и сложность — как в оригинале
+for name, col, row, complexity, aspects in [('aer', 3, -7, 2, {'ignis': 5, 'aer': 5}), ('perditio', 2, -8, 3, {'ignis': 5, 'perditio': 5}),
+                                            ('terra', 4, -6, 2, {'ignis': 5, 'terra': 5}), ('ignis', 4, -4, 2, {'ignis': 10}),
+                                            ('ordo', 3, -3, 2, {'ignis': 5, 'ordo': 5}), ('aqua', 2, -2, 2, {'ignis': 5, 'aqua': 5})]:
+    key = 'FIRE_' + name.upper()
+    RESEARCH.append(dict(key=key, aspects=aspects, column=col, row=row, complexity=complexity, icon='fire_' + name, concealed=True,
+                         secondary=True, parents=['BRIGHT_NITOR'], pages=text(key, 0) + [P('crucible', 'crucible/fire_' + name)]))
+RESEARCH.append(dict(key='INFUSED_POTIONS', aspects={'aqua': 5, 'perditio': 5}, column=7, row=-5, complexity=2, texture='item/seed/ignis',
+                     concealed=True, parents=['FIRE_' + n.upper() for n in ('perditio', 'ordo', 'ignis', 'terra', 'aer', 'aqua')],
+                     parents_hidden=['INFUSION'],
+                     pages=text('INFUSED_POTIONS', 0, 1, 2, 3, 4, 5) + [P('infusion', 'infusion/infused_seeds_' + n) for n in FIRES]
+                     + [P('crucible', 'crucible/infused_potion_' + n) for n in GRAINS]))
+FLAT_2D = ['fire_' + n for n in FIRES] + ['infused_grain_' + n for n in GRAINS] + ['infused_potion_' + n for n in GRAINS]
+SHOVEL = ['infused_farmland']
+
+
+def gen_models_2d(models, states):
+    cut = 'minecraft:cutout'
+    for name in FIRES:
+        parts = {}
+        for layer in (0, 1):
+            tex = {'fire': ns('block/fire_%s_layer_%d' % (name, layer)), 'particle': ns('block/fire_%s_layer_%d' % (name, layer))}
+            for kind in ('floor', 'side', 'side_alt'):
+                model = 'fire_%s_%s%d' % (name, kind, layer)
+                write(os.path.join(models, 'block', model + '.json'),
+                      {'parent': 'minecraft:block/template_fire_' + kind, 'textures': tex, 'render_type': cut})
+                parts.setdefault(kind, []).append({'model': ns('block/' + model)})
+        sides = parts['side'] + parts['side_alt']
+        write(os.path.join(states, 'fire_%s.json' % name), {'multipart': [{'apply': parts['floor']}] + [
+            {'apply': [dict(m, y=y) if y else m for m in sides]} for y in (0, 90, 180, 270)]})
+    variants = {}
+    for t, name in enumerate(CROP_TEXTURES):
+        for stage in range(4):
+            write(os.path.join(models, 'block', 'crop', '%s_%d.json' % (name, stage)),
+                  {'parent': 'minecraft:block/crop', 'textures': {'crop': ns('block/crop/%s_%d' % (name, stage))}, 'render_type': cut})
+        for age in range(8):
+            stage = 3 if age == 7 else (5 if age == 6 else age) >> 1
+            variants['age=%d,texture=%d' % (age, t)] = {'model': ns('block/crop/%s_%d' % (name, stage))}
+    write(os.path.join(states, 'infused_grain.json'), {'variants': variants})
+    write(os.path.join(models, 'block', 'infused_farmland.json'), {'parent': 'minecraft:block/template_farmland', 'textures': {
+        'dirt': 'minecraft:block/dirt', 'top': ns('block/infused_farmland')}})
+    write(os.path.join(states, 'infused_farmland.json'),
+          {'variants': {'moisture=%d' % m: {'model': ns('block/infused_farmland')} for m in range(8)}})
+    write(os.path.join(states, 'forcefield.json'), {'variants': {'': {'model': ns('block/empty')}}})
+    overrides = []
+    for t, name in enumerate(CROP_TEXTURES):
+        write(os.path.join(models, 'item', 'seed', name + '.json'),
+              {'parent': 'minecraft:item/generated', 'textures': {'layer0': ns('item/seed/' + name)}})
+        if t:
+            overrides.append({'predicate': {ns('seed'): t}, 'model': ns('item/seed/' + name)})
+    write(os.path.join(models, 'item', 'infused_seeds.json'), {'parent': 'minecraft:item/generated', 'textures': {
+        'layer0': ns('item/seed/aer')}, 'overrides': overrides})
+    # зерно несёт свой аспект и урожай, как IEssentiaContainerItem оригинала
+    write(os.path.join(DATA, 'thaumcraft_aspects', 'infused_grain.json'), {'entries': [
+        {'item': ns('infused_grain_' + n), 'aspects': {n: 1, 'messis': 1}} for n in GRAINS]})
+    write(os.path.join(DATA, 'loot_tables', 'blocks', 'infused_farmland.json'), {
+        'type': 'minecraft:block', 'pools': [{'rolls': 1, 'entries': [{'type': 'minecraft:item', 'name': 'minecraft:dirt'}],
+                                              'conditions': [{'condition': 'minecraft:survives_explosion'}]}]})
+    write(os.path.join(OUT, 'data', 'minecraft', 'tags', 'blocks', 'mineable', 'shovel.json'),
+          {'replace': False, 'values': [ns(b) for b in SHOVEL]})
+
+
 # ---------------------------------------------------------------- модели предметов и блоков
 FLAT_ITEMS = ['dark_quartz', 'spell_cloth', 'bright_nitor', 'gaseous_light', 'gaseous_shadow', 'gas_remover', 'share_tome',
               'revealing_helm', 'focus_smelt', 'focus_flight', 'focus_deflect', 'focus_telekinesis', 'focus_dislocation',
@@ -572,7 +672,7 @@ def gen_recipes():
 def gen_models():
     models = os.path.join(ASSETS, 'models')
     states = os.path.join(ASSETS, 'blockstates')
-    for item in FLAT_ITEMS:
+    for item in FLAT_ITEMS + FLAT_2D:
         write(os.path.join(models, 'item', item + '.json'),
               {'parent': 'minecraft:item/generated', 'textures': {'layer0': ns('item/' + item)}})
     for item in TOGGLED_ITEMS:
@@ -630,6 +730,7 @@ def gen_models():
     write(os.path.join(models, 'item', 'repairer.json'), {'parent': 'minecraft:builtin/entity', 'display': BLOCK_DISPLAY})
     gen_models_2b(models, states)
     gen_models_2c(models, states)
+    gen_models_2d(models, states)
     # платформа под маскировкой не рисует своей модели — вместо неё отрисовщик блока показывает выбранный блок
     write(os.path.join(states, 'platform.json'), {'variants': {
         'camo=false': {'model': ns('block/platform')}, 'camo=true': {'model': ns('block/empty')}}})

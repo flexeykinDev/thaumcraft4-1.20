@@ -17,7 +17,14 @@ public final class TTCreativeTabs {
             .withTabsBefore(thaumcraft.Thaumcraft.id("main"))
             .icon(() -> TTItems.ITEMS.getEntries().isEmpty() ? new ItemStack(thaumcraft.common.registry.ModItems.THAUMONOMICON.get())
                     : new ItemStack(TTItems.ITEMS.getEntries().iterator().next().get()))
-            .displayItems((parameters, output) -> TTItems.ITEMS.getEntries().forEach(item -> output.accept(item.get())))
+            .displayItems((parameters, output) -> TTItems.ITEMS.getEntries().forEach(item -> {
+                if (item.get() instanceof thaumictinkerer.common.item.InfusedSeedsItem) {
+                    thaumcraft.api.aspects.Aspect.primals().forEach(aspect -> output.accept(thaumictinkerer.common.item.InfusedSeedsItem.of(aspect,
+                            new thaumcraft.api.aspects.AspectList())));
+                } else {
+                    output.accept(item.get());
+                }
+            }))
             .build());
 
     private TTCreativeTabs() {

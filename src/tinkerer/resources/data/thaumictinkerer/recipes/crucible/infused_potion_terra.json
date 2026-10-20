@@ -1,0 +1,15 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "thaumictinkerer:infused_grain_terra"
+  },
+  "aspects": {
+    "auram": 5,
+    "terra": 5
+  },
+  "result": {
+    "item": "thaumictinkerer:infused_potion_terra",
+    "count": 1
+  },
+  "research": "INFUSED_POTIONS"
+}

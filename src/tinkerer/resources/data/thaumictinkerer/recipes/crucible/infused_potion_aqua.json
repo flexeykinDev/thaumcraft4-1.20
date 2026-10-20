@@ -1,0 +1,15 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "thaumictinkerer:infused_grain_aqua"
+  },
+  "aspects": {
+    "auram": 5,
+    "aqua": 5
+  },
+  "result": {
+    "item": "thaumictinkerer:infused_potion_aqua",
+    "count": 1
+  },
+  "research": "INFUSED_POTIONS"
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/template_fire_side",
+  "textures": {
+    "fire": "thaumictinkerer:block/fire_ordo_layer_0",
+    "particle": "thaumictinkerer:block/fire_ordo_layer_0"
+  },
+  "render_type": "minecraft:cutout"
+}

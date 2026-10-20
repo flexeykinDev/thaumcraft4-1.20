@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "thaumictinkerer:block/crop/aqua_1"
+  },
+  "render_type": "minecraft:cutout"
+}

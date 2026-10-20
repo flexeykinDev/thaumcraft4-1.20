@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:wheat_seeds"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:shard_water"
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    },
+    {
+      "item": "thaumcraft:shard_water"
+    }
+  ],
+  "aspects": {
+    "messis": 32,
+    "meto": 32
+  },
+  "instability": 5,
+  "result": {
+    "item": "thaumictinkerer:infused_seeds",
+    "nbt": "{aspect:\"aqua\"}"
+  },
+  "research": "INFUSED_POTIONS"
+}

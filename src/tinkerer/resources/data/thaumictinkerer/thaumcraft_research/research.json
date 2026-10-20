@@ -1323,6 +1323,271 @@
       "parents": [
         "TTENCH_VAMPIRISM"
       ]
+    },
+    {
+      "key": "FIRE_AER",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "ignis": 5,
+        "aer": 5
+      },
+      "column": 3,
+      "row": -7,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FIRE_AER.0"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/fire_aer"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:fire_aer"
+      },
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "BRIGHT_NITOR"
+      ]
+    },
+    {
+      "key": "FIRE_PERDITIO",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "ignis": 5,
+        "perditio": 5
+      },
+      "column": 2,
+      "row": -8,
+      "complexity": 3,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FIRE_PERDITIO.0"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/fire_perditio"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:fire_perditio"
+      },
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "BRIGHT_NITOR"
+      ]
+    },
+    {
+      "key": "FIRE_TERRA",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "ignis": 5,
+        "terra": 5
+      },
+      "column": 4,
+      "row": -6,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FIRE_TERRA.0"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/fire_terra"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:fire_terra"
+      },
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "BRIGHT_NITOR"
+      ]
+    },
+    {
+      "key": "FIRE_IGNIS",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "ignis": 10
+      },
+      "column": 4,
+      "row": -4,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FIRE_IGNIS.0"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/fire_ignis"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:fire_ignis"
+      },
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "BRIGHT_NITOR"
+      ]
+    },
+    {
+      "key": "FIRE_ORDO",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "ignis": 5,
+        "ordo": 5
+      },
+      "column": 3,
+      "row": -3,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FIRE_ORDO.0"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/fire_ordo"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:fire_ordo"
+      },
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "BRIGHT_NITOR"
+      ]
+    },
+    {
+      "key": "FIRE_AQUA",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "ignis": 5,
+        "aqua": 5
+      },
+      "column": 2,
+      "row": -2,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FIRE_AQUA.0"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/fire_aqua"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:fire_aqua"
+      },
+      "secondary": true,
+      "concealed": true,
+      "parents": [
+        "BRIGHT_NITOR"
+      ]
+    },
+    {
+      "key": "INFUSED_POTIONS",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "aqua": 5,
+        "perditio": 5
+      },
+      "column": 7,
+      "row": -5,
+      "complexity": 2,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.INFUSED_POTIONS.0"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.INFUSED_POTIONS.1"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.INFUSED_POTIONS.2"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.INFUSED_POTIONS.3"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.INFUSED_POTIONS.4"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.INFUSED_POTIONS.5"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/infused_seeds_aer"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/infused_seeds_ignis"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/infused_seeds_aqua"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/infused_seeds_terra"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/infused_seeds_ordo"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/infused_seeds_perditio"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/infused_potion_aer"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/infused_potion_ignis"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/infused_potion_terra"
+        },
+        {
+          "type": "crucible",
+          "recipe": "thaumictinkerer:crucible/infused_potion_aqua"
+        }
+      ],
+      "icon": {
+        "texture": "thaumictinkerer:textures/item/seed/ignis.png"
+      },
+      "concealed": true,
+      "parents": [
+        "FIRE_PERDITIO",
+        "FIRE_ORDO",
+        "FIRE_IGNIS",
+        "FIRE_TERRA",
+        "FIRE_AER",
+        "FIRE_AQUA"
+      ],
+      "parents_hidden": [
+        "INFUSION"
+      ]
     }
   ]
 }

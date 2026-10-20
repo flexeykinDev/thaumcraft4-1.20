@@ -16,6 +16,13 @@ public final class TTBlockEntities {
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, ThaumicTinkerer.MODID);
 
     @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.InfusedGrainBlock.Tile>> INFUSED_GRAIN = BLOCK_ENTITIES.register(
+            "infused_grain", () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.InfusedGrainBlock.Tile::new, TTBlocks.INFUSED_GRAIN.get()).build(null));
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.InfusedFarmlandBlock.Tile>> INFUSED_FARMLAND = BLOCK_ENTITIES.register(
+            "infused_farmland", () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.InfusedFarmlandBlock.Tile::new, TTBlocks.INFUSED_FARMLAND.get()).build(null));
+
+    @SuppressWarnings("DataFlowIssue")
     public static final RegistryObject<BlockEntityType<FunnelBlock.Tile>> FUNNEL = BLOCK_ENTITIES.register("funnel",
             () -> BlockEntityType.Builder.of(FunnelBlock.Tile::new, TTBlocks.FUNNEL.get()).build(null));
     @SuppressWarnings("DataFlowIssue")

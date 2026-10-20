@@ -1,0 +1,30 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:wheat_seeds"
+  },
+  "components": [
+    {
+      "item": "thaumcraft:shard_fire"
+    },
+    {
+      "item": "thaumcraft:shard_fire"
+    },
+    {
+      "item": "thaumcraft:shard_fire"
+    },
+    {
+      "item": "thaumcraft:shard_fire"
+    }
+  ],
+  "aspects": {
+    "messis": 32,
+    "meto": 32
+  },
+  "instability": 5,
+  "result": {
+    "item": "thaumictinkerer:infused_seeds",
+    "nbt": "{aspect:\"ignis\"}"
+  },
+  "research": "INFUSED_POTIONS"
+}

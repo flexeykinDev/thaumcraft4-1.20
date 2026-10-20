@@ -1,0 +1,9 @@
+{
+  "block.thaumictinkerer.infused_grain": "Imbued Grain",
+  "block.thaumictinkerer.infused_farmland": "Infused Farmland",
+  "effect.thaumictinkerer.air_imbued": "Air Imbued",
+  "effect.thaumictinkerer.fire_imbued": "Fire Imbued",
+  "effect.thaumictinkerer.earth_imbued": "Earth Imbued",
+  "effect.thaumictinkerer.water_imbued": "Water Imbued",
+  "ttresearch.page.INFUSED_POTIONS.2": "Aspect Tendencies can also be bred into crops to increase certain traits. Terra will increase the magical residue left on the soil. Ignis will aid in the creation of new aspects. Ordo will increase the bounty from a plant. Perditio will increase the seeds dropped. Aqua will make a plant grow faster. Aer will allow a plant to receive other types of tendencies easier. A single plant can only have a maximum of 50 aspect tendencies."
+}

@@ -86,6 +86,30 @@ public final class TTItems {
             }
         });
     }
+    // часть 2г
+    public static final RegistryObject<Item> FIRE_AIR = block(TTBlocks.FIRE_AIR);
+    public static final RegistryObject<Item> FIRE_IGNIS = block(TTBlocks.FIRE_IGNIS);
+    public static final RegistryObject<Item> FIRE_WATER = block(TTBlocks.FIRE_WATER);
+    public static final RegistryObject<Item> FIRE_EARTH = block(TTBlocks.FIRE_EARTH);
+    public static final RegistryObject<Item> FIRE_ORDER = block(TTBlocks.FIRE_ORDER);
+    public static final RegistryObject<Item> FIRE_CHAOS = block(TTBlocks.FIRE_CHAOS);
+    public static final RegistryObject<Item> INFUSED_SEEDS = ITEMS.register("infused_seeds", thaumictinkerer.common.item.InfusedSeedsItem::new);
+    public static final RegistryObject<Item> INFUSED_GRAIN_AIR = ITEMS.register("infused_grain_aer",
+            () -> new thaumictinkerer.common.item.InfusedGrainItem(thaumcraft.api.aspects.Aspect.AIR));
+    public static final RegistryObject<Item> INFUSED_GRAIN_FIRE = ITEMS.register("infused_grain_ignis",
+            () -> new thaumictinkerer.common.item.InfusedGrainItem(thaumcraft.api.aspects.Aspect.FIRE));
+    public static final RegistryObject<Item> INFUSED_GRAIN_EARTH = ITEMS.register("infused_grain_terra",
+            () -> new thaumictinkerer.common.item.InfusedGrainItem(thaumcraft.api.aspects.Aspect.EARTH));
+    public static final RegistryObject<Item> INFUSED_GRAIN_WATER = ITEMS.register("infused_grain_aqua",
+            () -> new thaumictinkerer.common.item.InfusedGrainItem(thaumcraft.api.aspects.Aspect.WATER));
+    public static final RegistryObject<Item> INFUSED_POTION_AIR = ITEMS.register("infused_potion_aer",
+            () -> new thaumictinkerer.common.item.InfusedPotionItem(thaumcraft.api.aspects.Aspect.AIR, thaumictinkerer.common.potion.TTEffects.AIR));
+    public static final RegistryObject<Item> INFUSED_POTION_FIRE = ITEMS.register("infused_potion_ignis",
+            () -> new thaumictinkerer.common.item.InfusedPotionItem(thaumcraft.api.aspects.Aspect.FIRE, thaumictinkerer.common.potion.TTEffects.FIRE));
+    public static final RegistryObject<Item> INFUSED_POTION_EARTH = ITEMS.register("infused_potion_terra",
+            () -> new thaumictinkerer.common.item.InfusedPotionItem(thaumcraft.api.aspects.Aspect.EARTH, thaumictinkerer.common.potion.TTEffects.EARTH));
+    public static final RegistryObject<Item> INFUSED_POTION_WATER = ITEMS.register("infused_potion_aqua",
+            () -> new thaumictinkerer.common.item.InfusedPotionItem(thaumcraft.api.aspects.Aspect.WATER, thaumictinkerer.common.potion.TTEffects.WATER));
 
     private static RegistryObject<Item> block(RegistryObject<Block> block) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

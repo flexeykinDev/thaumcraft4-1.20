@@ -1,0 +1,15 @@
+{
+  "type": "thaumcraft:crucible",
+  "catalyst": {
+    "item": "thaumictinkerer:infused_grain_aer"
+  },
+  "aspects": {
+    "auram": 5,
+    "aer": 5
+  },
+  "result": {
+    "item": "thaumictinkerer:infused_potion_aer",
+    "count": 1
+  },
+  "research": "INFUSED_POTIONS"
+}

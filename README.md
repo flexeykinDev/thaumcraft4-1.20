@@ -72,8 +72,8 @@ Not tested yet: long survival playthroughs, dedicated multiplayer servers, large
 
 A port of **Thaumic Tinkerer** (by pixlepix and nekosune) is being built in the same repository as a **separate mod**: its own jar, `thaumictinkerer-1.20.1-<version>.jar`, which needs this Thaumcraft port. Put both jars into `mods` to play with it; without it Thaumcraft works as before.
 
-It adds a «Thaumic Tinkering» tab to the Thaumonomicon. Ported so far (part 1 of 3): smokey quartz, Tome of Knowledge Sharing, gaseous light and shadow with the Fume Dissipator, Hyperenergetic Nitor, Essentia Funnel, Thaumic Restorer, Spellbinding Cloth, Talismans of Withhold and Remedium, Helmet of Revealing, Aspectalyzer and Ethereal Platform.
-Next: foci, Osmotic Enchanter with its 14 enchantments, magnets and transvectors (part 2), then the late-game Kami/Ichor content (part 3). ComputerCraft, OpenComputers and Applied Energistics integrations are not planned.
+It adds a «Thaumic Tinkering» tab to the Thaumonomicon. Ported so far (parts 1 and 2 of 3): smokey quartz, Tome of Knowledge Sharing, gaseous light and shadow with the Fume Dissipator, Hyperenergetic Nitor, Essentia Funnel, Thaumic Restorer, Spellbinding Cloth, Talismans of Withhold and Remedium, Helmet of Revealing, Aspectalyzer and Ethereal Platform; seven foci, the Osmotic Enchanter with its 14 enchantments, item and mob magnets, transvectors, the Levitational Locomotive, Remote Placer and Animation Tablet; the Cursed Spirits Blade, soul aspects and the Tablet of Necromancy; six elemental fires, infused crops with breeding and their four potions.
+Next: the late-game Kami/Ichor content (part 3). ComputerCraft, OpenComputers and Applied Energistics integrations are not planned.
 
 ## ▪ Screenshots
 

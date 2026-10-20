@@ -29,6 +29,7 @@ public class ThaumicTinkerer {
         thaumictinkerer.common.registry.TTMenus.MENUS.register(modBus);
         thaumictinkerer.common.registry.TTRecipes.SERIALIZERS.register(modBus);
         thaumictinkerer.common.enchantment.TTEnchantments.ENCHANTMENTS.register(modBus);
+        thaumictinkerer.common.potion.TTEffects.EFFECTS.register(modBus);
         TTCreativeTabs.TABS.register(modBus);
         LOGGER.info("Thaumic Tinkerer: предметов {}, блоков {}", TTItems.ITEMS.getEntries().size(), TTBlocks.BLOCKS.getEntries().size());
     }

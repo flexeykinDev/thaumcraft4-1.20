@@ -1,0 +1,172 @@
+{
+  "variants": {
+    "age=0,texture=0": {
+      "model": "thaumictinkerer:block/crop/aer_0"
+    },
+    "age=1,texture=0": {
+      "model": "thaumictinkerer:block/crop/aer_0"
+    },
+    "age=2,texture=0": {
+      "model": "thaumictinkerer:block/crop/aer_1"
+    },
+    "age=3,texture=0": {
+      "model": "thaumictinkerer:block/crop/aer_1"
+    },
+    "age=4,texture=0": {
+      "model": "thaumictinkerer:block/crop/aer_2"
+    },
+    "age=5,texture=0": {
+      "model": "thaumictinkerer:block/crop/aer_2"
+    },
+    "age=6,texture=0": {
+      "model": "thaumictinkerer:block/crop/aer_2"
+    },
+    "age=7,texture=0": {
+      "model": "thaumictinkerer:block/crop/aer_3"
+    },
+    "age=0,texture=1": {
+      "model": "thaumictinkerer:block/crop/ignis_0"
+    },
+    "age=1,texture=1": {
+      "model": "thaumictinkerer:block/crop/ignis_0"
+    },
+    "age=2,texture=1": {
+      "model": "thaumictinkerer:block/crop/ignis_1"
+    },
+    "age=3,texture=1": {
+      "model": "thaumictinkerer:block/crop/ignis_1"
+    },
+    "age=4,texture=1": {
+      "model": "thaumictinkerer:block/crop/ignis_2"
+    },
+    "age=5,texture=1": {
+      "model": "thaumictinkerer:block/crop/ignis_2"
+    },
+    "age=6,texture=1": {
+      "model": "thaumictinkerer:block/crop/ignis_2"
+    },
+    "age=7,texture=1": {
+      "model": "thaumictinkerer:block/crop/ignis_3"
+    },
+    "age=0,texture=2": {
+      "model": "thaumictinkerer:block/crop/aqua_0"
+    },
+    "age=1,texture=2": {
+      "model": "thaumictinkerer:block/crop/aqua_0"
+    },
+    "age=2,texture=2": {
+      "model": "thaumictinkerer:block/crop/aqua_1"
+    },
+    "age=3,texture=2": {
+      "model": "thaumictinkerer:block/crop/aqua_1"
+    },
+    "age=4,texture=2": {
+      "model": "thaumictinkerer:block/crop/aqua_2"
+    },
+    "age=5,texture=2": {
+      "model": "thaumictinkerer:block/crop/aqua_2"
+    },
+    "age=6,texture=2": {
+      "model": "thaumictinkerer:block/crop/aqua_2"
+    },
+    "age=7,texture=2": {
+      "model": "thaumictinkerer:block/crop/aqua_3"
+    },
+    "age=0,texture=3": {
+      "model": "thaumictinkerer:block/crop/terra_0"
+    },
+    "age=1,texture=3": {
+      "model": "thaumictinkerer:block/crop/terra_0"
+    },
+    "age=2,texture=3": {
+      "model": "thaumictinkerer:block/crop/terra_1"
+    },
+    "age=3,texture=3": {
+      "model": "thaumictinkerer:block/crop/terra_1"
+    },
+    "age=4,texture=3": {
+      "model": "thaumictinkerer:block/crop/terra_2"
+    },
+    "age=5,texture=3": {
+      "model": "thaumictinkerer:block/crop/terra_2"
+    },
+    "age=6,texture=3": {
+      "model": "thaumictinkerer:block/crop/terra_2"
+    },
+    "age=7,texture=3": {
+      "model": "thaumictinkerer:block/crop/terra_3"
+    },
+    "age=0,texture=4": {
+      "model": "thaumictinkerer:block/crop/ordo_0"
+    },
+    "age=1,texture=4": {
+      "model": "thaumictinkerer:block/crop/ordo_0"
+    },
+    "age=2,texture=4": {
+      "model": "thaumictinkerer:block/crop/ordo_1"
+    },
+    "age=3,texture=4": {
+      "model": "thaumictinkerer:block/crop/ordo_1"
+    },
+    "age=4,texture=4": {
+      "model": "thaumictinkerer:block/crop/ordo_2"
+    },
+    "age=5,texture=4": {
+      "model": "thaumictinkerer:block/crop/ordo_2"
+    },
+    "age=6,texture=4": {
+      "model": "thaumictinkerer:block/crop/ordo_2"
+    },
+    "age=7,texture=4": {
+      "model": "thaumictinkerer:block/crop/ordo_3"
+    },
+    "age=0,texture=5": {
+      "model": "thaumictinkerer:block/crop/perditio_0"
+    },
+    "age=1,texture=5": {
+      "model": "thaumictinkerer:block/crop/perditio_0"
+    },
+    "age=2,texture=5": {
+      "model": "thaumictinkerer:block/crop/perditio_1"
+    },
+    "age=3,texture=5": {
+      "model": "thaumictinkerer:block/crop/perditio_1"
+    },
+    "age=4,texture=5": {
+      "model": "thaumictinkerer:block/crop/perditio_2"
+    },
+    "age=5,texture=5": {
+      "model": "thaumictinkerer:block/crop/perditio_2"
+    },
+    "age=6,texture=5": {
+      "model": "thaumictinkerer:block/crop/perditio_2"
+    },
+    "age=7,texture=5": {
+      "model": "thaumictinkerer:block/crop/perditio_3"
+    },
+    "age=0,texture=6": {
+      "model": "thaumictinkerer:block/crop/generic_0"
+    },
+    "age=1,texture=6": {
+      "model": "thaumictinkerer:block/crop/generic_0"
+    },
+    "age=2,texture=6": {
+      "model": "thaumictinkerer:block/crop/generic_1"
+    },
+    "age=3,texture=6": {
+      "model": "thaumictinkerer:block/crop/generic_1"
+    },
+    "age=4,texture=6": {
+      "model": "thaumictinkerer:block/crop/generic_2"
+    },
+    "age=5,texture=6": {
+      "model": "thaumictinkerer:block/crop/generic_2"
+    },
+    "age=6,texture=6": {
+      "model": "thaumictinkerer:block/crop/generic_2"
+    },
+    "age=7,texture=6": {
+      "model": "thaumictinkerer:block/crop/generic_3"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "entries": [
+    {
+      "item": "thaumictinkerer:infused_grain_aer",
+      "aspects": {
+        "aer": 1,
+        "messis": 1
+      }
+    },
+    {
+      "item": "thaumictinkerer:infused_grain_ignis",
+      "aspects": {
+        "ignis": 1,
+        "messis": 1
+      }
+    },
+    {
+      "item": "thaumictinkerer:infused_grain_terra",
+      "aspects": {
+        "terra": 1,
+        "messis": 1
+      }
+    },
+    {
+      "item": "thaumictinkerer:infused_grain_aqua",
+      "aspects": {
+        "aqua": 1,
+        "messis": 1
+      }
+    }
+  ]
+}

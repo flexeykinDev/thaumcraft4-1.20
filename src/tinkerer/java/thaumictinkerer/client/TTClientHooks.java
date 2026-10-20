@@ -13,6 +13,11 @@ public final class TTClientHooks {
     private TTClientHooks() {
     }
 
+    /** blockSparkle оригинала над силовым полем: искра в случайной точке блока. */
+    public static void forcefieldSparkle(BlockPos pos, RandomSource random) {
+        Fx.sparkle(pos.getX() + random.nextFloat(), pos.getY() + random.nextFloat(), pos.getZ() + random.nextFloat(), 1f, 2, 0f);
+    }
+
     /** randomDisplayTick газов оригинала: изредка искра или тёмный огонёк. */
     public static void gasParticles(GasBlock.Kind kind, BlockPos pos, RandomSource random) {
         double x = pos.getX() + 0.5;
