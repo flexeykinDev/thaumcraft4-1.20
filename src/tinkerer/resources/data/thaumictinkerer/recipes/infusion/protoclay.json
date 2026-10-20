@@ -1,0 +1,29 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:clay_ball"
+  },
+  "components": [
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "minecraft:oak_log"
+    },
+    {
+      "item": "thaumictinkerer:ender_shard"
+    }
+  ],
+  "aspects": {
+    "perfodio": 16,
+    "instrumentum": 16
+  },
+  "instability": 4,
+  "result": {
+    "item": "thaumictinkerer:protoclay"
+  },
+  "research": "PROTOCLAY"
+}

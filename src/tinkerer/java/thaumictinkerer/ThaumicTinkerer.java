@@ -23,6 +23,8 @@ public class ThaumicTinkerer {
     @SuppressWarnings("removal")
     public ThaumicTinkerer() {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
+        thaumictinkerer.common.item.kami.Kami.init();
+        thaumictinkerer.common.network.TTNetwork.init();
         TTBlocks.BLOCKS.register(modBus);
         TTItems.ITEMS.register(modBus);
         thaumictinkerer.common.registry.TTBlockEntities.BLOCK_ENTITIES.register(modBus);

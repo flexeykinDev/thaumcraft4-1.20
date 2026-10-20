@@ -113,11 +113,50 @@ public final class ResearchRegistry {
                 allCategories.addAll(GsonHelper.getAsJsonArray(root, "categories", new JsonArray()));
                 allEntries.addAll(GsonHelper.getAsJsonArray(root, "entries", new JsonArray()));
             });
+            requireAll(allEntries);
             JsonObject merged = new JsonObject();
             merged.add("categories", allCategories);
             merged.add("entries", allEntries);
             load(GSON.toJson(merged));
             Thaumcraft.LOGGER.info("Исследования: {} категорий, {} записей", categories.size(), entries.size());
+        }
+    }
+
+    /**
+     * Исследование с полем requires_all ({"categories": [...], "exclude": [...]}) скрыто требует все обычные исследования
+     * перечисленных разделов: с родителями, без триггеров, не потерянные, не виртуальные и не помеченные так же
+     * (KamiResearchItem аддона Thaumic Tinkerer). exclude — начала ключей, которые не требуются.
+     */
+    private static void requireAll(JsonArray entries) {
+        for (JsonElement element : entries) {
+            JsonObject entry = element.getAsJsonObject();
+            if (!entry.has("requires_all")) {
+                continue;
+            }
+            JsonObject rule = GsonHelper.getAsJsonObject(entry, "requires_all");
+            List<String> categories = new ArrayList<>();
+            GsonHelper.getAsJsonArray(rule, "categories", new JsonArray()).forEach(e -> categories.add(e.getAsString()));
+            List<String> exclude = new ArrayList<>();
+            GsonHelper.getAsJsonArray(rule, "exclude", new JsonArray()).forEach(e -> exclude.add(e.getAsString()));
+            JsonArray hidden = GsonHelper.getAsJsonArray(entry, "parents_hidden", new JsonArray());
+            List<String> have = new ArrayList<>();
+            hidden.forEach(e -> have.add(e.getAsString()));
+            for (JsonElement otherElement : entries) {
+                JsonObject other = otherElement.getAsJsonObject();
+                String key = GsonHelper.getAsString(other, "key", "");
+                boolean hasParents = GsonHelper.getAsJsonArray(other, "parents", new JsonArray()).size() > 0
+                        || GsonHelper.getAsJsonArray(other, "parents_hidden", new JsonArray()).size() > 0;
+                if (key.isEmpty() || have.contains(key) || !hasParents || other.has("requires_all")
+                        || !categories.contains(GsonHelper.getAsString(other, "category", ""))
+                        || GsonHelper.getAsBoolean(other, "lost", false) || GsonHelper.getAsBoolean(other, "virtual", false)
+                        || other.has("item_triggers") || other.has("aspect_triggers") || other.has("entity_triggers")
+                        || exclude.stream().anyMatch(key::startsWith)) {
+                    continue;
+                }
+                hidden.add(key);
+                have.add(key);
+            }
+            entry.add("parents_hidden", hidden);
         }
     }
 

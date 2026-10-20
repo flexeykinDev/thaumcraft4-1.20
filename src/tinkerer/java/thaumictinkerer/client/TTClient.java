@@ -34,9 +34,12 @@ public final class TTClient {
             thaumictinkerer.client.debug.TTAutoShot2b.register();
             thaumictinkerer.client.debug.TTAutoShot2c.register();
             thaumictinkerer.client.debug.TTAutoShot2d.register();
+            thaumictinkerer.client.debug.TTAutoShot3a.register();
+            thaumictinkerer.client.debug.TTAutoShot3b.register();
         }
         event.enqueueWork(() -> {
             MenuScreens.register(TTMenus.ASPECT_ANALYZER.get(), AspectAnalyzerScreen::new);
+            MenuScreens.register(TTMenus.ICHOR_POUCH.get(), thaumictinkerer.client.gui.IchorPouchScreen::new);
             MenuScreens.register(TTMenus.ENCHANTER.get(), thaumictinkerer.client.gui.EnchanterScreen::new);
             MenuScreens.register(TTMenus.MOB_MAGNET.get(), thaumictinkerer.client.gui.MachineScreens.MobMagnet::new);
             MenuScreens.register(TTMenus.REMOTE_PLACER.get(), thaumictinkerer.client.gui.MachineScreens.RemotePlacer::new);
@@ -54,6 +57,13 @@ public final class TTClient {
             // наполненные семена: раскраска по аспекту (0 — аер … 6 — прочие)
             ItemProperties.register(TTItems.INFUSED_SEEDS.get(), ThaumicTinkerer.id("seed"), (stack, level, entity, seed) ->
                     thaumictinkerer.common.block.InfusedGrainBlock.texture(thaumictinkerer.common.item.InfusedSeedsItem.aspect(stack)));
+            // пробуждённые ихорные инструменты: картинка по режиму, кольцо «Чёрная дыра» — включено или нет
+            for (var tool : java.util.List.of(TTItems.ICHOR_PICK_GEM, TTItems.ICHOR_SHOVEL_GEM, TTItems.ICHOR_AXE_GEM, TTItems.ICHOR_SWORD_GEM)) {
+                ItemProperties.register(tool.get(), ThaumicTinkerer.id("mode"),
+                        (stack, level, entity, seed) -> thaumictinkerer.common.item.kami.IchorTools.mode(stack));
+            }
+            ItemProperties.register(TTItems.BLOCK_TALISMAN.get(), ThaumicTinkerer.id("active"),
+                    (stack, level, entity, seed) -> thaumictinkerer.common.item.kami.BlockTalismanItem.isActive(stack) ? 1f : 0f);
             ItemProperties.register(TTItems.BLOOD_SWORD.get(), ThaumicTinkerer.id("active"),
                     (stack, level, entity, seed) -> thaumictinkerer.common.item.BloodSwordItem.isHarvesting(stack) ? 1f : 0f);
         });

@@ -53,7 +53,9 @@ public final class WandRod {
         this.tag = tag;
         this.capacity = capacity;
         this.craftCost = craftCost;
-        this.texture = thaumcraft.common.Res.of("thaumcraft", "textures/models/wand_rod_" + tag + ".png");
+        // текстура лежит в пространстве имён мода, который добавил стержень (деревянный — из обычной палки, его текстура у Thaumcraft)
+        String namespace = this.itemId.getNamespace().equals("minecraft") ? "thaumcraft" : this.itemId.getNamespace();
+        this.texture = thaumcraft.common.Res.of(namespace, "textures/models/wand_rod_" + tag + ".png");
         RODS.put(tag, this);
     }
 
@@ -94,7 +96,8 @@ public final class WandRod {
         return this;
     }
 
-    private WandRod glowing() {
+    /** Стержень светится в руке (огненный, ихоровый). */
+    public WandRod glowing() {
         glowing = true;
         return this;
     }

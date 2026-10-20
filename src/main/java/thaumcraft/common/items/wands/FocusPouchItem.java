@@ -33,6 +33,19 @@ public class FocusPouchItem extends Item {
         super(new Item.Properties().stacksTo(1).rarity(Rarity.RARE));
     }
 
+    protected FocusPouchItem(Item.Properties properties) {
+        super(properties);
+    }
+
+    /** Сколько ячеек в сумке. */
+    public int slots() {
+        return SIZE;
+    }
+
+    private static int slots(ItemStack pouch) {
+        return pouch.getItem() instanceof FocusPouchItem item ? item.slots() : SIZE;
+    }
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
@@ -45,13 +58,14 @@ public class FocusPouchItem extends Item {
     }
 
     public static NonNullList<ItemStack> getInventory(ItemStack pouch) {
-        NonNullList<ItemStack> out = NonNullList.withSize(SIZE, ItemStack.EMPTY);
+        int size = slots(pouch);
+        NonNullList<ItemStack> out = NonNullList.withSize(size, ItemStack.EMPTY);
         if (pouch.hasTag() && pouch.getTag().contains(TAG_INVENTORY, Tag.TAG_LIST)) {
             ListTag list = pouch.getTag().getList(TAG_INVENTORY, Tag.TAG_COMPOUND);
             for (int i = 0; i < list.size(); i++) {
                 CompoundTag entry = list.getCompound(i);
                 int slot = entry.getByte("Slot") & 255;
-                if (slot < SIZE) {
+                if (slot < size) {
                     out.set(slot, ItemStack.of(entry));
                 }
             }
@@ -61,7 +75,7 @@ public class FocusPouchItem extends Item {
 
     public static void setInventory(ItemStack pouch, List<ItemStack> stacks) {
         ListTag list = new ListTag();
-        for (int i = 0; i < stacks.size() && i < SIZE; i++) {
+        for (int i = 0; i < stacks.size() && i < slots(pouch); i++) {
             if (!stacks.get(i).isEmpty()) {
                 CompoundTag entry = new CompoundTag();
                 entry.putByte("Slot", (byte) i);

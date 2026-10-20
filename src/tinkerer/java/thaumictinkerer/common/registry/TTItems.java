@@ -110,6 +110,29 @@ public final class TTItems {
             () -> new thaumictinkerer.common.item.InfusedPotionItem(thaumcraft.api.aspects.Aspect.EARTH, thaumictinkerer.common.potion.TTEffects.EARTH));
     public static final RegistryObject<Item> INFUSED_POTION_WATER = ITEMS.register("infused_potion_aqua",
             () -> new thaumictinkerer.common.item.InfusedPotionItem(thaumcraft.api.aspects.Aspect.WATER, thaumictinkerer.common.potion.TTEffects.WATER));
+    // часть 3а: Ками
+    public static final RegistryObject<Item> ICHOR = ITEMS.register("ichor", () -> new Item(new Item.Properties().rarity(thaumictinkerer.common.item.kami.Kami.RARITY)));
+    public static final RegistryObject<Item> ICHOR_CLOTH = ITEMS.register("ichor_cloth", () -> new Item(new Item.Properties().rarity(thaumictinkerer.common.item.kami.Kami.RARITY)));
+    public static final RegistryObject<Item> ICHORIUM = ITEMS.register("ichorium", () -> new Item(new Item.Properties().rarity(thaumictinkerer.common.item.kami.Kami.RARITY)));
+    public static final RegistryObject<Item> ICHORIUM_NUGGET = ITEMS.register("ichorium_nugget", () -> new Item(new Item.Properties().rarity(thaumictinkerer.common.item.kami.Kami.RARITY)));
+    public static final RegistryObject<Item> ICHORIUM_CAP = ITEMS.register("ichorium_cap", () -> new Item(new Item.Properties().rarity(thaumictinkerer.common.item.kami.Kami.RARITY)));
+    public static final RegistryObject<Item> ICHORCLOTH_ROD = ITEMS.register("ichorcloth_rod", () -> new Item(new Item.Properties().rarity(thaumictinkerer.common.item.kami.Kami.RARITY)));
+    public static final RegistryObject<Item> NETHER_SHARD = ITEMS.register("nether_shard", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ENDER_SHARD = ITEMS.register("ender_shard", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ICHOR_POUCH = ITEMS.register("ichor_pouch", thaumictinkerer.common.item.kami.IchorPouchItem::new);
+    public static final RegistryObject<Item> CAT_AMULET = ITEMS.register("cat_amulet", thaumictinkerer.common.item.kami.CatAmuletItem::new);
+    // часть 3б: ихорные инструменты и вещи для стройки
+    public static final RegistryObject<Item> ICHOR_PICK = ITEMS.register("ichor_pick", thaumictinkerer.common.item.kami.IchorTools.Pick::new);
+    public static final RegistryObject<Item> ICHOR_SHOVEL = ITEMS.register("ichor_shovel", thaumictinkerer.common.item.kami.IchorTools.Shovel::new);
+    public static final RegistryObject<Item> ICHOR_AXE = ITEMS.register("ichor_axe", thaumictinkerer.common.item.kami.IchorTools.Axe::new);
+    public static final RegistryObject<Item> ICHOR_SWORD = ITEMS.register("ichor_sword", thaumictinkerer.common.item.kami.IchorTools.Sword::new);
+    public static final RegistryObject<Item> ICHOR_PICK_GEM = ITEMS.register("ichor_pick_gem", thaumictinkerer.common.item.kami.IchorTools.AdvPick::new);
+    public static final RegistryObject<Item> ICHOR_SHOVEL_GEM = ITEMS.register("ichor_shovel_gem", thaumictinkerer.common.item.kami.IchorTools.AdvShovel::new);
+    public static final RegistryObject<Item> ICHOR_AXE_GEM = ITEMS.register("ichor_axe_gem", thaumictinkerer.common.item.kami.IchorTools.AdvAxe::new);
+    public static final RegistryObject<Item> ICHOR_SWORD_GEM = ITEMS.register("ichor_sword_gem", thaumictinkerer.common.item.kami.IchorTools.AdvSword::new);
+    public static final RegistryObject<Item> PROTOCLAY = ITEMS.register("protoclay", thaumictinkerer.common.item.kami.ProtoclayItem::new);
+    public static final RegistryObject<Item> BLOCK_TALISMAN = ITEMS.register("block_talisman", thaumictinkerer.common.item.kami.BlockTalismanItem::new);
+    public static final RegistryObject<Item> PLACEMENT_MIRROR = ITEMS.register("placement_mirror", thaumictinkerer.common.item.kami.PlacementMirrorItem::new);
 
     private static RegistryObject<Item> block(RegistryObject<Block> block) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

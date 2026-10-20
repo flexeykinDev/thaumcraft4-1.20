@@ -1,0 +1,32 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "CCC",
+    "III",
+    "DDD"
+  ],
+  "key": {
+    "C": {
+      "item": "thaumcraft:enchanted_fabric"
+    },
+    "I": {
+      "item": "thaumictinkerer:ichor"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:ichor_cloth",
+    "count": 3
+  },
+  "aspects": {
+    "aer": 125,
+    "ignis": 125,
+    "aqua": 125,
+    "terra": 125,
+    "ordo": 125,
+    "perditio": 125
+  },
+  "research": "ICHOR_CLOTH"
+}

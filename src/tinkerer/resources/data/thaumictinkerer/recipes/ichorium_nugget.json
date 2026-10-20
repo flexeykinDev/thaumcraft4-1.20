@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "thaumictinkerer:ichorium"
+    }
+  ],
+  "result": {
+    "item": "thaumictinkerer:ichorium_nugget",
+    "count": 9
+  }
+}

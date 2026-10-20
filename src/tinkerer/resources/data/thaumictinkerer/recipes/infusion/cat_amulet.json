@@ -1,0 +1,36 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:quartz_block"
+  },
+  "components": [
+    {
+      "item": "thaumictinkerer:ichor"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "minecraft:jungle_leaves"
+    },
+    {
+      "item": "minecraft:cod"
+    }
+  ],
+  "aspects": {
+    "tenebrae": 16,
+    "ordo": 32,
+    "cognitio": 16
+  },
+  "instability": 8,
+  "result": {
+    "item": "thaumictinkerer:cat_amulet"
+  },
+  "research": "CAT_AMULET"
+}

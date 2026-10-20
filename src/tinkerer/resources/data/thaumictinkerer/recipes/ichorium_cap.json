@@ -1,0 +1,32 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "ICI",
+    " M ",
+    "ICI"
+  ],
+  "key": {
+    "M": {
+      "item": "thaumictinkerer:ichorium"
+    },
+    "I": {
+      "item": "thaumictinkerer:ichor"
+    },
+    "C": {
+      "item": "thaumcraft:wand_cap_thaumium"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:ichorium_cap",
+    "count": 2
+  },
+  "aspects": {
+    "aer": 100,
+    "ignis": 100,
+    "aqua": 100,
+    "terra": 100,
+    "ordo": 100,
+    "perditio": 100
+  },
+  "research": "CAP_ichor"
+}

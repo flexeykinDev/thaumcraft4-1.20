@@ -1,0 +1,32 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    " T ",
+    "IDI",
+    " I "
+  ],
+  "key": {
+    "T": {
+      "item": "thaumcraft:thaumium_ingot"
+    },
+    "I": {
+      "item": "thaumictinkerer:ichor"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:ichorium",
+    "count": 1
+  },
+  "aspects": {
+    "aer": 100,
+    "ignis": 100,
+    "aqua": 100,
+    "terra": 100,
+    "ordo": 100,
+    "perditio": 100
+  },
+  "research": "ICHORIUM"
+}

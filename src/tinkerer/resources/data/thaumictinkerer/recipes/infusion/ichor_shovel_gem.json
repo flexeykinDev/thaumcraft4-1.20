@@ -1,0 +1,57 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumictinkerer:ichor_shovel"
+  },
+  "components": [
+    {
+      "item": "thaumictinkerer:ichorium"
+    },
+    {
+      "item": "thaumictinkerer:ichor"
+    },
+    {
+      "item": "thaumcraft:elemental_shovel"
+    },
+    {
+      "item": "thaumcraft:focus_excavation"
+    },
+    {
+      "item": "minecraft:tnt"
+    },
+    {
+      "item": "thaumcraft:cluster_cinnabar"
+    },
+    {
+      "item": "thaumcraft:cluster_iron"
+    },
+    {
+      "item": "thaumcraft:cluster_gold"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "thaumcraft:focus_excavation"
+    },
+    {
+      "item": "thaumcraft:elemental_shovel"
+    },
+    {
+      "item": "thaumictinkerer:ichor_cloth"
+    }
+  ],
+  "aspects": {
+    "terra": 82,
+    "perfodio": 64,
+    "instrumentum": 32,
+    "meto": 32,
+    "vinculum": 16,
+    "sensus": 16
+  },
+  "instability": 15,
+  "result": {
+    "item": "thaumictinkerer:ichor_shovel_gem"
+  },
+  "research": "ICHOR_SHOVEL_GEM"
+}

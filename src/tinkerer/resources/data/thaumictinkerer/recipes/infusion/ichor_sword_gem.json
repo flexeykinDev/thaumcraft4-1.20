@@ -1,0 +1,58 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumictinkerer:ichor_sword"
+  },
+  "components": [
+    {
+      "item": "thaumictinkerer:ichorium"
+    },
+    {
+      "item": "thaumictinkerer:ichor"
+    },
+    {
+      "item": "thaumcraft:elemental_sword"
+    },
+    {
+      "item": "thaumcraft:focus_frost"
+    },
+    {
+      "item": "minecraft:cactus"
+    },
+    {
+      "item": "thaumcraft:cluster_cinnabar"
+    },
+    {
+      "item": "thaumcraft:cluster_iron"
+    },
+    {
+      "item": "thaumcraft:cluster_gold"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "thaumcraft:focus_frost"
+    },
+    {
+      "item": "thaumcraft:elemental_sword"
+    },
+    {
+      "item": "thaumictinkerer:ichor_cloth"
+    }
+  ],
+  "aspects": {
+    "aer": 50,
+    "fames": 64,
+    "spiritus": 32,
+    "telum": 32,
+    "potentia": 32,
+    "ordo": 16,
+    "vitreus": 16
+  },
+  "instability": 15,
+  "result": {
+    "item": "thaumictinkerer:ichor_sword_gem"
+  },
+  "research": "ICHOR_SWORD_GEM"
+}

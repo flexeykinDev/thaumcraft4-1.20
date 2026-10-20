@@ -519,6 +519,162 @@ def gen_models_2d(models, states):
           {'replace': False, 'values': [ns(b) for b in SHOVEL]})
 
 
+# ---------------------------------------------------------------- часть 3а: Ками — ихор и первые вещи из него
+# наш id -> (картинка оригинала, ключ .lang оригинала)
+KAMI_ITEMS = {
+    'ichor': 'ichor', 'ichor_cloth': 'ichorCloth', 'ichorium': 'ichorium', 'ichorium_nugget': 'ichorNugget',
+    'ichorium_cap': 'ichorCap', 'ichorcloth_rod': 'ichorclothRod', 'nether_shard': 'netherShard', 'ender_shard': 'enderShard',
+    'ichor_pouch': 'ichorPouch', 'cat_amulet': 'catAmulet',
+}
+for ours, theirs in KAMI_ITEMS.items():
+    TEXTURES['item/' + ours] = 'items/%s.png' % theirs
+    ITEM_NAMES['item.thaumictinkerer.' + ours] = 'item.%s.name' % theirs
+TEXTURES.update({'models/wand_cap_ichor': 'model/capIchor.png', 'models/wand_rod_ichorcloth': 'model/rodIchorcloth.png',
+                 'gui/ichor_pouch': 'gui/ichorPouch.png'})
+ITEM_NAMES.update({'item.Wand.ichor.cap': 'item.Wand.ICHOR.cap', 'item.Wand.ichorcloth.rod': 'item.Wand.ICHORCLOTH.rod'})
+# исследования набалдашника и стержня называются по их тегу, как CAP_gold у Thaumcraft
+RESEARCH_LANG_ALIAS = {'CAP_ICHOR': 'CAP_ichor', 'ROD_ICHORCLOTH': 'ROD_ichorcloth'}
+# KamiResearchItem: скрыто требует все обычные исследования этих разделов
+KAMI_ALL = {'categories': ['TT_CATEGORY', 'BASICS', 'GOLEMANCY', 'ARTIFICE', 'ALCHEMY', 'THAUMATURGY'], 'exclude': ['MINILITH']}
+PRIMALS = lambda n: {a: n for a in ('aer', 'ignis', 'aqua', 'terra', 'ordo', 'perditio')}
+
+
+def kami(key, aspects, col, row, icon, parents=None, hidden=None, warp=0, pages=None, page_key=None):
+    return dict(key=key, aspects=aspects, column=col, row=row, complexity=5, icon=icon, concealed=True, warp=warp,
+                parents=parents or [], parents_hidden=hidden or [], requires_all=KAMI_ALL,
+                pages=text(page_key or key, 0) + (pages or []))
+
+
+FLAT_2D += list(KAMI_ITEMS)
+RESEARCH += [
+    dict(key='DIMENSION_SHARDS', aspects={}, column=7, row=8, complexity=0, icon='ender_shard', stub=True, autoUnlock=True, round=True,
+         concealed=True, pages=text('DIMENSION_SHARDS', 0)),
+    kami('ICHOR', {'humanus': 1, 'lux': 2, 'spiritus': 1, 'vitium': 1}, 9, 8, 'ichor', warp=5, pages=[P('infusion', 'infusion/ichor')]),
+    kami('ICHOR_CLOTH', {'pannus': 2, 'lux': 1, 'fabrico': 1, 'sensus': 1}, 11, 7, 'ichor_cloth', ['ICHOR'],
+         pages=[P('arcane', 'ichor_cloth')]),
+    kami('ICHORIUM', {'metallum': 2, 'lux': 1, 'fabrico': 1, 'instrumentum': 1}, 11, 9, 'ichorium', ['ICHOR'], ['ICHOR_CLOTH'],
+         pages=[P('arcane', 'ichorium')]),
+    kami('CAP_ichor', {'instrumentum': 2, 'metallum': 1, 'lux': 1, 'praecantatio': 1}, 11, 11, 'ichorium_cap', ['ICHORIUM'], warp=2,
+         pages=[P('arcane', 'ichorium_cap')], page_key='CAP_ICHOR'),
+    kami('ROD_ichorcloth', {'instrumentum': 2, 'pannus': 1, 'lux': 1, 'praecantatio': 1}, 14, 2, 'ichorcloth_rod', ['ICHOR_CLOTH'],
+         ['CAP_ichor'], warp=1, pages=[P('infusion', 'infusion/ichorcloth_rod')], page_key='ROD_ICHORCLOTH'),
+    kami('ICHOR_POUCH', {'vacuos': 2, 'pannus': 1, 'alienis': 1, 'humanus': 1}, 13, 6, 'ichor_pouch', ['ICHOR_CLOTH'],
+         pages=[P('infusion', 'infusion/ichor_pouch')]),
+    kami('CAT_AMULET', {'cognitio': 2, 'ordo': 1, 'tenebrae': 1, 'mortuus': 1}, 13, 10, 'cat_amulet', ['ICHORIUM'],
+         pages=[P('infusion', 'infusion/cat_amulet')]),
+]
+RECIPES.update({
+    'infusion/ichor': dict(infusion('ichor', 'ICHOR', I('minecraft:nether_star'),
+                                    [I('minecraft:diamond'), I('ender_shard'), I('minecraft:ender_eye'), I('nether_shard')],
+                                    {'humanus': 32, 'lux': 32, 'spiritus': 64}, 7), result=dict(I('ichor'), count=8)),
+    'ichor_cloth': arcane('ichor_cloth', 'ICHOR_CLOTH', ['CCC', 'III', 'DDD'], {
+        'C': I('thaumcraft:enchanted_fabric'), 'I': I('ichor'), 'D': I('minecraft:diamond')}, PRIMALS(125), 3),
+    'ichorium': arcane('ichorium', 'ICHORIUM', [' T ', 'IDI', ' I '], {
+        'T': I('thaumcraft:thaumium_ingot'), 'I': I('ichor'), 'D': I('minecraft:diamond')}, PRIMALS(100)),
+    'ichorium_nugget': {'type': 'minecraft:crafting_shapeless', 'ingredients': [I('ichorium')], 'result': dict(I('ichorium_nugget'), count=9)},
+    'ichorium_cap': arcane('ichorium_cap', 'CAP_ichor', ['ICI', ' M ', 'ICI'], {
+        'M': I('ichorium'), 'I': I('ichor'), 'C': I('thaumcraft:wand_cap_thaumium')}, PRIMALS(100), 2),
+    'infusion/ichorcloth_rod': infusion('ichorcloth_rod', 'ROD_ichorcloth', I('thaumcraft:wand_rod_silverwood'),
+                                        [I('ichor'), I('ichor_cloth'), I('thaumcraft:salis_mundus'), I('minecraft:ghast_tear'),
+                                         I('thaumcraft:salis_mundus'), I('ichor_cloth')],
+                                        {'praecantatio': 100, 'lux': 32, 'instrumentum': 32}, 9),
+    'infusion/ichor_pouch': infusion('ichor_pouch', 'ICHOR_POUCH', I('thaumcraft:focus_pouch'),
+                                     [I('ichor_cloth'), I('thaumcraft:focus_portable_hole'), I('minecraft:diamond'), I('ichor_cloth'),
+                                      I('thaumcraft:hungry_chest'), I('thaumcraft:void_jar')],
+                                     {'vacuos': 64, 'humanus': 32, 'pannus': 32, 'alienis': 32, 'aer': 64}, 9),
+    'infusion/cat_amulet': infusion('cat_amulet', 'CAT_AMULET', I('minecraft:quartz_block'),
+                                    [I('ichor'), I('minecraft:gold_ingot'), I('minecraft:gold_ingot'), I('minecraft:cocoa_beans'),
+                                     I('minecraft:jungle_leaves'), I('minecraft:cod')],
+                                    {'tenebrae': 16, 'ordo': 32, 'cognitio': 16}, 8),
+})
+
+# ---------------------------------------------------------------- часть 3б: ихорные инструменты, протоглина, кольцо, зеркало
+TOOLS_3B = {'pick': 'Pick', 'shovel': 'Shovel', 'axe': 'Axe', 'sword': 'Sword'}
+for tool, orig in TOOLS_3B.items():
+    TEXTURES['item/ichor_' + tool] = 'items/ichor%s.png' % orig
+    ITEM_NAMES['item.thaumictinkerer.ichor_' + tool] = 'item.ichor%s.name' % orig
+    ITEM_NAMES['item.thaumictinkerer.ichor_%s_gem' % tool] = 'item.ichor%sGem.name' % orig
+    for mode in range(3):
+        TEXTURES['item/ichor_%s_gem_%d' % (tool, mode)] = 'items/ichor%sGem%d.png' % (orig, mode)
+for ours, theirs in {'protoclay': 'protoclay', 'block_talisman': 'blockTalisman', 'placement_mirror': 'placementMirror'}.items():
+    ITEM_NAMES['item.thaumictinkerer.' + ours] = 'item.%s.name' % theirs
+TEXTURES.update({'item/protoclay': 'items/protoclay.png', 'item/block_talisman': 'items/blockTalisman0.png',
+                 'item/block_talisman_active': 'items/blockTalisman1.png', 'item/placement_mirror_0': 'items/placementMirror0.png',
+                 'item/placement_mirror_1': 'items/placementMirror1.png', 'gui/soul_hearts': 'gui/soulHearts.png'})
+FLAT_2D.append('protoclay')
+ROD = I('thaumcraft:wand_rod_silverwood')
+CLUSTERS = [I('thaumcraft:cluster_cinnabar'), I('thaumcraft:cluster_iron'), I('thaumcraft:cluster_gold')]
+RECIPES.update({
+    'ichor_pick': arcane('ichor_pick', 'ICHOR_TOOLS', ['III', ' R ', ' R '], {'I': I('ichorium'), 'R': ROD}, {'ignis': 75}),
+    'ichor_shovel': arcane('ichor_shovel', 'ICHOR_TOOLS', [' I ', ' R ', ' R '], {'I': I('ichorium'), 'R': ROD}, {'terra': 75}),
+    'ichor_axe': arcane('ichor_axe', 'ICHOR_TOOLS', ['II ', 'IR ', ' R '], {'I': I('ichorium'), 'R': ROD}, {'aqua': 75}),
+    'ichor_sword': arcane('ichor_sword', 'ICHOR_TOOLS', [' I ', ' I ', ' R '], {'I': I('ichorium'), 'R': ROD}, {'aer': 75}),
+})
+for tool, special, extra, aspects in [
+        ('pick', I('thaumcraft:focus_excavation'), I('minecraft:tnt'),
+         {'ignis': 50, 'perfodio': 64, 'metallum': 32, 'terra': 32, 'meto': 32, 'lucrum': 16, 'sensus': 16}),
+        ('shovel', I('thaumcraft:focus_excavation'), I('minecraft:tnt'),
+         {'terra': 82, 'perfodio': 64, 'instrumentum': 32, 'meto': 32, 'vinculum': 16, 'sensus': 16}),
+        ('axe', I('thaumcraft:focus_excavation'), I('minecraft:tnt'),
+         {'aqua': 50, 'perfodio': 64, 'instrumentum': 32, 'arbor': 32, 'meto': 32, 'messis': 16, 'sensus': 16}),
+        ('sword', I('thaumcraft:focus_frost'), I('minecraft:cactus'),
+         {'aer': 50, 'fames': 64, 'spiritus': 32, 'telum': 32, 'potentia': 32, 'ordo': 16, 'vitreus': 16})]:
+    elemental = I('thaumcraft:elemental_' + ('pickaxe' if tool == 'pick' else tool))
+    RECIPES['infusion/ichor_%s_gem' % tool] = infusion(
+        'ichor_%s_gem' % tool, 'ICHOR_%s_GEM' % tool.upper(), I('ichor_' + tool),
+        [I('ichorium'), I('ichor'), elemental, special, extra] + CLUSTERS + [I('minecraft:diamond'), special, elemental, I('ichor_cloth')],
+        aspects, 15)
+RECIPES.update({
+    'infusion/protoclay': infusion('protoclay', 'PROTOCLAY', I('minecraft:clay_ball'),
+                                   [I('minecraft:dirt'), I('minecraft:stone'), I('minecraft:oak_log'), I('ender_shard')],
+                                   {'perfodio': 16, 'instrumentum': 16}, 4),
+    'infusion/block_talisman': infusion('block_talisman', 'BLOCK_TALISMAN', I('thaumcraft:focus_portable_hole'),
+                                        [I('ichor'), I('minecraft:ender_chest'), I('minecraft:diamond'), I('ichor'),
+                                         I('thaumcraft:taint_goo'), I('thaumcraft:void_jar')],
+                                        {'vacuos': 65, 'tenebrae': 32, 'praecantatio': 50, 'alienis': 32}, 9),
+    'infusion/placement_mirror': infusion('placement_mirror', 'PLACEMENT_MIRROR', I('block_talisman'),
+                                          [I('ichor'), I('minecraft:dropper'), I('minecraft:diamond'), I('minecraft:glass'),
+                                           I('minecraft:blaze_powder'), I('ichor')],
+                                          {'fabrico': 65, 'vitreus': 32, 'praecantatio': 50, 'cognitio': 32}, 12),
+})
+RESEARCH += [
+    kami('ICHOR_TOOLS', {'instrumentum': 2, 'telum': 1, 'metallum': 1, 'fabrico': 1}, 13, 12, 'ichor_pick', ['ICHORIUM'],
+         ['ROD_ichorcloth'], warp=2, pages=[P('arcane', 'ichor_' + t) for t in TOOLS_3B]),
+    kami('ICHOR_PICK_GEM', {'ignis': 2, 'instrumentum': 1, 'perfodio': 1, 'terra': 1}, 13, 15, 'ichor_pick_gem', ['ICHOR_TOOLS'],
+         pages=[P('infusion', 'infusion/ichor_pick_gem')] + text('ICHOR_PICK_GEM', 1)),
+    kami('ICHOR_SHOVEL_GEM', {'terra': 3, 'instrumentum': 1, 'perfodio': 1}, 15, 15, 'ichor_shovel_gem', ['ICHOR_TOOLS'],
+         pages=[P('infusion', 'infusion/ichor_shovel_gem')]),
+    kami('ICHOR_AXE_GEM', {'aqua': 2, 'instrumentum': 1, 'arbor': 1, 'messis': 1}, 16, 14, 'ichor_axe_gem', ['ICHOR_TOOLS'],
+         pages=[P('infusion', 'infusion/ichor_axe_gem')]),
+    kami('ICHOR_SWORD_GEM', {'aer': 2, 'telum': 1, 'spiritus': 1, 'fames': 1}, 16, 12, 'ichor_sword_gem', ['ICHOR_TOOLS'],
+         pages=[P('infusion', 'infusion/ichor_sword_gem')] + text('ICHOR_SWORD_GEM', 1)),
+    kami('PROTOCLAY', {'instrumentum': 2, 'perfodio': 1, 'humanus': 1, 'machina': 1}, 12, 17, 'protoclay', ['ICHOR_PICK_GEM'],
+         ['ICHOR_SHOVEL_GEM'], pages=[P('infusion', 'infusion/protoclay')]),
+    kami('BLOCK_TALISMAN', {'vacuos': 2, 'tenebrae': 1, 'alienis': 1, 'praecantatio': 1}, 14, 17, 'block_talisman',
+         ['ICHOR_PICK_GEM', 'ICHOR_SHOVEL_GEM'], pages=[P('infusion', 'infusion/block_talisman')]),
+    kami('PLACEMENT_MIRROR', {'fabrico': 2, 'vitreus': 1, 'alienis': 1, 'cognitio': 1}, 17, 16, 'placement_mirror', ['BLOCK_TALISMAN'],
+         pages=[P('infusion', 'infusion/placement_mirror')]),
+]
+
+
+def gen_models_3b(models, states):
+    for tool in TOOLS_3B:
+        write(os.path.join(models, 'item', 'ichor_%s.json' % tool),
+              {'parent': 'minecraft:item/handheld', 'textures': {'layer0': ns('item/ichor_' + tool)}})
+        for mode in (1, 2):
+            write(os.path.join(models, 'item', 'ichor_%s_gem_%d.json' % (tool, mode)),
+                  {'parent': 'minecraft:item/handheld', 'textures': {'layer0': ns('item/ichor_%s_gem_%d' % (tool, mode))}})
+        write(os.path.join(models, 'item', 'ichor_%s_gem.json' % tool), {
+            'parent': 'minecraft:item/handheld', 'textures': {'layer0': ns('item/ichor_%s_gem_0' % tool)},
+            'overrides': [{'predicate': {ns('mode'): m}, 'model': ns('item/ichor_%s_gem_%d' % (tool, m))} for m in (1, 2)]})
+    write(os.path.join(models, 'item', 'block_talisman_active.json'),
+          {'parent': 'minecraft:item/generated', 'textures': {'layer0': ns('item/block_talisman_active')}})
+    write(os.path.join(models, 'item', 'block_talisman.json'), {'parent': 'minecraft:item/generated', 'textures': {
+        'layer0': ns('item/block_talisman')}, 'overrides': [{'predicate': {ns('active'): 1}, 'model': ns('item/block_talisman_active')}]})
+    write(os.path.join(models, 'item', 'placement_mirror.json'), {'parent': 'minecraft:item/generated', 'textures': {
+        'layer0': ns('item/placement_mirror_0'), 'layer1': ns('item/placement_mirror_1')}})
+
+
 # ---------------------------------------------------------------- модели предметов и блоков
 FLAT_ITEMS = ['dark_quartz', 'spell_cloth', 'bright_nitor', 'gaseous_light', 'gaseous_shadow', 'gas_remover', 'share_tome',
               'revealing_helm', 'focus_smelt', 'focus_flight', 'focus_deflect', 'focus_telekinesis', 'focus_dislocation',
@@ -619,6 +775,11 @@ def gen_lang():
                 if key in src:
                     table[ours] = src[key]
                     break
+        for k, v in list(src.items()):
+            for theirs, ours in RESEARCH_LANG_ALIAS.items():
+                for part in ('name', 'lore'):
+                    if k == 'ttresearch.%s.%s' % (part, theirs):
+                        src['ttresearch.%s.%s' % (part, ours)] = v
         for k, v in src.items():
             if k.startswith('ttmisc.') or k.startswith('ttresearch.page.') or k == 'ttresearch.prefix':
                 table[k] = v
@@ -632,6 +793,9 @@ def gen_lang():
         if code == 'uk_ua':
             # украинского в оригинале нет: английская основа, поверх — наш перевод
             table = dict(english, **tool_lang('tt_uk.json'))
+        # картинки в тексте книги: пути оригинала -> наши
+        for new_path, old_path in TEXTURES.items():
+            table = {k: v.replace('ttinkerer:textures/' + old_path, NS + ':textures/' + new_path + '.png') for k, v in table.items()}
         # в текстах оригинала одиночный % ломал форматирование книги
         table = {k: v for k, v in sorted(table.items())}
         write(os.path.join(ASSETS, 'lang', code + '.json'), table)
@@ -656,6 +820,8 @@ def gen_research():
         for field in ('parents', 'parents_hidden'):
             if r.get(field):
                 e[field] = r[field]
+        if r.get('requires_all'):
+            e['requires_all'] = r['requires_all']
         if r.get('warp'):
             e['warp'] = r['warp']
         entries.append(e)
@@ -731,6 +897,7 @@ def gen_models():
     gen_models_2b(models, states)
     gen_models_2c(models, states)
     gen_models_2d(models, states)
+    gen_models_3b(models, states)
     # платформа под маскировкой не рисует своей модели — вместо неё отрисовщик блока показывает выбранный блок
     write(os.path.join(states, 'platform.json'), {'variants': {
         'camo=false': {'model': ns('block/platform')}, 'camo=true': {'model': ns('block/empty')}}})
@@ -864,7 +1031,9 @@ def gen_loot_and_tags():
     write(os.path.join(tags, 'minecraft', 'tags', 'blocks', 'stairs.json'), {'replace': False, 'values': [ns('dark_quartz_stairs')]})
     write(os.path.join(tags, 'minecraft', 'tags', 'items', 'slabs.json'), {'replace': False, 'values': [ns('dark_quartz_slab')]})
     write(os.path.join(tags, 'minecraft', 'tags', 'items', 'stairs.json'), {'replace': False, 'values': [ns('dark_quartz_stairs')]})
-    write(os.path.join(tags, 'curios', 'tags', 'items', 'necklace.json'), {'replace': False, 'values': [ns(i) for i in NECKLACES]})
+    write(os.path.join(tags, 'curios', 'tags', 'items', 'necklace.json'), {'replace': False, 'values': [ns(i) for i in NECKLACES + ['cat_amulet']]})
+    write(os.path.join(tags, 'curios', 'tags', 'items', 'belt.json'), {'replace': False, 'values': [ns('ichor_pouch')]})
+    write(os.path.join(tags, 'curios', 'tags', 'items', 'ring.json'), {'replace': False, 'values': [ns('block_talisman')]})
 
 
 if __name__ == '__main__':
