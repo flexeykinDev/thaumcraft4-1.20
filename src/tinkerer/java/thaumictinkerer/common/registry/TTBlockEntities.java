@@ -23,6 +23,10 @@ public final class TTBlockEntities {
             "infused_farmland", () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.InfusedFarmlandBlock.Tile::new, TTBlocks.INFUSED_FARMLAND.get()).build(null));
 
     @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<thaumictinkerer.common.block.WarpGateBlock.Tile>> WARP_GATE = BLOCK_ENTITIES.register(
+            "warp_gate", () -> BlockEntityType.Builder.of(thaumictinkerer.common.block.WarpGateBlock.Tile::new, TTBlocks.WARP_GATE.get()).build(null));
+
+    @SuppressWarnings("DataFlowIssue")
     public static final RegistryObject<BlockEntityType<FunnelBlock.Tile>> FUNNEL = BLOCK_ENTITIES.register("funnel",
             () -> BlockEntityType.Builder.of(FunnelBlock.Tile::new, TTBlocks.FUNNEL.get()).build(null));
     @SuppressWarnings("DataFlowIssue")

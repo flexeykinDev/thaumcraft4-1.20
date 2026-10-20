@@ -2287,6 +2287,424 @@
           "MINILITH"
         ]
       }
+    },
+    {
+      "key": "ICHORCLOTH_ARMOR",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "tutamen": 2,
+        "pannus": 1,
+        "lux": 1,
+        "fabrico": 1
+      },
+      "column": 17,
+      "row": 5,
+      "complexity": 5,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.ICHORCLOTH_ARMOR.0"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:ichorcloth_helm"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:ichorcloth_chest"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:ichorcloth_legs"
+        },
+        {
+          "type": "arcane",
+          "recipe": "thaumictinkerer:ichorcloth_boots"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:ichorcloth_chest"
+      },
+      "concealed": true,
+      "parents": [
+        "ICHOR_CLOTH"
+      ],
+      "requires_all": {
+        "categories": [
+          "TT_CATEGORY",
+          "BASICS",
+          "GOLEMANCY",
+          "ARTIFICE",
+          "ALCHEMY",
+          "THAUMATURGY"
+        ],
+        "exclude": [
+          "MINILITH"
+        ]
+      },
+      "warp": 4
+    },
+    {
+      "key": "ICHORCLOTH_HELM_GEM",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "aqua": 2,
+        "sano": 1,
+        "fames": 1,
+        "auram": 1
+      },
+      "column": 18,
+      "row": 3,
+      "complexity": 5,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.ICHORCLOTH_HELM_GEM.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/ichorcloth_helm_gem"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:ichorcloth_helm_gem"
+      },
+      "concealed": true,
+      "parents": [
+        "ICHORCLOTH_ARMOR"
+      ],
+      "requires_all": {
+        "categories": [
+          "TT_CATEGORY",
+          "BASICS",
+          "GOLEMANCY",
+          "ARTIFICE",
+          "ALCHEMY",
+          "THAUMATURGY"
+        ],
+        "exclude": [
+          "MINILITH"
+        ]
+      }
+    },
+    {
+      "key": "ICHORCLOTH_CHEST_GEM",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "aer": 2,
+        "motus": 1,
+        "volatus": 1,
+        "alienis": 1
+      },
+      "column": 17,
+      "row": 7,
+      "complexity": 5,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.ICHORCLOTH_CHEST_GEM.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/ichorcloth_chest_gem"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:ichorcloth_chest_gem"
+      },
+      "concealed": true,
+      "parents": [
+        "ICHORCLOTH_ARMOR"
+      ],
+      "requires_all": {
+        "categories": [
+          "TT_CATEGORY",
+          "BASICS",
+          "GOLEMANCY",
+          "ARTIFICE",
+          "ALCHEMY",
+          "THAUMATURGY"
+        ],
+        "exclude": [
+          "MINILITH"
+        ]
+      }
+    },
+    {
+      "key": "ICHORCLOTH_LEGS_GEM",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "ignis": 2,
+        "sano": 1,
+        "lucrum": 1,
+        "potentia": 1
+      },
+      "column": 17,
+      "row": 9,
+      "complexity": 5,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.ICHORCLOTH_LEGS_GEM.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/ichorcloth_legs_gem"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.ICHORCLOTH_LEGS_GEM.1"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:ichorcloth_legs_gem"
+      },
+      "concealed": true,
+      "parents": [
+        "ICHORCLOTH_ARMOR"
+      ],
+      "requires_all": {
+        "categories": [
+          "TT_CATEGORY",
+          "BASICS",
+          "GOLEMANCY",
+          "ARTIFICE",
+          "ALCHEMY",
+          "THAUMATURGY"
+        ],
+        "exclude": [
+          "MINILITH"
+        ]
+      }
+    },
+    {
+      "key": "ICHORCLOTH_BOOTS_GEM",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "terra": 2,
+        "iter": 1,
+        "perfodio": 1,
+        "herba": 1
+      },
+      "column": 15,
+      "row": 10,
+      "complexity": 5,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.ICHORCLOTH_BOOTS_GEM.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/ichorcloth_boots_gem"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:ichorcloth_boots_gem"
+      },
+      "concealed": true,
+      "parents": [
+        "ICHORCLOTH_ARMOR"
+      ],
+      "requires_all": {
+        "categories": [
+          "TT_CATEGORY",
+          "BASICS",
+          "GOLEMANCY",
+          "ARTIFICE",
+          "ALCHEMY",
+          "THAUMATURGY"
+        ],
+        "exclude": [
+          "MINILITH"
+        ]
+      }
+    },
+    {
+      "key": "WARP_GATE",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "iter": 2,
+        "alienis": 1,
+        "volatus": 1,
+        "machina": 1
+      },
+      "column": 19,
+      "row": 6,
+      "complexity": 5,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.WARP_GATE.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/warp_gate"
+        },
+        {
+          "type": "text",
+          "text": "ttresearch.page.WARP_GATE.1"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/sky_pearl"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:warp_gate"
+      },
+      "concealed": true,
+      "parents": [
+        "ICHORCLOTH_CHEST_GEM"
+      ],
+      "parents_hidden": [
+        "ICHORCLOTH_BOOTS_GEM"
+      ],
+      "requires_all": {
+        "categories": [
+          "TT_CATEGORY",
+          "BASICS",
+          "GOLEMANCY",
+          "ARTIFICE",
+          "ALCHEMY",
+          "THAUMATURGY"
+        ],
+        "exclude": [
+          "MINILITH"
+        ]
+      }
+    },
+    {
+      "key": "FOCUS_RECALL",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "iter": 2,
+        "alienis": 1,
+        "volatus": 1,
+        "praecantatio": 1
+      },
+      "column": 20,
+      "row": 8,
+      "complexity": 5,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FOCUS_RECALL.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/focus_recall"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:focus_recall"
+      },
+      "concealed": true,
+      "parents": [
+        "WARP_GATE"
+      ],
+      "parents_hidden": [
+        "ROD_ichorcloth"
+      ],
+      "requires_all": {
+        "categories": [
+          "TT_CATEGORY",
+          "BASICS",
+          "GOLEMANCY",
+          "ARTIFICE",
+          "ALCHEMY",
+          "THAUMATURGY"
+        ],
+        "exclude": [
+          "MINILITH"
+        ]
+      }
+    },
+    {
+      "key": "FOCUS_SHADOWBEAM",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "tenebrae": 2,
+        "praecantatio": 1,
+        "alienis": 1,
+        "vitium": 1
+      },
+      "column": 14,
+      "row": 4,
+      "complexity": 5,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FOCUS_SHADOWBEAM.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/focus_shadowbeam"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:focus_shadowbeam"
+      },
+      "concealed": true,
+      "parents": [
+        "ROD_ichorcloth"
+      ],
+      "requires_all": {
+        "categories": [
+          "TT_CATEGORY",
+          "BASICS",
+          "GOLEMANCY",
+          "ARTIFICE",
+          "ALCHEMY",
+          "THAUMATURGY"
+        ],
+        "exclude": [
+          "MINILITH"
+        ]
+      }
+    },
+    {
+      "key": "FOCUS_XP_DRAIN",
+      "category": "TT_CATEGORY",
+      "aspects": {
+        "cognitio": 2,
+        "praecantatio": 1,
+        "auram": 1,
+        "humanus": 1
+      },
+      "column": 12,
+      "row": 3,
+      "complexity": 5,
+      "pages": [
+        {
+          "type": "text",
+          "text": "ttresearch.page.FOCUS_XP_DRAIN.0"
+        },
+        {
+          "type": "infusion",
+          "recipe": "thaumictinkerer:infusion/focus_xp_drain"
+        }
+      ],
+      "icon": {
+        "item": "thaumictinkerer:focus_xp_drain"
+      },
+      "concealed": true,
+      "parents": [
+        "ROD_ichorcloth"
+      ],
+      "requires_all": {
+        "categories": [
+          "TT_CATEGORY",
+          "BASICS",
+          "GOLEMANCY",
+          "ARTIFICE",
+          "ALCHEMY",
+          "THAUMATURGY"
+        ],
+        "exclude": [
+          "MINILITH"
+        ]
+      }
     }
   ]
 }

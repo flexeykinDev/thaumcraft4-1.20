@@ -1,0 +1,37 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:ender_pearl"
+  },
+  "components": [
+    {
+      "item": "thaumictinkerer:ichor"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "thaumictinkerer:xp_talisman"
+    },
+    {
+      "item": "minecraft:enchanting_table"
+    },
+    {
+      "item": "thaumictinkerer:ichor"
+    }
+  ],
+  "aspects": {
+    "cognitio": 65,
+    "vitium": 16,
+    "praecantatio": 50,
+    "auram": 32
+  },
+  "instability": 12,
+  "result": {
+    "item": "thaumictinkerer:focus_xp_drain"
+  },
+  "research": "FOCUS_XP_DRAIN"
+}

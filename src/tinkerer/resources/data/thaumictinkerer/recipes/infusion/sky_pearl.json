@@ -1,0 +1,32 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "minecraft:ender_pearl"
+  },
+  "components": [
+    {
+      "item": "thaumictinkerer:ichor"
+    },
+    {
+      "item": "thaumictinkerer:ender_shard"
+    },
+    {
+      "item": "minecraft:lapis_block"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "aspects": {
+    "iter": 32,
+    "alienis": 32,
+    "volatus": 32,
+    "aer": 16
+  },
+  "instability": 6,
+  "result": {
+    "item": "thaumictinkerer:sky_pearl",
+    "count": 2
+  },
+  "research": "WARP_GATE"
+}

@@ -1,0 +1,36 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumcraft:travel_paving"
+  },
+  "components": [
+    {
+      "item": "thaumictinkerer:ichor"
+    },
+    {
+      "item": "thaumictinkerer:ender_shard"
+    },
+    {
+      "item": "thaumictinkerer:transvector_dislocator"
+    },
+    {
+      "item": "thaumictinkerer:nether_shard"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:feather"
+    }
+  ],
+  "aspects": {
+    "iter": 64,
+    "alienis": 50,
+    "volatus": 50
+  },
+  "instability": 8,
+  "result": {
+    "item": "thaumictinkerer:warp_gate"
+  },
+  "research": "WARP_GATE"
+}

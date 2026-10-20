@@ -13,6 +13,29 @@ public final class TTClientHooks {
     private TTClientHooks() {
     }
 
+    /** shadowSparkle: тёмные искры вдоль пути теневого луча. */
+    public static void beam(java.util.List<net.minecraft.world.phys.Vec3> points) {
+        for (net.minecraft.world.phys.Vec3 point : points) {
+            Fx.sparkle(point.x, point.y, point.z, 1.5f, 5, 0f);
+        }
+    }
+
+    private static boolean wasSneakingOnGate;
+
+    /** TileWarpGate.updateEntity на клиенте: присел на вратах — открывается карта направлений. */
+    public static void warpGateTick(thaumictinkerer.common.block.WarpGateBlock.Tile gate) {
+        var minecraft = net.minecraft.client.Minecraft.getInstance();
+        var player = minecraft.player;
+        if (player == null || !new net.minecraft.world.phys.AABB(gate.getBlockPos().above()).inflate(0.3, 0, 0.3).intersects(player.getBoundingBox())) {
+            return;
+        }
+        boolean sneaking = player.isShiftKeyDown();
+        if (sneaking && !wasSneakingOnGate && minecraft.screen == null) {
+            minecraft.setScreen(new thaumictinkerer.client.gui.WarpGateScreens.Destinations(gate));
+        }
+        wasSneakingOnGate = sneaking;
+    }
+
     /** blockSparkle оригинала над силовым полем: искра в случайной точке блока. */
     public static void forcefieldSparkle(BlockPos pos, RandomSource random) {
         Fx.sparkle(pos.getX() + random.nextFloat(), pos.getY() + random.nextFloat(), pos.getZ() + random.nextFloat(), 1f, 2, 0f);

@@ -98,6 +98,10 @@ public final class TTBlocks {
             BlockBehaviour.Properties.of().strength(-1f, 3600000f).noOcclusion().noLootTable().isValidSpawn((s, l, p, e) -> false)
                     .isViewBlocking((state, level, pos) -> false).isSuffocating((state, level, pos) -> false)));
 
+    // часть 3в
+    public static final RegistryObject<Block> WARP_GATE = BLOCKS.register("warp_gate", () -> new thaumictinkerer.common.block.WarpGateBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(5f, 2000f).sound(SoundType.STONE)));
+
     private TTBlocks() {
     }
 }

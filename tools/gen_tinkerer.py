@@ -675,6 +675,106 @@ def gen_models_3b(models, states):
         'layer0': ns('item/placement_mirror_0'), 'layer1': ns('item/placement_mirror_1')}})
 
 
+# ---------------------------------------------------------------- часть 3в: мантия, врата искривления, фокусы Ками
+ARMOR_3C = {'helm': 'Helm', 'chest': 'Chest', 'legs': 'Legs', 'boots': 'Boots'}
+for piece, orig in ARMOR_3C.items():
+    TEXTURES['item/ichorcloth_' + piece] = 'items/ichorcloth%s.png' % orig
+    TEXTURES['item/ichorcloth_%s_gem' % piece] = 'items/ichorcloth%sGem.png' % orig
+    ITEM_NAMES['item.thaumictinkerer.ichorcloth_' + piece] = 'item.ichorcloth%s.name' % orig
+    ITEM_NAMES['item.thaumictinkerer.ichorcloth_%s_gem' % piece] = 'item.ichorcloth%sGem.name' % orig
+    FLAT_2D += ['ichorcloth_' + piece, 'ichorcloth_%s_gem' % piece]
+TEXTURES.update({
+    'models/armor/ichor_layer_1': 'model/ichor1.png', 'models/armor/ichor_layer_2': 'model/ichor2.png',
+    'models/armor/ichor_gem_layer_1': 'model/ichorGem1.png', 'models/armor/ichor_gem_layer_2': 'model/ichorGem2.png',
+    'item/sky_pearl': 'items/skyPearl.png', 'block/warp_gate_top': 'blocks/warpGate0.png', 'block/warp_gate_side': 'blocks/warpGate1.png',
+    'gui/warp_gate': 'gui/warpGate.png',
+    'item/focus_recall': 'items/focusRecall.png', 'unstitched/item/focus_recall_depth': 'items/focusRecallDepth.png',
+    'item/focus_shadowbeam': 'items/focusShadowbeam.png', 'item/focus_shadowbeam_orn': 'items/focusShadowbeamOrn.png',
+    'item/focus_xp_drain': 'items/focusXPDrain.png',
+})
+ITEM_NAMES.update({'item.thaumictinkerer.sky_pearl': 'item.skyPearl.name', 'block.thaumictinkerer.warp_gate': 'tile.warpGate.name',
+                   'item.thaumictinkerer.focus_recall': 'item.focusRecall.name',
+                   'item.thaumictinkerer.focus_shadowbeam': 'item.focusShadowbeam.name',
+                   'item.thaumictinkerer.focus_xp_drain': 'item.focusXPDrain.name'})
+FLAT_2D += ['sky_pearl', 'focus_recall', 'focus_shadowbeam', 'focus_xp_drain']
+ITEM_NAMES.update({'key.thaumictinkerer.armor': 'ttmisc.toggleArmor', 'key.categories.thaumictinkerer': 'ttmisc.keyCategory'})
+CLOTH = {'C': I('ichor_cloth')}
+RECIPES.update({
+    'ichorcloth_helm': arcane('ichorcloth_helm', 'ICHORCLOTH_ARMOR', ['CCC', 'C C'], CLOTH, {'aqua': 75}),
+    'ichorcloth_chest': arcane('ichorcloth_chest', 'ICHORCLOTH_ARMOR', ['C C', 'CCC', 'CCC'], CLOTH, {'aer': 75}),
+    'ichorcloth_legs': arcane('ichorcloth_legs', 'ICHORCLOTH_ARMOR', ['CCC', 'C C', 'C C'], CLOTH, {'ignis': 75}),
+    'ichorcloth_boots': arcane('ichorcloth_boots', 'ICHORCLOTH_ARMOR', ['C C', 'C C'], CLOTH, {'terra': 75}),
+})
+
+
+def potion(name):
+    return {'type': 'forge:nbt', 'item': 'minecraft:potion', 'nbt': '{Potion:"minecraft:%s"}' % name}
+
+
+GEM_BASE = [I('minecraft:diamond'), I('ichor'), I('ichor')]
+for piece, extra, aspects in [
+        ('helm', [I('thaumcraft:thaumonomicon'), I('thaumcraft:focus_primal'), I('minecraft:golden_helmet'), potion('night_vision'),
+                  I('thaumcraft:goggles'), I('minecraft:ghast_tear'), I('minecraft:cod'), I('minecraft:cake'), I('minecraft:ender_eye')],
+         {'aqua': 50, 'tutamen': 32, 'fames': 32, 'auram': 32, 'lux': 64, 'corpus': 16, 'cognitio': 16}),
+        ('chest', [I('thaumcraft:focus_primal'), I('thaumcraft:thaumonomicon'), I('minecraft:golden_chestplate'), I('focus_flight'),
+                   I('thaumcraft:hover_harness'), I('focus_deflect'), I('minecraft:feather'), I('minecraft:ghast_tear'), I('minecraft:arrow')],
+         {'aer': 50, 'tutamen': 32, 'volatus': 32, 'ordo': 32, 'lux': 64, 'alienis': 16, 'sensus': 16}),
+        ('legs', [I('thaumcraft:focus_primal'), I('thaumcraft:thaumonomicon'), I('minecraft:golden_chestplate'), potion('fire_resistance'),
+                  I('focus_smelt'), I('bright_nitor'), I('minecraft:lava_bucket'), I('minecraft:fire_charge'), I('minecraft:blaze_rod')],
+         {'ignis': 50, 'tutamen': 32, 'sano': 32, 'potentia': 32, 'lux': 64, 'lucrum': 16, 'alienis': 16}),
+        ('boots', [I('thaumcraft:thaumonomicon'), I('thaumcraft:focus_primal'), I('minecraft:golden_boots'), I('minecraft:grass_block'),
+                   I('thaumcraft:arcane_bore'), I('thaumcraft:lamp_growth'), I('minecraft:wheat_seeds'), I('minecraft:white_wool'),
+                   I('minecraft:lead')],
+         {'terra': 50, 'tutamen': 32, 'perfodio': 32, 'motus': 32, 'lux': 64, 'herba': 16, 'iter': 16})]:
+    RECIPES['infusion/ichorcloth_%s_gem' % piece] = infusion('ichorcloth_%s_gem' % piece, 'ICHORCLOTH_%s_GEM' % piece.upper(),
+                                                             I('ichorcloth_' + piece), GEM_BASE + extra, aspects, 13)
+RECIPES.update({
+    'infusion/warp_gate': infusion('warp_gate', 'WARP_GATE', I('thaumcraft:travel_paving'),
+                                   [I('ichor'), I('ender_shard'), I('transvector_dislocator'), I('nether_shard'), I('minecraft:diamond'),
+                                    I('minecraft:feather')], {'iter': 64, 'alienis': 50, 'volatus': 50}, 8),
+    'infusion/sky_pearl': dict(infusion('sky_pearl', 'WARP_GATE', I('minecraft:ender_pearl'),
+                                        [I('ichor'), I('ender_shard'), I('minecraft:lapis_block'), I('minecraft:diamond')],
+                                        {'iter': 32, 'alienis': 32, 'volatus': 32, 'aer': 16}, 6), result=dict(I('sky_pearl'), count=2)),
+    'infusion/focus_recall': infusion('focus_recall', 'FOCUS_RECALL', I('sky_pearl'),
+                                      [I('ichor'), I('ichor'), I('minecraft:ender_pearl'), I('minecraft:diamond'), I('thaumcraft:magic_mirror'),
+                                       I('thaumcraft:focus_portable_hole')], {'iter': 100, 'alienis': 64, 'praecantatio': 50}, 10),
+    'infusion/focus_shadowbeam': infusion('focus_shadowbeam', 'FOCUS_SHADOWBEAM', I('thaumcraft:focus_shock'),
+                                          [I('ichor'), I('minecraft:arrow'), I('minecraft:diamond'), I('thaumcraft:focus_excavation'),
+                                           I('focus_deflect'), I('ichor')], {'tenebrae': 65, 'alienis': 32, 'praecantatio': 50, 'telum': 32}, 12),
+    'infusion/focus_xp_drain': infusion('focus_xp_drain', 'FOCUS_XP_DRAIN', I('minecraft:ender_pearl'),
+                                        [I('ichor'), I('minecraft:experience_bottle'), I('minecraft:diamond'), I('xp_talisman'),
+                                         I('minecraft:enchanting_table'), I('ichor')],
+                                        {'cognitio': 65, 'vitium': 16, 'praecantatio': 50, 'auram': 32}, 12),
+})
+RESEARCH += [
+    kami('ICHORCLOTH_ARMOR', {'tutamen': 2, 'pannus': 1, 'lux': 1, 'fabrico': 1}, 17, 5, 'ichorcloth_chest', ['ICHOR_CLOTH'], warp=4,
+         pages=[P('arcane', 'ichorcloth_' + piece) for piece in ARMOR_3C]),
+    kami('ICHORCLOTH_HELM_GEM', {'aqua': 2, 'sano': 1, 'fames': 1, 'auram': 1}, 18, 3, 'ichorcloth_helm_gem', ['ICHORCLOTH_ARMOR'],
+         pages=[P('infusion', 'infusion/ichorcloth_helm_gem')]),
+    kami('ICHORCLOTH_CHEST_GEM', {'aer': 2, 'motus': 1, 'volatus': 1, 'alienis': 1}, 17, 7, 'ichorcloth_chest_gem', ['ICHORCLOTH_ARMOR'],
+         pages=[P('infusion', 'infusion/ichorcloth_chest_gem')]),
+    kami('ICHORCLOTH_LEGS_GEM', {'ignis': 2, 'sano': 1, 'lucrum': 1, 'potentia': 1}, 17, 9, 'ichorcloth_legs_gem', ['ICHORCLOTH_ARMOR'],
+         pages=[P('infusion', 'infusion/ichorcloth_legs_gem')] + text('ICHORCLOTH_LEGS_GEM', 1)),
+    kami('ICHORCLOTH_BOOTS_GEM', {'terra': 2, 'iter': 1, 'perfodio': 1, 'herba': 1}, 15, 10, 'ichorcloth_boots_gem', ['ICHORCLOTH_ARMOR'],
+         pages=[P('infusion', 'infusion/ichorcloth_boots_gem')]),
+    kami('WARP_GATE', {'iter': 2, 'alienis': 1, 'volatus': 1, 'machina': 1}, 19, 6, 'warp_gate', ['ICHORCLOTH_CHEST_GEM'],
+         ['ICHORCLOTH_BOOTS_GEM'], pages=[P('infusion', 'infusion/warp_gate')] + text('WARP_GATE', 1) + [P('infusion', 'infusion/sky_pearl')]),
+    kami('FOCUS_RECALL', {'iter': 2, 'alienis': 1, 'volatus': 1, 'praecantatio': 1}, 20, 8, 'focus_recall', ['WARP_GATE'],
+         ['ROD_ichorcloth'], pages=[P('infusion', 'infusion/focus_recall')]),
+    kami('FOCUS_SHADOWBEAM', {'tenebrae': 2, 'praecantatio': 1, 'alienis': 1, 'vitium': 1}, 14, 4, 'focus_shadowbeam', ['ROD_ichorcloth'],
+         pages=[P('infusion', 'infusion/focus_shadowbeam')]),
+    kami('FOCUS_XP_DRAIN', {'cognitio': 2, 'praecantatio': 1, 'auram': 1, 'humanus': 1}, 12, 3, 'focus_xp_drain', ['ROD_ichorcloth'],
+         pages=[P('infusion', 'infusion/focus_xp_drain')]),
+]
+
+
+def gen_models_3c(models, states):
+    write(os.path.join(models, 'block', 'warp_gate.json'), {'parent': 'minecraft:block/cube_bottom_top', 'textures': {
+        'top': ns('block/warp_gate_top'), 'side': ns('block/warp_gate_side'), 'bottom': ns('block/warp_gate_side')}})
+    write(os.path.join(models, 'item', 'warp_gate.json'), {'parent': ns('block/warp_gate')})
+    write(os.path.join(states, 'warp_gate.json'), {'variants': {'': {'model': ns('block/warp_gate')}}})
+
+
 # ---------------------------------------------------------------- модели предметов и блоков
 FLAT_ITEMS = ['dark_quartz', 'spell_cloth', 'bright_nitor', 'gaseous_light', 'gaseous_shadow', 'gas_remover', 'share_tome',
               'revealing_helm', 'focus_smelt', 'focus_flight', 'focus_deflect', 'focus_telekinesis', 'focus_dislocation',
@@ -711,9 +811,9 @@ GAS_BLOCKS = ['gaseous_light', 'gaseous_shadow', 'nitor_gas']
 # блоки, которые выпадают сами собой
 SELF_DROP_2B = ['summon', 'magnet', 'mob_magnet', 'transvector_interface', 'transvector_dislocator', 'mobilizer', 'mobilizer_relay',
                 'remote_placer', 'animation_tablet']
-SELF_DROP = SELF_DROP_2B + ['dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_stairs', 'funnel',
+SELF_DROP = SELF_DROP_2B + ['warp_gate', 'dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_stairs', 'funnel',
              'repairer', 'aspect_analyzer', 'platform', 'enchanter']
-PICKAXE = ['dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_slab', 'dark_quartz_stairs',
+PICKAXE = ['warp_gate', 'dark_quartz_block', 'chiseled_dark_quartz_block', 'dark_quartz_pillar', 'dark_quartz_slab', 'dark_quartz_stairs',
            'funnel', 'repairer', 'aspect_analyzer', 'enchanter', 'transvector_interface', 'transvector_dislocator', 'mobilizer',
            'mobilizer_relay', 'remote_placer', 'animation_tablet', 'summon']
 AXE = ['platform', 'magnet', 'mob_magnet']
@@ -898,6 +998,7 @@ def gen_models():
     gen_models_2c(models, states)
     gen_models_2d(models, states)
     gen_models_3b(models, states)
+    gen_models_3c(models, states)
     # платформа под маскировкой не рисует своей модели — вместо неё отрисовщик блока показывает выбранный блок
     write(os.path.join(states, 'platform.json'), {'variants': {
         'camo=false': {'model': ns('block/platform')}, 'camo=true': {'model': ns('block/empty')}}})

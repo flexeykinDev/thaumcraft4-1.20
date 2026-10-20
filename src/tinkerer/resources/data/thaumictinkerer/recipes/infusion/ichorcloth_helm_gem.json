@@ -1,0 +1,60 @@
+{
+  "type": "thaumcraft:infusion",
+  "central": {
+    "item": "thaumictinkerer:ichorcloth_helm"
+  },
+  "components": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "thaumictinkerer:ichor"
+    },
+    {
+      "item": "thaumictinkerer:ichor"
+    },
+    {
+      "item": "thaumcraft:thaumonomicon"
+    },
+    {
+      "item": "thaumcraft:focus_primal"
+    },
+    {
+      "item": "minecraft:golden_helmet"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "nbt": "{Potion:\"minecraft:night_vision\"}"
+    },
+    {
+      "item": "thaumcraft:goggles"
+    },
+    {
+      "item": "minecraft:ghast_tear"
+    },
+    {
+      "item": "minecraft:cod"
+    },
+    {
+      "item": "minecraft:cake"
+    },
+    {
+      "item": "minecraft:ender_eye"
+    }
+  ],
+  "aspects": {
+    "aqua": 50,
+    "tutamen": 32,
+    "fames": 32,
+    "auram": 32,
+    "lux": 64,
+    "corpus": 16,
+    "cognitio": 16
+  },
+  "instability": 13,
+  "result": {
+    "item": "thaumictinkerer:ichorcloth_helm_gem"
+  },
+  "research": "ICHORCLOTH_HELM_GEM"
+}

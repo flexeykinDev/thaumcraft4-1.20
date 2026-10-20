@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "thaumictinkerer:warp_gate",
     "thaumictinkerer:dark_quartz_block",
     "thaumictinkerer:chiseled_dark_quartz_block",
     "thaumictinkerer:dark_quartz_pillar",

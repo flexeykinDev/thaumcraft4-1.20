@@ -67,6 +67,7 @@ public final class SoulHearts {
     public static void onLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
             TTNetwork.sendSoulHearts(player, get(player));
+            TTNetwork.sendArmorStatus(player, IchorArmor.enabled(player));
         }
     }
 }

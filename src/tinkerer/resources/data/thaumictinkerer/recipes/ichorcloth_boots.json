@@ -1,0 +1,20 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "C C",
+    "C C"
+  ],
+  "key": {
+    "C": {
+      "item": "thaumictinkerer:ichor_cloth"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:ichorcloth_boots",
+    "count": 1
+  },
+  "aspects": {
+    "terra": 75
+  },
+  "research": "ICHORCLOTH_ARMOR"
+}

@@ -133,6 +133,21 @@ public final class TTItems {
     public static final RegistryObject<Item> PROTOCLAY = ITEMS.register("protoclay", thaumictinkerer.common.item.kami.ProtoclayItem::new);
     public static final RegistryObject<Item> BLOCK_TALISMAN = ITEMS.register("block_talisman", thaumictinkerer.common.item.kami.BlockTalismanItem::new);
     public static final RegistryObject<Item> PLACEMENT_MIRROR = ITEMS.register("placement_mirror", thaumictinkerer.common.item.kami.PlacementMirrorItem::new);
+    // часть 3в: мантия, врата, фокусы Ками
+    public static final RegistryObject<Item> ICHORCLOTH_HELM = ITEMS.register("ichorcloth_helm", () -> new thaumictinkerer.common.item.kami.IchorArmor.Cloth(net.minecraft.world.item.ArmorItem.Type.HELMET));
+    public static final RegistryObject<Item> ICHORCLOTH_CHEST = ITEMS.register("ichorcloth_chest", () -> new thaumictinkerer.common.item.kami.IchorArmor.Cloth(net.minecraft.world.item.ArmorItem.Type.CHESTPLATE));
+    public static final RegistryObject<Item> ICHORCLOTH_LEGS = ITEMS.register("ichorcloth_legs", () -> new thaumictinkerer.common.item.kami.IchorArmor.Cloth(net.minecraft.world.item.ArmorItem.Type.LEGGINGS));
+    public static final RegistryObject<Item> ICHORCLOTH_BOOTS = ITEMS.register("ichorcloth_boots", () -> new thaumictinkerer.common.item.kami.IchorArmor.Cloth(net.minecraft.world.item.ArmorItem.Type.BOOTS));
+    public static final RegistryObject<Item> ICHORCLOTH_HELM_GEM = ITEMS.register("ichorcloth_helm_gem", () -> new thaumictinkerer.common.item.kami.IchorArmor.GemHelm());
+    public static final RegistryObject<Item> ICHORCLOTH_CHEST_GEM = ITEMS.register("ichorcloth_chest_gem", () -> new thaumictinkerer.common.item.kami.IchorArmor.GemChest());
+    public static final RegistryObject<Item> ICHORCLOTH_LEGS_GEM = ITEMS.register("ichorcloth_legs_gem", () -> new thaumictinkerer.common.item.kami.IchorArmor.GemLegs());
+    public static final RegistryObject<Item> ICHORCLOTH_BOOTS_GEM = ITEMS.register("ichorcloth_boots_gem", () -> new thaumictinkerer.common.item.kami.IchorArmor.GemBoots());
+    public static final RegistryObject<Item> SKY_PEARL = ITEMS.register("sky_pearl", () -> new thaumictinkerer.common.item.kami.SkyPearlItem());
+    public static final RegistryObject<Item> FOCUS_RECALL = ITEMS.register("focus_recall", () -> new thaumictinkerer.common.item.kami.KamiFoci.Recall());
+    public static final RegistryObject<Item> FOCUS_SHADOWBEAM = ITEMS.register("focus_shadowbeam", () -> new thaumictinkerer.common.item.kami.KamiFoci.Shadowbeam());
+    public static final RegistryObject<Item> FOCUS_XP_DRAIN = ITEMS.register("focus_xp_drain", () -> new thaumictinkerer.common.item.kami.KamiFoci.XpDrain());
+    public static final RegistryObject<Item> WARP_GATE = ITEMS.register("warp_gate", () -> new BlockItem(TTBlocks.WARP_GATE.get(),
+            new Item.Properties().rarity(thaumictinkerer.common.item.kami.Kami.RARITY)));
 
     private static RegistryObject<Item> block(RegistryObject<Block> block) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));

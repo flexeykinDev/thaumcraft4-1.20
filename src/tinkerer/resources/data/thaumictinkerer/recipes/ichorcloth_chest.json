@@ -1,0 +1,21 @@
+{
+  "type": "thaumcraft:arcane_shaped",
+  "pattern": [
+    "C C",
+    "CCC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "thaumictinkerer:ichor_cloth"
+    }
+  },
+  "result": {
+    "item": "thaumictinkerer:ichorcloth_chest",
+    "count": 1
+  },
+  "aspects": {
+    "aer": 75
+  },
+  "research": "ICHORCLOTH_ARMOR"
+}

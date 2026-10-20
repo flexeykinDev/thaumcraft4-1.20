@@ -29,6 +29,9 @@ public final class TTMenus {
     public static final RegistryObject<MenuType<thaumictinkerer.common.item.kami.IchorPouchItem.Menu>> ICHOR_POUCH = MENUS.register("ichor_pouch",
             () -> IForgeMenuType.create((id, inventory, data) -> new thaumictinkerer.common.item.kami.IchorPouchItem.Menu(id, inventory, data.readVarInt())));
 
+    public static final RegistryObject<MenuType<thaumictinkerer.common.block.WarpGateBlock.Menu>> WARP_GATE = MENUS.register("warp_gate",
+            () -> IForgeMenuType.create((id, inventory, data) -> new thaumictinkerer.common.block.WarpGateBlock.Menu(id, inventory, data.readBlockPos())));
+
     private TTMenus() {
     }
 }

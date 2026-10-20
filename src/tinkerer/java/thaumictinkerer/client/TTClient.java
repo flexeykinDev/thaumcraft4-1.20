@@ -36,10 +36,12 @@ public final class TTClient {
             thaumictinkerer.client.debug.TTAutoShot2d.register();
             thaumictinkerer.client.debug.TTAutoShot3a.register();
             thaumictinkerer.client.debug.TTAutoShot3b.register();
+            thaumictinkerer.client.debug.TTAutoShot3c.register();
         }
         event.enqueueWork(() -> {
             MenuScreens.register(TTMenus.ASPECT_ANALYZER.get(), AspectAnalyzerScreen::new);
             MenuScreens.register(TTMenus.ICHOR_POUCH.get(), thaumictinkerer.client.gui.IchorPouchScreen::new);
+            MenuScreens.register(TTMenus.WARP_GATE.get(), thaumictinkerer.client.gui.WarpGateScreens.Config::new);
             MenuScreens.register(TTMenus.ENCHANTER.get(), thaumictinkerer.client.gui.EnchanterScreen::new);
             MenuScreens.register(TTMenus.MOB_MAGNET.get(), thaumictinkerer.client.gui.MachineScreens.MobMagnet::new);
             MenuScreens.register(TTMenus.REMOTE_PLACER.get(), thaumictinkerer.client.gui.MachineScreens.RemotePlacer::new);

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "thaumictinkerer:block/warp_gate_top",
+    "side": "thaumictinkerer:block/warp_gate_side",
+    "bottom": "thaumictinkerer:block/warp_gate_side"
+  }
+}
